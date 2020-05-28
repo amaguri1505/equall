@@ -1,0 +1,10 @@
+$theme-colors: (
+    primary: #76c3bf,
+    block-title: #24514b,
+    block-subtitle: #306d65,
+    strong-gray: #333
+);
+
+@function colors($key) {
+    @return map-get($theme-colors, $key);
+}

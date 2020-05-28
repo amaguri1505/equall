@@ -1,0 +1,12 @@
+body {
+    background-color: colors(primary);
+}
+
+.common {
+    &__container {
+        max-width: 540px;
+        background-color: colors(primary);
+        margin: 0 auto;
+        position: relative;
+    }
+}
