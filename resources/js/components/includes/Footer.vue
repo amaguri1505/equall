@@ -1,5 +1,8 @@
 <template>
     <footer>
+        <div class="footer__divider-wrap">
+            <v-divider></v-divider>
+        </div>
         <div class="pa-4 footer__life-banner-wrap">
             <a href="https://media.equall.jp/" target="_blank">
                 <v-img src="/images/equalllink_bnr_2.png"></v-img>
@@ -24,33 +27,65 @@
                 <v-img width=50 src="/images/equall_fb.png"></v-img>
             </a>
         </div>
-        <div class="mt-3 footer__es-dog"></div>
-        <div class="footer__es-cat"></div>
+        <!--<div class="mt-3 footer__recommend">-->
+            <!--<v-divider></v-divider>-->
+            <!--<v-expansion-panels tile flat>-->
+                <!--<v-expansion-panel>-->
+                    <!--<v-expansion-panel-header>-->
+                        <!--犬用物件-->
+                    <!--</v-expansion-panel-header>-->
+                    <!--<v-expansion-panel-content>-->
+                        <!--hoge-->
+                    <!--</v-expansion-panel-content>-->
+                <!--</v-expansion-panel>-->
+            <!--</v-expansion-panels>-->
+            <!--<v-divider></v-divider>-->
+            <!--<v-expansion-panels tile flat>-->
+                <!--<v-expansion-panel>-->
+                    <!--<v-expansion-panel-header>-->
+                        <!--猫用物件-->
+                    <!--</v-expansion-panel-header>-->
+                    <!--<v-expansion-panel-content>-->
+                        <!--hoge-->
+                    <!--</v-expansion-panel-content>-->
+                <!--</v-expansion-panel>-->
+            <!--</v-expansion-panels>-->
+        <!--</div>-->
         <div class="footer__link-table-wrap">
             <v-container pa-0>
                 <v-row no-gutters>
+                    <v-col cols="12">
+                        <v-card to="/real-estates-for-dog" class="text-center pa-2" outlined>
+                            わんちゃん用物件
+                        </v-card>
+                    </v-col>
+                    <v-col cols="12">
+                        <v-card to="/real-estates-for-cat" class="text-center pa-2" outlined>
+                            ねこちゃん用物件
+                        </v-card>
+                    </v-col>
                     <v-col cols="6">
-                        <v-card class="text-center pa-2" outlined>
+                        <v-card to="/login" class="text-center pa-2" outlined>
                             登録/ログイン
                         </v-card>
                     </v-col>
                     <v-col cols="6">
-                        <v-card class="text-center pa-2" outlined>
+                        <v-card to="/bookmark" class="text-center pa-2" outlined>
                             お気に入り
                         </v-card>
                     </v-col>
                     <v-col cols="6">
-                        <v-card class="text-center pa-2" outlined>
+                        <v-card to="/relationship" class="text-center pa-2" outlined>
                             物件提携希望の方
                         </v-card>
                     </v-col>
                     <v-col cols="6">
-                        <v-card class="text-center pa-2" outlined>
+                        <v-card href="mailto:info@equall.jp" class="text-center pa-2" outlined>
                             お問い合わせ
                         </v-card>
                     </v-col>
                     <v-col cols="6">
-                        <v-card height="4rem" class="text-center pa-2" outlined>
+                        <v-card to="/terms" height="4rem" class="text-center pa-2" outlined>
                             利用規約<br/>
                             プライバシーポリシー
                         </v-card>
@@ -73,7 +108,12 @@
     .footer
         &__message
             text-align: center
-
         &__text
             text-align: center
+        &__divider-wrap
+            padding: 0 20px
+    .v-application--is-ltr .v-expansion-panel-header
+        text-align: center !important
+    .v-expansion-panel-header
+        display: inline-block
 </style>

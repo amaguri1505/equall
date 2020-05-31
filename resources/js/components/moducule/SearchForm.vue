@@ -12,7 +12,18 @@
                 single-line
                 outlined
                 hide-details
+                append-icon="mdi-magnify"
+                @keydown.enter="search"
             ></v-text-field>
         </v-row>
     </v-container>
 </template>
+<script>
+    export default {
+        methods: {
+            search: function (event) {
+                this.$router.push("/result");
+            }
+        }
+    }
+</script>

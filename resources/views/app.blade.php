@@ -11,7 +11,7 @@
 <body>
 <div id="app" class="common__container">
     <v-app>
-        <router-view />
+        <app />
     </v-app>
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
