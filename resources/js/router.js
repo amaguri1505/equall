@@ -9,6 +9,7 @@ import Bookmark from './components/pages/Bookmark';
 import RealEstatesForDog from './components/pages/RealEstatesForDog';
 import RealEstatesForCat from './components/pages/RealEstatesForCat';
 import Result from './components/pages/Result';
+import Detail from './components/pages/Detail';
 
 Vue.use(Router);
 
@@ -59,6 +60,11 @@ export default new Router({
             path: '/result',
             name: 'result',
             component: Result,
+        },
+        {
+            path: '/detail',
+            name: 'detail',
+            component: Detail,
         },
     ],
     scrollBehavior (to, from, savedPosition) {

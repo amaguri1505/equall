@@ -5,19 +5,19 @@
         </div>
         <div class="re__carousel">
             <v-carousel>
-                <v-carousel-item>
+                <v-carousel-item to="/detail">
                     <real-estate-card></real-estate-card>
                 </v-carousel-item>
-                <v-carousel-item>
+                <v-carousel-item to="/detail">
                     <real-estate-card></real-estate-card>
                 </v-carousel-item>
-                <v-carousel-item>
+                <v-carousel-item to="/detail">
                     <real-estate-card></real-estate-card>
                 </v-carousel-item>
-                <v-carousel-item>
+                <v-carousel-item to="/detail">
                     <real-estate-card></real-estate-card>
                 </v-carousel-item>
-                <v-carousel-item>
+                <v-carousel-item to="/detail">
                     <real-estate-card></real-estate-card>
                 </v-carousel-item>
             </v-carousel>
