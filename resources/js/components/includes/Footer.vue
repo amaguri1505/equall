@@ -27,30 +27,6 @@
                 <v-img width=50 src="/images/equall_fb.png"></v-img>
             </a>
         </div>
-        <!--<div class="mt-3 footer__recommend">-->
-            <!--<v-divider></v-divider>-->
-            <!--<v-expansion-panels tile flat>-->
-                <!--<v-expansion-panel>-->
-                    <!--<v-expansion-panel-header>-->
-                        <!--犬用物件-->
-                    <!--</v-expansion-panel-header>-->
-                    <!--<v-expansion-panel-content>-->
-                        <!--hoge-->
-                    <!--</v-expansion-panel-content>-->
-                <!--</v-expansion-panel>-->
-            <!--</v-expansion-panels>-->
-            <!--<v-divider></v-divider>-->
-            <!--<v-expansion-panels tile flat>-->
-                <!--<v-expansion-panel>-->
-                    <!--<v-expansion-panel-header>-->
-                        <!--猫用物件-->
-                    <!--</v-expansion-panel-header>-->
-                    <!--<v-expansion-panel-content>-->
-                        <!--hoge-->
-                    <!--</v-expansion-panel-content>-->
-                <!--</v-expansion-panel>-->
-            <!--</v-expansion-panels>-->
-        <!--</div>-->
         <div class="footer__link-table-wrap">
             <v-container pa-0>
                 <v-row no-gutters>
@@ -100,7 +76,7 @@
             </v-container>
         </div>
         <div class="footer__text">
-            (c) 2020 equallCO., LTD. ALL RIGHTS RESERVED
+            (c) 2020 equall CO., LTD. ALL RIGHTS RESERVED
         </div>
     </footer>
 </template>
@@ -108,12 +84,11 @@
     .footer
         &__message
             text-align: center
+
         &__text
             text-align: center
+
         &__divider-wrap
             padding: 0 20px
-    .v-application--is-ltr .v-expansion-panel-header
-        text-align: center !important
-    .v-expansion-panel-header
-        display: inline-block
+
 </style>

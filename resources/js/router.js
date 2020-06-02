@@ -10,6 +10,7 @@ import RealEstatesForDog from './components/pages/RealEstatesForDog';
 import RealEstatesForCat from './components/pages/RealEstatesForCat';
 import Result from './components/pages/Result';
 import Detail from './components/pages/Detail';
+import PageNotFound from './components/pages/PageNotFound';
 
 Vue.use(Router);
 
@@ -65,6 +66,11 @@ export default new Router({
             path: '/detail',
             name: 'detail',
             component: Detail,
+        },
+        {
+            path: '*',
+            name: 'page-not-found',
+            component: PageNotFound,
         },
     ],
     scrollBehavior (to, from, savedPosition) {
