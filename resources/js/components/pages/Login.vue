@@ -6,6 +6,35 @@
                 title="イコールにログイン"
                 class="mt-5"
             />
+            <v-text-field
+                class="mt-5"
+                background-color="white"
+                single-line
+                outlined
+                hide-details
+                placeholder="メールアドレス"
+                v-model="email"
+            ></v-text-field>
+            <v-text-field
+                class="mt-5"
+                background-color="white"
+                single-line
+                outlined
+                hide-details
+                placeholder="パスワード"
+                type="password"
+                v-model="password"
+            ></v-text-field>
+            <v-btn
+                class="mt-5 login__btn"
+                block
+                x-large
+                color="#f09299"
+                dark
+                depressed
+            >
+                ログイン
+            </v-btn>
             <equall-line-login class="mt-5"/>
             <equall-terms class="mt-5"/>
             <div class="text-center mt-5">

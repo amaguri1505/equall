@@ -6,7 +6,11 @@
                 title="イコールの利用を始める"
                 class="mt-5"
             />
-            <form>
+            <v-form
+                action="/register"
+                method="post"
+            >
+                <input type="hidden" name="_token" :value="csrf" />
                 <v-text-field
                     class="mt-5"
                     background-color="white"
@@ -24,13 +28,14 @@
                             dark
                             color="#f09299"
                             class="ma-0"
+                            type="submit"
                             @click="submit"
                         >
                             登録
                         </v-btn>
                     </template>
                 </v-text-field>
-            </form>
+            </v-form>
             <equall-line-login class="mt-0"/>
             <equall-terms class="mt-5"/>
             <equall-family class="mt-5 register__family"/>
@@ -69,7 +74,7 @@
         },
         methods: {
             submit () {
-                this.$v.$touch();
+                // this.$v.$touch();
             },
         },
     };

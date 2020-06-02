@@ -2483,6 +2483,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2673,6 +2702,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -2702,8 +2736,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    submit: function submit() {
-      this.$v.$touch();
+    submit: function submit() {// this.$v.$touch();
     }
   }
 });
@@ -6103,6 +6136,58 @@ var render = function() {
           attrs: { title: "イコールにログイン" }
         }),
         _vm._v(" "),
+        _c("v-text-field", {
+          staticClass: "mt-5",
+          attrs: {
+            "background-color": "white",
+            "single-line": "",
+            outlined: "",
+            "hide-details": "",
+            placeholder: "メールアドレス"
+          },
+          model: {
+            value: _vm.email,
+            callback: function($$v) {
+              _vm.email = $$v
+            },
+            expression: "email"
+          }
+        }),
+        _vm._v(" "),
+        _c("v-text-field", {
+          staticClass: "mt-5",
+          attrs: {
+            "background-color": "white",
+            "single-line": "",
+            outlined: "",
+            "hide-details": "",
+            placeholder: "パスワード",
+            type: "password"
+          },
+          model: {
+            value: _vm.password,
+            callback: function($$v) {
+              _vm.password = $$v
+            },
+            expression: "password"
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "v-btn",
+          {
+            staticClass: "mt-5 login__btn",
+            attrs: {
+              block: "",
+              "x-large": "",
+              color: "#f09299",
+              dark: "",
+              depressed: ""
+            }
+          },
+          [_vm._v("\n            ログイン\n        ")]
+        ),
+        _vm._v(" "),
         _c("equall-line-login", { staticClass: "mt-5" }),
         _vm._v(" "),
         _c("equall-terms", { staticClass: "mt-5" }),
@@ -6309,8 +6394,14 @@ var render = function() {
         }),
         _vm._v(" "),
         _c(
-          "form",
+          "v-form",
+          { attrs: { action: "/register", method: "post" } },
           [
+            _c("input", {
+              attrs: { type: "hidden", name: "_token" },
+              domProps: { value: _vm.csrf }
+            }),
+            _vm._v(" "),
             _c("v-text-field", {
               staticClass: "mt-5",
               attrs: {
@@ -6334,7 +6425,8 @@ var render = function() {
                             tile: "",
                             "x-large": "",
                             dark: "",
-                            color: "#f09299"
+                            color: "#f09299",
+                            type: "submit"
                           },
                           on: { click: _vm.submit }
                         },
