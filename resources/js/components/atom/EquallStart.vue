@@ -1,7 +1,7 @@
 <template>
     <div class="equall-start__title-wrap">
         <span class="equall-start__title">
-            イコールの利用を始める
+            {{ title }}
         </span>
     </div>
 </template>
@@ -17,3 +17,8 @@
             font-size: 1.25rem
             letter-spacing: 0.2rem
 </style>
+<script>
+    export default {
+        props: ["title"],
+    }
+</script>

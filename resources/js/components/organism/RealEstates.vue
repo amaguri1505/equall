@@ -4,7 +4,8 @@
             {{ label }}
         </div>
         <div class="re__carousel">
-            <v-carousel>
+            <v-carousel
+                hide-delimiters>
                 <v-carousel-item to="/detail">
                     <real-estate-card></real-estate-card>
                 </v-carousel-item>

@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid>
+    <v-container fluid class="search-form">
         <v-row justify="space-around">
             <v-checkbox dark color="#f09299" label="猫" value="radio-1"></v-checkbox>
             <v-checkbox dark color="#f09299" label="小型犬" value="radio-2"></v-checkbox>
@@ -12,9 +12,21 @@
                 single-line
                 outlined
                 hide-details
-                append-icon="mdi-magnify"
                 @keydown.enter="search"
-            ></v-text-field>
+            >
+                <template v-slot:append>
+                    <v-btn
+                        depressed
+                        tile
+                        x-large
+                        dark
+                        color="#f09299"
+                        class="ma-0"
+                    >
+                        検索
+                    </v-btn>
+                </template>
+            </v-text-field>
         </v-row>
     </v-container>
 </template>
@@ -27,3 +39,16 @@
         }
     }
 </script>
+<style lang="sass">
+    .search-form
+        .v-input
+            &__slot
+                padding-right: 1px !important
+
+            &__append-inner
+                margin-top: 1px !important
+
+                button
+                    height: 54px !important
+
+</style>
