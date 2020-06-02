@@ -7,7 +7,7 @@
                 class="mt-5"
             />
             <v-form
-                action="/register"
+                action="/user-register"
                 method="post"
             >
                 <input type="hidden" name="_token" :value="csrf" />

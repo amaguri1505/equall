@@ -6500,7 +6500,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "v-form",
-          { attrs: { action: "/register", method: "post" } },
+          { attrs: { action: "/user-register", method: "post" } },
           [
             _c("input", {
               attrs: { type: "hidden", name: "_token" },
