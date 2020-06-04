@@ -10,7 +10,7 @@
                 <v-icon>mdi-heart</v-icon>
             </v-btn>
 
-            <v-btn icon to="/login">
+            <v-btn icon to="/mypage">
                 <v-icon>mdi-face-profile-woman</v-icon>
             </v-btn>
 

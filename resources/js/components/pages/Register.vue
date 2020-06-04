@@ -6,10 +6,7 @@
                 title="イコールの利用を始める"
                 class="mt-5"
             />
-            <v-form
-                action="/user-register"
-                method="post"
-            >
+            <v-form>
                 <input type="hidden" name="_token" :value="csrf" />
                 <v-text-field
                     class="mt-5"
@@ -28,7 +25,6 @@
                             dark
                             color="#f09299"
                             class="ma-0"
-                            type="submit"
                             @click="submit"
                         >
                             登録
@@ -74,7 +70,9 @@
         },
         methods: {
             submit () {
-                // this.$v.$touch();
+                this.$http.post('/api/register', {
+                    email: this.$data.email,
+                })
             },
         },
     };

@@ -10,9 +10,20 @@ import RealEstatesForDog from './components/pages/RealEstatesForDog';
 import RealEstatesForCat from './components/pages/RealEstatesForCat';
 import Result from './components/pages/Result';
 import Detail from './components/pages/Detail';
+import MyPage from './components/pages/MyPage';
 import PageNotFound from './components/pages/PageNotFound';
+import axios from 'axios';
 
 Vue.use(Router);
+
+const guard = function(to, from, next) {
+    axios.get('/api/me').then(response => {
+        next();
+    }).catch(error => {
+        window.location.href = "/login";
+        // Router.push({ path: "login" });
+    });
+};
 
 export default new Router({
     mode: 'history',
@@ -68,12 +79,21 @@ export default new Router({
             component: Detail,
         },
         {
+            path: '/mypage',
+            name: 'mypage',
+            component: MyPage,
+            meta: {requiresAuth: true},
+            beforeEnter: (to, from, next) => {
+                guard(to, from, next);
+            },
+        },
+        {
             path: '*',
             name: 'page-not-found',
             component: PageNotFound,
         },
     ],
-    scrollBehavior (to, from, savedPosition) {
-        return { x: 0, y: 0 }
+    scrollBehavior(to, from, savedPosition) {
+        return {x: 0, y: 0}
     },
 });

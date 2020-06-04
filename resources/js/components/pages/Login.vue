@@ -61,7 +61,15 @@
             EquallStart,
             EquallTerms,
             EquallLineLogin,
-        }
+        },
+        methods: {
+            submit() {
+                this.$http.post('/api/login', {
+                    email: this.$data.email,
+                    password: this.$data.password,
+                })
+            },
+        },
     };
 </script>
 <style lang="sass">

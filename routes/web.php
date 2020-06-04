@@ -17,4 +17,4 @@ Route::get('{any}', function () {
     return view('app');
 })->where('any', '.*');
 
-Route::post('/register', 'Auth\RegisterController@register');
+Route::post('user-register', 'Auth\RegisterController@register');

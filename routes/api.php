@@ -18,6 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => ['api']], function () {
-    Route::post('user-register', 'Auth\RegisterController@register');
+Route::group(['middleware' => ['api']], function(){
+    Route::resource('authregister', 'Auth\RegisterController');
+    Route::post('/register', 'Auth\RegisterController@register');
+    Route::post('/login', 'Auth\RegisterController@login');
+    Route::group(['middleware' => ['jwt.auth']], function () {
+    });
+});
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get("/me", "ApiController@me");
 });
