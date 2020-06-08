@@ -2531,6 +2531,7 @@ __webpack_require__.r(__webpack_exports__);
         email: this.$data.email,
         password: this.$data.password
       });
+      this.$router.push("mypage");
     }
   }
 });

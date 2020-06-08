@@ -67,7 +67,8 @@
                 this.$http.post('/api/login', {
                     email: this.$data.email,
                     password: this.$data.password,
-                })
+                });
+                this.$router.push("mypage");
             },
         },
     };
@@ -77,7 +78,6 @@
     .login
         &__wrap
             height: calc(100vh - 48px)
-            //ヘッダーが50px固定なので
             margin-top: 48px
             padding: 40px 20px 0 20px
             background-color: colors(primary)

@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['api/*'],
+    'paths' => ['api/*', 'login', 'logout'],
 
     'allowed_methods' => ['*'],
 
@@ -25,10 +25,13 @@ return [
 
     'allowed_headers' => ['*'],
 
-    'exposed_headers' => false,
+//    'exposed_headers' => false,
+    'exposed_headers' => [],
 
-    'max_age' => false,
+//    'max_age' => false,
+    'max_age' => 0,
 
-    'supports_credentials' => false,
+//    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];
