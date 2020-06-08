@@ -56,6 +56,11 @@
                             暮らし情報
                         </v-list-item-title>
                     </v-list-item>
+                    <v-list-item @click="logout" v-if="isLogged">
+                        <v-list-item-title>
+                            ログアウト
+                        </v-list-item-title>
+                    </v-list-item>
                 </v-list-item-group>
             </v-list>
         </v-navigation-drawer>
@@ -72,7 +77,19 @@
                 margin: auto
 </style>
 <script>
+    import { mapGetters } from 'vuex';
+
     export default {
+        computed: {
+            ...mapGetters([
+                'isLogged',
+            ])
+        },
+        methods: {
+            logout() {
+                this.$store.dispatch('logout');
+            }
+        },
         data: () => ({
             drawer: false,
             group: null,

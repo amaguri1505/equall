@@ -20,41 +20,28 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => ['api']], function(){
-    Route::resource('authregister', 'Auth\RegisterController');
-    Route::post('/register', 'Auth\RegisterController@register');
-//    Route::post('/login', 'Auth\AuthController@login');
-//    Route::post('/login', 'ApiController@login');
-});
+Route::group(['middleware' => ['api']], function() {
+    Route::post('/login', function (Request $request) {
+        $data = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
+        $user = User::where('email', $request->email)->first();
 
-Route::group(['middleware' => ['jwt.auth']], function () {
-    Route::get("/me", "ApiController@me");
-});
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response([
+                'message' => ['These credentials do not match our records.']
+            ], 401);
+        }
 
-Route::group(['middleware' => 'auth:api'], function () {
-});
+        $token = $user->createToken('my-app-token')->plainTextToken;
 
-Route::post('/login', function (Request $request) {
-    $data = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
-    ]);
+        $response = [
+            'user' => $user,
+            'token' => $token
+        ];
 
-    $user = User::where('email', $request->email)->first();
-
-    if (!$user || !Hash::check($request->password, $user->password)) {
-        return response([
-            'message' => ['These credentials do not match our records.']
-        ], 404);
-    }
-
-    $token = $user->createToken('my-app-token')->plainTextToken;
-
-    $response = [
-        'user' => $user,
-        'token' => $token
-    ];
-
-    return response($response, 201);
+        return response($response, 201);
+    });
 });

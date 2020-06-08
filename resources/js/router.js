@@ -12,20 +12,10 @@ import Result from './components/pages/Result';
 import Detail from './components/pages/Detail';
 import MyPage from './components/pages/MyPage';
 import PageNotFound from './components/pages/PageNotFound';
-import axios from 'axios';
 
 Vue.use(Router);
 
-const guard = function(to, from, next) {
-    axios.get('/api/me').then(response => {
-        next();
-    }).catch(error => {
-        window.location.href = "/login";
-        // Router.push({ path: "login" });
-    });
-};
-
-export default new Router({
+const router = new Router({
     mode: 'history',
     routes: [
         {
@@ -82,10 +72,7 @@ export default new Router({
             path: '/mypage',
             name: 'mypage',
             component: MyPage,
-            meta: {requiresAuth: true},
-            beforeEnter: (to, from, next) => {
-                guard(to, from, next);
-            },
+            meta: {auth: true},
         },
         {
             path: '*',
@@ -97,3 +84,15 @@ export default new Router({
         return {x: 0, y: 0}
     },
 });
+
+router.beforeEach((to, from, next) => {
+    const loggedIn = localStorage.getItem('user');
+
+    if (to.matched.some(record => record.meta.auth) && !loggedIn) {
+        next('/login');
+    } else {
+        next();
+    }
+});
+
+export default router;

@@ -32,6 +32,7 @@
                 color="#f09299"
                 dark
                 depressed
+                @click="login"
             >
                 ログイン
             </v-btn>
@@ -55,6 +56,12 @@
 
 
     export default {
+        data() {
+            return {
+                email: '',
+                password: '',
+            }
+        },
         components: {
             EquallLogo,
             EquallFamily,
@@ -63,12 +70,18 @@
             EquallLineLogin,
         },
         methods: {
-            submit() {
-                this.$http.post('/api/login', {
-                    email: this.$data.email,
-                    password: this.$data.password,
-                });
-                this.$router.push("mypage");
+            login() {
+                this.$store
+                    .dispatch('login', {
+                        email: this.email,
+                        password: this.password
+                    })
+                    .then(() => {
+                        this.$router.push({name: 'mypage'});
+                    })
+                    .catch(err => {
+                        console.log("error:".err);
+                    });
             },
         },
     };
