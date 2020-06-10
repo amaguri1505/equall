@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+require('laravel-mix-polyfill');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

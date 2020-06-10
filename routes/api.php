@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['api']], function() {
+    Route::post('/register','Auth\RegisterController@register');
     Route::post('/login', function (Request $request) {
         $data = $request->validate([
             'email' => 'required|email',

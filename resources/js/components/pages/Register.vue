@@ -70,7 +70,7 @@
         },
         methods: {
             submit () {
-                this.$http.post('/api/register', {
+                this.$http.post('/register', {
                     email: this.$data.email,
                 })
             },

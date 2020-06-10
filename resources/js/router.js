@@ -47,6 +47,9 @@ const router = new Router({
             path: '/bookmark',
             name: 'bookmark',
             component: Bookmark,
+            meta: {
+                auth: true
+            },
         },
         {
             path: '/real-estates-for-dog',
@@ -72,7 +75,9 @@ const router = new Router({
             path: '/mypage',
             name: 'mypage',
             component: MyPage,
-            meta: {auth: true},
+            meta: {
+                auth: true
+            },
         },
         {
             path: '*',

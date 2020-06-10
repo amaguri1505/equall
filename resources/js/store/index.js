@@ -21,7 +21,7 @@ export default new Vuex.Store({
         clearUserData () {
             localStorage.removeItem('user')
             location.reload()
-        }
+        },
     },
 
     actions: {
@@ -35,10 +35,10 @@ export default new Vuex.Store({
 
         logout ({ commit }) {
             commit('clearUserData')
-        }
+        },
     },
 
     getters : {
         isLogged: state => !!state.user
-    }
+    },
 });
