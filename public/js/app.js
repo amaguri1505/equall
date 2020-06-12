@@ -6910,7 +6910,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".inquery-count__title {\n  padding: 0 1rem;\n  font-size: 0.75rem;\n  color: #999;\n}\n.inquery-count__content {\n  padding: 0 1rem;\n  font-size: 0.75rem;\n  color: #999;\n  border-top: 1px solid #ccc;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -10540,13 +10540,15 @@ var render = function() {
       _c(
         "v-card",
         [
-          _c("v-title", { staticClass: "text-center" }, [
+          _c("v-title", { staticClass: "text-center inquery-count__title" }, [
             _vm._v("\n            今月の問い合わせ数\n        ")
           ]),
           _vm._v(" "),
-          _c("v-content", { staticClass: "text-center" }, [
-            _vm._v("\n            件\n        ")
-          ])
+          _c(
+            "v-content",
+            { staticClass: "text-center inquery-count__content" },
+            [_vm._v("\n            件\n        ")]
+          )
         ],
         1
       )
