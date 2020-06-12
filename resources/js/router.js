@@ -12,6 +12,9 @@ import Result from './components/pages/Result';
 import Detail from './components/pages/Detail';
 import MyPage from './components/pages/MyPage';
 import PageNotFound from './components/pages/PageNotFound';
+import CorpLogin from './components/pages/corp/Login';
+import CorpIndex from './components/pages/corp/Index';
+
 
 Vue.use(Router);
 
@@ -83,6 +86,16 @@ const router = new Router({
             path: '*',
             name: 'page-not-found',
             component: PageNotFound,
+        },
+        {
+            path: '/corp/login',
+            name: 'corp_login',
+            component: CorpLogin,
+        },
+        {
+            path: '/corp/',
+            name: 'corp_index',
+            component: CorpIndex,
         },
     ],
     scrollBehavior(to, from, savedPosition) {

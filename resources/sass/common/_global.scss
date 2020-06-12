@@ -8,5 +8,9 @@ body {
         background-color: colors(primary);
         margin: 0 auto;
         position: relative;
+
+        &--corp {
+            max-width: 9999px;
+        }
     }
 }

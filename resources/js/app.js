@@ -4,6 +4,7 @@ import Vuetify from 'vuetify';
 import axios from 'axios';
 import router from './router.js';
 import MainPage from './components/pages/MainPage';
+import MainPageCorp from './components/pages/corp/MainPage';
 import store from './store';
 
 Vue.prototype.$http = axios;
@@ -16,7 +17,8 @@ new Vue({
     router: router,
     vuetify: new Vuetify(),
     components: {
-        app: MainPage
+        app: MainPage,
+        appcorp: MainPageCorp,
     },
     created() {
         const userInfo = localStorage.getItem('user');

@@ -16,3 +16,7 @@
   position: relative;
 }
 
+.common__container--corp {
+  max-width: 9999px;
+}
+
