@@ -5,6 +5,7 @@ import axios from 'axios';
 import router from './router.js';
 import MainPage from './components/pages/MainPage';
 import MainPageCorp from './components/pages/corp/MainPage';
+import MainPageCorpOnlyHeader from './components/pages/corp/MainPageOnlyHeader';
 import store from './store';
 
 Vue.prototype.$http = axios;
@@ -19,6 +20,7 @@ new Vue({
     components: {
         app: MainPage,
         appcorp: MainPageCorp,
+        apponlyheader: MainPageCorpOnlyHeader,
     },
     created() {
         const userInfo = localStorage.getItem('user');

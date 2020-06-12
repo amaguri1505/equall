@@ -1,8 +1,8 @@
 <template>
     <div class="header__wrap">
-        <v-app-bar dense flat app>
+        <v-app-bar flat>
 
-            <router-link to="/" tag="img" src="/images/logo.png" class="header__logo"></router-link>
+            <router-link to="/corp/" tag="img" src="/images/logo.png" class="header__logo"></router-link>
 
             <v-spacer></v-spacer>
 

@@ -1,47 +1,46 @@
 <template>
-    <div class="header__wrap">
-        <v-app-bar dense flat app>
-
-            <router-link to="/" tag="img" src="/images/logo.png" class="header__logo"></router-link>
-
-            <v-spacer></v-spacer>
-
-        </v-app-bar>
+    <div class="sidebar__wrap">
+        <v-list class="sidebar__list" flat>
+            <v-list-item-group>
+                <v-list-item
+                    v-for="(item, i) in items"
+                    :key="i"
+                    :to="item.to"
+                >
+                    <v-list-item-icon>
+                        <v-icon v-text="item.icon">
+                        </v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                        <v-list-item-title v-text="item.text">
+                        </v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list-item-group>
+        </v-list>
     </div>
 </template>
 <style lang="sass">
-    .header
-        &__logo
-            height: 30px
-            object-fit: contain
-            cursor: pointer
+    .sidebar
         &__wrap
-            header
-                margin: auto
+            height: 100%
+            background-color: white
+
+        &__list
+            v-list-item
+                padding-left: 20px
+
 </style>
 <script>
-    import { mapGetters } from 'vuex';
-
     export default {
-        computed: {
-            ...mapGetters([
-                'isLogged',
-            ])
-        },
-        methods: {
-            logout() {
-                this.$store.dispatch('logout');
-            }
-        },
         data: () => ({
-            drawer: false,
-            group: null,
-        }),
-
-        watch: {
-            group() {
-                this.drawer = false
-            },
-        },
+            item: 1,
+            items: [
+                {text: '物件管理', icon: 'mdi-home-city-outline', to: '/corp/manage-property'},
+                {text: '物件登録', icon: 'mdi-home-variant-outline', to: '/corp/register-property'},
+                {text: '問い合わせ管理', icon: 'mdi-email-outline', to: '/corp/manage-inquery'},
+                {text: 'アカウント情報', icon: 'mdi-card-account-mail-outline', to: 'view-account-info'},
+            ]
+        })
     }
 </script>
