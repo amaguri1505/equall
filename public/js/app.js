@@ -3191,7 +3191,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: '問い合わせ管理',
         icon: 'mdi-email-outline',
-        to: '/corp/manage-inquery'
+        to: '/corp/manage-inquiry'
       }]
     };
   }
@@ -3406,7 +3406,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3507,67 +3506,289 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       selected: [],
       headers: [{
-        text: '年月',
-        value: 'date',
+        text: '公開状況',
+        value: 'publish_flg',
+        align: 'center'
+      }, {
+        text: '掲載終了日',
+        value: 'end_date',
+        align: 'center'
+      }, {
+        text: '登録日',
+        value: 'register_date',
+        align: 'center'
+      }, {
+        text: '更新日',
+        value: 'update_date',
+        align: 'center'
+      }, {
+        text: '物件名',
+        value: 'name',
+        align: 'center'
+      }, {
+        text: '家賃',
+        value: 'rent',
         align: 'center'
       }, {
         text: '問い合わせ数',
         value: 'inquiry_cnt',
         align: 'center'
-      }, {
-        text: '掲載費用',
-        value: 'total_cost',
-        align: 'center'
       }],
-      inquiries: [{
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+      properties: [{
+        id: 1,
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }, {
-        date: '2020年6月実績',
-        inquiry_cnt: '10件',
-        total_cost: '費用10,000円'
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
+      }, {
+        publish_flg: "公開中",
+        end_date: "掲載終了日",
+        register_date: "2020/01/01",
+        update_date: "2020/01/01",
+        name: "コーポ新宿",
+        rent: "100,000円",
+        inquiry_cnt: "3件"
       }]
     };
   }
@@ -7453,7 +7674,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".manage-account-info {\n  height: 100%;\n}\n.manage-account-info__text {\n  text-align: center;\n}\n.manage-account-info__wrap {\n  height: 100%;\n  position: relative;\n  padding: 20px;\n}\n.manage-account-info__btn-wrap {\n  text-align: center;\n}", ""]);
+exports.push([module.i, ".manage-account-info__text {\n  text-align: center;\n  margin-top: 5rem;\n}\n.manage-account-info__btn-wrap {\n  text-align: center;\n  margin-bottom: 5rem;\n}\n.manage-account-info .v-input__slot {\n  padding-right: 1px !important;\n}\n.manage-account-info .v-input__append-inner {\n  margin-top: 1px !important;\n}\n.manage-account-info .v-input__append-inner button {\n  height: 54px !important;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -12102,135 +12323,132 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "manage-account-info" }, [
-    _c(
-      "div",
-      { staticClass: "manage-account-info__wrap" },
-      [
-        _c(
-          "v-card",
-          {
-            staticClass: "manage-account-info__card",
-            attrs: { width: "100%", height: "100%" }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "mt-5 manage-account-info__forms" },
-              [
-                _c("v-text-field", {
-                  attrs: {
-                    "background-color": "white",
-                    "single-line": "",
-                    outlined: "",
-                    "hide-details": ""
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "append",
-                      fn: function() {
-                        return [
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "ma-0",
-                              attrs: {
-                                depressed: "",
-                                tile: "",
-                                "x-large": "",
-                                dark: "",
-                                color: "#f09299"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                            変更\n                        "
-                              )
-                            ]
-                          )
-                        ]
-                      },
-                      proxy: true
-                    }
-                  ])
-                }),
-                _vm._v(" "),
-                _c("v-text-field", {
-                  attrs: {
-                    "background-color": "white",
-                    "single-line": "",
-                    outlined: "",
-                    "hide-details": ""
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "append",
-                      fn: function() {
-                        return [
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "ma-0",
-                              attrs: {
-                                depressed: "",
-                                tile: "",
-                                "x-large": "",
-                                dark: "",
-                                color: "#f09299"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                            変更\n                        "
-                              )
-                            ]
-                          )
-                        ]
-                      },
-                      proxy: true
-                    }
-                  ])
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "manage-account-info__text" }, [
-              _vm._v(
-                "\n                企業情報（会社名、住所など）を変更したい場合は直接ご連絡ください\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "manage-account-info__btn-wrap mt-5" },
-              [
-                _c(
-                  "v-btn",
+  return _c(
+    "div",
+    { staticClass: "manage-account-info pa-2" },
+    [
+      _c(
+        "v-card",
+        {
+          staticClass: "manage-account-info__card pa-5",
+          attrs: { width: "100%", height: "100%" }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "manage-account-info__forms" },
+            [
+              _c("v-text-field", {
+                staticClass: "mt-5",
+                attrs: {
+                  "background-color": "white",
+                  outlined: "",
+                  label: "メールアドレス",
+                  placeholder: "メールアドレス"
+                },
+                scopedSlots: _vm._u([
                   {
-                    attrs: {
-                      "x-large": "",
-                      color: "#76c3bf",
-                      dark: "",
-                      depressed: "",
-                      href: "mailto:info@equall.jp"
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                    担当者へ連絡\n                "
-                    )
-                  ]
-                )
-              ],
-              1
+                    key: "append",
+                    fn: function() {
+                      return [
+                        _c(
+                          "v-btn",
+                          {
+                            staticClass: "ma-0",
+                            attrs: {
+                              depressed: "",
+                              tile: "",
+                              "x-large": "",
+                              dark: "",
+                              color: "#76c3bf"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        変更\n                    "
+                            )
+                          ]
+                        )
+                      ]
+                    },
+                    proxy: true
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("v-text-field", {
+                staticClass: "mt-2",
+                attrs: {
+                  "background-color": "white",
+                  outlined: "",
+                  label: "パスワード",
+                  placeholder: "パスワード",
+                  type: "password"
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "append",
+                    fn: function() {
+                      return [
+                        _c(
+                          "v-btn",
+                          {
+                            staticClass: "ma-0",
+                            attrs: {
+                              depressed: "",
+                              tile: "",
+                              "x-large": "",
+                              dark: "",
+                              color: "#76c3bf"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        変更\n                    "
+                            )
+                          ]
+                        )
+                      ]
+                    },
+                    proxy: true
+                  }
+                ])
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "manage-account-info__text" }, [
+            _vm._v(
+              "\n            企業情報（会社名、住所など）を変更したい場合は直接ご連絡ください\n        "
             )
-          ]
-        )
-      ],
-      1
-    )
-  ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "manage-account-info__btn-wrap mt-5" },
+            [
+              _c(
+                "v-btn",
+                {
+                  attrs: {
+                    "x-large": "",
+                    color: "#76c3bf",
+                    dark: "",
+                    depressed: "",
+                    href: "mailto:info@equall.jp"
+                  }
+                },
+                [_vm._v("\n                担当者へ連絡\n            ")]
+              )
+            ],
+            1
+          )
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12260,7 +12478,7 @@ var render = function() {
       { staticClass: "manage-inquiry__table-wrap" },
       [
         _c("v-data-table", {
-          staticClass: "manage-property__table",
+          staticClass: "manage-inquiry__table",
           attrs: {
             headers: _vm.headers,
             items: _vm.inquiries,
@@ -12304,9 +12522,10 @@ var render = function() {
           staticClass: "manage-property__table",
           attrs: {
             headers: _vm.headers,
-            items: _vm.inquiries,
-            "item-key": "name",
-            "show-select": ""
+            items: _vm.properties,
+            "item-key": "id",
+            "show-select": "",
+            "single-select": "false"
           }
         })
       ],
@@ -12336,18 +12555,157 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "corp-index pa-2" }, [
+    _c(
+      "div",
+      { staticClass: "corp-index__wrap" },
+      [
+        _c(
+          "v-card",
+          { staticClass: "pa-2" },
+          [
+            _c(
+              "v-content",
+              [
+                _c(
+                  "v-form",
+                  {
+                    ref: "form",
+                    attrs: { "lazy-validation": "" },
+                    model: {
+                      value: _vm.valid,
+                      callback: function($$v) {
+                        _vm.valid = $$v
+                      },
+                      expression: "valid"
+                    }
+                  },
+                  [
+                    _c("v-text-field", {
+                      attrs: {
+                        counter: 10,
+                        rules: _vm.nameRules,
+                        label: "Name",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.name,
+                        callback: function($$v) {
+                          _vm.name = $$v
+                        },
+                        expression: "name"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        rules: _vm.emailRules,
+                        label: "E-mail",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.email,
+                        callback: function($$v) {
+                          _vm.email = $$v
+                        },
+                        expression: "email"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.items,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "Item",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.select,
+                        callback: function($$v) {
+                          _vm.select = $$v
+                        },
+                        expression: "select"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-checkbox", {
+                      attrs: {
+                        rules: [
+                          function(v) {
+                            return !!v || "You must agree to continue!"
+                          }
+                        ],
+                        label: "Do you agree?",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.checkbox,
+                        callback: function($$v) {
+                          _vm.checkbox = $$v
+                        },
+                        expression: "checkbox"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "mr-4",
+                        attrs: { disabled: !_vm.valid, color: "success" },
+                        on: { click: _vm.validate }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Validate\n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "mr-4",
+                        attrs: { color: "error" },
+                        on: { click: _vm.reset }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Reset Form\n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: { color: "warning" },
+                        on: { click: _vm.resetValidation }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Reset Validation\n                    "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      ],
+      1
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "corp-index pa-2" }, [
-      _c("div", { staticClass: "corp-index__wrap" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -6,7 +6,7 @@
                 :items="inquiries"
                 item-key="name"
                 show-select
-                class="manage-property__table"
+                class="manage-inquiry__table"
             >
             </v-data-table>
         </div>
@@ -15,7 +15,6 @@
 
 <style lang="sass">
     @import "../../../../sass/common/_variable.scss"
-    .manage-inquiry
 
 </style>
 
