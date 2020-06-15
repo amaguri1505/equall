@@ -3,7 +3,7 @@
         <div class="index__wrap index__wrap--headline">
             <equall-logo class="index__logo" />
             <search-form />
-            <equall-search-detail />
+            <top-search-detail />
             <equall-family class="index__family"/>
         </div>
         <div class="index__wrap">
@@ -23,7 +23,7 @@
     import EquallLogo from "../atom/EquallLogo";
     import EquallFamily from "../atom/EquallFamily";
     import SearchForm from "../moducule/SearchForm";
-    import EquallSearchDetail from "../atom/EquallSearchDetail";
+    import TopSearchDetail from "../moducule/TopSearchDetail";
     import RealEstates from "../organism/RealEstates";
 
 
@@ -34,7 +34,7 @@
             EquallLogo,
             EquallFamily,
             SearchForm,
-            EquallSearchDetail,
+            TopSearchDetail,
             RealEstates,
         }
     };

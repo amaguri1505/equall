@@ -1,11 +1,14 @@
 <template>
     <div class="re">
         <div class="re__title">
+            <v-icon></v-icon>
             {{ label }}
         </div>
         <div class="re__carousel">
             <v-carousel
-                hide-delimiters>
+                hide-delimiters
+                height="auto"
+            >
                 <v-carousel-item to="/detail">
                     <real-estate-card></real-estate-card>
                 </v-carousel-item>
@@ -43,5 +46,12 @@
             color: colors(primary)
             font-size: 1.25rem
             letter-spacing: 0.2rem
+
+        &__carousel
+            a
+                color: #333
+
+                &:hover, &:visited, &:link, &:active
+                    color: #333
 
 </style>
