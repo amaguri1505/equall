@@ -1,6 +1,6 @@
 <template>
-    <div class="manage-property pa-2">
-        <div class="manage-property__table-wrap">
+    <div class="manage-inquiry pa-2">
+        <div class="manage-inquiry__table-wrap">
             <v-data-table
                 :headers="headers"
                 :items="inquiries"
@@ -15,9 +15,7 @@
 
 <style lang="sass">
     @import "../../../../sass/common/_variable.scss"
-    .manage-property
-        &__wrap
-            position: relative
+    .manage-inquiry
 
 </style>
 

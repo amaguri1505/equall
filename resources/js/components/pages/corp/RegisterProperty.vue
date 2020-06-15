@@ -1,5 +1,5 @@
 <template>
-    <div class="corp-index">
+    <div class="corp-index pa-2">
         <div class="corp-index__wrap">
         </div>
     </div>

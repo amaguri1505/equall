@@ -38,8 +38,8 @@
             items: [
                 {text: '物件管理', icon: 'mdi-home-city-outline', to: '/corp/manage-property'},
                 {text: '物件登録', icon: 'mdi-home-variant-outline', to: '/corp/register-property'},
-                {text: '問い合わせ管理', icon: 'mdi-email-outline', to: '/corp/manage-inquery'},
-                {text: 'アカウント情報', icon: 'mdi-card-account-mail-outline', to: 'view-account-info'},
+                {text: '問い合わせ管理', icon: 'mdi-email-outline', to: '/corp/manage-inquiry'},
+                {text: 'アカウント情報', icon: 'mdi-card-account-mail-outline', to: '/corp/manage-account-info'},
             ]
         })
     }

@@ -6,7 +6,7 @@
         >
             <router-link to="/corp/" tag="img" src="/images/logo.png" class="header__logo"></router-link>
             <v-spacer></v-spacer>
-            <inquery-count></inquery-count>
+            <inquiry-count></inquiry-count>
         </v-app-bar>
     </div>
 </template>
@@ -23,11 +23,11 @@
 </style>
 <script>
     import {mapGetters} from 'vuex';
-    import InqueryCount from '../../moducule/corp/InqueryCount';
+    import InquiryCount from '../../moducule/corp/InquiryCount';
 
     export default {
         components: {
-            InqueryCount,
+            InquiryCount,
         },
         computed: {
             ...mapGetters([

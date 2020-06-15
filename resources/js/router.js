@@ -16,8 +16,8 @@ import CorpLogin from './components/pages/corp/Login';
 import CorpIndex from './components/pages/corp/Index';
 import ManageProperty from './components/pages/corp/ManageProperty';
 import RegisterProperty from './components/pages/corp/RegisterProperty';
-import ManageInquery from './components/pages/corp/ManageInquery';
-import ViewAccountInfo from './components/pages/corp/ViewAccountInfo';
+import ManageInquiry from './components/pages/corp/ManageInquiry';
+import ManageAccountInfo from './components/pages/corp/ManageAccountInfo';
 
 
 Vue.use(Router);
@@ -112,14 +112,14 @@ const router = new Router({
             component: RegisterProperty,
         },
         {
-            path: '/corp/manage-inquery/',
-            name: 'manage-inquery',
-            component: ManageInquery,
+            path: '/corp/manage-inquiry/',
+            name: 'manage-inquiry',
+            component: ManageInquiry,
         },
         {
-            path: '/corp/view-account-info/',
-            name: 'view-account-info',
-            component: ViewAccountInfo,
+            path: '/corp/manage-account-info/',
+            name: 'manage-account-info',
+            component: ManageAccountInfo,
         },
     ],
     scrollBehavior(to, from, savedPosition) {

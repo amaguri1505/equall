@@ -6,20 +6,23 @@
             class="pa-0"
             fluid
         >
-            <v-layout row>
-                <v-flex
-                    xs2
-                    class="corp-layout__flex corp-layout__sidebar-wrap"
+            <v-row
+                class="ma-0"
+            >
+                <v-col
+                    cols="2"
+                    class="pa-0 corp-layout__flex corp-layout__sidebar-wrap"
                 >
                     <the-sidebar />
-                </v-flex>
-                <v-flex
-                    xs10
-                    class="corp-layout__flex corp-layout__wrap"
+                </v-col>
+                <v-col
+                    cols="10"
+                    offset="0"
+                    class="pa-0 corp-layout__flex corp-layout__wrap"
                 >
                     <router-view />
-                </v-flex>
-            </v-layout>
+                </v-col>
+            </v-row>
         </v-container>
     </div>
 </template>
