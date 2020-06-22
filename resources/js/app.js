@@ -7,11 +7,13 @@ import MainPage from './components/pages/MainPage';
 import MainPageCorp from './components/pages/corp/MainPage';
 import MainPageCorpOnlyHeader from './components/pages/corp/MainPageOnlyHeader';
 import store from './store';
+import VueLazyload from 'vue-lazyload';
 
 Vue.prototype.$http = axios;
 
 Vue.use(Vuetify);
 Vue.use(Vuex);
+Vue.use(VueLazyload);
 
 new Vue({
     store,

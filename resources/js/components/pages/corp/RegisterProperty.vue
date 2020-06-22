@@ -10,6 +10,19 @@
                         v-model="valid"
                         lazy-validation
                     >
+                        <div class="corp-register__image-uploader-wrap">
+                            <div class="corp-register__image-uploader-title">
+                                不動産の画像
+                            </div>
+                            <vue-upload-multiple-image
+                                :data-images="images"
+                                idUpload="myIdUpload"
+                                editUpload="myIdEdit"
+                                dragText="ここに画像をドラッグ"
+                                browseText="画像を選択"
+                            ></vue-upload-multiple-image>
+                        </div>
+
                         <v-select
                             v-model="type"
                             :items="types"
@@ -159,7 +172,7 @@
                             v-model="bad"
                             :rules="badRules"
                             label="掲載開始日"
-                            type="month"
+                            type="date"
                         ></v-text-field>
 
                         <v-text-field
@@ -191,19 +204,30 @@
         &__wrap
             position: relative
 
+    .corp-register
+        &__image-uploader-title
+            color: rgba(0, 0, 0, 0.6)
+            margin-bottom: 10px
+
 </style>
 
 <script>
+    import VueUploadMultipleImage from 'vue-upload-multiple-image';
+
     export default {
-        data () {
+        components: {
+            VueUploadMultipleImage,
+        },
+        data() {
             return {
+                images: [],
                 types: ["賃貸"],
-                pet_types: ["猫","犬","犬猫両方可能"],
+                pet_types: ["猫", "犬", "犬猫両方可能"],
                 is_pet: ["可能"],
             }
         },
         method: {
-            submit () {
+            submit() {
 
             }
         }
