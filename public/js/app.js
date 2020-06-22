@@ -4273,6 +4273,225 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/corp/RegisterProperty.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/corp/RegisterProperty.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      types: ["賃貸"],
+      pet_types: ["猫", "犬", "犬猫両方可能"],
+      is_pet: ["可能"]
+    };
+  },
+  method: {
+    submit: function submit() {}
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/a-function.js":
 /*!******************************************************!*\
   !*** ./node_modules/core-js/internals/a-function.js ***!
@@ -13860,7 +14079,7 @@ var render = function() {
       [
         _c(
           "v-card",
-          { staticClass: "pa-2" },
+          { staticClass: "pa-5" },
           [
             _c(
               "v-content",
@@ -13879,11 +14098,31 @@ var render = function() {
                     }
                   },
                   [
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.types,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "種類",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.type,
+                        callback: function($$v) {
+                          _vm.type = $$v
+                        },
+                        expression: "type"
+                      }
+                    }),
+                    _vm._v(" "),
                     _c("v-text-field", {
                       attrs: {
-                        counter: 10,
+                        counter: 100,
                         rules: _vm.nameRules,
-                        label: "Name",
+                        label: "物件名",
                         required: ""
                       },
                       model: {
@@ -13897,55 +14136,304 @@ var render = function() {
                     _vm._v(" "),
                     _c("v-text-field", {
                       attrs: {
-                        rules: _vm.emailRules,
-                        label: "E-mail",
-                        required: ""
+                        counter: 200,
+                        rules: _vm.goodRules,
+                        label: "Goodポイント"
                       },
                       model: {
-                        value: _vm.email,
+                        value: _vm.good,
                         callback: function($$v) {
-                          _vm.email = $$v
+                          _vm.good = $$v
                         },
-                        expression: "email"
+                        expression: "good"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        counter: 200,
+                        rules: _vm.badRules,
+                        label: "Badポイント"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-select", {
                       attrs: {
-                        items: _vm.items,
+                        items: _vm.pet_types,
                         rules: [
                           function(v) {
                             return !!v || "Item is required"
                           }
                         ],
-                        label: "Item",
+                        label: "ペットの種類",
                         required: ""
                       },
                       model: {
-                        value: _vm.select,
+                        value: _vm.pet_type,
                         callback: function($$v) {
-                          _vm.select = $$v
+                          _vm.pet_type = $$v
                         },
-                        expression: "select"
+                        expression: "pet_type"
                       }
                     }),
                     _vm._v(" "),
-                    _c("v-checkbox", {
+                    _c("v-text-field", {
                       attrs: {
+                        type: "number",
+                        count: 20,
+                        rules: _vm.badRules,
+                        label: "ペット数"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 50,
+                        rules: _vm.badRules,
+                        label: "最寄駅"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 200,
+                        rules: _vm.badRules,
+                        label: "所在地"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.is_pet,
                         rules: [
                           function(v) {
-                            return !!v || "You must agree to continue!"
+                            return !!v || "Item is required"
                           }
                         ],
-                        label: "Do you agree?",
+                        label: "ペット飼育可能か",
                         required: ""
                       },
                       model: {
-                        value: _vm.checkbox,
+                        value: _vm.is_pet,
                         callback: function($$v) {
-                          _vm.checkbox = $$v
+                          _vm.is_pet = $$v
                         },
-                        expression: "checkbox"
+                        expression: "is_pet"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 10,
+                        rules: _vm.badRules,
+                        type: "number",
+                        prefix: "¥",
+                        label: "家賃"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 10,
+                        rules: _vm.badRules,
+                        type: "number",
+                        prefix: "¥",
+                        label: "管理費"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 10,
+                        rules: _vm.badRules,
+                        type: "number",
+                        prefix: "¥",
+                        label: "初期費用"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        rules: _vm.badRules,
+                        type: "number",
+                        label: "専有面積",
+                        suffix: "㎡"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 10,
+                        rules: _vm.badRules,
+                        label: "間取り"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        rules: _vm.badRules,
+                        type: "number",
+                        label: "階数"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        rules: _vm.badRules,
+                        type: "month",
+                        label: "築年月"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 30,
+                        rules: _vm.badRules,
+                        label: "建物構造"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 30,
+                        rules: _vm.badRules,
+                        label: "駐車場の有無"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 200,
+                        rules: _vm.badRules,
+                        label: "その他条件"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        rules: _vm.badRules,
+                        label: "掲載開始日",
+                        type: "month"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-text-field", {
+                      attrs: {
+                        count: 200,
+                        rules: _vm.badRules,
+                        label: "取扱不動産店"
+                      },
+                      model: {
+                        value: _vm.bad,
+                        callback: function($$v) {
+                          _vm.bad = $$v
+                        },
+                        expression: "bad"
                       }
                     }),
                     _vm._v(" "),
@@ -13953,39 +14441,12 @@ var render = function() {
                       "v-btn",
                       {
                         staticClass: "mr-4",
-                        attrs: { disabled: !_vm.valid, color: "success" },
-                        on: { click: _vm.validate }
+                        attrs: { color: "#76c3bf", dark: "" },
+                        on: { click: _vm.submit }
                       },
                       [
                         _vm._v(
-                          "\n                        Validate\n                    "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        staticClass: "mr-4",
-                        attrs: { color: "error" },
-                        on: { click: _vm.reset }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Reset Form\n                    "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { color: "warning" },
-                        on: { click: _vm.resetValidation }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Reset Validation\n                    "
+                          "\n                        物件を登録\n                    "
                         )
                       ]
                     )
@@ -75127,17 +75588,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RegisterProperty_vue_vue_type_template_id_27f38577___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegisterProperty.vue?vue&type=template&id=27f38577& */ "./resources/js/components/pages/corp/RegisterProperty.vue?vue&type=template&id=27f38577&");
-/* harmony import */ var _RegisterProperty_vue_vue_type_style_index_0_lang_sass___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterProperty.vue?vue&type=style&index=0&lang=sass& */ "./resources/js/components/pages/corp/RegisterProperty.vue?vue&type=style&index=0&lang=sass&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _RegisterProperty_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterProperty.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/corp/RegisterProperty.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _RegisterProperty_vue_vue_type_style_index_0_lang_sass___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RegisterProperty.vue?vue&type=style&index=0&lang=sass& */ "./resources/js/components/pages/corp/RegisterProperty.vue?vue&type=style&index=0&lang=sass&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _RegisterProperty_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _RegisterProperty_vue_vue_type_template_id_27f38577___WEBPACK_IMPORTED_MODULE_0__["render"],
   _RegisterProperty_vue_vue_type_template_id_27f38577___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -75151,6 +75614,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/pages/corp/RegisterProperty.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/corp/RegisterProperty.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/pages/corp/RegisterProperty.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterProperty_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RegisterProperty.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/corp/RegisterProperty.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterProperty_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
