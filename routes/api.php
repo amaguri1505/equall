@@ -22,6 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['api']], function() {
     Route::post('add-property', 'Api\ApiController@addProperty');
+    Route::post('add-images', 'Api\ApiController@addImages');
+
     Route::get('get-detail/{id}', 'Api\ApiController@getDetail');
     Route::get('get-properties', 'Api\ApiController@getProperties');
 

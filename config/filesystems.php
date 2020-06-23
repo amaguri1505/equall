@@ -81,4 +81,12 @@ return [
         public_path('storage') => storage_path('app/public'),
     ],
 
+
+    // about upload
+    'uploads' => [
+        'driver' => 'local',
+        'root' => 'uploads',
+        'url' => 'uploads',
+    ],
+
 ];

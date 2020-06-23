@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\HousePropertyImage;
 
 class HouseProperty extends Model
 {
@@ -31,4 +32,8 @@ class HouseProperty extends Model
         ,'id'
         ,'corp'
     ];
+
+    public function post_images() {
+        return $this->hasMany('App\HousePropertyImage');
+    }
 }

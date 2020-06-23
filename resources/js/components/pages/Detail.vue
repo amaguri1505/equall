@@ -230,28 +230,6 @@
         data () {
             return {
                 house_property: {},
-                // type: "賃貸",
-                // name: "サンプル物件",
-                // good: "良い点",
-                // bad: "悪い点",
-                // pet_type: "猫",
-                // pet_cnt: "1",
-                // nearest_station: "サンプル駅",
-                // address: "東京都目黒区上目黒",
-                // is_pet: "飼育可能",
-                // cost: "100,000円",
-                // manage_cost: "10,000円",
-                // initial_cost: "敷金0ヶ月 / 礼金0ヶ月 / 保証金0ヶ月",
-                // area: "41.77㎡",
-                // floor_plan: "1LDK",
-                // floor: "3階建",
-                // age: "1990年12月",
-                // structure: "鉄骨鉄筋コンクリート",
-                // park: "有り *お問い合わせ",
-                // facility: "鍵交換必須",
-                // start_date: "2020/06/25",
-                // id: "1",
-                // corp: "株式会社marumaru店",
             }
         }
     }

@@ -18,6 +18,14 @@ class ApiController extends Controller
         return response()->json($properties);
     }
 
+    public function addImages(Request $req) {
+        if ($req->file) {
+            $req->file->storeAs('public', 'test_name.jpg');
+        }
+        return response()->json('success');
+
+    }
+
     public function addProperty(Request $req) {
         $houseProperty = new HouseProperty([
             'type' => $req->input('type'),
