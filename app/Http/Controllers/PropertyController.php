@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Property;
+use App\HouseProperty;
 use Illuminate\Http\Request;
 use App\Http\Resources\PropertyCollection;
 
@@ -15,7 +15,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::all()->Array();
+        $properties = HouseProperty::all()->Array();
         return array_reverse($properties);
     }
 
@@ -27,7 +27,7 @@ class PropertyController extends Controller
      */
     public function create(Request $request)
     {
-        $property = new Property([
+        $property = new HouseProperty([
             'name' => $request->input('name'),
         ]);
         $property->save();
@@ -46,10 +46,10 @@ class PropertyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Property  $property
+     * @param  \App\HouseProperty  $property
      * @return \Illuminate\Http\Response
      */
-    public function show(Property $property)
+    public function show(HouseProperty $property)
     {
         //
     }
@@ -57,12 +57,12 @@ class PropertyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Property  $property
+     * @param  \App\HouseProperty  $property
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $property = Property::find($id);
+        $property = HouseProperty::find($id);
         return response()->json($property);
     }
 
@@ -70,12 +70,12 @@ class PropertyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Property  $property
+     * @param  \App\HouseProperty  $property
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $property = Property::find($id);
+        $property = HouseProperty::find($id);
         $property->update($request->all());
 
         return response()->json('The book successfully updated');
@@ -84,12 +84,12 @@ class PropertyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Property  $property
+     * @param  \App\HouseProperty  $property
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $property = Property::find($id);
+        $property = HouseProperty::find($id);
         $property->delete();
 
         return response()->json('The book successfully deleted');

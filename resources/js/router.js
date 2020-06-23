@@ -74,7 +74,7 @@ const router = new Router({
             component: Result,
         },
         {
-            path: '/detail',
+            path: '/detail/:detail_id',
             name: 'detail',
             component: Detail,
         },
@@ -85,11 +85,6 @@ const router = new Router({
             meta: {
                 auth: true
             },
-        },
-        {
-            path: '*',
-            name: 'page-not-found',
-            component: PageNotFound,
         },
         {
             path: '/corp/login',
@@ -120,6 +115,11 @@ const router = new Router({
             path: '/corp/manage-account-info/',
             name: 'manage-account-info',
             component: ManageAccountInfo,
+        },
+        {
+            path: '*',
+            name: 'page-not-found',
+            component: PageNotFound,
         },
     ],
     scrollBehavior(to, from, savedPosition) {

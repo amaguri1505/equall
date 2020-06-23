@@ -3071,31 +3071,39 @@ __webpack_require__.r(__webpack_exports__);
     DetailThumbnail: _moducule_DetailThumbnail__WEBPACK_IMPORTED_MODULE_0__["default"],
     DetailSubContentItem: _moducule_DetailSubContentItem__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  created: function created() {
+    var _this = this;
+
+    var detail_id = this.$route.params.detail_id;
+    this.$http.get("/get-detail/".concat(detail_id)).then(function (response) {
+      _this.house_property = response.data;
+    });
+  },
   data: function data() {
     return {
-      house_property: [],
-      type: "賃貸",
-      name: "サンプル物件",
-      good: "良い点",
-      bad: "悪い点",
-      pet_type: "猫",
-      pet_cnt: "1",
-      nearest_station: "サンプル駅",
-      address: "東京都目黒区上目黒",
-      is_pet: "飼育可能",
-      cost: "100,000円",
-      manage_cost: "10,000円",
-      initial_cost: "敷金0ヶ月 / 礼金0ヶ月 / 保証金0ヶ月",
-      area: "41.77㎡",
-      floor_plan: "1LDK",
-      floor: "3階建",
-      age: "1990年12月",
-      structure: "鉄骨鉄筋コンクリート",
-      park: "有り *お問い合わせ",
-      facility: "鍵交換必須",
-      start_date: "2020/06/25",
-      id: "1",
-      corp: "株式会社marumaru店"
+      house_property: {} // type: "賃貸",
+      // name: "サンプル物件",
+      // good: "良い点",
+      // bad: "悪い点",
+      // pet_type: "猫",
+      // pet_cnt: "1",
+      // nearest_station: "サンプル駅",
+      // address: "東京都目黒区上目黒",
+      // is_pet: "飼育可能",
+      // cost: "100,000円",
+      // manage_cost: "10,000円",
+      // initial_cost: "敷金0ヶ月 / 礼金0ヶ月 / 保証金0ヶ月",
+      // area: "41.77㎡",
+      // floor_plan: "1LDK",
+      // floor: "3階建",
+      // age: "1990年12月",
+      // structure: "鉄骨鉄筋コンクリート",
+      // park: "有り *お問い合わせ",
+      // facility: "鍵交換必須",
+      // start_date: "2020/06/25",
+      // id: "1",
+      // corp: "株式会社marumaru店",
+
     };
   }
 });
@@ -3816,6 +3824,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3823,6 +3838,13 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     TheSidebar: _includes_corp_SideBar__WEBPACK_IMPORTED_MODULE_1__["default"],
     TheHeader: _includes_corp_Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      snackbar: false,
+      snack_color: "success",
+      snack_text: "test"
+    };
   }
 });
 
@@ -3984,6 +4006,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3995,279 +4026,322 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: '掲載終了日',
         value: 'end_date',
-        align: 'center'
+        align: 'center',
+        dataType: 'Date'
       }, {
         text: '登録日',
-        value: 'register_date',
-        align: 'center'
+        value: 'created_at',
+        align: 'center',
+        dataType: 'Date'
       }, {
         text: '更新日',
-        value: 'update_date',
-        align: 'center'
+        value: 'updated_at',
+        align: 'center',
+        dataType: 'Date'
       }, {
         text: '物件名',
         value: 'name',
         align: 'center'
       }, {
         text: '家賃',
-        value: 'rent',
+        value: 'cost',
         align: 'center'
       }, {
         text: '問い合わせ数',
         value: 'inquiry_cnt',
         align: 'center'
       }],
-      properties: [{
-        id: 1,
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }, {
-        publish_flg: "公開中",
-        end_date: "掲載終了日",
-        register_date: "2020/01/01",
-        update_date: "2020/01/01",
-        name: "コーポ新宿",
-        rent: "100,000円",
-        inquiry_cnt: "3件"
-      }]
+      properties: [] // properties: [
+      //     {
+      //         id: 1,
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      //     {
+      //         publish_flg: "公開中",
+      //         end_date: "掲載終了日",
+      //         register_date: "2020/01/01",
+      //         update_date: "2020/01/01",
+      //         name: "コーポ新宿",
+      //         rent: "100,000円",
+      //         inquiry_cnt: "3件"
+      //     },
+      // ]
+
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.$http.get('/get-properties').then(function (response) {
+      _this.properties = response.data;
+    });
   }
 });
 
@@ -4481,21 +4555,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -4503,14 +4562,27 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      property: {},
       images: [],
       types: ["賃貸"],
       pet_types: ["猫", "犬", "犬猫両方可能"],
       is_pet: ["可能"]
     };
   },
-  method: {
-    submit: function submit() {}
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      this.$http.post('/add-property', this.property).then(function (response) {
+        _this.$parent.snack_text = "物件を登録しました";
+        _this.$parent.snack_color = "#76c3bf";
+        _this.$parent.snackbar = true;
+      }).catch(function (error) {
+        _this.$parent.snack_text = "エラーが発生しました";
+        _this.$parent.snack_color = "warning";
+        _this.$parent.snackbar = true;
+      });
+    }
   }
 });
 
@@ -8556,7 +8628,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".corp-index__wrap {\n  position: relative;\n}\n.corp-register__image-uploader-title {\n  color: rgba(0, 0, 0, 0.6);\n  margin-bottom: 10px;\n}", ""]);
+exports.push([module.i, ".corp-index__wrap {\n  position: relative;\n}\n.corp-register__image-uploader-wrap {\n  margin-bottom: 30px;\n}\n.corp-register__image-uploader-title {\n  color: rgba(0, 0, 0, 0.6);\n  margin-bottom: 10px;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -44409,35 +44481,53 @@ var render = function() {
               },
               [
                 _c("detail-sub-content-item", {
-                  attrs: { title: "種類", subtitle: this.type }
+                  attrs: { title: "種類", subtitle: this.house_property.type }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "物件名", subtitle: this.name }
+                  attrs: { title: "物件名", subtitle: this.house_property.name }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "Goodポイント", subtitle: this.good }
+                  attrs: {
+                    title: "Goodポイント",
+                    subtitle: this.house_property.good
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "Badポイント", subtitle: this.bad }
+                  attrs: {
+                    title: "Badポイント",
+                    subtitle: this.house_property.bad
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "ペットの種類", subtitle: this.pet_type }
+                  attrs: {
+                    title: "ペットの種類",
+                    subtitle: this.house_property.pet_type
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "ペット数", subtitle: this.pet_cnt }
+                  attrs: {
+                    title: "ペット数",
+                    subtitle: this.house_property.pet_cnt
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "最寄駅", subtitle: this.nearest_station }
+                  attrs: {
+                    title: "最寄駅",
+                    subtitle: this.house_property.nearest_station
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "所在地", subtitle: this.address }
+                  attrs: {
+                    title: "所在地",
+                    subtitle: this.house_property.address
+                  }
                 }),
                 _vm._v(" "),
                 _vm._m(1)
@@ -44464,62 +44554,89 @@ var render = function() {
               },
               [
                 _c("detail-sub-content-item", {
-                  attrs: { title: "ペット飼育", subtitle: this.is_pet }
+                  attrs: {
+                    title: "ペット飼育",
+                    subtitle: this.house_property.is_pet
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "賃料", subtitle: this.cost }
+                  attrs: { title: "賃料", subtitle: this.house_property.cost }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "管理費", subtitle: this.manage_cost }
+                  attrs: {
+                    title: "管理費",
+                    subtitle: this.house_property.manage_cost
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "初期費用", subtitle: this.initial_cost }
+                  attrs: {
+                    title: "初期費用",
+                    subtitle: this.house_property.initial_cost
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "専有面積", subtitle: this.area }
+                  attrs: {
+                    title: "専有面積",
+                    subtitle: this.house_property.area
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "間取り", subtitle: this.floor_plan }
+                  attrs: {
+                    title: "間取り",
+                    subtitle: this.house_property.floor_plan
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "階数", subtitle: this.floor }
+                  attrs: { title: "階数", subtitle: this.house_property.floor }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "築年月", subtitle: this.age }
+                  attrs: { title: "築年月", subtitle: this.house_property.age }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "建物構造", subtitle: this.structure }
+                  attrs: {
+                    title: "建物構造",
+                    subtitle: this.house_property.structure
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
                   attrs: {
                     title: "駐車場・バイク・駐輪場",
-                    subtitle: this.park
+                    subtitle: this.house_property.park
                   }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "設備", subtitle: this.facility }
+                  attrs: {
+                    title: "設備",
+                    subtitle: this.house_property.facility
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "掲載費", subtitle: this.start_date }
+                  attrs: {
+                    title: "掲載費",
+                    subtitle: this.house_property.start_date
+                  }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "物件ID", subtitle: this.id }
+                  attrs: { title: "物件ID", subtitle: this.house_property.id }
                 }),
                 _vm._v(" "),
                 _c("detail-sub-content-item", {
-                  attrs: { title: "取扱不動産会社", subtitle: this.corp }
+                  attrs: {
+                    title: "取扱不動産会社",
+                    subtitle: this.house_property.corp
+                  }
                 })
               ],
               1
@@ -45613,6 +45730,21 @@ var render = function() {
     "div",
     { staticClass: "corp-layout" },
     [
+      _c(
+        "v-snackbar",
+        {
+          attrs: { top: "", color: _vm.snack_color },
+          model: {
+            value: _vm.snackbar,
+            callback: function($$v) {
+              _vm.snackbar = $$v
+            },
+            expression: "snackbar"
+          }
+        },
+        [_vm._v("\n        " + _vm._s(_vm.snack_text) + "\n    ")]
+      ),
+      _vm._v(" "),
       _c("the-header", { staticClass: "corp-layout__header" }),
       _vm._v(" "),
       _c("v-divider"),
@@ -45912,7 +46044,42 @@ var render = function() {
             "item-key": "id",
             "show-select": "",
             "single-select": "false"
-          }
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "item.created_at",
+              fn: function(ref) {
+                var item = ref.item
+                return [
+                  _c("span", [
+                    _vm._v(_vm._s(new Date(item.created_at).toDateString()))
+                  ])
+                ]
+              }
+            },
+            {
+              key: "item.end_date",
+              fn: function(ref) {
+                var item = ref.item
+                return [
+                  _c("span", [
+                    _vm._v(_vm._s(new Date(item.end_date).toDateString()))
+                  ])
+                ]
+              }
+            },
+            {
+              key: "item.updated_at",
+              fn: function(ref) {
+                var item = ref.item
+                return [
+                  _c("span", [
+                    _vm._v(_vm._s(new Date(item.updated_at).toDateString()))
+                  ])
+                ]
+              }
+            }
+          ])
         })
       ],
       1
@@ -46008,57 +46175,44 @@ var render = function() {
                         required: ""
                       },
                       model: {
-                        value: _vm.type,
+                        value: _vm.property.type,
                         callback: function($$v) {
-                          _vm.type = $$v
+                          _vm.$set(_vm.property, "type", $$v)
                         },
-                        expression: "type"
+                        expression: "property.type"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        counter: 100,
-                        rules: _vm.nameRules,
-                        label: "物件名",
-                        required: ""
-                      },
+                      attrs: { counter: 100, label: "物件名", required: "" },
                       model: {
-                        value: _vm.name,
+                        value: _vm.property.name,
                         callback: function($$v) {
-                          _vm.name = $$v
+                          _vm.$set(_vm.property, "name", $$v)
                         },
-                        expression: "name"
+                        expression: "property.name"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        counter: 200,
-                        rules: _vm.goodRules,
-                        label: "Goodポイント"
-                      },
+                      attrs: { counter: 200, label: "Goodポイント" },
                       model: {
-                        value: _vm.good,
+                        value: _vm.property.good,
                         callback: function($$v) {
-                          _vm.good = $$v
+                          _vm.$set(_vm.property, "good", $$v)
                         },
-                        expression: "good"
+                        expression: "property.good"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        counter: 200,
-                        rules: _vm.badRules,
-                        label: "Badポイント"
-                      },
+                      attrs: { counter: 200, label: "Badポイント" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.bad,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "bad", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.bad"
                       }
                     }),
                     _vm._v(" "),
@@ -46074,57 +46228,44 @@ var render = function() {
                         required: ""
                       },
                       model: {
-                        value: _vm.pet_type,
+                        value: _vm.property.pet_type,
                         callback: function($$v) {
-                          _vm.pet_type = $$v
+                          _vm.$set(_vm.property, "pet_type", $$v)
                         },
-                        expression: "pet_type"
+                        expression: "property.pet_type"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        type: "number",
-                        count: 20,
-                        rules: _vm.badRules,
-                        label: "ペット数"
-                      },
+                      attrs: { type: "number", count: 20, label: "ペット数" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.pet_cnt,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "pet_cnt", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.pet_cnt"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        count: 50,
-                        rules: _vm.badRules,
-                        label: "最寄駅"
-                      },
+                      attrs: { count: 50, label: "最寄駅" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.nearest_station,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "nearest_station", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.nearest_station"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        count: 200,
-                        rules: _vm.badRules,
-                        label: "所在地"
-                      },
+                      attrs: { count: 200, label: "所在地" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.address,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "address", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.address"
                       }
                     }),
                     _vm._v(" "),
@@ -46140,198 +46281,162 @@ var render = function() {
                         required: ""
                       },
                       model: {
-                        value: _vm.is_pet,
+                        value: _vm.property.is_pet,
                         callback: function($$v) {
-                          _vm.is_pet = $$v
+                          _vm.$set(_vm.property, "is_pet", $$v)
                         },
-                        expression: "is_pet"
+                        expression: "property.is_pet"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
                       attrs: {
                         count: 10,
-                        rules: _vm.badRules,
                         type: "number",
                         prefix: "¥",
                         label: "家賃"
                       },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.cost,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "cost", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.cost"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
                       attrs: {
                         count: 10,
-                        rules: _vm.badRules,
                         type: "number",
                         prefix: "¥",
                         label: "管理費"
                       },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.manage_cost,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "manage_cost", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.manage_cost"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
                       attrs: {
                         count: 10,
-                        rules: _vm.badRules,
                         type: "number",
                         prefix: "¥",
                         label: "初期費用"
                       },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.initial_cost,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "initial_cost", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.initial_cost"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
                       attrs: {
-                        rules: _vm.badRules,
                         type: "number",
                         label: "専有面積",
                         suffix: "㎡"
                       },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.area,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "area", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.area"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        count: 10,
-                        rules: _vm.badRules,
-                        label: "間取り"
-                      },
+                      attrs: { count: 10, label: "間取り" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.floor_plan,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "floor_plan", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.floor_plan"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        rules: _vm.badRules,
-                        type: "number",
-                        label: "階数"
-                      },
+                      attrs: { type: "number", label: "階数" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.floor,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "floor", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.floor"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        rules: _vm.badRules,
-                        type: "month",
-                        label: "築年月"
-                      },
+                      attrs: { type: "month", label: "築年月" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.age,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "age", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.age"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        count: 30,
-                        rules: _vm.badRules,
-                        label: "建物構造"
-                      },
+                      attrs: { count: 30, label: "建物構造" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.structure,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "structure", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.structure"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        count: 30,
-                        rules: _vm.badRules,
-                        label: "駐車場の有無"
-                      },
+                      attrs: { count: 30, label: "駐車場の有無" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.park,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "park", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.park"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        count: 200,
-                        rules: _vm.badRules,
-                        label: "その他条件"
-                      },
+                      attrs: { count: 200, label: "その他条件" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.facility,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "facility", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.facility"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        rules: _vm.badRules,
-                        label: "掲載開始日",
-                        type: "date"
-                      },
+                      attrs: { label: "掲載開始日", type: "date" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.start_date,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "start_date", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.start_date"
                       }
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: {
-                        count: 200,
-                        rules: _vm.badRules,
-                        label: "取扱不動産店"
-                      },
+                      attrs: { count: 200, label: "取扱不動産店" },
                       model: {
-                        value: _vm.bad,
+                        value: _vm.property.corp,
                         callback: function($$v) {
-                          _vm.bad = $$v
+                          _vm.$set(_vm.property, "corp", $$v)
                         },
-                        expression: "bad"
+                        expression: "property.corp"
                       }
                     }),
                     _vm._v(" "),
@@ -110003,7 +110108,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
     name: 'result',
     component: _components_pages_Result__WEBPACK_IMPORTED_MODULE_11__["default"]
   }, {
-    path: '/detail',
+    path: '/detail/:detail_id',
     name: 'detail',
     component: _components_pages_Detail__WEBPACK_IMPORTED_MODULE_12__["default"]
   }, {
@@ -110013,10 +110118,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
     meta: {
       auth: true
     }
-  }, {
-    path: '*',
-    name: 'page-not-found',
-    component: _components_pages_PageNotFound__WEBPACK_IMPORTED_MODULE_14__["default"]
   }, {
     path: '/corp/login',
     name: 'corp_login',
@@ -110041,6 +110142,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
     path: '/corp/manage-account-info/',
     name: 'manage-account-info',
     component: _components_pages_corp_ManageAccountInfo__WEBPACK_IMPORTED_MODULE_20__["default"]
+  }, {
+    path: '*',
+    name: 'page-not-found',
+    component: _components_pages_PageNotFound__WEBPACK_IMPORTED_MODULE_14__["default"]
   }],
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     return {

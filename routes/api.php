@@ -21,6 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['api']], function() {
+    Route::post('add-property', 'Api\ApiController@addProperty');
+    Route::get('get-detail/{id}', 'Api\ApiController@getDetail');
+    Route::get('get-properties', 'Api\ApiController@getProperties');
+
+
+
     Route::post('/register','Auth\RegisterController@register');
     Route::post('/login', function (Request $request) {
         $data = $request->validate([

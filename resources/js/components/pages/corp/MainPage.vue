@@ -1,5 +1,12 @@
 <template>
     <div class="corp-layout">
+        <v-snackbar
+            top
+            v-model="snackbar"
+            :color="snack_color"
+        >
+            {{ snack_text }}
+        </v-snackbar>
         <the-header class="corp-layout__header"/>
         <v-divider></v-divider>
         <v-container
@@ -37,6 +44,13 @@
             TheHeader,
 
         },
+        data () {
+            return {
+                snackbar: false,
+                snack_color: "success",
+                snack_text: "test",
+            }
+        }
     }
 </script>
 <style lang="sass">
