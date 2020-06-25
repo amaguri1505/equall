@@ -5,20 +5,25 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\HouseProperty;
+use App\HousePropertyImage;
+use Illuminate\Support\Facades\Storage;
 
 class ApiController extends Controller
 {
-    public function getDetail($id) {
+    public function getDetail($id)
+    {
         $house_property = HouseProperty::find($id);
         return response()->json($house_property);
     }
 
-    public function getProperties() {
+    public function getProperties()
+    {
         $properties = HouseProperty::get();
         return response()->json($properties);
     }
 
-    public function addImages(Request $req) {
+    public function addImages(Request $req)
+    {
         if ($req->file) {
             $req->file->storeAs('public', 'test_name.jpg');
         }
@@ -26,7 +31,8 @@ class ApiController extends Controller
 
     }
 
-    public function addProperty(Request $req) {
+    public function addProperty(Request $req)
+    {
         $houseProperty = new HouseProperty([
             'type' => $req->input('type'),
             'name' => $req->input('name'),
@@ -51,6 +57,17 @@ class ApiController extends Controller
             'corp' => $req->input('corp'),
         ]);
         $houseProperty->save();
+
+        $housePropertyImages = $req->images;
+
+        foreach($housePropertyImages as $image) {
+            $imagePath = Storage::disk('uploads')->put('/test.jpg',$image);
+            HousePropertyImage::create([
+                'image_caption' => 'test',
+                'image_path' => '/uploads/' . $imagePath,
+                'property_id' => '1',
+            ]);
+        }
 
         return response()->json('success addProperty');
     }

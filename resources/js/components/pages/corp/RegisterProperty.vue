@@ -7,7 +7,6 @@
                 <v-content>
                     <v-form
                         ref="form"
-                        v-model="valid"
                         lazy-validation
                     >
                         <div class="corp-register__image-uploader-wrap">
@@ -15,11 +14,13 @@
                                 不動産の画像
                             </div>
                             <vue-upload-multiple-image
-                                :data-images="images"
+                                @upload-success="uploadImageSuccess"
                                 idUpload="myIdUpload"
                                 editUpload="myIdEdit"
                                 dragText="ここに画像をドラッグ"
                                 browseText="画像を選択"
+                                :data-images="property.images"
+                                ref="uploader"
                             ></vue-upload-multiple-image>
                         </div>
 
@@ -31,12 +32,28 @@
                             required
                         ></v-select>
 
+                        <v-select
+                            v-model="property.property_type"
+                            :items="property_types"
+                            :rules="[v => !!v || 'Item is required']"
+                            label="物件種別"
+                            required
+                        ></v-select>
+
                         <v-text-field
                             v-model="property.name"
                             :counter="100"
                             label="物件名"
                             required
                         ></v-text-field>
+
+                        <v-select
+                            v-model="property.is_pet"
+                            :items="is_pet"
+                            :rules="[v => !!v || 'Item is required']"
+                            label="ペット飼育"
+                            required
+                        ></v-select>
 
                         <v-text-field
                             v-model="property.good"
@@ -58,12 +75,13 @@
                             required
                         ></v-select>
 
-                        <v-text-field
+                        <v-select
                             v-model="property.pet_cnt"
-                            type="number"
-                            :count="20"
-                            label="ペット数"
-                        ></v-text-field>
+                            :items="pet_cnt"
+                            :rules="[v => !!v || 'Item is required']"
+                            label="ペットの数"
+                            required
+                        ></v-select>
 
                         <v-text-field
                             v-model="property.nearest_station"
@@ -77,13 +95,6 @@
                             label="所在地"
                         ></v-text-field>
 
-                        <v-select
-                            v-model="property.is_pet"
-                            :items="is_pet"
-                            :rules="[v => !!v || 'Item is required']"
-                            label="ペット飼育可能か"
-                            required
-                        ></v-select>
 
                         <v-text-field
                             v-model="property.cost"
@@ -101,13 +112,21 @@
                             label="管理費"
                         ></v-text-field>
 
-                        <v-text-field
-                            v-model="property.initial_cost"
-                            :count="10"
-                            type="number"
-                            prefix="¥"
-                            label="初期費用"
-                        ></v-text-field>
+                        <v-select
+                            v-model="property.deposit"
+                            :items="deposit"
+                            :rules="[v => !!v || 'Item is required']"
+                            label="敷金"
+                            required
+                        ></v-select>
+
+                        <v-select
+                            v-model="property.key_money"
+                            :items="key_money"
+                            :rules="[v => !!v || 'Item is required']"
+                            label="礼金"
+                            required
+                        ></v-select>
 
                         <v-text-field
                             v-model="property.area"
@@ -116,11 +135,13 @@
                             suffix="㎡"
                         ></v-text-field>
 
-                        <v-text-field
+                        <v-select
                             v-model="property.floor_plan"
-                            :count="10"
+                            :items="floor_plan"
+                            :rules="[v => !!v || 'Item is required']"
                             label="間取り"
-                        ></v-text-field>
+                            required
+                        ></v-select>
 
                         <v-text-field
                             v-model="property.floor"
@@ -134,21 +155,25 @@
                             label="築年月"
                         ></v-text-field>
 
-                        <v-text-field
+                        <v-select
                             v-model="property.structure"
-                            :count="30"
+                            :items="structure"
+                            :rules="[v => !!v || 'Item is required']"
                             label="建物構造"
-                        ></v-text-field>
+                            required
+                        ></v-select>
 
-                        <v-text-field
+                        <v-select
                             v-model="property.park"
-                            :count="30"
+                            :items="park"
+                            :rules="[v => !!v || 'Item is required']"
                             label="駐車場の有無"
-                        ></v-text-field>
+                            required
+                        ></v-select>
 
                         <v-text-field
                             v-model="property.facility"
-                            :count="200"
+                            :counter="200"
                             label="その他条件"
                         ></v-text-field>
 
@@ -205,11 +230,30 @@
         },
         data() {
             return {
-                property: {},
                 images: [],
+                property: {
+                    type: "賃貸",
+                    is_pet: "可",
+                    images: [],
+                },
                 types: ["賃貸"],
-                pet_types: ["猫", "犬", "犬猫両方可能"],
-                is_pet: ["可能"],
+                property_types: ["マンション","アパート","戸建て","テラスハウス","シェアハウス"],
+                pet_types: ["犬", "猫", "犬と猫"],
+                pet_cnt: ["1", "2", "3","4","5","上限なし","お問い合わせください"],
+                deposit: ["0ヵ月分","1ヶ月分","2ヶ月分","3ヶ月分","4ヶ月分","5ヶ月分","お問い合わせください"],
+                key_money: ["0ヵ月分","1ヶ月分","2ヶ月分","3ヶ月分","4ヶ月分","5ヶ月分","お問い合わせください"],
+                floor_plan: [
+                    "1LDK","1DK","1SLDK","1K","1R",
+                    "2LDK","2DK","2SLDK","2K","2R",
+                    "3LDK","3DK","3SLDK","3K","3R",
+                    "4LDK","4DK","4SLDK","4K","4R",
+                    "5LDK","5DK","5SLDK","5K","5R",
+                    "6LDK","6DK","6SLDK","6K","6R",
+                    "7LDK","7DK","7SLDK","7K","7R",
+                ],
+                is_pet: ["可"],
+                structure: ["木造","鉄骨造","鉄筋コンクリート","鉄骨鉄筋コンクリート","その他"],
+                park: ["有","無"],
             }
         },
         methods: {
@@ -226,7 +270,10 @@
                         this.$parent.snack_color = "warning";
                         this.$parent.snackbar = true;
                     });
-            }
+            },
+            uploadImageSuccess(formData, index, fileList) {
+                this.property.images = this.$refs.uploader.images;
+            },
         }
     }
 </script>

@@ -4251,6 +4251,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -4258,11 +4283,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      property: {},
       images: [],
+      property: {
+        type: "賃貸",
+        is_pet: "可",
+        images: []
+      },
       types: ["賃貸"],
-      pet_types: ["猫", "犬", "犬猫両方可能"],
-      is_pet: ["可能"]
+      property_types: ["マンション", "アパート", "戸建て", "テラスハウス", "シェアハウス"],
+      pet_types: ["犬", "猫", "犬と猫"],
+      pet_cnt: ["1", "2", "3", "4", "5", "上限なし", "お問い合わせください"],
+      deposit: ["0ヵ月分", "1ヶ月分", "2ヶ月分", "3ヶ月分", "4ヶ月分", "5ヶ月分", "お問い合わせください"],
+      key_money: ["0ヵ月分", "1ヶ月分", "2ヶ月分", "3ヶ月分", "4ヶ月分", "5ヶ月分", "お問い合わせください"],
+      floor_plan: ["1LDK", "1DK", "1SLDK", "1K", "1R", "2LDK", "2DK", "2SLDK", "2K", "2R", "3LDK", "3DK", "3SLDK", "3K", "3R", "4LDK", "4DK", "4SLDK", "4K", "4R", "5LDK", "5DK", "5SLDK", "5K", "5R", "6LDK", "6DK", "6SLDK", "6K", "6R", "7LDK", "7DK", "7SLDK", "7K", "7R"],
+      is_pet: ["可"],
+      structure: ["木造", "鉄骨造", "鉄筋コンクリート", "鉄骨鉄筋コンクリート", "その他"],
+      park: ["有", "無"]
     };
   },
   methods: {
@@ -4278,6 +4314,9 @@ __webpack_require__.r(__webpack_exports__);
         _this.$parent.snack_color = "warning";
         _this.$parent.snackbar = true;
       });
+    },
+    uploadImageSuccess: function uploadImageSuccess(formData, index, fileList) {
+      this.property.images = this.$refs.uploader.images;
     }
   }
 });
@@ -43954,9 +43993,11 @@ var render = function() {
       _c(
         "v-card",
         [
-          _c("v-title", { staticClass: "text-center inquiry-count__title" }, [
-            _vm._v("\n            今月の問い合わせ数\n        ")
-          ]),
+          _c(
+            "v-card-title",
+            { staticClass: "text-center inquiry-count__title" },
+            [_vm._v("\n            今月の問い合わせ数\n        ")]
+          ),
           _vm._v(" "),
           _c(
             "v-content",
@@ -45818,17 +45859,7 @@ var render = function() {
               [
                 _c(
                   "v-form",
-                  {
-                    ref: "form",
-                    attrs: { "lazy-validation": "" },
-                    model: {
-                      value: _vm.valid,
-                      callback: function($$v) {
-                        _vm.valid = $$v
-                      },
-                      expression: "valid"
-                    }
-                  },
+                  { ref: "form", attrs: { "lazy-validation": "" } },
                   [
                     _c(
                       "div",
@@ -45847,13 +45878,15 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("vue-upload-multiple-image", {
+                          ref: "uploader",
                           attrs: {
-                            "data-images": _vm.images,
                             idUpload: "myIdUpload",
                             editUpload: "myIdEdit",
                             dragText: "ここに画像をドラッグ",
-                            browseText: "画像を選択"
-                          }
+                            browseText: "画像を選択",
+                            "data-images": _vm.property.images
+                          },
+                          on: { "upload-success": _vm.uploadImageSuccess }
                         })
                       ],
                       1
@@ -45879,6 +45912,26 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.property_types,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "物件種別",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.property.property_type,
+                        callback: function($$v) {
+                          _vm.$set(_vm.property, "property_type", $$v)
+                        },
+                        expression: "property.property_type"
+                      }
+                    }),
+                    _vm._v(" "),
                     _c("v-text-field", {
                       attrs: { counter: 100, label: "物件名", required: "" },
                       model: {
@@ -45887,6 +45940,26 @@ var render = function() {
                           _vm.$set(_vm.property, "name", $$v)
                         },
                         expression: "property.name"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.is_pet,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "ペット飼育",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.property.is_pet,
+                        callback: function($$v) {
+                          _vm.$set(_vm.property, "is_pet", $$v)
+                        },
+                        expression: "property.is_pet"
                       }
                     }),
                     _vm._v(" "),
@@ -45932,8 +46005,17 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
-                      attrs: { type: "number", count: 20, label: "ペット数" },
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.pet_cnt,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "ペットの数",
+                        required: ""
+                      },
                       model: {
                         value: _vm.property.pet_cnt,
                         callback: function($$v) {
@@ -45962,26 +46044,6 @@ var render = function() {
                           _vm.$set(_vm.property, "address", $$v)
                         },
                         expression: "property.address"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("v-select", {
-                      attrs: {
-                        items: _vm.is_pet,
-                        rules: [
-                          function(v) {
-                            return !!v || "Item is required"
-                          }
-                        ],
-                        label: "ペット飼育可能か",
-                        required: ""
-                      },
-                      model: {
-                        value: _vm.property.is_pet,
-                        callback: function($$v) {
-                          _vm.$set(_vm.property, "is_pet", $$v)
-                        },
-                        expression: "property.is_pet"
                       }
                     }),
                     _vm._v(" "),
@@ -46017,19 +46079,43 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
+                    _c("v-select", {
                       attrs: {
-                        count: 10,
-                        type: "number",
-                        prefix: "¥",
-                        label: "初期費用"
+                        items: _vm.deposit,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "敷金",
+                        required: ""
                       },
                       model: {
-                        value: _vm.property.initial_cost,
+                        value: _vm.property.deposit,
                         callback: function($$v) {
-                          _vm.$set(_vm.property, "initial_cost", $$v)
+                          _vm.$set(_vm.property, "deposit", $$v)
                         },
-                        expression: "property.initial_cost"
+                        expression: "property.deposit"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.key_money,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "礼金",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.property.key_money,
+                        callback: function($$v) {
+                          _vm.$set(_vm.property, "key_money", $$v)
+                        },
+                        expression: "property.key_money"
                       }
                     }),
                     _vm._v(" "),
@@ -46048,8 +46134,17 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
-                      attrs: { count: 10, label: "間取り" },
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.floor_plan,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "間取り",
+                        required: ""
+                      },
                       model: {
                         value: _vm.property.floor_plan,
                         callback: function($$v) {
@@ -46081,8 +46176,17 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
-                      attrs: { count: 30, label: "建物構造" },
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.structure,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "建物構造",
+                        required: ""
+                      },
                       model: {
                         value: _vm.property.structure,
                         callback: function($$v) {
@@ -46092,8 +46196,17 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
-                      attrs: { count: 30, label: "駐車場の有無" },
+                    _c("v-select", {
+                      attrs: {
+                        items: _vm.park,
+                        rules: [
+                          function(v) {
+                            return !!v || "Item is required"
+                          }
+                        ],
+                        label: "駐車場の有無",
+                        required: ""
+                      },
                       model: {
                         value: _vm.property.park,
                         callback: function($$v) {
@@ -46104,7 +46217,7 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("v-text-field", {
-                      attrs: { count: 200, label: "その他条件" },
+                      attrs: { counter: 200, label: "その他条件" },
                       model: {
                         value: _vm.property.facility,
                         callback: function($$v) {

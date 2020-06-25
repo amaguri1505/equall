@@ -14,7 +14,10 @@ class CreateHousePropertyImagesTable extends Migration
     public function up()
     {
         Schema::create('house_property_images', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->integer('property_id');
+            $table->string('image_path');
+            $table->string('image_caption');
             $table->timestamps();
         });
     }

@@ -64,6 +64,13 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        // about upload
+        'uploads' => [
+            'driver' => 'local',
+            'root' => 'uploads',
+            'url' => 'uploads',
+        ],
+
     ],
 
     /*
@@ -82,11 +89,5 @@ return [
     ],
 
 
-    // about upload
-    'uploads' => [
-        'driver' => 'local',
-        'root' => 'uploads',
-        'url' => 'uploads',
-    ],
 
 ];

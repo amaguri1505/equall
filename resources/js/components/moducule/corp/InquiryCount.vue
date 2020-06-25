@@ -1,11 +1,11 @@
 <template>
     <div class="inquiry-count">
         <v-card>
-            <v-title
+            <v-card-title
                 class="text-center inquiry-count__title"
             >
                 今月の問い合わせ数
-            </v-title>
+            </v-card-title>
             <v-content
                 class="text-center inquiry-count__content"
             >
