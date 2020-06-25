@@ -228,6 +228,14 @@
         components: {
             VueUploadMultipleImage,
         },
+        beforeRouteLeave (to, from, next) {
+            const answer = window.confirm("移動してよろしいですか？");
+            if (answer) {
+                next();
+            } else {
+                next(false);
+            }
+        },
         data() {
             return {
                 images: [],

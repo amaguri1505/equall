@@ -4281,6 +4281,15 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     VueUploadMultipleImage: vue_upload_multiple_image__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  beforeRouteLeave: function beforeRouteLeave(to, from, next) {
+    var answer = window.confirm("移動してよろしいですか？");
+
+    if (answer) {
+      next();
+    } else {
+      next(false);
+    }
+  },
   data: function data() {
     return {
       images: [],
