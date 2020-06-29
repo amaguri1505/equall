@@ -229,7 +229,7 @@
             VueUploadMultipleImage,
         },
         beforeRouteLeave (to, from, next) {
-            const answer = window.confirm("移動してよろしいですか？");
+            const answer = window.confirm("編集中の内容は破棄されます。移動してよろしいですか？");
             if (answer) {
                 next();
             } else {
@@ -272,6 +272,7 @@
                         this.$parent.snack_text = "物件を登録しました";
                         this.$parent.snack_color = "#76c3bf";
                         this.$parent.snackbar = true;
+                        this.$refs.form.reset();
                     })
                     .catch(error => {
                         this.$parent.snack_text = "エラーが発生しました";

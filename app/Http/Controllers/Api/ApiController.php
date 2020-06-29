@@ -16,6 +16,13 @@ class ApiController extends Controller
         return response()->json($house_property);
     }
 
+    public function getTitle($id)
+    {
+        $house_property = HouseProperty::select('name')->where('id',$id)->get();
+        return response()->json($house_property);
+    }
+
+
     public function getProperties()
     {
         $properties = HouseProperty::get();

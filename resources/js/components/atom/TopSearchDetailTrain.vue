@@ -16,9 +16,13 @@
                 </div>
             </template>
 
-            <v-card>
+            <v-card
+                class="pa-5"
+            >
                 <v-card-content>
-                    路線絞り込み
+                    <v-form>
+                        <station-auto></station-auto>
+                    </v-form>
                 </v-card-content>
 
                 <v-card-actions>
@@ -28,7 +32,7 @@
                         text
                         @click="search"
                     >
-                        検索
+                        駅を条件に追加
                     </v-btn>
                 </v-card-actions>
             </v-card>
@@ -47,7 +51,12 @@
 
 </style>
 <script>
+    import StationAuto from "../moducule/StationAuto";
+
     export default {
+        components: {
+            StationAuto,
+        },
         data () {
             return {
                 dialog: false,

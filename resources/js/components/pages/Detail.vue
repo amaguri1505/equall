@@ -1,5 +1,13 @@
 <template>
     <div class="detail">
+        <v-overlay
+            :value="overlay"
+        >
+            <v-progress-circular
+                indeterminate
+                color="#76c3bf"
+            ></v-progress-circular>
+        </v-overlay>
         <div class="detail__title">
             物件詳細
         </div>
@@ -128,9 +136,14 @@
                 </div>
             </div>
             <div class="detail__inquiry mt-5">
-                <a class="detail__inquiry-btn" href="mailto:">
+                <v-btn
+                    class="detail__inquiry-btn"
+                    :to="this.contact_url"
+                    color="#f09299"
+                    large
+                >
                     お問い合わせ
-                </a>
+                </v-btn>
             </div>
         </div>
     </div>
@@ -221,15 +234,19 @@
         },
         created () {
             const detail_id = this.$route.params.detail_id;
+            this.contact_url = "/detail/" + detail_id + "/contact";
             this.$http
                 .get(`/get-detail/${detail_id}`)
                 .then(response => {
                     this.house_property = response.data;
+                    this.overlay=false;
                 });
         },
         data () {
             return {
                 house_property: {},
+                contact_url: "",
+                overlay: true,
             }
         }
     }

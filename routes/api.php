@@ -25,6 +25,7 @@ Route::group(['middleware' => ['api']], function() {
     Route::post('add-images', 'Api\ApiController@addImages');
 
     Route::get('get-detail/{id}', 'Api\ApiController@getDetail');
+    Route::get('get-title/{id}', 'Api\ApiController@getTitle');
     Route::get('get-properties', 'Api\ApiController@getProperties');
 
 

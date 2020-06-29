@@ -18,9 +18,29 @@
                 </div>
             </template>
 
-            <v-card>
+            <v-card
+                class="pa-5"
+            >
                 <v-content>
-                    価格絞りこみ
+                    <v-form>
+                        <v-select
+                            v-model="cost.under"
+                            :items="costs"
+                            :rules="[v => !!v || 'Item is required']"
+                            label="家賃下限"
+                            required
+                        ></v-select>
+                        <div>
+                            〜
+                        </div>
+                        <v-select
+                            v-model="cost.limit"
+                            :items="costs"
+                            :rules="[v => !!v || 'Item is required']"
+                            label="家賃上限"
+                            required
+                        ></v-select>
+                    </v-form>
                 </v-content>
 
                 <v-card-actions>
@@ -30,7 +50,7 @@
                         text
                         @click="search"
                     >
-                        検索
+                        価格を条件に追加
                     </v-btn>
                 </v-card-actions>
             </v-card>
@@ -52,6 +72,48 @@
         data() {
             return {
                 dialog: false,
+                cost: [],
+                costs: [
+                    "設定なし",
+                    "3万円",
+                    "3.5万円",
+                    "4万円",
+                    "4.5万円",
+                    "5万円",
+                    "5.5万円",
+                    "6万円",
+                    "6.5万円",
+                    "7万円",
+                    "7.5万円",
+                    "8万円",
+                    "8.5万円",
+                    "9万円",
+                    "9.5万円",
+                    "10万円",
+                    "10.5万円",
+                    "11万円",
+                    "11.5万円",
+                    "12万円",
+                    "12.5万円",
+                    "13万円",
+                    "13.5万円",
+                    "14万円",
+                    "14.5万円",
+                    "15万円",
+                    "16万円",
+                    "17万円",
+                    "18万円",
+                    "19万円",
+                    "20万円",
+                    "21万円",
+                    "22万円",
+                    "23万円",
+                    "24万円",
+                    "25万円",
+                    "30万円",
+                    "50万円",
+                    "100万円",
+                ],
             }
         },
         methods: {

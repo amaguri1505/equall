@@ -18,11 +18,18 @@
                 </div>
             </template>
 
-            <v-card>
+            <v-card
+                class="pa-5"
+            >
                 <v-card-content>
-                    エリア絞り込み
+                    <v-form>
+                        <v-checkbox
+                            v-model="selected_ward"
+                            label="ward.name"
+                            value="ward.name"
+                        ></v-checkbox>
+                    </v-form>
                 </v-card-content>
-
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
@@ -30,7 +37,7 @@
                         text
                         @click="search"
                     >
-                        検索
+                        エリアを条件に追加
                     </v-btn>
                 </v-card-actions>
             </v-card>

@@ -11,6 +11,7 @@ import RealEstatesForCat from './components/pages/RealEstatesForCat';
 import Result from './components/pages/Result';
 import Detail from './components/pages/Detail';
 import MyPage from './components/pages/MyPage';
+import Contact from './components/pages/Contact';
 import PageNotFound from './components/pages/PageNotFound';
 import CorpLogin from './components/pages/corp/Login';
 import CorpIndex from './components/pages/corp/Index';
@@ -77,6 +78,11 @@ const router = new Router({
             path: '/detail/:detail_id',
             name: 'detail',
             component: Detail,
+        },
+        {
+            path: '/detail/:detail_id/contact',
+            name: 'contact',
+            component: Contact,
         },
         {
             path: '/mypage',

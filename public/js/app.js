@@ -2060,6 +2060,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2133,10 +2140,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      dialog: false
+      dialog: false,
+      cost: [],
+      costs: ["設定なし", "3万円", "3.5万円", "4万円", "4.5万円", "5万円", "5.5万円", "6万円", "6.5万円", "7万円", "7.5万円", "8万円", "8.5万円", "9万円", "9.5万円", "10万円", "10.5万円", "11万円", "11.5万円", "12万円", "12.5万円", "13万円", "13.5万円", "14万円", "14.5万円", "15万円", "16万円", "17万円", "18万円", "19万円", "20万円", "21万円", "22万円", "23万円", "24万円", "25万円", "30万円", "50万円", "100万円"]
     };
   },
   methods: {
@@ -2157,6 +2186,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moducule_StationAuto__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../moducule/StationAuto */ "./resources/js/components/moducule/StationAuto.vue");
 //
 //
 //
@@ -2205,7 +2235,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    StationAuto: _moducule_StationAuto__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       dialog: false
@@ -2656,6 +2694,1505 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/moducule/StationAuto.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/moducule/StationAuto.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      station: "",
+      stations: [{
+        name: '池袋駅'
+      }, {
+        name: '和光市駅'
+      }, {
+        name: '北千住駅'
+      }, {
+        name: '北綾瀬駅'
+      }, {
+        name: '目黒駅'
+      }, {
+        name: '浅草駅'
+      }, {
+        name: '和光市駅'
+      }, {
+        name: '渋谷駅'
+      }, {
+        name: '中野駅'
+      }, {
+        name: '新宿駅'
+      }, {
+        name: '池袋駅'
+      }, {
+        name: '新木場駅'
+      }, {
+        name: '東京駅'
+      }, {
+        name: '新宿駅'
+      }, {
+        name: '新宿駅'
+      }, {
+        name: '渋谷駅'
+      }, {
+        name: '東京駅'
+      }, {
+        name: '東京駅'
+      }, {
+        name: '東京駅'
+      }, {
+        name: '恵比寿駅'
+      }, {
+        name: '渋谷駅'
+      }, {
+        name: '渋谷駅'
+      }, {
+        name: '西馬込駅'
+      }, {
+        name: '目黒駅'
+      }, {
+        name: '秋葉原駅'
+      }, {
+        name: '大宮駅'
+      }, {
+        name: '大宮駅'
+      }, {
+        name: '東京駅'
+      }, {
+        name: '府中本町駅'
+      }, {
+        name: '東神奈川駅'
+      }, {
+        name: '三軒茶屋駅'
+      }, {
+        name: '目黒駅'
+      }, {
+        name: '大塚駅'
+      }, {
+        name: '新大塚駅'
+      }, {
+        name: '地下鉄成増駅'
+      }, {
+        name: '南千住駅'
+      }, {
+        name: '綾瀬駅'
+      }, {
+        name: '白金台駅'
+      }, {
+        name: '田原町駅'
+      }, {
+        name: '地下鉄成増駅'
+      }, {
+        name: '表参道駅'
+      }, {
+        name: '落合駅'
+      }, {
+        name: '新宿三丁目駅'
+      }, {
+        name: '北池袋駅'
+      }, {
+        name: '東雲駅'
+      }, {
+        name: '新日本橋駅'
+      }, {
+        name: '笹塚駅'
+      }, {
+        name: '初台駅'
+      }, {
+        name: '神泉駅'
+      }, {
+        name: '神田駅'
+      }, {
+        name: '新橋駅'
+      }, {
+        name: '八丁堀駅'
+      }, {
+        name: '渋谷駅'
+      }, {
+        name: '代官山駅'
+      }, {
+        name: '池尻大橋駅'
+      }, {
+        name: '馬込駅'
+      }, {
+        name: '白金台駅'
+      }, {
+        name: '新御徒町駅'
+      }, {
+        name: '赤羽駅'
+      }, {
+        name: 'さいたま新都心駅'
+      }, {
+        name: '新日本橋駅'
+      }, {
+        name: '北府中駅'
+      }, {
+        name: '大口駅'
+      }, {
+        name: '西太子堂駅'
+      }, {
+        name: '不動前駅'
+      }, {
+        name: '巣鴨駅'
+      }, {
+        name: '茗荷谷駅'
+      }, {
+        name: '地下鉄赤塚駅'
+      }, {
+        name: '三ノ輪駅'
+      }, {
+        name: '北千住駅'
+      }, {
+        name: '白金高輪駅'
+      }, {
+        name: '稲荷町駅'
+      }, {
+        name: '地下鉄赤塚駅'
+      }, {
+        name: '青山一丁目駅'
+      }, {
+        name: '高田馬場駅'
+      }, {
+        name: '曙橋駅'
+      }, {
+        name: '下板橋駅'
+      }, {
+        name: '国際展示場駅'
+      }, {
+        name: '馬喰町駅'
+      }, {
+        name: '代田橋駅'
+      }, {
+        name: '幡ヶ谷駅'
+      }, {
+        name: '駒場東大前駅'
+      }, {
+        name: '御茶ノ水駅'
+      }, {
+        name: '品川駅'
+      }, {
+        name: '越中島駅'
+      }, {
+        name: '新宿駅'
+      }, {
+        name: '中目黒駅'
+      }, {
+        name: '三軒茶屋駅'
+      }, {
+        name: '中延駅'
+      }, {
+        name: '白金高輪駅'
+      }, {
+        name: '浅草駅'
+      }, {
+        name: '池袋駅'
+      }, {
+        name: '与野駅'
+      }, {
+        name: '馬喰町駅'
+      }, {
+        name: '西国分寺駅'
+      }, {
+        name: '菊名駅'
+      }, {
+        name: '若林駅'
+      }, {
+        name: '武蔵小山駅'
+      }, {
+        name: '駒込駅'
+      }, {
+        name: '後楽園駅'
+      }, {
+        name: '平和台駅'
+      }, {
+        name: '入谷駅'
+      }, {
+        name: '町屋駅'
+      }, {
+        name: '麻布十番駅'
+      }, {
+        name: '上野駅'
+      }, {
+        name: '平和台駅'
+      }, {
+        name: '永田町駅'
+      }, {
+        name: '早稲田駅'
+      }, {
+        name: '市ヶ谷駅'
+      }, {
+        name: '大山駅'
+      }, {
+        name: '東京テレポート駅'
+      }, {
+        name: '錦糸町駅'
+      }, {
+        name: '明大前駅'
+      }, {
+        name: '笹塚駅'
+      }, {
+        name: '池ノ上駅'
+      }, {
+        name: '水道橋駅'
+      }, {
+        name: '川崎駅'
+      }, {
+        name: '潮見駅'
+      }, {
+        name: '池袋駅'
+      }, {
+        name: '祐天寺駅'
+      }, {
+        name: '駒沢大学駅'
+      }, {
+        name: '戸越駅'
+      }, {
+        name: '三田駅'
+      }, {
+        name: '南千住駅'
+      }, {
+        name: '新宿駅'
+      }, {
+        name: '北浦和駅'
+      }, {
+        name: '錦糸町駅'
+      }, {
+        name: '新小平駅'
+      }, {
+        name: '新横浜駅'
+      }, {
+        name: '松陰神社前駅'
+      }, {
+        name: '西小山駅'
+      }, {
+        name: '田端駅'
+      }, {
+        name: '本郷三丁目駅'
+      }, {
+        name: '氷川台駅'
+      }, {
+        name: '上野駅'
+      }, {
+        name: '西日暮里駅'
+      }, {
+        name: '六本木一丁目駅'
+      }, {
+        name: '上野広小路駅'
+      }, {
+        name: '氷川台駅'
+      }, {
+        name: '半蔵門駅'
+      }, {
+        name: '神楽坂駅'
+      }, {
+        name: '九段下駅'
+      }, {
+        name: '中板橋駅'
+      }, {
+        name: '天王洲アイル駅'
+      }, {
+        name: '亀戸駅'
+      }, {
+        name: '下高井戸駅'
+      }, {
+        name: '下北沢駅'
+      }, {
+        name: '飯田橋駅'
+      }, {
+        name: '横浜駅'
+      }, {
+        name: '新木場駅'
+      }, {
+        name: '板橋駅'
+      }, {
+        name: '学芸大学駅'
+      }, {
+        name: '桜新町駅'
+      }, {
+        name: '五反田駅'
+      }, {
+        name: '芝公園駅'
+      }, {
+        name: '北千住駅'
+      }, {
+        name: '渋谷駅'
+      }, {
+        name: '浦和駅'
+      }, {
+        name: '亀戸駅'
+      }, {
+        name: '新秋津駅'
+      }, {
+        name: '小机駅'
+      }, {
+        name: '世田谷駅'
+      }, {
+        name: '洗足駅'
+      }, {
+        name: '西日暮里駅'
+      }, {
+        name: '御茶ノ水駅'
+      }, {
+        name: '小竹向原駅'
+      }, {
+        name: '仲御徒町駅'
+      }, {
+        name: '千駄木駅'
+      }, {
+        name: '溜池山王駅'
+      }, {
+        name: '末広町駅'
+      }, {
+        name: '小竹向原駅'
+      }, {
+        name: '九段下駅'
+      }, {
+        name: '飯田橋駅'
+      }, {
+        name: '神保町駅'
+      }, {
+        name: 'ときわ台駅'
+      }, {
+        name: '品川シーサイド駅'
+      }, {
+        name: '平井駅'
+      }, {
+        name: '桜上水駅'
+      }, {
+        name: '新代田駅'
+      }, {
+        name: '市ケ谷駅'
+      }, {
+        name: '戸塚駅'
+      }, {
+        name: '葛西臨海公園駅'
+      }, {
+        name: '十条駅'
+      }, {
+        name: '都立大学駅'
+      }, {
+        name: '用賀駅'
+      }, {
+        name: '高輪台駅'
+      }, {
+        name: '御成門駅'
+      }, {
+        name: '青井駅'
+      }, {
+        name: '恵比寿駅'
+      }, {
+        name: '南浦和駅'
+      }, {
+        name: '平井駅'
+      }, {
+        name: '東所沢駅'
+      }, {
+        name: '鴨居駅'
+      }, {
+        name: '上町駅'
+      }, {
+        name: '大岡山駅'
+      }, {
+        name: '日暮里駅'
+      }, {
+        name: '淡路町駅'
+      }, {
+        name: '千川駅'
+      }, {
+        name: '秋葉原駅'
+      }, {
+        name: '根津駅'
+      }, {
+        name: '永田町駅'
+      }, {
+        name: '神田駅'
+      }, {
+        name: '千川駅'
+      }, {
+        name: '神保町駅'
+      }, {
+        name: '九段下駅'
+      }, {
+        name: '小川町駅'
+      }, {
+        name: '上板橋駅'
+      }, {
+        name: '大井町駅'
+      }, {
+        name: '新小岩駅'
+      }, {
+        name: '上北沢駅'
+      }, {
+        name: '東松原駅'
+      }, {
+        name: '四ツ谷駅'
+      }, {
+        name: '大船駅'
+      }, {
+        name: '舞浜駅'
+      }, {
+        name: '赤羽駅'
+      }, {
+        name: '自由が丘駅'
+      }, {
+        name: '二子玉川駅'
+      }, {
+        name: '泉岳寺駅'
+      }, {
+        name: '内幸町駅'
+      }, {
+        name: '六町駅'
+      }, {
+        name: '大崎駅'
+      }, {
+        name: '蕨駅'
+      }, {
+        name: '新小岩駅'
+      }, {
+        name: '新座駅'
+      }, {
+        name: '中山駅'
+      }, {
+        name: '宮の坂駅'
+      }, {
+        name: '奥沢駅'
+      }, {
+        name: '鶯谷駅'
+      }, {
+        name: '大手町駅'
+      }, {
+        name: '要町駅'
+      }, {
+        name: '小伝馬町駅'
+      }, {
+        name: '湯島駅'
+      }, {
+        name: '四ツ谷駅'
+      }, {
+        name: '三越前駅'
+      }, {
+        name: '要町駅'
+      }, {
+        name: '大手町駅'
+      }, {
+        name: '竹橋駅'
+      }, {
+        name: '岩本町駅'
+      }, {
+        name: '東武練馬駅'
+      }, {
+        name: '大崎駅'
+      }, {
+        name: '小岩駅'
+      }, {
+        name: '八幡山駅'
+      }, {
+        name: '明大前駅'
+      }, {
+        name: '信濃町駅'
+      }, {
+        name: '藤沢駅'
+      }, {
+        name: '新浦安駅'
+      }, {
+        name: '北赤羽駅'
+      }, {
+        name: '田園調布駅'
+      }, {
+        name: '二子新地駅'
+      }, {
+        name: '三田駅'
+      }, {
+        name: '日比谷駅'
+      }, {
+        name: '八潮駅'
+      }, {
+        name: '西大井駅'
+      }, {
+        name: '西川口駅'
+      }, {
+        name: '小岩駅'
+      }, {
+        name: '北朝霞駅'
+      }, {
+        name: '十日市場駅'
+      }, {
+        name: '山下駅'
+      }, {
+        name: '田園調布駅'
+      }, {
+        name: '上野駅'
+      }, {
+        name: '東京駅'
+      }, {
+        name: '池袋駅'
+      }, {
+        name: '人形町駅'
+      }, {
+        name: '新御茶ノ水駅'
+      }, {
+        name: '市ケ谷駅'
+      }, {
+        name: '日本橋駅'
+      }, {
+        name: '池袋駅'
+      }, {
+        name: '三越前駅'
+      }, {
+        name: '大手町駅'
+      }, {
+        name: '馬喰横山駅'
+      }, {
+        name: '下赤塚駅'
+      }, {
+        name: '市川駅'
+      }, {
+        name: '芦花公園駅'
+      }, {
+        name: '永福町駅'
+      }, {
+        name: '千駄ヶ谷駅'
+      }, {
+        name: '辻堂駅'
+      }, {
+        name: '市川塩浜駅'
+      }, {
+        name: '浮間舟渡駅'
+      }, {
+        name: '多摩川駅'
+      }, {
+        name: '高津駅'
+      }, {
+        name: '大門駅'
+      }, {
+        name: '大手町駅'
+      }, {
+        name: '三郷中央駅'
+      }, {
+        name: '新川崎駅'
+      }, {
+        name: '川口駅'
+      }, {
+        name: '市川駅'
+      }, {
+        name: '西浦和駅'
+      }, {
+        name: '長津田駅'
+      }, {
+        name: '松原駅'
+      }, {
+        name: '多摩川駅'
+      }, {
+        name: '御徒町駅'
+      }, {
+        name: '銀座駅'
+      }, {
+        name: '東池袋駅'
+      }, {
+        name: '茅場町駅'
+      }, {
+        name: '大手町駅'
+      }, {
+        name: '飯田橋駅'
+      }, {
+        name: '京橋駅'
+      }, {
+        name: '雑司が谷駅'
+      }, {
+        name: '水天宮前駅'
+      }, {
+        name: '日本橋駅'
+      }, {
+        name: '浜町駅'
+      }, {
+        name: '成増駅'
+      }, {
+        name: '本八幡駅'
+      }, {
+        name: '千歳烏山駅'
+      }, {
+        name: '西永福駅'
+      }, {
+        name: '代々木駅'
+      }, {
+        name: '茅ヶ崎駅'
+      }, {
+        name: '二俣新町駅'
+      }, {
+        name: '戸田公園駅'
+      }, {
+        name: '新丸子駅'
+      }, {
+        name: '溝の口駅'
+      }, {
+        name: '新橋駅'
+      }, {
+        name: '神保町駅'
+      }, {
+        name: '南流山駅'
+      }, {
+        name: '横浜駅'
+      }, {
+        name: '赤羽駅'
+      }, {
+        name: '本八幡駅'
+      }, {
+        name: '武蔵浦和駅'
+      }, {
+        name: '成瀬駅'
+      }, {
+        name: '下高井戸駅'
+      }, {
+        name: '新丸子駅'
+      }, {
+        name: '秋葉原駅'
+      }, {
+        name: '霞ケ関駅'
+      }, {
+        name: '護国寺駅'
+      }, {
+        name: '八丁堀駅'
+      }, {
+        name: '二重橋前駅'
+      }, {
+        name: '後楽園駅'
+      }, {
+        name: '銀座駅'
+      }, {
+        name: '西早稲田駅'
+      }, {
+        name: '清澄白河駅'
+      }, {
+        name: '茅場町駅'
+      }, {
+        name: '森下駅'
+      }, {
+        name: '和光市駅'
+      }, {
+        name: '下総中山駅'
+      }, {
+        name: '仙川駅'
+      }, {
+        name: '浜田山駅'
+      }, {
+        name: '新宿駅'
+      }, {
+        name: '平塚駅'
+      }, {
+        name: '南船橋駅'
+      }, {
+        name: '戸田駅'
+      }, {
+        name: '武蔵小杉駅'
+      }, {
+        name: '梶が谷駅'
+      }, {
+        name: '東銀座駅'
+      }, {
+        name: '水道橋駅'
+      }, {
+        name: '流山セントラルパーク駅'
+      }, {
+        name: '保土ヶ谷駅'
+      }, {
+        name: '東十条駅'
+      }, {
+        name: '下総中山駅'
+      }, {
+        name: '南浦和駅'
+      }, {
+        name: '町田駅'
+      }, {
+        name: '武蔵小杉駅'
+      }, {
+        name: '神田駅'
+      }, {
+        name: '国会議事堂前駅'
+      }, {
+        name: '江戸川橋駅'
+      }, {
+        name: '築地駅'
+      }, {
+        name: '日比谷駅'
+      }, {
+        name: '東大前駅'
+      }, {
+        name: '新橋駅'
+      }, {
+        name: '東新宿駅'
+      }, {
+        name: '住吉駅'
+      }, {
+        name: '門前仲町駅'
+      }, {
+        name: '菊川駅'
+      }, {
+        name: '朝霞駅'
+      }, {
+        name: '西船橋駅'
+      }, {
+        name: 'つつじヶ丘駅'
+      }, {
+        name: '高井戸駅'
+      }, {
+        name: '大久保駅'
+      }, {
+        name: '大磯駅'
+      }, {
+        name: '新習志野駅'
+      }, {
+        name: '北戸田駅'
+      }, {
+        name: '元住吉駅'
+      }, {
+        name: '宮崎台駅'
+      }, {
+        name: '宝町駅'
+      }, {
+        name: '春日駅'
+      }, {
+        name: '流山おおたかの森駅'
+      }, {
+        name: '東戸塚駅'
+      }, {
+        name: '王子駅'
+      }, {
+        name: '西船橋駅'
+      }, {
+        name: '東浦和駅'
+      }, {
+        name: '古淵駅'
+      }, {
+        name: '元住吉駅'
+      }, {
+        name: '東京駅'
+      }, {
+        name: '赤坂見附駅'
+      }, {
+        name: '飯田橋駅'
+      }, {
+        name: '東銀座駅'
+      }, {
+        name: '霞ケ関駅'
+      }, {
+        name: '本駒込駅'
+      }, {
+        name: '虎ノ門駅'
+      }, {
+        name: '新宿三丁目駅'
+      }, {
+        name: '錦糸町駅'
+      }, {
+        name: '木場駅'
+      }, {
+        name: '住吉駅'
+      }, {
+        name: '朝霞台駅'
+      }, {
+        name: '船橋駅'
+      }, {
+        name: '柴崎駅'
+      }, {
+        name: '富士見ヶ丘駅'
+      }, {
+        name: '東中野駅'
+      }, {
+        name: '二宮駅'
+      }, {
+        name: '海浜幕張駅'
+      }, {
+        name: '武蔵浦和駅'
+      }, {
+        name: '日吉駅'
+      }, {
+        name: '宮前平駅'
+      }, {
+        name: '日本橋駅'
+      }, {
+        name: '白山駅'
+      }, {
+        name: '柏の葉キャンパス駅'
+      }, {
+        name: '戸塚駅'
+      }, {
+        name: '上中里駅'
+      }, {
+        name: '船橋駅'
+      }, {
+        name: '東川口駅'
+      }, {
+        name: '淵野辺駅'
+      }, {
+        name: '日吉駅'
+      }, {
+        name: '有楽町駅'
+      }, {
+        name: '四ツ谷駅'
+      }, {
+        name: '市ケ谷駅'
+      }, {
+        name: '銀座駅'
+      }, {
+        name: '国会議事堂前駅'
+      }, {
+        name: '駒込駅'
+      }, {
+        name: '溜池山王駅'
+      }, {
+        name: '北参道駅'
+      }, {
+        name: '押上駅'
+      }, {
+        name: '東陽町駅'
+      }, {
+        name: '西大島駅'
+      }, {
+        name: '志木駅'
+      }, {
+        name: '東船橋駅'
+      }, {
+        name: '国領駅'
+      }, {
+        name: '久我山駅'
+      }, {
+        name: '中野駅'
+      }, {
+        name: '国府津駅'
+      }, {
+        name: '検見川浜駅'
+      }, {
+        name: '中浦和駅'
+      }, {
+        name: '綱島駅'
+      }, {
+        name: '鷺沼駅'
+      }, {
+        name: '人形町駅'
+      }, {
+        name: '千石駅'
+      }, {
+        name: '柏たなか駅'
+      }, {
+        name: '大船駅'
+      }, {
+        name: '田端駅'
+      }, {
+        name: '東船橋駅'
+      }, {
+        name: '南越谷駅'
+      }, {
+        name: '矢部駅'
+      }, {
+        name: '新橋駅'
+      }, {
+        name: '四谷三丁目駅'
+      }, {
+        name: '麹町駅'
+      }, {
+        name: '日比谷駅'
+      }, {
+        name: '赤坂駅'
+      }, {
+        name: '西ヶ原駅'
+      }, {
+        name: '赤坂見附駅'
+      }, {
+        name: '明治神宮前駅'
+      }, {
+        name: '南砂町駅'
+      }, {
+        name: '大島駅'
+      }, {
+        name: '柳瀬川駅'
+      }, {
+        name: '津田沼駅'
+      }, {
+        name: '布田駅'
+      }, {
+        name: '三鷹台駅'
+      }, {
+        name: '高円寺駅'
+      }, {
+        name: '鴨宮駅'
+      }, {
+        name: '稲毛海岸駅'
+      }, {
+        name: '南与野駅'
+      }, {
+        name: '大倉山駅'
+      }, {
+        name: 'たまプラーザ駅'
+      }, {
+        name: '東日本橋駅'
+      }, {
+        name: '巣鴨駅'
+      }, {
+        name: '守谷駅'
+      }, {
+        name: '西日暮里駅'
+      }, {
+        name: '津田沼駅'
+      }, {
+        name: '越谷レイクタウン駅'
+      }, {
+        name: '相模原駅'
+      }, {
+        name: '浜松町駅'
+      }, {
+        name: '新宿御苑前駅'
+      }, {
+        name: '永田町駅'
+      }, {
+        name: '霞ケ関駅'
+      }, {
+        name: '乃木坂駅'
+      }, {
+        name: '王子駅'
+      }, {
+        name: '青山一丁目駅'
+      }, {
+        name: '渋谷駅'
+      }, {
+        name: '西葛西駅'
+      }, {
+        name: '東大島駅'
+      }, {
+        name: 'みずほ台駅'
+      }, {
+        name: '幕張本郷駅'
+      }, {
+        name: '調布駅'
+      }, {
+        name: '井の頭公園駅'
+      }, {
+        name: '阿佐ヶ谷駅'
+      }, {
+        name: '小田原駅'
+      }, {
+        name: '千葉みなと駅'
+      }, {
+        name: '与野本町駅'
+      }, {
+        name: '菊名駅'
+      }, {
+        name: 'あざみ野駅'
+      }, {
+        name: '浅草橋駅'
+      }, {
+        name: '西巣鴨駅'
+      }, {
+        name: 'みらい平駅'
+      }, {
+        name: '日暮里駅'
+      }, {
+        name: '幕張本郷駅'
+      }, {
+        name: '吉川駅'
+      }, {
+        name: '橋本駅'
+      }, {
+        name: '田町駅'
+      }, {
+        name: '新宿三丁目駅'
+      }, {
+        name: '桜田門駅'
+      }, {
+        name: '神谷町駅'
+      }, {
+        name: '表参道駅'
+      }, {
+        name: '王子神谷駅'
+      }, {
+        name: '外苑前駅'
+      }, {
+        name: '葛西駅'
+      }, {
+        name: '船堀駅'
+      }, {
+        name: '鶴瀬駅'
+      }, {
+        name: '幕張駅'
+      }, {
+        name: '西調布駅'
+      }, {
+        name: '吉祥寺駅'
+      }, {
+        name: '荻窪駅'
+      }, {
+        name: '蘇我駅'
+      }, {
+        name: '北与野駅'
+      }, {
+        name: '妙蓮寺駅'
+      }, {
+        name: '江田駅'
+      }, {
+        name: '蔵前駅'
+      }, {
+        name: '新板橋駅'
+      }, {
+        name: 'みどりの駅'
+      }, {
+        name: '鶯谷駅'
+      }, {
+        name: '幕張駅'
+      }, {
+        name: '吉川美南駅'
+      }, {
+        name: '相原駅'
+      }, {
+        name: '高輪ゲートウェイ駅'
+      }, {
+        name: '新宿駅'
+      }, {
+        name: '有楽町駅'
+      }, {
+        name: '六本木駅'
+      }, {
+        name: '明治神宮前駅'
+      }, {
+        name: '志茂駅'
+      }, {
+        name: '表参道駅'
+      }, {
+        name: '浦安駅'
+      }, {
+        name: '一之江駅'
+      }, {
+        name: 'ふじみ野駅'
+      }, {
+        name: '新検見川駅'
+      }, {
+        name: '飛田給駅'
+      }, {
+        name: '西荻窪駅'
+      }, {
+        name: '西船橋駅'
+      }, {
+        name: '大宮駅'
+      }, {
+        name: '白楽駅'
+      }, {
+        name: '市が尾駅'
+      }, {
+        name: '浅草駅'
+      }, {
+        name: '板橋区役所前駅'
+      }, {
+        name: '万博記念公園駅'
+      }, {
+        name: '上野駅'
+      }, {
+        name: '新検見川駅'
+      }, {
+        name: '新三郷駅'
+      }, {
+        name: '八王子みなみ野駅'
+      }, {
+        name: '品川駅'
+      }, {
+        name: '西新宿駅'
+      }, {
+        name: '銀座一丁目駅'
+      }, {
+        name: '広尾駅'
+      }, {
+        name: '代々木公園駅'
+      }, {
+        name: '赤羽岩淵駅'
+      }, {
+        name: '渋谷駅'
+      }, {
+        name: '南行徳駅'
+      }, {
+        name: '瑞江駅'
+      }, {
+        name: '上福岡駅'
+      }, {
+        name: '稲毛駅'
+      }, {
+        name: '武蔵野台駅'
+      }, {
+        name: '吉祥寺駅'
+      }, {
+        name: '東白楽駅'
+      }, {
+        name: '藤が丘駅'
+      }, {
+        name: '本所吾妻橋駅'
+      }, {
+        name: '板橋本町駅'
+      }, {
+        name: '研究学園駅'
+      }, {
+        name: '御徒町駅'
+      }, {
+        name: '稲毛駅'
+      }, {
+        name: '三郷駅'
+      }, {
+        name: '片倉駅'
+      }, {
+        name: '大崎駅'
+      }, {
+        name: '中野坂上駅'
+      }, {
+        name: '新富町駅'
+      }, {
+        name: '恵比寿駅'
+      }, {
+        name: '代々木上原駅'
+      }, {
+        name: '行徳駅'
+      }, {
+        name: '篠崎駅'
+      }, {
+        name: '新河岸駅'
+      }, {
+        name: '西千葉駅'
+      }, {
+        name: '多磨霊園駅'
+      }, {
+        name: '三鷹駅'
+      }, {
+        name: '反町駅'
+      }, {
+        name: '青葉台駅'
+      }, {
+        name: '押上駅'
+      }, {
+        name: '本蓮沼駅'
+      }, {
+        name: 'つくば駅'
+      }, {
+        name: '秋葉原駅'
+      }, {
+        name: '西千葉駅'
+      }, {
+        name: '南流山駅'
+      }, {
+        name: '八王子駅'
+      }, {
+        name: '五反田駅'
+      }, {
+        name: '新中野駅'
+      }, {
+        name: '月島駅'
+      }, {
+        name: '中目黒駅'
+      }, {
+        name: '妙典駅'
+      }, {
+        name: '本八幡駅'
+      }, {
+        name: '川越駅'
+      }, {
+        name: '千葉駅'
+      }, {
+        name: '東府中駅'
+      }, {
+        name: '武蔵境駅'
+      }, {
+        name: '横浜駅'
+      }, {
+        name: '田奈駅'
+      }, {
+        name: '志村坂上駅'
+      }, {
+        name: '神田駅'
+      }, {
+        name: '千葉駅'
+      }, {
+        name: '新松戸駅'
+      }, {
+        name: '目黒駅'
+      }, {
+        name: '東高円寺駅'
+      }, {
+        name: '豊洲駅'
+      }, {
+        name: '原木中山駅'
+      }, {
+        name: '川越市駅'
+      }, {
+        name: '東千葉駅'
+      }, {
+        name: '府中駅'
+      }, {
+        name: '東小金井駅'
+      }, {
+        name: '長津田駅'
+      }, {
+        name: '志村三丁目駅'
+      }, {
+        name: '東京駅'
+      }, {
+        name: '東千葉駅'
+      }, {
+        name: '新八柱駅'
+      }, {
+        name: '恵比寿駅'
+      }, {
+        name: '新高円寺駅'
+      }, {
+        name: '辰巳駅'
+      }, {
+        name: '西船橋駅'
+      }, {
+        name: '霞ヶ関駅'
+      }, {
+        name: '都賀駅'
+      }, {
+        name: '分倍河原駅'
+      }, {
+        name: '武蔵小金井駅'
+      }, {
+        name: 'つくし野駅'
+      }, {
+        name: '蓮根駅'
+      }, {
+        name: '有楽町駅'
+      }, {
+        name: '都賀駅'
+      }, {
+        name: '東松戸駅'
+      }, {
+        name: '渋谷駅'
+      }, {
+        name: '南阿佐ヶ谷駅'
+      }, {
+        name: '新木場駅'
+      }, {
+        name: '鶴ヶ島駅'
+      }, {
+        name: '四街道駅'
+      }, {
+        name: '中河原駅'
+      }, {
+        name: '国分寺駅'
+      }, {
+        name: 'すずかけ台駅'
+      }, {
+        name: '西台駅'
+      }, {
+        name: '新橋駅'
+      }, {
+        name: '四街道駅'
+      }, {
+        name: '市川大野駅'
+      }, {
+        name: '原宿駅'
+      }, {
+        name: '荻窪駅'
+      }, {
+        name: '若葉駅'
+      }, {
+        name: '物井駅'
+      }, {
+        name: '聖蹟桜ヶ丘駅'
+      }, {
+        name: '西国分寺駅'
+      }, {
+        name: '南町田グランベリーパーク駅'
+      }, {
+        name: '高島平駅'
+      }, {
+        name: '浜松町駅'
+      }, {
+        name: '物井駅'
+      }, {
+        name: '船橋法典駅'
+      }, {
+        name: '代々木駅'
+      }, {
+        name: '中野新橋駅'
+      }, {
+        name: '坂戸駅'
+      }, {
+        name: '佐倉駅'
+      }, {
+        name: '百草園駅'
+      }, {
+        name: '国立駅'
+      }, {
+        name: 'つきみ野駅'
+      }, {
+        name: '新高島平駅'
+      }, {
+        name: '田町駅'
+      }, {
+        name: '佐倉駅'
+      }, {
+        name: '西船橋駅'
+      }, {
+        name: '新宿駅'
+      }, {
+        name: '中野富士見町駅'
+      }, {
+        name: '北坂戸駅'
+      }, {
+        name: '南酒々井駅'
+      }, {
+        name: '高幡不動駅'
+      }, {
+        name: '立川駅'
+      }, {
+        name: '中央林間駅'
+      }, {
+        name: '西高島平駅'
+      }, {
+        name: '高輪ゲートウェイ駅'
+      }, {
+        name: '南酒々井駅'
+      }, {
+        name: '新大久保駅'
+      }, {
+        name: '方南町駅'
+      }, {
+        name: '高坂駅'
+      }, {
+        name: '榎戸駅'
+      }, {
+        name: '南平駅'
+      }, {
+        name: '日野駅'
+      }, {
+        name: '品川駅'
+      }, {
+        name: '榎戸駅'
+      }, {
+        name: '高田馬場駅'
+      }, {
+        name: '東松山駅'
+      }, {
+        name: '八街駅'
+      }, {
+        name: '平山城址公園駅'
+      }, {
+        name: '豊田駅'
+      }, {
+        name: '大井町駅'
+      }, {
+        name: '八街駅'
+      }, {
+        name: '目白駅'
+      }, {
+        name: '森林公園駅'
+      }, {
+        name: '日向駅'
+      }, {
+        name: '長沼駅'
+      }, {
+        name: '八王子駅'
+      }, {
+        name: '大森駅'
+      }, {
+        name: '日向駅'
+      }, {
+        name: 'つきのわ駅'
+      }, {
+        name: '成東駅'
+      }, {
+        name: '北野駅'
+      }, {
+        name: '西八王子駅'
+      }, {
+        name: '蒲田駅'
+      }, {
+        name: '成東駅'
+      }, {
+        name: '武蔵嵐山駅'
+      }, {
+        name: '松尾駅'
+      }, {
+        name: '京王八王子駅'
+      }, {
+        name: '高尾駅'
+      }, {
+        name: '川崎駅'
+      }, {
+        name: '松尾駅'
+      }, {
+        name: '小川町駅'
+      }, {
+        name: '横芝駅'
+      }, {
+        name: '鶴見駅'
+      }, {
+        name: '横芝駅'
+      }, {
+        name: '東武竹沢駅'
+      }, {
+        name: '飯倉駅'
+      }, {
+        name: '新子安駅'
+      }, {
+        name: '飯倉駅'
+      }, {
+        name: '男衾駅'
+      }, {
+        name: '八日市場駅'
+      }, {
+        name: '東神奈川駅'
+      }, {
+        name: '八日市場駅'
+      }, {
+        name: '鉢形駅'
+      }, {
+        name: '干潟駅'
+      }, {
+        name: '横浜駅'
+      }, {
+        name: '干潟駅'
+      }, {
+        name: '玉淀駅'
+      }, {
+        name: '旭駅'
+      }, {
+        name: '寄居駅'
+      }, {
+        name: '飯岡駅'
+      }, {
+        name: '倉橋駅'
+      }, {
+        name: '猿田駅'
+      }, {
+        name: '松岸駅'
+      }, {
+        name: '松岸駅'
+      }, {
+        name: '銚子駅'
+      }, {
+        name: '両国駅'
+      }, {
+        name: '浅草橋駅'
+      }, {
+        name: '秋葉原駅'
+      }, {
+        name: '御茶ノ水駅'
+      }]
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/moducule/TopSearchDetail.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/moducule/TopSearchDetail.vue?vue&type=script&lang=js& ***!
@@ -2836,6 +4373,103 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     RealEstates: _organism_RealEstates__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Contact.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/Contact.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.function.name */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      this.$http.post('/add-property', this.property).then(function (response) {
+        _this.$parent.snack_text = "物件を登録しました";
+        _this.$parent.snack_color = "#76c3bf";
+        _this.$parent.snackbar = true;
+      }).catch(function (error) {
+        _this.$parent.snack_text = "エラーが発生しました";
+        _this.$parent.snack_color = "warning";
+        _this.$parent.snackbar = true;
+      });
+    }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    var detail_id = this.$route.params.detail_id;
+    this.$http.get("/get-title/".concat(detail_id)).then(function (response) {
+      // this.title = JSON.parse(response.data).name;
+      _this2.title = response.data[0].name;
+      _this2.overlay = false;
+    });
+  },
+  data: function data() {
+    return {
+      title: "",
+      overlay: true
+    };
   }
 });
 
@@ -3064,6 +4698,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3075,13 +4722,17 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     var detail_id = this.$route.params.detail_id;
+    this.contact_url = "/detail/" + detail_id + "/contact";
     this.$http.get("/get-detail/".concat(detail_id)).then(function (response) {
       _this.house_property = response.data;
+      _this.overlay = false;
     });
   },
   data: function data() {
     return {
-      house_property: {}
+      house_property: {},
+      contact_url: "",
+      overlay: true
     };
   }
 });
@@ -3993,10 +5644,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       selected: [],
+      overlay: true,
       headers: [{
         text: '公開状況',
         value: 'publish_flg',
@@ -4037,6 +5697,7 @@ __webpack_require__.r(__webpack_exports__);
 
     this.$http.get('/get-properties').then(function (response) {
       _this.properties = response.data;
+      _this.overlay = false;
     });
   }
 });
@@ -4282,7 +5943,7 @@ __webpack_require__.r(__webpack_exports__);
     VueUploadMultipleImage: vue_upload_multiple_image__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   beforeRouteLeave: function beforeRouteLeave(to, from, next) {
-    var answer = window.confirm("移動してよろしいですか？");
+    var answer = window.confirm("編集中の内容は破棄されます。移動してよろしいですか？");
 
     if (answer) {
       next();
@@ -4318,6 +5979,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.$parent.snack_text = "物件を登録しました";
         _this.$parent.snack_color = "#76c3bf";
         _this.$parent.snackbar = true;
+
+        _this.$refs.form.reset();
       }).catch(function (error) {
         _this.$parent.snack_text = "エラーが発生しました";
         _this.$parent.snack_color = "warning";
@@ -6830,6 +8493,39 @@ $({ target: 'Array', proto: true, forced: !STRICT_METHOD || !USES_TO_LENGTH }, {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.function.name.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.function.name.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
+var defineProperty = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js").f;
+
+var FunctionPrototype = Function.prototype;
+var FunctionPrototypeToString = FunctionPrototype.toString;
+var nameRE = /^\s*function ([^ (]*)/;
+var NAME = 'name';
+
+// Function instances `.name` property
+// https://tc39.github.io/ecma262/#sec-function-instances-name
+if (DESCRIPTORS && !(NAME in FunctionPrototype)) {
+  defineProperty(FunctionPrototype, NAME, {
+    configurable: true,
+    get: function () {
+      try {
+        return FunctionPrototypeToString.call(this).match(nameRE)[1];
+      } catch (error) {
+        return '';
+      }
+    }
+  });
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.object.get-own-property-descriptor.js":
 /*!*******************************************************************************!*\
   !*** ./node_modules/core-js/modules/es.object.get-own-property-descriptor.js ***!
@@ -8013,6 +9709,24 @@ var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modul
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.i, ".terms__wrap {\n  margin-top: 48px;\n  padding: 40px 20px 80px 20px;\n}\n.terms__title {\n  color: #76c3bf;\n  text-align: center;\n  letter-spacing: 0.2rem;\n  font-size: 1.5rem;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Contact.vue?vue&type=style&index=0&lang=sass&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/Contact.vue?vue&type=style&index=0&lang=sass& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".contact {\n  margin-top: 48px;\n  padding: 40px 20px 80px 20px;\n  text-align: center;\n}\n.contact__title {\n  font-size: 1.5rem;\n  color: #666;\n  margin-bottom: 2rem;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -29283,6 +30997,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Contact.vue?vue&type=style&index=0&lang=sass&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/Contact.vue?vue&type=style&index=0&lang=sass& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--8-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Contact.vue?vue&type=style&index=0&lang=sass& */ "./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Contact.vue?vue&type=style&index=0&lang=sass&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Detail.vue?vue&type=style&index=0&lang=sass&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/Detail.vue?vue&type=style&index=0&lang=sass& ***!
@@ -42779,10 +44523,30 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-card",
+            { staticClass: "pa-5" },
             [
-              _c("v-card-content", [
-                _vm._v("\n                エリア絞り込み\n            ")
-              ]),
+              _c(
+                "v-card-content",
+                [
+                  _c(
+                    "v-form",
+                    [
+                      _c("v-checkbox", {
+                        attrs: { label: "ward.name", value: "ward.name" },
+                        model: {
+                          value: _vm.selected_ward,
+                          callback: function($$v) {
+                            _vm.selected_ward = $$v
+                          },
+                          expression: "selected_ward"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "v-card-actions",
@@ -42795,7 +44559,11 @@ var render = function() {
                       attrs: { color: "primary", text: "" },
                       on: { click: _vm.search }
                     },
-                    [_vm._v("\n                    検索\n                ")]
+                    [
+                      _vm._v(
+                        "\n                    エリアを条件に追加\n                "
+                      )
+                    ]
                   )
                 ],
                 1
@@ -42877,10 +44645,65 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-card",
+            { staticClass: "pa-5" },
             [
-              _c("v-content", [
-                _vm._v("\n                価格絞りこみ\n            ")
-              ]),
+              _c(
+                "v-content",
+                [
+                  _c(
+                    "v-form",
+                    [
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.costs,
+                          rules: [
+                            function(v) {
+                              return !!v || "Item is required"
+                            }
+                          ],
+                          label: "家賃下限",
+                          required: ""
+                        },
+                        model: {
+                          value: _vm.cost.under,
+                          callback: function($$v) {
+                            _vm.$set(_vm.cost, "under", $$v)
+                          },
+                          expression: "cost.under"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._v(
+                          "\n                        〜\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.costs,
+                          rules: [
+                            function(v) {
+                              return !!v || "Item is required"
+                            }
+                          ],
+                          label: "家賃上限",
+                          required: ""
+                        },
+                        model: {
+                          value: _vm.cost.limit,
+                          callback: function($$v) {
+                            _vm.$set(_vm.cost, "limit", $$v)
+                          },
+                          expression: "cost.limit"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "v-card-actions",
@@ -42893,7 +44716,11 @@ var render = function() {
                       attrs: { color: "primary", text: "" },
                       on: { click: _vm.search }
                     },
-                    [_vm._v("\n                    検索\n                ")]
+                    [
+                      _vm._v(
+                        "\n                    価格を条件に追加\n                "
+                      )
+                    ]
                   )
                 ],
                 1
@@ -42975,10 +44802,9 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-card",
+            { staticClass: "pa-5" },
             [
-              _c("v-card-content", [
-                _vm._v("\n                路線絞り込み\n            ")
-              ]),
+              _c("v-card-content", [_c("v-form", [_c("station-auto")], 1)], 1),
               _vm._v(" "),
               _c(
                 "v-card-actions",
@@ -42991,7 +44817,11 @@ var render = function() {
                       attrs: { color: "primary", text: "" },
                       on: { click: _vm.search }
                     },
-                    [_vm._v("\n                    検索\n                ")]
+                    [
+                      _vm._v(
+                        "\n                    駅を条件に追加\n                "
+                      )
+                    ]
                   )
                 ],
                 1
@@ -43917,6 +45747,44 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/moducule/StationAuto.vue?vue&type=template&id=412ddc86&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/moducule/StationAuto.vue?vue&type=template&id=412ddc86& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "station-auto" },
+    [
+      _c("v-autocomplete", {
+        attrs: {
+          items: _vm.stations,
+          "item-text": "name",
+          label: "駅の名前",
+          value: _vm.station
+        }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/moducule/TopSearchDetail.vue?vue&type=template&id=6c8ca448&":
 /*!***************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/moducule/TopSearchDetail.vue?vue&type=template&id=6c8ca448& ***!
@@ -44162,6 +46030,79 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Contact.vue?vue&type=template&id=00975dfa&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/Contact.vue?vue&type=template&id=00975dfa& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "contact" },
+    [
+      _c(
+        "v-overlay",
+        { attrs: { value: _vm.overlay } },
+        [
+          _c("v-progress-circular", {
+            attrs: { indeterminate: "", color: "#76c3bf" }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-form",
+        { ref: "form", attrs: { "lazy-validation": "" } },
+        [
+          _c("h1", { staticClass: "contact__title" }, [
+            _vm._v(
+              "\n            " +
+                _vm._s(_vm.title) +
+                "へのお問い合わせ\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("v-textarea", {
+            attrs: {
+              label: "お問い合わせ内容",
+              filled: "",
+              "auto-grow": "",
+              rows: "4"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { color: "#76c3bf", dark: "" },
+              on: { click: _vm.submit }
+            },
+            [_vm._v("\n            送信\n        ")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Detail.vue?vue&type=template&id=56c0b2e7&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/Detail.vue?vue&type=template&id=56c0b2e7& ***!
@@ -44181,6 +46122,17 @@ var render = function() {
     "div",
     { staticClass: "detail" },
     [
+      _c(
+        "v-overlay",
+        { attrs: { value: _vm.overlay } },
+        [
+          _c("v-progress-circular", {
+            attrs: { indeterminate: "", color: "#76c3bf" }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
       _c("div", { staticClass: "detail__title" }, [
         _vm._v("\n        物件詳細\n    ")
       ]),
@@ -44389,7 +46341,21 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(2)
+          _c(
+            "div",
+            { staticClass: "detail__inquiry mt-5" },
+            [
+              _c(
+                "v-btn",
+                {
+                  staticClass: "detail__inquiry-btn",
+                  attrs: { to: this.contact_url, color: "#f09299", large: "" }
+                },
+                [_vm._v("\n                お問い合わせ\n            ")]
+              )
+            ],
+            1
+          )
         ],
         1
       )
@@ -44420,18 +46386,6 @@ var staticRenderFns = [
           height: "320"
         }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "detail__inquiry mt-5" }, [
-      _c(
-        "a",
-        { staticClass: "detail__inquiry-btn", attrs: { href: "mailto:" } },
-        [_vm._v("\n                お問い合わせ\n            ")]
-      )
     ])
   }
 ]
@@ -45777,60 +47731,76 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "manage-property pa-2" }, [
-    _c(
-      "div",
-      { staticClass: "manage-property__table-wrap" },
-      [
-        _c("v-data-table", {
-          staticClass: "manage-property__table",
-          attrs: {
-            headers: _vm.headers,
-            items: _vm.properties,
-            "item-key": "id",
-            "show-select": "",
-            "single-select": "false"
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "item.created_at",
-              fn: function(ref) {
-                var item = ref.item
-                return [
-                  _c("span", [
-                    _vm._v(_vm._s(new Date(item.created_at).toDateString()))
-                  ])
-                ]
-              }
+  return _c(
+    "div",
+    { staticClass: "manage-property pa-2" },
+    [
+      _c(
+        "v-overlay",
+        { attrs: { value: _vm.overlay } },
+        [
+          _c("v-progress-circular", {
+            attrs: { indeterminate: "", color: "#76c3bf" }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "manage-property__table-wrap" },
+        [
+          _c("v-data-table", {
+            staticClass: "manage-property__table",
+            attrs: {
+              headers: _vm.headers,
+              items: _vm.properties,
+              "item-key": "id",
+              "show-select": "",
+              "single-select": "false"
             },
-            {
-              key: "item.end_date",
-              fn: function(ref) {
-                var item = ref.item
-                return [
-                  _c("span", [
-                    _vm._v(_vm._s(new Date(item.end_date).toDateString()))
-                  ])
-                ]
+            scopedSlots: _vm._u([
+              {
+                key: "item.created_at",
+                fn: function(ref) {
+                  var item = ref.item
+                  return [
+                    _c("span", [
+                      _vm._v(_vm._s(new Date(item.created_at).toDateString()))
+                    ])
+                  ]
+                }
+              },
+              {
+                key: "item.end_date",
+                fn: function(ref) {
+                  var item = ref.item
+                  return [
+                    _c("span", [
+                      _vm._v(_vm._s(new Date(item.end_date).toDateString()))
+                    ])
+                  ]
+                }
+              },
+              {
+                key: "item.updated_at",
+                fn: function(ref) {
+                  var item = ref.item
+                  return [
+                    _c("span", [
+                      _vm._v(_vm._s(new Date(item.updated_at).toDateString()))
+                    ])
+                  ]
+                }
               }
-            },
-            {
-              key: "item.updated_at",
-              fn: function(ref) {
-                var item = ref.item
-                return [
-                  _c("span", [
-                    _vm._v(_vm._s(new Date(item.updated_at).toDateString()))
-                  ])
-                ]
-              }
-            }
-          ])
-        })
-      ],
-      1
-    )
-  ])
+            ])
+          })
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -107824,6 +109794,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/moducule/StationAuto.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/moducule/StationAuto.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StationAuto_vue_vue_type_template_id_412ddc86___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StationAuto.vue?vue&type=template&id=412ddc86& */ "./resources/js/components/moducule/StationAuto.vue?vue&type=template&id=412ddc86&");
+/* harmony import */ var _StationAuto_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StationAuto.vue?vue&type=script&lang=js& */ "./resources/js/components/moducule/StationAuto.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StationAuto_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StationAuto_vue_vue_type_template_id_412ddc86___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StationAuto_vue_vue_type_template_id_412ddc86___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/moducule/StationAuto.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/moducule/StationAuto.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/moducule/StationAuto.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StationAuto_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./StationAuto.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/moducule/StationAuto.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StationAuto_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/moducule/StationAuto.vue?vue&type=template&id=412ddc86&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/moducule/StationAuto.vue?vue&type=template&id=412ddc86& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StationAuto_vue_vue_type_template_id_412ddc86___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./StationAuto.vue?vue&type=template&id=412ddc86& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/moducule/StationAuto.vue?vue&type=template&id=412ddc86&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StationAuto_vue_vue_type_template_id_412ddc86___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StationAuto_vue_vue_type_template_id_412ddc86___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/moducule/TopSearchDetail.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/components/moducule/TopSearchDetail.vue ***!
@@ -108149,6 +110188,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookmark_vue_vue_type_template_id_3d171dcc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookmark_vue_vue_type_template_id_3d171dcc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Contact.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/pages/Contact.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Contact_vue_vue_type_template_id_00975dfa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Contact.vue?vue&type=template&id=00975dfa& */ "./resources/js/components/pages/Contact.vue?vue&type=template&id=00975dfa&");
+/* harmony import */ var _Contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Contact.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/Contact.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Contact_vue_vue_type_style_index_0_lang_sass___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Contact.vue?vue&type=style&index=0&lang=sass& */ "./resources/js/components/pages/Contact.vue?vue&type=style&index=0&lang=sass&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Contact_vue_vue_type_template_id_00975dfa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Contact_vue_vue_type_template_id_00975dfa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pages/Contact.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Contact.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/pages/Contact.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Contact.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Contact.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Contact.vue?vue&type=style&index=0&lang=sass&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/pages/Contact.vue?vue&type=style&index=0&lang=sass& ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_style_index_0_lang_sass___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader/dist/cjs.js!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--8-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Contact.vue?vue&type=style&index=0&lang=sass& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Contact.vue?vue&type=style&index=0&lang=sass&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_style_index_0_lang_sass___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_style_index_0_lang_sass___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_style_index_0_lang_sass___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_style_index_0_lang_sass___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_style_index_0_lang_sass___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Contact.vue?vue&type=template&id=00975dfa&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/pages/Contact.vue?vue&type=template&id=00975dfa& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_template_id_00975dfa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Contact.vue?vue&type=template&id=00975dfa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Contact.vue?vue&type=template&id=00975dfa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_template_id_00975dfa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Contact_vue_vue_type_template_id_00975dfa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -109855,13 +111981,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_Result__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/Result */ "./resources/js/components/pages/Result.vue");
 /* harmony import */ var _components_pages_Detail__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/Detail */ "./resources/js/components/pages/Detail.vue");
 /* harmony import */ var _components_pages_MyPage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/MyPage */ "./resources/js/components/pages/MyPage.vue");
-/* harmony import */ var _components_pages_PageNotFound__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/PageNotFound */ "./resources/js/components/pages/PageNotFound.vue");
-/* harmony import */ var _components_pages_corp_Login__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/corp/Login */ "./resources/js/components/pages/corp/Login.vue");
-/* harmony import */ var _components_pages_corp_Index__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/corp/Index */ "./resources/js/components/pages/corp/Index.vue");
-/* harmony import */ var _components_pages_corp_ManageProperty__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/corp/ManageProperty */ "./resources/js/components/pages/corp/ManageProperty.vue");
-/* harmony import */ var _components_pages_corp_RegisterProperty__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/corp/RegisterProperty */ "./resources/js/components/pages/corp/RegisterProperty.vue");
-/* harmony import */ var _components_pages_corp_ManageInquiry__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/corp/ManageInquiry */ "./resources/js/components/pages/corp/ManageInquiry.vue");
-/* harmony import */ var _components_pages_corp_ManageAccountInfo__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/corp/ManageAccountInfo */ "./resources/js/components/pages/corp/ManageAccountInfo.vue");
+/* harmony import */ var _components_pages_Contact__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/Contact */ "./resources/js/components/pages/Contact.vue");
+/* harmony import */ var _components_pages_PageNotFound__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/PageNotFound */ "./resources/js/components/pages/PageNotFound.vue");
+/* harmony import */ var _components_pages_corp_Login__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/corp/Login */ "./resources/js/components/pages/corp/Login.vue");
+/* harmony import */ var _components_pages_corp_Index__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/corp/Index */ "./resources/js/components/pages/corp/Index.vue");
+/* harmony import */ var _components_pages_corp_ManageProperty__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/corp/ManageProperty */ "./resources/js/components/pages/corp/ManageProperty.vue");
+/* harmony import */ var _components_pages_corp_RegisterProperty__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/corp/RegisterProperty */ "./resources/js/components/pages/corp/RegisterProperty.vue");
+/* harmony import */ var _components_pages_corp_ManageInquiry__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/corp/ManageInquiry */ "./resources/js/components/pages/corp/ManageInquiry.vue");
+/* harmony import */ var _components_pages_corp_ManageAccountInfo__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/corp/ManageAccountInfo */ "./resources/js/components/pages/corp/ManageAccountInfo.vue");
+
 
 
 
@@ -109930,6 +112058,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
     name: 'detail',
     component: _components_pages_Detail__WEBPACK_IMPORTED_MODULE_12__["default"]
   }, {
+    path: '/detail/:detail_id/contact',
+    name: 'contact',
+    component: _components_pages_Contact__WEBPACK_IMPORTED_MODULE_14__["default"]
+  }, {
     path: '/mypage',
     name: 'mypage',
     component: _components_pages_MyPage__WEBPACK_IMPORTED_MODULE_13__["default"],
@@ -109939,31 +112071,31 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
   }, {
     path: '/corp/login',
     name: 'corp_login',
-    component: _components_pages_corp_Login__WEBPACK_IMPORTED_MODULE_15__["default"]
+    component: _components_pages_corp_Login__WEBPACK_IMPORTED_MODULE_16__["default"]
   }, {
     path: '/corp/',
     name: 'corp_index',
-    component: _components_pages_corp_Index__WEBPACK_IMPORTED_MODULE_16__["default"]
+    component: _components_pages_corp_Index__WEBPACK_IMPORTED_MODULE_17__["default"]
   }, {
     path: '/corp/manage-property/',
     name: 'manage-property',
-    component: _components_pages_corp_ManageProperty__WEBPACK_IMPORTED_MODULE_17__["default"]
+    component: _components_pages_corp_ManageProperty__WEBPACK_IMPORTED_MODULE_18__["default"]
   }, {
     path: '/corp/register-property/',
     name: 'register-property',
-    component: _components_pages_corp_RegisterProperty__WEBPACK_IMPORTED_MODULE_18__["default"]
+    component: _components_pages_corp_RegisterProperty__WEBPACK_IMPORTED_MODULE_19__["default"]
   }, {
     path: '/corp/manage-inquiry/',
     name: 'manage-inquiry',
-    component: _components_pages_corp_ManageInquiry__WEBPACK_IMPORTED_MODULE_19__["default"]
+    component: _components_pages_corp_ManageInquiry__WEBPACK_IMPORTED_MODULE_20__["default"]
   }, {
     path: '/corp/manage-account-info/',
     name: 'manage-account-info',
-    component: _components_pages_corp_ManageAccountInfo__WEBPACK_IMPORTED_MODULE_20__["default"]
+    component: _components_pages_corp_ManageAccountInfo__WEBPACK_IMPORTED_MODULE_21__["default"]
   }, {
     path: '*',
     name: 'page-not-found',
-    component: _components_pages_PageNotFound__WEBPACK_IMPORTED_MODULE_14__["default"]
+    component: _components_pages_PageNotFound__WEBPACK_IMPORTED_MODULE_15__["default"]
   }],
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     return {
