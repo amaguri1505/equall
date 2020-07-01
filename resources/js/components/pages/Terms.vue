@@ -9,6 +9,10 @@
             <div class="terms__content pt-2">
                 <terms></terms>
             </div>
+            <v-divider></v-divider>
+            <div class="privacy-policy__content pt-2">
+                <privacy-policy></privacy-policy>
+            </div>
         </div>
     </div>
 </template>
@@ -26,10 +30,12 @@
 </style>
 <script>
     import Terms from "../organism/Terms";
+    import PrivacyPolicy from "../organism/PrivacyPolicy";
 
     export default {
         components: {
             Terms,
+            PrivacyPolicy,
         },
     }
 </script>
