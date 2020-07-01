@@ -6,10 +6,50 @@
                 物件提携希望の方
             </div>
             <v-divider></v-divider>
-            <div class="relationship__content pt-2">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            <div class="relationship__content pt-5">
+
+                <v-select
+                    v-model="relationship.contact_detail"
+                    :items="contact_detail"
+                    :rules="[v => !!v || 'Item is required']"
+                    label="お問い合わせ内容"
+                    required
+                ></v-select>
+
+                <v-text-field
+                    v-model="relationship.corp_name"
+                    :count="100"
+                    label="法人名"
+                    required
+                ></v-text-field>
+
+                <v-text-field
+                    v-model="relationship.person_name"
+                    :count="100"
+                    label="担当者名"
+                    required
+                ></v-text-field>
+
+                <v-text-field
+                    v-model="relationship.email"
+                    :count="100"
+                    label="メールアドレス"
+                    required
+                ></v-text-field>
+
+                <v-text-field
+                    v-model="relationship.contact_text"
+                    :count="100"
+                    label="電話番号"
+                ></v-text-field>
+
+                <v-textarea
+                    label="お問い合わせ"
+                    filled
+                    auto-grow
+                    rows="4"
+                    required
+                ></v-textarea>
             </div>
         </div>
     </div>
@@ -20,9 +60,25 @@
         &__wrap
             margin-top: 48px
             padding: 40px 20px 80px 20px
+
         &__title
             color: colors(primary)
             text-align: center
             letter-spacing: 0.2rem
             font-size: 1.5rem
 </style>
+<script>
+    export default {
+        data() {
+            return {
+                relationship: [],
+                contact_detail: [
+                    "1. 物件掲載に関して",
+                    "2. 広告掲載に関して",
+                    "3. タイアップに関して",
+                    "4. その他",
+                ],
+            }
+        }
+    }
+</script>

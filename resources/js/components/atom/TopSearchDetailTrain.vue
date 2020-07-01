@@ -6,13 +6,29 @@
             max-width="500"
         >
             <template v-slot:activator="{ on }">
-                <v-icon
-                    color="white"
-                    class="search-detail-train__icon"
-                    v-on="on"
-                >mdi-train</v-icon>
-                <div class="search-detail-train__text">
-                    路線・駅で探す
+                <div class="search-detail-train__wrap">
+                    <v-icon
+                        color="white"
+                        class="search-detail-train__icon"
+                        v-on="on"
+                    >mdi-train</v-icon>
+                    <div class="search-detail-train__text">
+                        路線・駅で探す
+                    </div>
+                    <div class="search-detail-train__chip-wrap">
+                        <v-chip
+                            v-if="s_train.chip"
+                            dark
+                            color="#f09299"
+                            v-for="s_train in s_trains"
+                            :key="s_train.name"
+                            class="mt-1"
+                            close
+                            @click:close="s_train.chip=false"
+                        >
+                            {{ s_train.name }}
+                        </v-chip>
+                    </div>
                 </div>
             </template>
 
@@ -21,7 +37,9 @@
             >
                 <v-card-content>
                     <v-form>
-                        <station-auto></station-auto>
+                        <station-auto
+                            ref="station_auto"
+                        ></station-auto>
                     </v-form>
                 </v-card-content>
 
@@ -30,7 +48,7 @@
                     <v-btn
                         color="primary"
                         text
-                        @click="search"
+                        @click="add_value"
                     >
                         駅を条件に追加
                     </v-btn>
@@ -60,11 +78,16 @@
         data () {
             return {
                 dialog: false,
+                s_trains: [],
             }
         },
         methods: {
-            search: function (event) {
-                this.$router.push("/result");
+            add_value: function (event) {
+                this.s_trains.push({
+                    name: this.$refs.station_auto.station,
+                    chip: true,
+                });
+                this.dialog = false;
             }
         }
     }

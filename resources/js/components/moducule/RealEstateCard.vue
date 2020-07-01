@@ -14,19 +14,19 @@
                 >
                     <div class="re-card__detail-wrap">
                         <div class="re-card__pets">
-                            ペット：猫・犬
+                            {{ pet_type }}
                         </div>
                         <div class="re-card__name">
-                            サンプル不動産
+                            {{ name }}
                         </div>
                         <div class="recard__station">
-                            サンプル駅
+                            {{ station }}
                         </div>
                         <div class="re-card__cost">
-                            家賃：10万円
+                            {{ cost }}
                         </div>
                         <div class="re-card__plan">
-                            1LDK / 30㎡
+                            {{ structure }} / {{ area }}㎡
                         </div>
                     </div>
                 </v-col>
@@ -46,3 +46,15 @@
             line-height: 1.5rem
 
 </style>
+<script>
+    export default {
+        props: [
+            "pet_type",
+            "name",
+            "station",
+            "cost",
+            "structure",
+            "area",
+        ],
+    }
+</script>

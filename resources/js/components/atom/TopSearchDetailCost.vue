@@ -1,20 +1,32 @@
 <template>
-    <div class="search-detail-train">
+    <div class="search-detail-cost">
         <v-dialog
             v-model="dialog"
             hide-overlay
             max-width="500"
         >
             <template v-slot:activator="{ on }">
-                <v-icon
-                    color="white"
-                    class="search-detail-train__icon"
-                    v-on="on"
-                >
-                    mdi-currency-jpy
-                </v-icon>
-                <div class="search-detail-train__text">
-                    価格で探す
+                <div class="search-detail-cost__wrap">
+                    <v-icon
+                        color="white"
+                        class="search-detail-train__icon"
+                        v-on="on"
+                    >
+                        mdi-currency-jpy
+                    </v-icon>
+                    <div class="search-detail-train__text">
+                        価格で探す
+                    </div>
+                    <v-chip
+                        v-if="s_cost.chip"
+                        dark
+                        color="#f09299"
+                        class="mt-1"
+                        close
+                        @click:close="s_cost.chip=false"
+                    >
+                        {{ s_cost.name }}
+                    </v-chip>
                 </div>
             </template>
 
@@ -48,7 +60,7 @@
                     <v-btn
                         color="primary"
                         text
-                        @click="search"
+                        @click="add_cost"
                     >
                         価格を条件に追加
                     </v-btn>
@@ -73,6 +85,7 @@
             return {
                 dialog: false,
                 cost: [],
+                s_cost: [],
                 costs: [
                     "設定なし",
                     "3万円",
@@ -117,8 +130,12 @@
             }
         },
         methods: {
-            search: function (event) {
-                this.$router.push("/result");
+            add_cost: function (event) {
+                this.s_cost = {
+                    name: this.cost.under + "〜" + this.cost.limit,
+                    chip: true,
+                };
+                this.dialog=false;
             }
         }
     }

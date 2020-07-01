@@ -4,7 +4,7 @@
             :items="stations"
             item-text="name"
             label="駅の名前"
-            :value="station"
+            v-model="station"
         ></v-autocomplete>
     </div>
 </template>

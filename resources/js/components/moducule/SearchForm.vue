@@ -22,6 +22,7 @@
                         dark
                         color="#f09299"
                         class="ma-0"
+                        @click="search"
                     >
                         検索
                     </v-btn>
