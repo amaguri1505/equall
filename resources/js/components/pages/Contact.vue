@@ -16,6 +16,7 @@
                 {{ title }}へのお問い合わせ
             </h1>
             <v-textarea
+                v-model="inquiry.contact_text"
                 label="お問い合わせ内容"
                 filled
                 auto-grow
@@ -51,34 +52,44 @@
     export default {
         methods: {
             submit: function () {
+                this.overlay = true;
                 this.$http
-                    .post('/add-property', this.property)
+                    .post('/add-inquiry', this.inquiry)
                     .then(response => {
-                        this.$parent.snack_text = "物件を登録しました";
+                        this.$parent.snack_text = "問い合わせを送信しました";
                         this.$parent.snack_color = "#76c3bf";
                         this.$parent.snackbar = true;
+                        this.$refs.form.reset();
+                        this.overlay = false;
                     })
                     .catch(error => {
                         this.$parent.snack_text = "エラーが発生しました";
                         this.$parent.snack_color = "warning";
                         this.$parent.snackbar = true;
+                        this.overlay = false;
                     });
             }
         },
         created() {
             const detail_id = this.$route.params.detail_id;
+            this.inquiry = {
+                property_id: detail_id,
+                corp_id: 1,
+                user_id: 1,
+            };
             this.$http
                 .get(`/get-title/${detail_id}`)
                 .then(response => {
                     // this.title = JSON.parse(response.data).name;
                     this.title = response.data[0].name;
-                    this.overlay = false;
+                    this.$parent.overlay = false;
                 });
         },
         data() {
             return {
                 title: "",
-                overlay: true,
+                overlay: false,
+                inquiry: [],
             }
         }
     }

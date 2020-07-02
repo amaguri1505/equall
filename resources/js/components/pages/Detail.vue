@@ -1,13 +1,5 @@
 <template>
     <div class="detail">
-        <v-overlay
-            :value="overlay"
-        >
-            <v-progress-circular
-                indeterminate
-                color="#76c3bf"
-            ></v-progress-circular>
-        </v-overlay>
         <div class="detail__title">
             物件詳細
         </div>
@@ -233,20 +225,20 @@
             DetailSubContentItem,
         },
         created () {
+            this.$parent.overlay=true;
             const detail_id = this.$route.params.detail_id;
             this.contact_url = "/detail/" + detail_id + "/contact";
             this.$http
                 .get(`/get-detail/${detail_id}`)
                 .then(response => {
                     this.house_property = response.data;
-                    this.overlay=false;
+                    this.$parent.overlay=false;
                 });
         },
         data () {
             return {
                 house_property: {},
                 contact_url: "",
-                overlay: true,
             }
         }
     }

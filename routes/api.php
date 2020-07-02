@@ -23,12 +23,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['api']], function() {
     Route::post('add-property', 'Api\ApiController@addProperty');
     Route::post('add-images', 'Api\ApiController@addImages');
+    Route::post('add-inquiry', 'Api\ApiController@addInquiry');
 
     Route::get('get-detail/{id}', 'Api\ApiController@getDetail');
     Route::get('get-title/{id}', 'Api\ApiController@getTitle');
     Route::get('get-properties', 'Api\ApiController@getProperties');
-
-
+    Route::get('get-inquiries', 'Api\ApiController@getInquiries');
 
     Route::post('/register','Auth\RegisterController@register');
     Route::post('/login', function (Request $request) {

@@ -7,6 +7,14 @@
         >
             {{ snack_text }}
         </v-snackbar>
+        <v-overlay
+            :value="overlay"
+        >
+            <v-progress-circular
+                indeterminate
+                color="#76c3bf"
+            ></v-progress-circular>
+        </v-overlay>
         <the-header class="corp-layout__header"/>
         <v-divider></v-divider>
         <v-container
@@ -42,11 +50,11 @@
         components: {
             TheSidebar,
             TheHeader,
-
         },
         data () {
             return {
                 snackbar: false,
+                overlay: false,
                 snack_color: "success",
                 snack_text: "test",
             }

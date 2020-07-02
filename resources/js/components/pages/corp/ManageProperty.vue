@@ -1,13 +1,5 @@
 <template>
     <div class="manage-property pa-2">
-        <v-overlay
-            :value="overlay"
-        >
-            <v-progress-circular
-                indeterminate
-                color="#76c3bf"
-            ></v-progress-circular>
-        </v-overlay>
         <div class="manage-property__table-wrap">
             <v-data-table
                 :headers="headers"
@@ -44,7 +36,6 @@
         data() {
             return {
                 selected: [],
-                overlay: true,
                 headers: [
                     {
                         text: '公開状況',
@@ -89,11 +80,12 @@
             }
         },
         created () {
+            this.$parent.overlay = true;
             this.$http
                 .get('/get-properties')
                 .then(response => {
                     this.properties = response.data;
-                    this.overlay = false;
+                    this.$parent.overlay = false;
                 });
         },
     }

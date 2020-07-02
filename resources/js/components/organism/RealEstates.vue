@@ -1,13 +1,5 @@
 <template>
     <div class="re">
-        <v-overlay
-            :value="overlay"
-        >
-            <v-progress-circular
-                indeterminate
-                color="#76c3bf"
-            ></v-progress-circular>
-        </v-overlay>
         <div class="re__title">
             <v-icon></v-icon>
             {{ label }}
@@ -42,7 +34,6 @@
         data() {
             return {
                 properties: [],
-                overlay: true,
             }
         },
         components: {
@@ -52,11 +43,12 @@
             "label"
         ],
         created () {
+            this.$parent.$parent.overlay = true;
             this.$http
                 .get('/get-properties')
                 .then(response => {
                     this.properties = response.data;
-                    this.overlay = false;
+                    this.$parent.$parent.overlay = false;
                 });
         }
     };

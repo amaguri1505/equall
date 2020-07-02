@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\HouseProperty;
 use App\HousePropertyImage;
+use App\Inquiry;
 use Illuminate\Support\Facades\Storage;
 
 class ApiController extends Controller
@@ -18,15 +19,20 @@ class ApiController extends Controller
 
     public function getTitle($id)
     {
-        $house_property = HouseProperty::select('name')->where('id',$id)->get();
+        $house_property = HouseProperty::select('name')->where('id', $id)->get();
         return response()->json($house_property);
     }
-
 
     public function getProperties()
     {
         $properties = HouseProperty::get();
         return response()->json($properties);
+    }
+
+    public function getInquiries()
+    {
+        $inquiries = Inquiry::get();
+        return response()->json($inquiries);
     }
 
     public function addImages(Request $req)
@@ -35,7 +41,6 @@ class ApiController extends Controller
             $req->file->storeAs('public', 'test_name.jpg');
         }
         return response()->json('success');
-
     }
 
     public function addProperty(Request $req)
@@ -67,8 +72,8 @@ class ApiController extends Controller
 
         $housePropertyImages = $req->images;
 
-        foreach($housePropertyImages as $image) {
-            $imagePath = Storage::disk('uploads')->put('/test.jpg',$image);
+        foreach ($housePropertyImages as $image) {
+            $imagePath = Storage::disk('uploads')->put('/test.jpg', $image);
             HousePropertyImage::create([
                 'image_caption' => 'test',
                 'image_path' => '/uploads/' . $imagePath,
@@ -77,5 +82,18 @@ class ApiController extends Controller
         }
 
         return response()->json('success addProperty');
+    }
+
+    public function addInquiry(Request $req)
+    {
+        $inquiry = new Inquiry([
+            'property_id' => $req->input('property_id'),
+//            'user_id' => $req->input('user_id'),
+            'user_id' => 1,
+//            'corp_id' => $req->input('corp_id'),
+            'corp_id' => 1,
+            'contact_text' => $req->input('contact_text'),
+        ]);
+        $inquiry->save();
     }
 }
