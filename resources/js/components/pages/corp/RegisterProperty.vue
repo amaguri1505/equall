@@ -19,8 +19,13 @@
                                 editUpload="myIdEdit"
                                 dragText="ここに画像をドラッグ"
                                 browseText="画像を選択"
+                                primaryText="先頭の画像"
+                                markIsPrimaryText=""
+                                popupText=""
+                                dropText=""
                                 :data-images="property.images"
                                 ref="uploader"
+                                maxImage="10"
                             ></vue-upload-multiple-image>
                         </div>
 
@@ -273,6 +278,8 @@
                         this.$parent.snack_color = "#76c3bf";
                         this.$parent.snackbar = true;
                         this.$refs.form.reset();
+                        this.property.images  = [];
+                        this.$refs.uploader.images = [];
                     })
                     .catch(error => {
                         this.$parent.snack_text = "エラーが発生しました";

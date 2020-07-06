@@ -26,7 +26,8 @@ class CreateHousePropertiesTable extends Migration
             $table->string('is_pet')->nullable();
             $table->string('cost')->nullable();
             $table->string('manage_cost')->nullable();
-            $table->string('initial_cost')->nullable();
+            $table->string('deposit')->nullable();
+            $table->string('key_money')->nullable();
             $table->string('area')->nullable();
             $table->string('floor_plan')->nullable();
             $table->string('floor')->nullable();

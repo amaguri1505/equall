@@ -40,64 +40,17 @@
                         align: 'center',
                     },
                 ],
-                inquiries: [
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                    {
-                        date: '2020年6月実績',
-                        inquiry_cnt: '10件',
-                        total_cost: '費用10,000円',
-                    },
-                ]
+                inquiries: [],
             }
+        },
+        created () {
+            this.$parent.overlay = true;
+            this.$http
+                .get('/get-inquiries')
+                .then(response => {
+                    this.inquiries = response.data;
+                    this.$parent.overlay = false;
+                });
         }
     }
 </script>

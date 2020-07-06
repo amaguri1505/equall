@@ -60,6 +60,8 @@
             return {
                 email: '',
                 password: '',
+                snack_text: '',
+                color: '',
             }
         },
         components: {

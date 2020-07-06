@@ -131,16 +131,24 @@ const router = new Router({
     scrollBehavior(to, from, savedPosition) {
         return {x: 0, y: 0}
     },
+    methods: {
+        setData (color,text) {
+            this.snack_text = text;
+            this.color = color;
+            this.snackbar = true;
+        }
+    },
 });
 
 router.beforeEach((to, from, next) => {
     const loggedIn = localStorage.getItem('user');
 
     if (to.matched.some(record => record.meta.auth) && !loggedIn) {
-        next('/login');
+        next('/login', vm => vm.setData("#76c3bf","問い合わせを送信しました"));
     } else {
         next();
     }
 });
+
 
 export default router;
