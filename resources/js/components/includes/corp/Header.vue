@@ -6,7 +6,9 @@
         >
             <router-link to="/corp/" tag="img" src="/images/logo.png" class="header__logo"></router-link>
             <v-spacer></v-spacer>
-            <inquiry-count></inquiry-count>
+            <inquiry-count
+                :total_inquiry="total_inquiry"
+            ></inquiry-count>
         </v-app-bar>
     </div>
 </template>
@@ -49,5 +51,9 @@
                 this.drawer = false
             },
         },
+
+        props: [
+            'total_inquiry',
+        ],
     }
 </script>

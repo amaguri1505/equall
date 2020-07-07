@@ -9,7 +9,7 @@
             <v-content
                 class="text-center inquiry-count__content"
             >
-                件
+                {{ total_inquiry }}件
             </v-content>
         </v-card>
     </div>
@@ -17,7 +17,9 @@
 
 <script>
     export default {
-        props: {},
+        props: [
+            "total_inquiry"
+        ],
     };
 </script>
 

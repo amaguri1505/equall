@@ -48,6 +48,12 @@ class ApiController extends Controller
         return response()->json($inquiries);
     }
 
+    public function getTotalInquiry($corp_id)
+    {
+        $inquiry_cnt = Inquiry::count();
+        return response()->json($inquiry_cnt);
+    }
+
     public function addImages(Request $req)
     {
         if ($req->file) {

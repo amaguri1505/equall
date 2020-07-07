@@ -15,7 +15,10 @@
                 color="#76c3bf"
             ></v-progress-circular>
         </v-overlay>
-        <the-header class="corp-layout__header"/>
+        <the-header
+            :total_inquiry="total_inquiry"
+            class="corp-layout__header"
+        />
         <v-divider></v-divider>
         <v-container
             class="pa-0"
@@ -57,8 +60,17 @@
                 overlay: false,
                 snack_color: "success",
                 snack_text: "test",
+                total_inquiry: 0,
             }
-        }
+        },
+        created () {
+            this.$http
+                .get('/get-total-inquiry/0')
+                .then(response => {
+                    this.total_inquiry = response.data;
+                    this.$parent.overlay = false;
+                });
+        },
     }
 </script>
 <style lang="sass">
