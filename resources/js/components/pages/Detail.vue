@@ -5,7 +5,9 @@
         </div>
         <v-divider></v-divider>
         <div class="detail__content pt-2">
-            <detail-thumbnail></detail-thumbnail>
+            <detail-thumbnail
+                :house_property_images="house_property_images"
+            ></detail-thumbnail>
             <div class="detail__catch mt-5">
                 日本の暮らし方を改革する
             </div>
@@ -232,12 +234,18 @@
                 .get(`/get-detail/${detail_id}`)
                 .then(response => {
                     this.house_property = response.data;
-                    this.$parent.overlay=false;
+                    this.$http
+                        .get(`/get-property-image/${detail_id}`)
+                        .then(response => {
+                            this.house_property_images = response.data;
+                            this.$parent.overlay=false;
+                        });
                 });
         },
         data () {
             return {
                 house_property: {},
+                house_property_images: [],
                 contact_url: "",
             }
         }

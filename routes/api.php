@@ -26,8 +26,10 @@ Route::group(['middleware' => ['api']], function() {
     Route::post('add-inquiry', 'Api\ApiController@addInquiry');
 
     Route::get('get-detail/{id}', 'Api\ApiController@getDetail');
+    Route::get('get-property-image/{id}', 'Api\ApiController@getPropertyImage');
     Route::get('get-title/{id}', 'Api\ApiController@getTitle');
     Route::get('get-properties', 'Api\ApiController@getProperties');
+    Route::get('get-property-images', 'Api\ApiController@getPropertyImages');
     Route::get('get-inquiries', 'Api\ApiController@getInquiries');
 
     Route::post('/register','Auth\RegisterController@register');

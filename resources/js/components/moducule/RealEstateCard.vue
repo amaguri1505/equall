@@ -6,7 +6,7 @@
                     cols="6"
                 >
                     <div class="re-card__thumb">
-                        <v-img src="/images/samplees.jpg"></v-img>
+                        <v-img :src="image_url"></v-img>
                     </div>
                 </v-col>
                 <v-col
@@ -55,6 +55,7 @@
             "cost",
             "structure",
             "area",
+            "image_url",
         ],
     }
 </script>

@@ -21,6 +21,7 @@
                         :cost="property.cost"
                         :structure="property.structure"
                         :area="property.area"
+                        :image_url="'/uploads/' + property.id + '/1.jpg'"
                     ></real-estate-card>
                 </v-carousel-item>
             </v-carousel>
@@ -34,6 +35,7 @@
         data() {
             return {
                 properties: [],
+                propertyImages: [],
             }
         },
         components: {

@@ -17,6 +17,12 @@ class ApiController extends Controller
         return response()->json($house_property);
     }
 
+    public function getPropertyImage($id)
+    {
+        $house_property_image = HousePropertyImage::where('property_id',$id)->get();
+        return response()->json($house_property_image);
+    }
+
     public function getTitle($id)
     {
         $house_property = HouseProperty::select('name')->where('id', $id)->get();
@@ -27,6 +33,13 @@ class ApiController extends Controller
     {
         $properties = HouseProperty::get();
         return response()->json($properties);
+    }
+
+    public function getPropertyImages()
+    {
+        $propertyImages = HousePropertyImage::get();
+        return response()->json($propertyImages);
+
     }
 
     public function getInquiries()
@@ -45,6 +58,7 @@ class ApiController extends Controller
 
     public function addProperty(Request $req)
     {
+        $cnt=0;
         $houseProperty = new HouseProperty([
             'type' => $req->input('type'),
             'name' => $req->input('name'),
@@ -73,12 +87,15 @@ class ApiController extends Controller
 
         $housePropertyImages = $req->images;
 
-        foreach ($housePropertyImages as $image) {
-            $imagePath = Storage::disk('uploads')->put('/test.jpg', $image);
+        foreach ($housePropertyImages as $image_obj) {
+            $cnt++;
+            $image_str = substr($image_obj['path'], strpos($image_obj['path'], ",") + 1);
+            $image = base64_decode($image_str);
+            $imagePath = Storage::disk('uploads')->put('/' . $houseProperty->id . '/' . $cnt . '.jpg', $image);
             HousePropertyImage::create([
-                'image_caption' => 'test',
-                'image_path' => '/uploads/' . $imagePath,
-                'property_id' => '1',
+                'image_caption' => $cnt,
+                'image_path' => '/uploads/' . $houseProperty->id . '/' . $cnt . '.jpg',
+                'property_id' => $houseProperty->id,
             ]);
         }
 

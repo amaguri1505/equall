@@ -6,7 +6,10 @@
             </div>
             <v-divider></v-divider>
             <div class="terms__content pt-2">
-                <real-estates class="mt-5 mb-5" label="検索結果"></real-estates>
+                <real-estates
+                    class="mt-5 mb-5"
+                    label="検索結果"
+                ></real-estates>
             </div>
         </div>
     </div>
@@ -17,6 +20,7 @@
         &__wrap
             margin-top: 48px
             padding: 40px 20px 80px 20px
+
         &__title
             color: colors(primary)
             text-align: center
