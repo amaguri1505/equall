@@ -35,6 +35,12 @@ class ApiController extends Controller
         return response()->json($properties);
     }
 
+    public function getSearchResult(Request $req)
+    {
+        $properties = [];
+        return response()->json($properties);
+    }
+
     public function getPropertyImages()
     {
         $propertyImages = HousePropertyImage::get();
@@ -50,7 +56,7 @@ class ApiController extends Controller
 
     public function getTotalInquiry($corp_id)
     {
-        $inquiry_cnt = Inquiry::count();
+        $inquiry_cnt = Inquiry::where('corp_id', $corp_id)->count();
         return response()->json($inquiry_cnt);
     }
 
