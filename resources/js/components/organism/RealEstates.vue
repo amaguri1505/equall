@@ -42,7 +42,8 @@
             RealEstateCard,
         },
         props: [
-            "label"
+            "label",
+            "s_search_word"
         ],
         created () {
             this.$parent.$parent.overlay = true;
