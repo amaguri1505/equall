@@ -19,7 +19,7 @@ class ApiController extends Controller
 
     public function getPropertyImage($id)
     {
-        $house_property_image = HousePropertyImage::where('property_id',$id)->get();
+        $house_property_image = HousePropertyImage::where('property_id', $id)->get();
         return response()->json($house_property_image);
     }
 
@@ -60,6 +60,36 @@ class ApiController extends Controller
         return response()->json($inquiry_cnt);
     }
 
+    public function searchProperties(Request $req)
+    {
+        $properties_query = HouseProperty::query();
+        $search_word = $req->s_search_word;
+        $s_pets = $req->s_pets;
+        $s_stations = $req->s_stations;
+        $s_areas = $req->s_areas;
+        $s_under_cost = $req->s_under_cost;
+        $s_limit_cost = $req->s_limit_cost;
+
+        if ($search_word) {
+            $properties_query->
+            orWhere('name',  'LIKE', '%' . $search_word . '%' )->
+            orWhere('good', 'LIKE', '%'.$search_word.'%')->
+            orwhere('bad', 'LIKE', '%'.$search_word.'%')->
+            orwhere('nearest_station', 'LIKE', '%'.$search_word.'%')->
+            orWhere('address', 'LIKE', '%'.$search_word.'%')->
+            orWhere('area', 'LIKE', '%'.$search_word.'%')->
+            orWhere('floor_plan', 'LIKE', '%'.$search_word.'%')->
+            orWhere('floor', 'LIKE', '%'.$search_word.'%')->
+            orWhere('structure', 'LIKE', '%'.$search_word.'%')->
+            orWhere('facility', 'LIKE', '%'.$search_word.'%')->
+            orWhere('corp', 'LIKE', '%'.$search_word.'%');
+        }
+
+        $properties = $properties_query->get();
+
+        return response()->json($properties);
+    }
+
     public function addImages(Request $req)
     {
         if ($req->file) {
@@ -70,7 +100,7 @@ class ApiController extends Controller
 
     public function addProperty(Request $req)
     {
-        $cnt=0;
+        $cnt = 0;
         $houseProperty = new HouseProperty([
             'type' => $req->input('type'),
             'name' => $req->input('name'),

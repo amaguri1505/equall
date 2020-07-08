@@ -110,6 +110,7 @@
                         >
                             <v-btn
                                 color="#76c3bf"
+                                to="/mypage/edit"
                                 dark
                             >
                                 編集ページへ

@@ -8,7 +8,8 @@ axios.defaults.baseURL = '/api';
 
 export default new Vuex.Store({
     state: {
-        user: null
+        user: null,
+        s_search_word: "",
     },
 
     mutations: {
@@ -21,6 +22,10 @@ export default new Vuex.Store({
         clearUserData () {
             localStorage.removeItem('user')
             location.reload()
+        },
+
+        changeSearchWord (state, s_search_word) {
+            state.s_search_word = s_search_word;
         },
     },
 
@@ -35,6 +40,10 @@ export default new Vuex.Store({
 
         logout ({ commit }) {
             commit('clearUserData')
+        },
+
+        filterProperty (store, s_search_word) {
+            store.commit('changeSearchWord', s_search_word);
         },
     },
 

@@ -45,10 +45,12 @@
             "label",
             "s_search_word"
         ],
-        created () {
+        created() {
             this.$parent.$parent.overlay = true;
             this.$http
-                .get('/get-properties')
+                .post('/search-properties',
+                    {s_search_word: this.s_search_word}
+                )
                 .then(response => {
                     this.properties = response.data;
                     this.$parent.$parent.overlay = false;

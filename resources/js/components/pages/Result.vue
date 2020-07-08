@@ -9,6 +9,7 @@
                 <real-estates
                     class="mt-5 mb-5"
                     label="検索結果"
+                    :s_search_word="s_search_word"
                 ></real-estates>
             </div>
         </div>
@@ -29,11 +30,16 @@
 </style>
 <script>
     import RealEstates from "../organism/RealEstates";
+    import { mapState } from "vuex";
 
     export default {
         components: {
             RealEstates,
-        }
-
+        },
+        computed: {
+            ...mapState([
+                's_search_word',
+            ])
+        },
     }
 </script>

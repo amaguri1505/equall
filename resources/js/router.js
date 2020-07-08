@@ -11,6 +11,7 @@ import RealEstatesForCat from './components/pages/RealEstatesForCat';
 import Result from './components/pages/Result';
 import Detail from './components/pages/Detail';
 import MyPage from './components/pages/MyPage';
+import MyPageEdit from './components/pages/MyPageEdit';
 import Contact from './components/pages/Contact';
 import PageNotFound from './components/pages/PageNotFound';
 import CorpLogin from './components/pages/corp/Login';
@@ -88,6 +89,14 @@ const router = new Router({
             path: '/mypage',
             name: 'mypage',
             component: MyPage,
+            meta: {
+                auth: true
+            },
+        },
+        {
+            path: '/mypage/edit',
+            name: 'mypageedit',
+            component: MyPageEdit,
             meta: {
                 auth: true
             },

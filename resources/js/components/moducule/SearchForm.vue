@@ -8,11 +8,11 @@
         </v-row>
         <v-row>
             <v-text-field
+                v-model="s_search_word"
                 background-color="white"
                 single-line
                 outlined
                 hide-details
-                @keydown.enter="search"
             >
                 <template v-slot:append>
                     <v-btn
@@ -33,9 +33,17 @@
 </template>
 <script>
     export default {
+        data () {
+            return {
+                s_search_word: "",
+            }
+        },
         methods: {
             search: function (event) {
-                this.$router.push("/result");
+                this.$store.dispatch('filterProperty', this.s_search_word);
+                this.$router.push({
+                    path: "/result",
+                });
             }
         }
     }
