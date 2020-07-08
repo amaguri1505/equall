@@ -40,12 +40,12 @@
         },
         methods: {
             search: function (event) {
-                this.$store.dispatch('filterProperty', this.s_search_word);
+                this.$store.dispatch('addSearchWord', this.s_search_word);
                 this.$router.push({
                     path: "/result",
                 });
             }
-        }
+        },
     }
 </script>
 <style lang="sass">

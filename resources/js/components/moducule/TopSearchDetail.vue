@@ -32,15 +32,5 @@
             TopSearchDetailArea,
             TopSearchDetailCost,
         },
-        data() {
-            return {
-                dialog: false,
-            }
-        },
-        methods: {
-            search: function (event) {
-                this.$router.push("/result");
-            }
-        }
     }
 </script>

@@ -10,6 +10,10 @@ export default new Vuex.Store({
     state: {
         user: null,
         s_search_word: "",
+        s_stations: {},
+        s_areas: {},
+        s_costs: {},
+        s_pets: {},
     },
 
     mutations: {
@@ -27,6 +31,23 @@ export default new Vuex.Store({
         changeSearchWord (state, s_search_word) {
             state.s_search_word = s_search_word;
         },
+
+        changeSearchStations (state, s_stations) {
+            state.s_stations = s_stations;
+        },
+
+        changeSearchAreas (state, s_areas) {
+            state.s_areas = s_areas;
+        },
+
+        changeSearchCosts (state, s_costs) {
+            state.s_costs = s_costs;
+        },
+
+        changeSearchPets (state, s_pets) {
+            state.s_pets = s_pets;
+        },
+
     },
 
     actions: {
@@ -42,9 +63,26 @@ export default new Vuex.Store({
             commit('clearUserData')
         },
 
-        filterProperty (store, s_search_word) {
+        addSearchWord (store, s_search_word) {
             store.commit('changeSearchWord', s_search_word);
         },
+
+        addSearchStations (store, s_stations) {
+            store.commit('changeSearchStations', s_stations);
+        },
+
+        addSearchAreas (store, s_areas) {
+            store.commit('changeSearchAreas', s_areas);
+        },
+
+        addSearchCosts (store, s_costs) {
+            store.commit('changeSearchCosts', s_costs);
+        },
+
+        addSearchPets (store, s_pets) {
+            store.commit('changeSearchPets', s_pets);
+        },
+
     },
 
     getters : {

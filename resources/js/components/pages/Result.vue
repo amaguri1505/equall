@@ -39,6 +39,10 @@
         computed: {
             ...mapState([
                 's_search_word',
+                's_stations',
+                's_areas',
+                's_costs',
+                's_pets',
             ])
         },
     }

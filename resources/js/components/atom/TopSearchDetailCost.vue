@@ -135,6 +135,7 @@
                     name: this.cost.under + "〜" + this.cost.limit,
                     chip: true,
                 };
+                this.$store.dispatch('addSearchCosts', this.s_cost);
                 this.dialog=false;
             }
         }

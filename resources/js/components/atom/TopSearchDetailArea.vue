@@ -118,6 +118,7 @@
                         chip: true,
                     });
                 });
+                this.$store.dispatch('addSearchAreas', this.decided_wards);
                 this.dialog = false;
             }
         },

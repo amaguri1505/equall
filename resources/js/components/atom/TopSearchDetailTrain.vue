@@ -87,6 +87,7 @@
                     name: this.$refs.station_auto.station,
                     chip: true,
                 });
+                this.$store.dispatch('addSearchStations', this.s_trains);
                 this.dialog = false;
             }
         }
