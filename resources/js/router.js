@@ -116,26 +116,41 @@ const router = new Router({
             path: '/corp/',
             name: 'corp_index',
             component: CorpIndex,
+            meta: {
+                corp_auth: true
+            },
         },
         {
             path: '/corp/manage-property/',
             name: 'manage-property',
             component: ManageProperty,
+            meta: {
+                corp_auth: true
+            },
         },
         {
             path: '/corp/register-property/',
             name: 'register-property',
             component: RegisterProperty,
+            meta: {
+                corp_auth: true
+            },
         },
         {
             path: '/corp/manage-inquiry/',
             name: 'manage-inquiry',
             component: ManageInquiry,
+            meta: {
+                corp_auth: true
+            },
         },
         {
             path: '/corp/manage-account-info/',
             name: 'manage-account-info',
             component: ManageAccountInfo,
+            meta: {
+                corp_auth: true
+            },
         },
         {
             path: '*',
@@ -157,9 +172,16 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
     const loggedIn = localStorage.getItem('user');
+    const loggedInCorp = localStorage.getItem('corp');
 
     if (to.matched.some(record => record.meta.auth) && !loggedIn) {
-        next('/login', vm => vm.setData("#76c3bf","ログインしました"));
+        next('/login', vm => vm.setData("warning","ログインしてください"));
+    } else {
+        next();
+    }
+
+    if (to.matched.some(record => record.meta.corp_auth) && !loggedInCorp) {
+        window.location.href='/corp/login';
     } else {
         next();
     }

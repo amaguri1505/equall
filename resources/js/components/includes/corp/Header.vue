@@ -42,7 +42,7 @@
         },
         methods: {
             logout() {
-                this.$store.dispatch('logout-corp');
+                this.$store.dispatch('logoutCorp');
             }
         },
         data: () => ({
