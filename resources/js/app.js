@@ -8,6 +8,7 @@ import MainPageCorp from './components/pages/corp/MainPage';
 import MainPageCorpOnlyHeader from './components/pages/corp/MainPageOnlyHeader';
 import store from './store';
 import VueLazyload from 'vue-lazyload';
+import ja from 'vuetify/es5/locale/ja';
 
 Vue.prototype.$http = axios;
 
@@ -18,7 +19,12 @@ Vue.use(VueLazyload);
 new Vue({
     store,
     router: router,
-    vuetify: new Vuetify(),
+    vuetify: new Vuetify({
+        lang: {
+            locales: { ja },
+            current: 'ja',
+        },
+    }),
     components: {
         app: MainPage,
         appcorp: MainPageCorp,

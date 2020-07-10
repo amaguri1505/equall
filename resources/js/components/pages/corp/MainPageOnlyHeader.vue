@@ -1,17 +1,12 @@
 <template>
     <div>
-        <the-header class="corp-layout__header"/>
         <router-view/>
     </div>
 </template>
 <script>
-    import TheHeader from '../../includes/corp/Header';
 
     export default {
         name: 'appcorp',
-        components: {
-            TheHeader,
-        },
     }
 </script>
 <style lang="sass">

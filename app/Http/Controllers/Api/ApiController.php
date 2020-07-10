@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\HouseProperty;
 use App\HousePropertyImage;
+use App\AdminInquiry;
 use App\Inquiry;
 use Illuminate\Support\Facades\Storage;
 
@@ -72,17 +73,17 @@ class ApiController extends Controller
 
         if ($search_word) {
             $properties_query->
-            orWhere('name',  'LIKE', '%' . $search_word . '%' )->
-            orWhere('good', 'LIKE', '%'.$search_word.'%')->
-            orwhere('bad', 'LIKE', '%'.$search_word.'%')->
-            orwhere('nearest_station', 'LIKE', '%'.$search_word.'%')->
-            orWhere('address', 'LIKE', '%'.$search_word.'%')->
-            orWhere('area', 'LIKE', '%'.$search_word.'%')->
-            orWhere('floor_plan', 'LIKE', '%'.$search_word.'%')->
-            orWhere('floor', 'LIKE', '%'.$search_word.'%')->
-            orWhere('structure', 'LIKE', '%'.$search_word.'%')->
-            orWhere('facility', 'LIKE', '%'.$search_word.'%')->
-            orWhere('corp', 'LIKE', '%'.$search_word.'%');
+            orWhere('name', 'LIKE', '%' . $search_word . '%')->
+            orWhere('good', 'LIKE', '%' . $search_word . '%')->
+            orwhere('bad', 'LIKE', '%' . $search_word . '%')->
+            orwhere('nearest_station', 'LIKE', '%' . $search_word . '%')->
+            orWhere('address', 'LIKE', '%' . $search_word . '%')->
+            orWhere('area', 'LIKE', '%' . $search_word . '%')->
+            orWhere('floor_plan', 'LIKE', '%' . $search_word . '%')->
+            orWhere('floor', 'LIKE', '%' . $search_word . '%')->
+            orWhere('structure', 'LIKE', '%' . $search_word . '%')->
+            orWhere('facility', 'LIKE', '%' . $search_word . '%')->
+            orWhere('corp', 'LIKE', '%' . $search_word . '%');
         }
 
         $properties = $properties_query->get();
@@ -155,5 +156,15 @@ class ApiController extends Controller
             'contact_text' => $req->input('contact_text'),
         ]);
         $inquiry->save();
+    }
+
+    public function submitRelation(Request $req)
+    {
+        $adminInquiry = new AdminInquiry([
+
+        ]);
+        $adminInquiry->save();
+
+        return response()->json('success submitRelation');
     }
 }

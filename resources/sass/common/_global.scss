@@ -7,10 +7,11 @@ body {
         max-width: 540px;
         background-color: colors(primary);
         margin: 0 auto;
-        position: relative;
+        //position: relative;
 
         &--corp {
             max-width: 9999px;
         }
     }
 }
+

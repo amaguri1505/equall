@@ -1,12 +1,12 @@
 <template>
     <div class="corp-login">
         <div class="corp-login__wrap">
+            <equall-logo class="corp-login__logo"/>
             <v-card
                 max-width="540"
                 class="corp-login__card mx-auto"
             >
                 <v-card-text>
-
                     <v-text-field
                         class="mt-5"
                         background-color="white"
@@ -53,7 +53,6 @@
     import EquallTerms from "../../atom/EquallTerms";
     import EquallLineLogin from "../../atom/EquallLineLogin";
 
-
     export default {
         data() {
             return {
@@ -88,14 +87,20 @@
 <style lang="sass">
     @import "../../../../sass/common/_variable.scss"
     .corp-login
+        height: 100vh
+        padding: 40px 20px 0 20px
+        background-color: rgba(118, 195, 191, 0.5)
+        text-align: center
+        position: relative
+
         &__wrap
-            height: calc(100vh - 48px)
-            margin-top: 48px
-            padding: 40px 20px 0 20px
-            background-color: rgba(118, 195, 191, 0.2)
-            position: relative
+            margin-top: calc(100vh / 8)
 
         &__card
-            margin-top: calc(100vh / 8)
+            margin-top: 20px
+
+        &__logo
+            width: 540px
+            margin: 0 auto
 
 </style>

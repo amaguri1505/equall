@@ -50,6 +50,15 @@
                     rows="4"
                     required
                 ></v-textarea>
+
+                <v-btn
+                    color="#76c3bf"
+                    dark
+                    class="mr-4"
+                    @click="submit"
+                >
+                    送信
+                </v-btn>
             </div>
         </div>
     </div>
@@ -66,6 +75,9 @@
             text-align: center
             letter-spacing: 0.2rem
             font-size: 1.5rem
+
+        &__content
+            text-align: center
 </style>
 <script>
     export default {
@@ -79,6 +91,23 @@
                     "4. その他",
                 ],
             }
+        },
+        methods: {
+            submit() {
+                this.$http
+                    .post('/submit-relationship', this.relationship)
+                    .then(response => {
+                        this.$parent.snack_text = "お問い合わせを送信しました";
+                        this.$parent.snack_color = "#76c3bf";
+                        this.$parent.snackbar = true;
+                        this.$refs.form.reset();
+                    })
+                    .catch(error => {
+                        this.$parent.snack_text = "エラーが発生しました";
+                        this.$parent.snack_color = "warning";
+                        this.$parent.snackbar = true;
+                    });
+            },
         }
     }
 </script>
