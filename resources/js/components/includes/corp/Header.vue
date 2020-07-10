@@ -6,6 +6,10 @@
         >
             <router-link to="/corp/" tag="img" src="/images/logo.png" class="header__logo"></router-link>
             <v-spacer></v-spacer>
+            <v-btn
+                @click="logout"
+                class="mr-5"
+            >ログアウト</v-btn>
             <inquiry-count
                 :total_inquiry="total_inquiry"
             ></inquiry-count>
@@ -38,7 +42,7 @@
         },
         methods: {
             logout() {
-                this.$store.dispatch('logout');
+                this.$store.dispatch('logout-corp');
             }
         },
         data: () => ({

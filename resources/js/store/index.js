@@ -80,11 +80,11 @@ export default new Vuex.Store({
         },
 
         logout ({ commit }) {
-            commit('clearUserData')
+            commit('clearUserData');
         },
 
         logoutCorp ({ commit }) {
-            commit('clearCorpData')
+            commit('clearCorpData');
         },
 
         addSearchWord (store, s_search_word) {

@@ -3,11 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\VerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
 
-class EstateAgent extends Model
+class EstateAgent extends Authenticatable
 {
+    use HasApiTokens, Notifiable;
+
     protected $fillable = [
-        'name', 'email', 'password', 'tel', 'license_number',
+        'name', 'email', 'password', 'tel', 'license_number','address',
     ];
 
     /**

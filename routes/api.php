@@ -70,9 +70,7 @@ Route::group(['middleware' => ['api']], function() {
         $corp = EstateAgent::where('email', $request->email)->first();
 
         if (!$corp || !Hash::check($request->password, $corp->password)) {
-            return response([
-                'message' => ['These credentials do not match our records.']
-            ], 401);
+            return response()->json('These credentials do not match our records.');
         }
 
         $token = $corp->createToken('corp-token')->plainTextToken;

@@ -1,5 +1,21 @@
 <template>
     <div class="corp-login">
+        <v-snackbar
+            top
+            v-model="snackbar"
+            :color="snack_color"
+        >
+            {{ snack_text }}
+        </v-snackbar>
+        <v-overlay
+            :value="overlay"
+            z-index="9999"
+        >
+            <v-progress-circular
+                indeterminate
+                color="#76c3bf"
+            ></v-progress-circular>
+        </v-overlay>
         <div class="corp-login__wrap">
             <equall-logo class="corp-login__logo"/>
             <v-card
@@ -54,6 +70,10 @@
             return {
                 email: '',
                 password: '',
+                snackbar: false,
+                overlay: false,
+                snack_color: "black",
+                snack_text: "",
             }
         },
         components: {
@@ -61,6 +81,7 @@
         },
         methods: {
             login() {
+                this.overlay = true;
                 this.$store
                     .dispatch('loginCorp', {
                         email: this.email,
@@ -68,11 +89,23 @@
                     })
                     .then(() => {
                         // this.$router.push('/corp');
+                        this.overlay = false;
+                        window.location.href='/corp';
                     })
                     .catch(err => {
+                        this.snack_text = "ログインに失敗しました";
+                        this.snack_color = "warning";
+                        this.snackbar = true;
+                        this.overlay = false;
                         console.log("error:".err);
                     });
             },
+        },
+        created () {
+            const loggedInCorp = localStorage.getItem('corp');
+            if (loggedInCorp) {
+                window.location.href='/corp';
+            }
         },
     };
 </script>
