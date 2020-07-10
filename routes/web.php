@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/corp/login', function () {
-    return view('login-corp');
+    return view('meta-corp');
+});
+
+Route::get('/corp/register', function () {
+    return view('meta-corp');
 });
 
 Route::get('/corp/', function () {

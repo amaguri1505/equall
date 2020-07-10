@@ -24,9 +24,6 @@
                 </div>
             </div>
             <div class="detail__pet-info mt-5">
-                <div class="detail__sub-title detail__sub-title--pet-info">
-                    ペット情報
-                </div>
                 <div class="detail__sub-content detail__sub-content--pet-info">
                     <detail-sub-content-item
                         title="種類"
@@ -51,9 +48,10 @@
                     <detail-sub-content-item
                         title="ペット数"
                         v-bind:subtitle="this.house_property.pet_cnt"
+                        unit="頭"
                     ></detail-sub-content-item>
                     <detail-sub-content-item
-                        title="最寄駅"
+                        title="最寄駅 徒歩（分）"
                         v-bind:subtitle="this.house_property.nearest_station"
                     ></detail-sub-content-item>
                     <detail-sub-content-item
@@ -67,9 +65,6 @@
                 </div>
             </div>
             <div class="detail__property-info mt-5">
-                <div class="detail__sub-title detail__sub-title--property-info">
-                    建物情報
-                </div>
                 <div class="detail__sub-content detail__sub-content--property-info">
                     <detail-sub-content-item
                         title="ペット飼育"
@@ -78,18 +73,27 @@
                     <detail-sub-content-item
                         title="賃料"
                         v-bind:subtitle="this.house_property.cost"
+                        unit="円"
                     ></detail-sub-content-item>
                     <detail-sub-content-item
                         title="管理費"
                         v-bind:subtitle="this.house_property.manage_cost"
+                        unit="円"
                     ></detail-sub-content-item>
                     <detail-sub-content-item
-                        title="初期費用"
-                        v-bind:subtitle="this.house_property.initial_cost"
+                        title="管理費"
+                        v-bind:subtitle="this.house_property.manage_cost"
+                        unit="円"
+                    ></detail-sub-content-item>
+                    <detail-sub-content-item
+                        title="管理費"
+                        v-bind:subtitle="this.house_property.manage_cost"
+                        unit="円"
                     ></detail-sub-content-item>
                     <detail-sub-content-item
                         title="専有面積"
                         v-bind:subtitle="this.house_property.area"
+                        unit="㎡"
                     ></detail-sub-content-item>
                     <detail-sub-content-item
                         title="間取り"
@@ -98,6 +102,7 @@
                     <detail-sub-content-item
                         title="階数"
                         v-bind:subtitle="this.house_property.floor"
+                        unit="階"
                     ></detail-sub-content-item>
                     <detail-sub-content-item
                         title="築年月"
@@ -116,16 +121,12 @@
                         v-bind:subtitle="this.house_property.facility"
                     ></detail-sub-content-item>
                     <detail-sub-content-item
-                        title="掲載費"
+                        title="掲載日"
                         v-bind:subtitle="this.house_property.start_date"
                     ></detail-sub-content-item>
                     <detail-sub-content-item
                         title="物件ID"
                         v-bind:subtitle="this.house_property.id"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="取扱不動産会社"
-                        v-bind:subtitle="this.house_property.corp"
                     ></detail-sub-content-item>
                 </div>
             </div>
@@ -138,6 +139,19 @@
                 >
                     お問い合わせ
                 </v-btn>
+            </div>
+            <div class="detail__agent-info mt-5">
+                <v-card>
+                    <v-card-title>
+                        取扱不動産会社
+                    </v-card-title>
+                    <v-card-text>
+                        <div class="detail__agent-sub">不動産会社名：{{ estate_agent.name }}</div>
+                        <div class="detail__agent-sub">所在地：{{ estate_agent.address }}</div>
+                        <div class="detail__agent-sub">事務所電話番号：{{ estate_agent.name }} （equallからのお問い合わせ時は、上記のお問い合わせボタンからご連絡ください）</div>
+                        <div class="detail__agent-sub">免許証番号：{{ estate_agent.name }}</div>
+                    </v-card-text>
+                </v-card>
             </div>
         </div>
     </div>
@@ -226,8 +240,8 @@
             DetailThumbnail,
             DetailSubContentItem,
         },
-        created () {
-            this.$parent.overlay=true;
+        created() {
+            this.$parent.overlay = true;
             const detail_id = this.$route.params.detail_id;
             this.contact_url = "/detail/" + detail_id + "/contact";
             this.$http
@@ -238,14 +252,15 @@
                         .get(`/get-property-image/${detail_id}`)
                         .then(response => {
                             this.house_property_images = response.data;
-                            this.$parent.overlay=false;
+                            this.$parent.overlay = false;
                         });
                 });
         },
-        data () {
+        data() {
             return {
                 house_property: {},
                 house_property_images: [],
+                estate_agent: [],
                 contact_url: "",
             }
         }

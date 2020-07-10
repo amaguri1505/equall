@@ -15,6 +15,7 @@ import MyPageEdit from './components/pages/MyPageEdit';
 import Contact from './components/pages/Contact';
 import PageNotFound from './components/pages/PageNotFound';
 import CorpLogin from './components/pages/corp/Login';
+import CorpRegister from './components/pages/corp/Register';
 import CorpIndex from './components/pages/corp/Index';
 import ManageProperty from './components/pages/corp/ManageProperty';
 import RegisterProperty from './components/pages/corp/RegisterProperty';
@@ -107,6 +108,11 @@ const router = new Router({
             component: CorpLogin,
         },
         {
+            path: '/corp/register',
+            name: 'corp_register',
+            component: CorpRegister,
+        },
+        {
             path: '/corp/',
             name: 'corp_index',
             component: CorpIndex,
@@ -153,7 +159,7 @@ router.beforeEach((to, from, next) => {
     const loggedIn = localStorage.getItem('user');
 
     if (to.matched.some(record => record.meta.auth) && !loggedIn) {
-        next('/login', vm => vm.setData("#76c3bf","問い合わせを送信しました"));
+        next('/login', vm => vm.setData("#76c3bf","ログインしました"));
     } else {
         next();
     }

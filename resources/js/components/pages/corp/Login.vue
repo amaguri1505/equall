@@ -48,10 +48,6 @@
 </template>
 <script>
     import EquallLogo from "../../atom/EquallLogo";
-    import EquallFamily from "../../atom/EquallFamily";
-    import EquallStart from "../../atom/EquallStart";
-    import EquallTerms from "../../atom/EquallTerms";
-    import EquallLineLogin from "../../atom/EquallLineLogin";
 
     export default {
         data() {
@@ -62,10 +58,6 @@
         },
         components: {
             EquallLogo,
-            EquallFamily,
-            EquallStart,
-            EquallTerms,
-            EquallLineLogin,
         },
         methods: {
             login() {

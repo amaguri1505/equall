@@ -36,6 +36,7 @@ Route::group(['middleware' => ['api']], function() {
     Route::post('search-properties', 'Api\ApiController@searchProperties');
 
     Route::post('/register','Auth\RegisterController@register');
+    Route::post('/register-corp','Auth\RegisterCorpController@register');
     Route::post('/login', function (Request $request) {
         $data = $request->validate([
             'email' => 'required|email',

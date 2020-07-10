@@ -6,6 +6,7 @@
             </div>
             <div class="detail-sub-content-item__subtitle">
                 {{ subtitle }}
+                {{ unit }}
             </div>
         </div>
         <v-divider></v-divider>
@@ -29,7 +30,7 @@
 </style>
 <script>
     export default {
-        props: ['title', 'subtitle'],
+        props: ['title', 'subtitle', 'unit'],
     }
 
 </script>
