@@ -9,6 +9,7 @@ axios.defaults.baseURL = '/api';
 export default new Vuex.Store({
     state: {
         user: null,
+        corp: null,
         s_search_word: "",
         s_stations: {},
         s_areas: {},
@@ -23,8 +24,19 @@ export default new Vuex.Store({
             axios.defaults.headers.common.Authorization = `Bearer ${userData.token}`
         },
 
+        setCorpData (state, corpData) {
+            state.corp = corpData
+            localStorage.setItem('corp', JSON.stringify(corpData))
+            axios.defaults.headers.common.Authorization = `Bearer ${corpData.token}`
+        },
+
         clearUserData () {
             localStorage.removeItem('user')
+            location.reload()
+        },
+
+        clearCorpData () {
+            localStorage.removeItem('corp')
             location.reload()
         },
 
@@ -56,11 +68,23 @@ export default new Vuex.Store({
                 .post('/login', credentials)
                 .then(({ data }) => {
                     commit('setUserData', data)
-                })
+                });
+        },
+
+        loginCorp ({ commit }, credentials) {
+            return axios
+                .post('/login-corp', credentials)
+                .then(({ data }) => {
+                    commit('setCorpData', data)
+                });
         },
 
         logout ({ commit }) {
             commit('clearUserData')
+        },
+
+        logoutCorp ({ commit }) {
+            commit('clearCorpData')
         },
 
         addSearchWord (store, s_search_word) {
@@ -86,6 +110,7 @@ export default new Vuex.Store({
     },
 
     getters : {
-        isLogged: state => !!state.user
+        isLogged: state => !!state.user,
+        isLoggedCorp: state => !!state.corp,
     },
 });

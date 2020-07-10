@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\User;
+use App\EstateAgent;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -55,7 +56,30 @@ Route::group(['middleware' => ['api']], function() {
 
         $response = [
             'user' => $user,
-            'token' => $token
+            'token' => $token,
+        ];
+
+        return response($response, 201);
+    });
+    Route::post('/login-corp', function (Request $request) {
+        $data = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $corp = EstateAgent::where('email', $request->email)->first();
+
+        if (!$corp || !Hash::check($request->password, $corp->password)) {
+            return response([
+                'message' => ['These credentials do not match our records.']
+            ], 401);
+        }
+
+        $token = $corp->createToken('corp-token')->plainTextToken;
+
+        $response = [
+            'corp' => $corp,
+            'token' => $token,
         ];
 
         return response($response, 201);

@@ -10,8 +10,6 @@
         <v-overlay
             :value="overlay"
             z-index="9999"
-            color="white"
-            opacity="1.0"
         >
             <v-progress-circular
                 indeterminate
@@ -103,7 +101,7 @@
     export default {
         data() {
             return {
-                corp_info: [],
+                corp_info: {},
                 snackbar: false,
                 overlay: false,
                 snack_color: "black",
@@ -115,22 +113,15 @@
         },
         methods: {
             submit() {
-                this.snack_text = "登録しました";
-                this.snack_color = "#76c3bf";
-                this.snackbar = true;
-                this.$refs.form.reset();
-            },
-            login() {
-                this.$store
-                    .dispatch('login', {
-                        email: this.email,
-                        password: this.password
-                    })
-                    .then(() => {
-                        this.$router.push({name: 'mypage'});
-                    })
-                    .catch(err => {
-                        console.log("error:".err);
+                this.overlay = true;
+                this.$http
+                    .post('/register-corp', this.corp_info)
+                    .then(response => {
+                        this.snack_text = "登録しました";
+                        this.snack_color = "#76c3bf";
+                        this.snackbar = true;
+                        this.overlay = false;
+                        this.$refs.form.reset();
                     });
             },
         },

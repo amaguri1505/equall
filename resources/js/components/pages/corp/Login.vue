@@ -62,12 +62,12 @@
         methods: {
             login() {
                 this.$store
-                    .dispatch('login', {
+                    .dispatch('loginCorp', {
                         email: this.email,
-                        password: this.password
+                        password: this.password,
                     })
                     .then(() => {
-                        this.$router.push({name: 'mypage'});
+                        // this.$router.push('/corp');
                     })
                     .catch(err => {
                         console.log("error:".err);
