@@ -84,4 +84,12 @@ Route::group(['middleware' => ['api']], function() {
 
         return response($response, 201);
     });
+
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::middleware('auth:sanctum')->get('/user-corp', function (Request $request) {
+        return $request->user();
+    });
 });
