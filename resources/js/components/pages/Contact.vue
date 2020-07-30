@@ -54,7 +54,7 @@
             submit: function () {
                 this.overlay = true;
                 this.$http
-                    .post('/add-inquiry', this.inquiry)
+                    .post('/api/add-inquiry', this.inquiry)
                     .then(response => {
                         this.$parent.snack_text = "問い合わせを送信しました";
                         this.$parent.snack_color = "#76c3bf";
@@ -78,7 +78,7 @@
                 user_id: 1,
             };
             this.$http
-                .get(`/get-title/${detail_id}`)
+                .get(`/api/get-title/${detail_id}`)
                 .then(response => {
                     // this.title = JSON.parse(response.data).name;
                     this.title = response.data[0].name;

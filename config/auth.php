@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'sanctum',
         'passwords' => 'users',
     ],
 
@@ -42,9 +42,19 @@ return [
         ],
 
         'api' => [
-            'driver' => 'jwt',
+            'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
+        ],
+
+        'sanctum' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'sanctum_corp' => [
+            'driver' => 'session',
+            'provider' => 'corps',
         ],
     ],
 
@@ -71,10 +81,10 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'corps' => [
+            'driver' => 'eloquent',
+            'model' => App\EstateAgent::class,
+        ],
     ],
 
     /*

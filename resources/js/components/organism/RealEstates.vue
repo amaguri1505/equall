@@ -52,7 +52,7 @@
         created() {
             this.$parent.$parent.overlay = true;
             this.$http
-                .post('/search-properties', {
+                .post('/api/search-properties', {
                     s_search_word: this.s_search_word,
                     s_stations: this.s_stations,
                     s_areas: this.s_areas,

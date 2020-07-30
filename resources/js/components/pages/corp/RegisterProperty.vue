@@ -272,7 +272,7 @@
         methods: {
             submit: function () {
                 this.$http
-                    .post('/add-property', this.property)
+                    .post('/api/add-property', this.property)
                     .then(response => {
                         this.$parent.snack_text = "物件を登録しました";
                         this.$parent.snack_color = "#76c3bf";

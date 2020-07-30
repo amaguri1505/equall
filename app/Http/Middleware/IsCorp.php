@@ -15,10 +15,10 @@ class IsCorp
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->is_corp == 1) {
+        if(auth()->guard('sanctum_corp')->user()) {
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect('/corp/login');
     }
 }

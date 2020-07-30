@@ -21,6 +21,7 @@ import ManageProperty from './components/pages/corp/ManageProperty';
 import RegisterProperty from './components/pages/corp/RegisterProperty';
 import ManageInquiry from './components/pages/corp/ManageInquiry';
 import ManageAccountInfo from './components/pages/corp/ManageAccountInfo';
+import store from './store';
 
 
 Vue.use(Router);
@@ -171,17 +172,21 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-    const loggedIn = localStorage.getItem('user');
-    const loggedInCorp = localStorage.getItem('corp');
+    const loggedIn = store.getters.isLogged;
+    const loggedInCorp = store.getters.isLoggedCorp;
+
+    console.log(loggedIn);
+    console.log(loggedInCorp);
 
     if (to.matched.some(record => record.meta.auth) && !loggedIn) {
-        next('/login', vm => vm.setData("warning","ログインしてください"));
+        next({name: 'login'});
     } else {
         next();
     }
 
     if (to.matched.some(record => record.meta.corp_auth) && !loggedInCorp) {
-        window.location.href='/corp/login';
+        // window.location.href='/corp/login';
+        next();
     } else {
         next();
     }

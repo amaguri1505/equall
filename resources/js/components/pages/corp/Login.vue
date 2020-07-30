@@ -49,7 +49,7 @@
                         color="#f09299"
                         dark
                         depressed
-                        @click="login"
+                        @click="submit"
                     >
                         ログイン
                     </v-btn>
@@ -64,6 +64,7 @@
 </template>
 <script>
     import EquallLogo from "../../atom/EquallLogo";
+    import { mapActions } from 'vuex';
 
     export default {
         data() {
@@ -80,32 +81,18 @@
             EquallLogo,
         },
         methods: {
-            login() {
+            ...mapActions({
+                signIn: 'auth_corp/signIn',
+            }),
+
+            submit () {
                 this.overlay = true;
-                this.$store
-                    .dispatch('loginCorp', {
-                        email: this.email,
-                        password: this.password,
-                    })
-                    .then(() => {
-                        // this.$router.push('/corp');
-                        this.overlay = false;
-                        window.location.href='/corp';
-                    })
-                    .catch(err => {
-                        this.snack_text = "ログインに失敗しました";
-                        this.snack_color = "warning";
-                        this.snackbar = true;
-                        this.overlay = false;
-                        console.log("error:".err);
-                    });
+                this.signIn({
+                    email: this.email,
+                    password: this.password,
+                });
+                this.overlay = false;
             },
-        },
-        created () {
-            const loggedInCorp = localStorage.getItem('corp');
-            if (loggedInCorp) {
-                window.location.href='/corp';
-            }
         },
     };
 </script>

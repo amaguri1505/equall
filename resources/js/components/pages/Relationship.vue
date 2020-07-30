@@ -95,7 +95,7 @@
         methods: {
             submit() {
                 this.$http
-                    .post('/submit-relationship', this.relationship)
+                    .post('/api/submit-relationship', this.relationship)
                     .then(response => {
                         this.$parent.snack_text = "お問い合わせを送信しました";
                         this.$parent.snack_color = "#76c3bf";

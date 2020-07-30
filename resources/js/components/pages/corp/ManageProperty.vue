@@ -82,7 +82,7 @@
         created () {
             this.$parent.overlay = true;
             this.$http
-                .get('/get-properties')
+                .get('/api/get-properties')
                 .then(response => {
                     this.properties = response.data;
                     this.$parent.overlay = false;

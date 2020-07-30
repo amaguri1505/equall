@@ -115,7 +115,7 @@
             submit() {
                 this.overlay = true;
                 this.$http
-                    .post('/register-corp', this.corp_info)
+                    .post('/api/register-corp', this.corp_info)
                     .then(response => {
                         this.snack_text = "登録しました";
                         this.snack_color = "#76c3bf";

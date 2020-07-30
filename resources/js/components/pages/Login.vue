@@ -32,7 +32,7 @@
                 color="#f09299"
                 dark
                 depressed
-                @click="login"
+                @click="submit"
             >
                 ログイン
             </v-btn>
@@ -53,6 +53,7 @@
     import EquallStart from "../atom/EquallStart";
     import EquallTerms from "../atom/EquallTerms";
     import EquallLineLogin from "../atom/EquallLineLogin";
+    import { mapActions } from 'vuex';
 
 
     export default {
@@ -72,6 +73,19 @@
             EquallLineLogin,
         },
         methods: {
+            ...mapActions({
+                signIn: 'auth/signIn',
+            }),
+
+            submit () {
+                this.signIn({
+                    email: this.email,
+                    password: this.password,
+                });
+
+                this.$router.replace({name: 'mypage'});
+            },
+
             login() {
                 this.$store
                     .dispatch('login', {

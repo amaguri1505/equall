@@ -47,6 +47,7 @@
 <script>
     import TheHeader from '../../includes/corp/Header';
     import TheSidebar from '../../includes/corp/SideBar';
+    import { mapActions } from 'vuex';
 
     export default {
         name: 'appcorp',
@@ -63,9 +64,15 @@
                 total_inquiry: 0,
             }
         },
+        methods: {
+            ...mapActions({
+                me: 'auth_corp/me',
+            }),
+        },
         created () {
+            this.$store.dispatch('auth_corp/me');
             this.$http
-                .get('/get-total-inquiry/0')
+                .get('/api/get-total-inquiry/0')
                 .then(response => {
                     this.total_inquiry = response.data;
                     this.$parent.overlay = false;

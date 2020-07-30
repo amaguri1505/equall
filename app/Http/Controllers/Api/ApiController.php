@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Storage;
 
 class ApiController extends Controller
 {
+    public function getUser(Request $req) {
+        return $req->user();
+    }
+
+    public function getCorp(Request $req) {
+        return $req->user('sanctum_corp');
+    }
+
     public function getDetail($id)
     {
         $house_property = HouseProperty::find($id);

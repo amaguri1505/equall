@@ -12,6 +12,10 @@ class EstateAgent extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
+    protected $table = 'estate_agents';
+    protected $guard = 'sanctum_corp';
+
+
     protected $fillable = [
         'name', 'email', 'password', 'tel', 'license_number','address',
     ];

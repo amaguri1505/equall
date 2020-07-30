@@ -61,7 +61,7 @@
         created () {
             this.$parent.overlay = true;
             this.$http
-                .get('/get-inquiries')
+                .get('/api/get-inquiries')
                 .then(response => {
                     this.inquiries = response.data;
                     this.$parent.overlay = false;

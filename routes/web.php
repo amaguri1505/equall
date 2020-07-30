@@ -12,23 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/corp/login', function () {
-    return view('meta-corp');
-});
+Route::get('/corp/login', 'Auth\LoginCorpController@index');
 
-Route::get('/corp/register', function () {
-    return view('meta-corp');
-});
+Route::get('/corp/register', 'ViewController@viewMetaCorp');
 
-Route::get('/corp/', function () {
-    return view('app-corp');
-});
+Route::get('/corp', 'CorpController@index');
 
-Route::get('/corp/{any}', function () {
-    return view('app-corp');
-})->where('any', '.*');
+Route::get('/corp/{any}', 'CorpController@index')->where('any', '.*');
 
-Route::get('{any}', function () {
-    return view('app');
-})->where('any', '.*');
+Route::get('/mypage', 'MypageController@index')->name('mypage');
 
+Route::get('{any}', 'ViewController@viewApp')->where('any', '.*');
+
+Route::post('/corp/login', 'Auth\LoginCorpController@login')->name('login-corp');
+
+Route::post('/corp/logout', 'Auth\LoginCorpController@logout')->name('logout-corp');
+
+Auth::routes();

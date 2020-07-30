@@ -30,6 +30,7 @@
 <script>
     import {mapGetters} from 'vuex';
     import InquiryCount from '../../moducule/corp/InquiryCount';
+    import { mapActions } from 'vuex';
 
     export default {
         components: {
@@ -41,8 +42,12 @@
             ])
         },
         methods: {
+            ...mapActions({
+                signOut: 'auth_corp/signOut',
+            }),
+
             logout() {
-                this.$store.dispatch('logoutCorp');
+                this.signOut();
             }
         },
         data: () => ({

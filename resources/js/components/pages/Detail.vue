@@ -245,11 +245,11 @@
             const detail_id = this.$route.params.detail_id;
             this.contact_url = "/detail/" + detail_id + "/contact";
             this.$http
-                .get(`/get-detail/${detail_id}`)
+                .get(`/api/get-detail/${detail_id}`)
                 .then(response => {
                     this.house_property = response.data;
                     this.$http
-                        .get(`/get-property-image/${detail_id}`)
+                        .get(`/api/get-property-image/${detail_id}`)
                         .then(response => {
                             this.house_property_images = response.data;
                             this.$parent.overlay = false;
