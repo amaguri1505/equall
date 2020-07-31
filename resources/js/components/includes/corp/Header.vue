@@ -6,6 +6,12 @@
         >
             <router-link to="/corp/" tag="img" src="/images/logo.png" class="header__logo"></router-link>
             <v-spacer></v-spacer>
+            <v-card class="mr-5"
+                v-model="corpName"
+                flat
+            >
+                {{ corpName }}様
+            </v-card>
             <v-btn
                 @click="logout"
                 class="mr-5"
@@ -39,7 +45,12 @@
         computed: {
             ...mapGetters([
                 'isLogged',
-            ])
+            ]),
+            corpName: {
+                get () {
+                    return this.$store.state.auth_corp.corp_name;
+                }
+            }
         },
         methods: {
             ...mapActions({

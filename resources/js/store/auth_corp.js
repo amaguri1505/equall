@@ -4,18 +4,25 @@ export default {
     namespaced: true,
 
     state: {
-        corp: null
+        corp: null,
+        corp_name: null,
     },
 
     getters: {
         corp(state) {
-            return state.corp
+            return state.corp;
+        },
+        corp_name(state) {
+            return state.corp_name;
         },
     },
 
     mutations: {
         SET_CORP(state, value) {
-            state.corp = value
+            if (value) {
+                state.corp = value;
+                state.corp_name = value.name;
+            }
         }
     },
 
@@ -38,7 +45,7 @@ export default {
                 commit('SET_CORP', response.data);
             }).catch(() => {
                 commit('SET_CORP', null);
-            })
+            });
         }
     }
 }
