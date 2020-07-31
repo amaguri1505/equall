@@ -35,6 +35,7 @@
 
                                 <v-col cols="4">
                                     <v-select
+                                        class="required"
                                         v-model="property.type"
                                         :items="types"
                                         :rules="[v => !!v || 'Item is required']"
@@ -45,6 +46,7 @@
 
                                 <v-col cols="4">
                                     <v-select
+                                        class="required"
                                         v-model="property.is_pet"
                                         :items="is_pet"
                                         :rules="[v => !!v || 'Item is required']"
@@ -55,6 +57,7 @@
 
                                 <v-col cols="4">
                                     <v-select
+                                        class="required"
                                         v-model="property.property_type"
                                         :items="property_types"
                                         :rules="[v => !!v || 'Item is required']"
@@ -65,6 +68,7 @@
 
                                 <v-col cols="12">
                                     <v-text-field
+                                        class="required"
                                         v-model="property.name"
                                         :counter="100"
                                         label="物件名"
@@ -94,7 +98,6 @@
                                         :items="pet_types"
                                         :rules="[v => !!v || 'Item is required']"
                                         label="ペットの種類"
-                                        required
                                     ></v-select>
                                 </v-col>
 
@@ -104,20 +107,22 @@
                                         :items="pet_cnt"
                                         :rules="[v => !!v || 'Item is required']"
                                         label="ペットの数"
-                                        required
                                     ></v-select>
                                 </v-col>
 
                                 <v-col cols="6">
                                     <v-text-field
+                                        class="required"
                                         v-model="property.nearest_station"
                                         :count="50"
                                         label="最寄駅"
+                                        required
                                     ></v-text-field>
                                 </v-col>
 
                                 <v-col cols="6">
                                     <v-select
+                                        class="required"
                                         v-model="property.minutes_on_foot"
                                         :items="minutes_on"
                                         :rules="[v => !!v || 'Item is required']"
@@ -128,19 +133,23 @@
 
                                 <v-col cols="12">
                                     <v-text-field
+                                        class="required"
                                         v-model="property.address"
                                         :count="200"
                                         label="所在地"
+                                        required
                                     ></v-text-field>
                                 </v-col>
 
                                 <v-col cols="6">
                                     <v-text-field
+                                        class="required"
                                         v-model="property.cost"
                                         :count="10"
                                         type="number"
                                         prefix="¥"
                                         label="家賃"
+                                        required
                                     ></v-text-field>
                                 </v-col>
 
@@ -156,6 +165,7 @@
 
                                 <v-col cols="3">
                                     <v-select
+                                        class="required"
                                         v-model="property.deposit"
                                         :items="deposit"
                                         :rules="[v => !!v || 'Item is required']"
@@ -170,12 +180,12 @@
                                         :items="deposit"
                                         :rules="[v => !!v || 'Item is required']"
                                         label="ペット飼育時追加敷金"
-                                        required
                                     ></v-select>
                                 </v-col>
 
                                 <v-col cols="3">
                                     <v-select
+                                        class="required"
                                         v-model="property.key_money"
                                         :items="key_money"
                                         :rules="[v => !!v || 'Item is required']"
@@ -190,7 +200,6 @@
                                         :items="deposit"
                                         :rules="[v => !!v || 'Item is required']"
                                         label="保証金"
-                                        required
                                     ></v-select>
                                 </v-col>
 
@@ -216,15 +225,18 @@
 
                                 <v-col cols="4">
                                     <v-text-field
+                                        class="required"
                                         v-model="property.area"
                                         type="number"
                                         label="専有面積"
                                         suffix="㎡"
+                                        required
                                     ></v-text-field>
                                 </v-col>
 
                                 <v-col cols="4">
                                     <v-select
+                                        class="required"
                                         v-model="property.floor_plan"
                                         :items="floor_plan"
                                         :rules="[v => !!v || 'Item is required']"
@@ -243,14 +255,17 @@
 
                                 <v-col cols="4">
                                     <v-text-field
+                                        class="required"
                                         v-model="property.age"
                                         type="month"
                                         label="築年月"
+                                        required
                                     ></v-text-field>
                                 </v-col>
 
                                 <v-col cols="4">
                                     <v-select
+                                        class="required"
                                         v-model="property.structure"
                                         :items="structure"
                                         :rules="[v => !!v || 'Item is required']"
@@ -265,7 +280,6 @@
                                         :items="park"
                                         :rules="[v => !!v || 'Item is required']"
                                         label="駐車場の有無"
-                                        required
                                     ></v-select>
                                 </v-col>
 
@@ -279,14 +293,17 @@
 
                                 <v-col cols="12">
                                     <v-text-field
+                                        class="required"
                                         v-model="property.start_date"
                                         label="掲載開始日"
                                         type="date"
+                                        required
                                     ></v-text-field>
                                 </v-col>
 
                                 <v-col cols="12">
                                     <v-text-field
+                                        class="required"
                                         v-model="corpName"
                                         :count="200"
                                         label="取扱不動産店"

@@ -15,3 +15,8 @@ body {
     }
 }
 
+.required label::after {
+    margin-left: 4px;
+    content: "*";
+    color: red;
+}
