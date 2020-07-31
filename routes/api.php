@@ -20,9 +20,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::middleware('auth:sanctum_corp')->group(function () {
     Route::get('/corp', 'Api\ApiController@getCorp');
+    Route::group(['middleware' => ['api']], function () {
+        Route::get('get-total-inquiry', 'Api\ApiController@getTotalInquiry');
+    });
 });
 
-Route::group(['middleware' => ['api']], function() {
+Route::group(['middleware' => ['api']], function () {
 
     Route::post('add-property', 'Api\ApiController@addProperty');
     Route::post('add-images', 'Api\ApiController@addImages');
@@ -34,12 +37,11 @@ Route::group(['middleware' => ['api']], function() {
     Route::get('get-properties', 'Api\ApiController@getProperties');
     Route::get('get-property-images', 'Api\ApiController@getPropertyImages');
     Route::get('get-inquiries', 'Api\ApiController@getInquiries');
-    Route::get('get-total-inquiry/{corp_id}', 'Api\ApiController@getTotalInquiry');
 
     Route::post('search-properties', 'Api\ApiController@searchProperties');
 
-    Route::post('/register','Auth\RegisterController@register');
-    Route::post('/register-corp','Auth\RegisterCorpController@register');
+    Route::post('/register', 'Auth\RegisterController@register');
+    Route::post('/register-corp', 'Auth\RegisterCorpController@register');
 
 });
 

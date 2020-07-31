@@ -72,7 +72,7 @@
         created () {
             this.$store.dispatch('auth_corp/me');
             this.$http
-                .get('/api/get-total-inquiry/0')
+                .get('/api/get-total-inquiry')
                 .then(response => {
                     this.total_inquiry = response.data;
                     this.$parent.overlay = false;

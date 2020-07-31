@@ -63,8 +63,9 @@ class ApiController extends Controller
         return response()->json($inquiries);
     }
 
-    public function getTotalInquiry($corp_id)
+    public function getTotalInquiry()
     {
+        $corp_id = auth()->guard('sanctum_corp')->user()->id;
         $inquiry_cnt = Inquiry::where('corp_id', $corp_id)->count();
         return response()->json($inquiry_cnt);
     }
