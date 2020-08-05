@@ -8,7 +8,9 @@
                     <v-form
                         ref="form"
                     >
-                        <v-container>
+                        <v-container
+                            @click="edited"
+                        >
                             <v-row>
                                 <v-col cols="12">
                                     <div class="corp-register__image-uploader-wrap">
@@ -27,7 +29,6 @@
                                             dropText=""
                                             :data-images="property.images"
                                             ref="uploader"
-                                            maxImage="10"
                                         ></vue-upload-multiple-image>
                                     </div>
                                 </v-col>
@@ -69,10 +70,19 @@
                                     <v-text-field
                                         class="required"
                                         v-model="property.name"
-                                        :counter="100"
-                                        :rules="rule_required"
+                                        :counter="200"
+                                        :rules="rule_required_limit200"
                                         label="物件名"
                                         required
+                                    ></v-text-field>
+                                </v-col>
+
+                                <v-col cols="12">
+                                    <v-text-field
+                                        v-model="property.hitokoto"
+                                        :counter="200"
+                                        :rules="rule_limit200"
+                                        label="この物件への一言"
                                     ></v-text-field>
                                 </v-col>
 
@@ -123,7 +133,7 @@
                                 <v-col cols="6">
                                     <v-select
                                         class="required"
-                                        v-model="property.minutes_on_foot"
+                                        v-model="property.minutes_on"
                                         :items="minutes_on"
                                         :rules="rule_required"
                                         label="駅までの所要時間"
@@ -389,18 +399,28 @@
                 get() {
                     return this.$store.state.auth_corp.corp_name;
                 }
+            },
+            corpId: {
+                get() {
+                    return this.$store.state.auth_corp.id;
+                }
             }
         },
         beforeRouteLeave(to, from, next) {
-            const answer = window.confirm("編集中の内容は破棄されます。移動してよろしいですか？");
-            if (answer) {
-                next();
+            if (this.isEdited) {
+                const answer = window.confirm("編集中の内容は破棄されます。移動してよろしいですか？");
+                if (answer) {
+                    next();
+                } else {
+                    next(false);
+                }
             } else {
-                next(false);
+                next();
             }
         },
         data() {
             return {
+                isEdited: false,
                 rule_required:
                     [
                         v => !!v || 'この項目は必須です',
@@ -418,6 +438,7 @@
                 property: {
                     type: "賃貸",
                     is_pet: "可",
+                    start_date: new Date().toISOString().substr(0, 10),
                     images: [],
                 },
                 types: ["賃貸"],
@@ -449,10 +470,14 @@
             }
         },
         methods: {
+            edited: function () {
+                this.isEdited = true;
+            },
             submit: function () {
                 if (!this.$refs.form.validate()) {
                     return false;
                 }
+                this.property.corp_id=this.corpId;
                 this.$http
                     .post('/api/add-property', this.property)
                     .then(response => {
@@ -463,6 +488,7 @@
                         this.property.start_date = "";
                         this.property.property_type = "";
                         this.property.name = "";
+                        this.property.hitokoto = "";
                         this.property.good = "";
                         this.property.bad = "";
                         this.property.pet_types = "";
@@ -491,6 +517,7 @@
                         this.property.start_date = "";
                         this.property.images = [];
                         this.$refs.uploader.images = [];
+                        this.$refs.form.resetValidation();
                     })
                     .catch(error => {
                         this.$parent.snack_text = "エラーが発生しました";
