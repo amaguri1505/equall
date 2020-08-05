@@ -175,9 +175,6 @@ router.beforeEach((to, from, next) => {
     const loggedIn = store.getters.isLogged;
     const loggedInCorp = store.getters.isLoggedCorp;
 
-    console.log(loggedIn);
-    console.log(loggedInCorp);
-
     if (to.matched.some(record => record.meta.auth) && !loggedIn) {
         next({name: 'login'});
     } else {

@@ -22,6 +22,10 @@ Route::middleware('auth:sanctum_corp')->group(function () {
     Route::get('/corp', 'Api\ApiController@getCorp');
     Route::group(['middleware' => ['api']], function () {
         Route::get('get-total-inquiry', 'Api\ApiController@getTotalInquiry');
+        Route::get('get-properties-by-corp', 'Api\ApiController@getPropertiesByCorp');
+        Route::get('get-inquiries-by-corp', 'Api\ApiController@getInquiriesByCorp');
+        Route::post('modify-corp-email', 'Api\ApiController@modifyCorpEmail');
+        Route::post('modify-corp-password', 'Api\ApiController@modifyCorpPassword');
     });
 });
 

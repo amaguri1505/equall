@@ -8,6 +8,7 @@
             <div class="manage-account-info__forms">
                 <v-text-field
                     background-color="white"
+                    v-model="current_corp.email"
                     outlined
                     label="メールアドレス"
                     placeholder="メールアドレス"
@@ -21,6 +22,7 @@
                             dark
                             color="#76c3bf"
                             class="ma-0"
+                            @click="submit_email"
                         >
                             変更
                         </v-btn>
@@ -28,6 +30,7 @@
                 </v-text-field>
                 <v-text-field
                     background-color="white"
+                    v-model="current_corp.password"
                     outlined
                     label="パスワード"
                     placeholder="パスワード"
@@ -42,6 +45,7 @@
                             dark
                             color="#76c3bf"
                             class="ma-0"
+                            @click="submit_password"
                         >
                             変更
                         </v-btn>
@@ -90,3 +94,47 @@
 
 
 </style>
+
+<script>
+    export default {
+        data() {
+            return {
+                current_corp: {
+                    email: "",
+                    password: "",
+                },
+            }
+        },
+        methods: {
+            submit_email: function () {
+                this.$http
+                    .post('/api/modify-corp-email', this.current_corp)
+                    .then(response => {
+                        this.$parent.snack_text = "メールアドレスを変更しました。";
+                        this.$parent.snack_color = "#76c3bf";
+                        this.$parent.snackbar = true;
+                    })
+                    .catch(error => {
+                        this.$parent.snack_text = "メールアドレスの更新に失敗しました。";
+                        this.$parent.snack_color = "warning";
+                        this.$parent.snackbar = true;
+                    });
+            },
+            submit_password: function () {
+                this.$http
+                    .post('/api/modify-corp-password', this.current_corp)
+                    .then(response => {
+                        this.$parent.snack_text = "パスワードを変更しました。";
+                        this.$parent.snack_color = "#76c3bf";
+                        this.$parent.snackbar = true;
+                    })
+                    .catch(error => {
+                        this.$parent.snack_text = "パスワードの更新に失敗しました。";
+                        this.$parent.snack_color = "warning";
+                        this.$parent.snackbar = true;
+                    });
+            },
+        },
+        created: {}
+    }
+</script>

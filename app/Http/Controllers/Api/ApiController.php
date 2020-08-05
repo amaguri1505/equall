@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\EstateAgent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\HouseProperty;
@@ -9,6 +10,8 @@ use App\HousePropertyImage;
 use App\AdminInquiry;
 use App\Inquiry;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ApiController extends Controller
 {
@@ -68,6 +71,47 @@ class ApiController extends Controller
         $corp_id = auth()->guard('sanctum_corp')->user()->id;
         $inquiry_cnt = Inquiry::where('corp_id', $corp_id)->count();
         return response()->json($inquiry_cnt);
+    }
+
+    public function getPropertiesByCorp()
+    {
+        $corp_id = auth()->guard('sanctum_corp')->user()->id;
+        $properties = HouseProperty::where('corp_id', $corp_id);
+        return response()->json($properties);
+    }
+
+    public function getInquiriesByCorp()
+    {
+        $corp_id = auth()->guard('sanctum_corp')->user()->id;
+        $inquiries = Inquiry::select(
+            DB::raw("DATE_FORMAT(created_at, '%Y-%m') as time"),
+            DB::raw("COUNT(1) as count")
+        )
+            ->where('corp_id', $corp_id)
+            ->groupBy('time')
+            ->orderByRaw('time DESC')
+            ->get();
+        return response()->json($inquiries);
+    }
+
+    public function modifyCorpEmail(Request $req)
+    {
+        $corp_id = auth()->guard('sanctum_corp')->user()->id;
+
+        EstateAgent::find($corp_id)
+            ->update(['email' => $req->email]);
+
+        return response()->json('success');
+    }
+
+    public function modifyCorpPassword(Request $req)
+    {
+        $corp_id = auth()->guard('sanctum_corp')->user()->id;
+
+        EstateAgent::find($corp_id)
+            ->update(['password' => Hash::make($req->password)]);
+
+        return response()->json('success');
     }
 
     public function searchProperties(Request $req)

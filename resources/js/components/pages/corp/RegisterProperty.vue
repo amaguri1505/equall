@@ -7,7 +7,6 @@
                 <v-content>
                     <v-form
                         ref="form"
-                        lazy-validation
                     >
                         <v-container>
                             <v-row>
@@ -38,7 +37,7 @@
                                         class="required"
                                         v-model="property.type"
                                         :items="types"
-                                        :rules="[v => !!v || 'Item is required']"
+                                        :rules="rule_required"
                                         label="種類"
                                         required
                                     ></v-select>
@@ -49,7 +48,7 @@
                                         class="required"
                                         v-model="property.is_pet"
                                         :items="is_pet"
-                                        :rules="[v => !!v || 'Item is required']"
+                                        :rules="rule_required"
                                         label="ペット飼育"
                                         required
                                     ></v-select>
@@ -60,7 +59,7 @@
                                         class="required"
                                         v-model="property.property_type"
                                         :items="property_types"
-                                        :rules="[v => !!v || 'Item is required']"
+                                        :rules="rule_required"
                                         label="物件種別"
                                         required
                                     ></v-select>
@@ -71,6 +70,7 @@
                                         class="required"
                                         v-model="property.name"
                                         :counter="100"
+                                        :rules="rule_required"
                                         label="物件名"
                                         required
                                     ></v-text-field>
@@ -80,6 +80,7 @@
                                     <v-text-field
                                         v-model="property.good"
                                         :counter="200"
+                                        :rules="rule_limit200"
                                         label="Goodポイント"
                                     ></v-text-field>
                                 </v-col>
@@ -88,6 +89,7 @@
                                     <v-text-field
                                         v-model="property.bad"
                                         :counter="200"
+                                        :rules="rule_limit200"
                                         label="Badポイント"
                                     ></v-text-field>
                                 </v-col>
@@ -96,7 +98,6 @@
                                     <v-select
                                         v-model="property.pet_type"
                                         :items="pet_types"
-                                        :rules="[v => !!v || 'Item is required']"
                                         label="ペットの種類"
                                     ></v-select>
                                 </v-col>
@@ -105,7 +106,6 @@
                                     <v-select
                                         v-model="property.pet_cnt"
                                         :items="pet_cnt"
-                                        :rules="[v => !!v || 'Item is required']"
                                         label="ペットの数"
                                     ></v-select>
                                 </v-col>
@@ -114,7 +114,7 @@
                                     <v-text-field
                                         class="required"
                                         v-model="property.nearest_station"
-                                        :count="50"
+                                        :rules="rule_required"
                                         label="最寄駅"
                                         required
                                     ></v-text-field>
@@ -125,7 +125,7 @@
                                         class="required"
                                         v-model="property.minutes_on_foot"
                                         :items="minutes_on"
-                                        :rules="[v => !!v || 'Item is required']"
+                                        :rules="rule_required"
                                         label="駅までの所要時間"
                                         required
                                     ></v-select>
@@ -136,6 +136,7 @@
                                         class="required"
                                         v-model="property.address"
                                         :count="200"
+                                        :rules="rule_required_limit200"
                                         label="所在地"
                                         required
                                     ></v-text-field>
@@ -146,6 +147,7 @@
                                         class="required"
                                         v-model="property.cost"
                                         :count="10"
+                                        :rules="rule_required"
                                         type="number"
                                         prefix="¥"
                                         label="家賃"
@@ -168,7 +170,7 @@
                                         class="required"
                                         v-model="property.deposit"
                                         :items="deposit"
-                                        :rules="[v => !!v || 'Item is required']"
+                                        :rules="rule_required"
                                         label="敷金"
                                         required
                                     ></v-select>
@@ -176,9 +178,8 @@
 
                                 <v-col cols="3">
                                     <v-select
-                                        v-model="property.deposit"
+                                        v-model="property.deposit_for_pet"
                                         :items="deposit"
-                                        :rules="[v => !!v || 'Item is required']"
                                         label="ペット飼育時追加敷金"
                                     ></v-select>
                                 </v-col>
@@ -188,7 +189,7 @@
                                         class="required"
                                         v-model="property.key_money"
                                         :items="key_money"
-                                        :rules="[v => !!v || 'Item is required']"
+                                        :rules="rule_required"
                                         label="礼金"
                                         required
                                     ></v-select>
@@ -196,16 +197,15 @@
 
                                 <v-col cols="3">
                                     <v-select
-                                        v-model="property.deposit"
+                                        v-model="property.deposit_ex"
                                         :items="deposit"
-                                        :rules="[v => !!v || 'Item is required']"
                                         label="保証金"
                                     ></v-select>
                                 </v-col>
 
                                 <v-col cols="6">
                                     <v-text-field
-                                        v-model="property.manage_cost"
+                                        v-model="property.update_cost"
                                         :count="10"
                                         type="number"
                                         prefix="¥"
@@ -215,7 +215,7 @@
 
                                 <v-col cols="6">
                                     <v-text-field
-                                        v-model="property.manage_cost"
+                                        v-model="property.insurance"
                                         :count="10"
                                         type="number"
                                         prefix="¥"
@@ -225,10 +225,38 @@
 
                                 <v-col cols="4">
                                     <v-text-field
+                                        v-model="property.insurance_corp"
+                                        :counter="200"
+                                        :rules="rule_limit200"
+                                        label="家賃保証会社等"
+                                    ></v-text-field>
+                                </v-col>
+
+                                <v-col cols="4">
+                                    <v-text-field
+                                        v-model="property.cost_memo"
+                                        :counter="200"
+                                        :rules="rule_limit200"
+                                        label="備考"
+                                    ></v-text-field>
+                                </v-col>
+
+                                <v-col cols="4">
+                                    <v-text-field
+                                        v-model="property.deal_form"
+                                        :counter="200"
+                                        :rules="rule_limit200"
+                                        label="取引形態"
+                                    ></v-text-field>
+                                </v-col>
+
+                                <v-col cols="4">
+                                    <v-text-field
                                         class="required"
                                         v-model="property.area"
                                         type="number"
                                         label="専有面積"
+                                        :rules="rule_required"
                                         suffix="㎡"
                                         required
                                     ></v-text-field>
@@ -239,7 +267,7 @@
                                         class="required"
                                         v-model="property.floor_plan"
                                         :items="floor_plan"
-                                        :rules="[v => !!v || 'Item is required']"
+                                        :rules="rule_required"
                                         label="間取り"
                                         required
                                     ></v-select>
@@ -259,6 +287,7 @@
                                         v-model="property.age"
                                         type="month"
                                         label="築年月"
+                                        :rules="rule_required"
                                         required
                                     ></v-text-field>
                                 </v-col>
@@ -268,8 +297,8 @@
                                         class="required"
                                         v-model="property.structure"
                                         :items="structure"
-                                        :rules="[v => !!v || 'Item is required']"
                                         label="建物構造"
+                                        :rules="rule_required"
                                         required
                                     ></v-select>
                                 </v-col>
@@ -278,15 +307,15 @@
                                     <v-select
                                         v-model="property.park"
                                         :items="park"
-                                        :rules="[v => !!v || 'Item is required']"
                                         label="駐車場の有無"
                                     ></v-select>
                                 </v-col>
 
                                 <v-col cols="12">
                                     <v-text-field
-                                        v-model="property.facility"
+                                        v-model="property.other_condition"
                                         :counter="200"
+                                        :rules="rule_limit200"
                                         label="その他条件"
                                     ></v-text-field>
                                 </v-col>
@@ -296,6 +325,7 @@
                                         class="required"
                                         v-model="property.start_date"
                                         label="掲載開始日"
+                                        :rules="rule_required"
                                         type="date"
                                         required
                                     ></v-text-field>
@@ -306,6 +336,7 @@
                                         class="required"
                                         v-model="corpName"
                                         :count="200"
+                                        :rules="rule_limit200"
                                         label="取扱不動産店"
                                         disabled
                                     ></v-text-field>
@@ -355,7 +386,7 @@
         },
         computed: {
             corpName: {
-                get () {
+                get() {
                     return this.$store.state.auth_corp.corp_name;
                 }
             }
@@ -370,6 +401,19 @@
         },
         data() {
             return {
+                rule_required:
+                    [
+                        v => !!v || 'この項目は必須です',
+                    ],
+                rule_limit200:
+                    [
+                        v => !v || v.length <= 200 || 'この項目は200文字が最大です。',
+                    ],
+                rule_required_limit200:
+                    [
+                        v => !!v || 'この項目は必須です',
+                        v => !v || v.length <= 200 || 'この項目は200文字が最大です。',
+                    ],
                 images: [],
                 property: {
                     type: "賃貸",
@@ -380,6 +424,14 @@
                 property_types: ["マンション", "アパート", "戸建て", "テラスハウス", "シェアハウス"],
                 pet_types: ["犬", "猫", "犬と猫"],
                 pet_cnt: ["1", "2", "3", "4", "5", "上限なし", "お問い合わせください"],
+                minutes_on: [
+                    "徒歩1分", "徒歩2分", "徒歩3分", "徒歩4分", "徒歩5分",
+                    "徒歩6分", "徒歩7分", "徒歩8分", "徒歩9分", "徒歩10分",
+                    "徒歩11分", "徒歩12分", "徒歩13分", "徒歩14分", "徒歩15分",
+                    "徒歩16分", "徒歩17分", "徒歩18分", "徒歩19分", "徒歩20分",
+                    "徒歩21分", "徒歩22分", "徒歩23分", "徒歩24分", "徒歩25分",
+                    "徒歩26分", "徒歩27分", "徒歩28分", "徒歩29分", "徒歩30分",
+                ],
                 deposit: ["0ヵ月分", "1ヶ月分", "2ヶ月分", "3ヶ月分", "4ヶ月分", "5ヶ月分", "お問い合わせください"],
                 key_money: ["0ヵ月分", "1ヶ月分", "2ヶ月分", "3ヶ月分", "4ヶ月分", "5ヶ月分", "お問い合わせください"],
                 floor_plan: [
@@ -398,13 +450,45 @@
         },
         methods: {
             submit: function () {
+                if (!this.$refs.form.validate()) {
+                    return false;
+                }
                 this.$http
                     .post('/api/add-property', this.property)
                     .then(response => {
                         this.$parent.snack_text = "物件を登録しました";
                         this.$parent.snack_color = "#76c3bf";
                         this.$parent.snackbar = true;
-                        this.$refs.form.reset();
+                        // this.$refs.form.reset();
+                        this.property.start_date = "";
+                        this.property.property_type = "";
+                        this.property.name = "";
+                        this.property.good = "";
+                        this.property.bad = "";
+                        this.property.pet_types = "";
+                        this.property.pet_cnt = "";
+                        this.property.nearest_station = "";
+                        this.property.minutes_on_foot = "";
+                        this.property.address = "";
+                        this.property.cost = "";
+                        this.property.manage_cost = "";
+                        this.property.deposit = "";
+                        this.property.deposit_for_pet = "";
+                        this.property.key_money = "";
+                        this.property.deposit_ex = "";
+                        this.property.update_cost = "";
+                        this.property.insurance = "";
+                        this.property.insurance_corp = "";
+                        this.property.cost_memo = "";
+                        this.property.deal_form = "";
+                        this.property.area = "";
+                        this.property.floor_plan = "";
+                        this.property.floor = "";
+                        this.property.age = "";
+                        this.property.structure = "";
+                        this.property.park = "";
+                        this.property.other_condition = "";
+                        this.property.start_date = "";
                         this.property.images = [];
                         this.$refs.uploader.images = [];
                     })

@@ -24,34 +24,19 @@
             return {
                 selected: [],
                 headers: [
-                    // {
-                    //     text: '年月',
-                    //     value: 'date',
-                    //     align: 'center',
-                    // },
-                    // {
-                    //     text: '問い合わせ数',
-                    //     value: 'inquiry_cnt',
-                    //     align: 'center',
-                    // },
-                    // {
-                    //     text: '掲載費用',
-                    //     value: 'total_cost',
-                    //     align: 'center',
-                    // },
                     {
-                        text: '不動産NO',
-                        value: 'property_id',
+                        text: '年月',
+                        value: 'time',
                         align: 'center',
                     },
                     {
-                        text: 'ユーザーNO',
-                        value: 'user_id',
+                        text: '問い合わせ数',
+                        value: 'count',
                         align: 'center',
                     },
                     {
-                        text: '問い合わせ内容',
-                        value: 'contact_text',
+                        text: '掲載費用',
+                        value: 'total_cost',
                         align: 'center',
                     },
                 ],
@@ -61,7 +46,7 @@
         created () {
             this.$parent.overlay = true;
             this.$http
-                .get('/api/get-inquiries')
+                .get('/api/get-inquiries-by-corp')
                 .then(response => {
                     this.inquiries = response.data;
                     this.$parent.overlay = false;
