@@ -4,6 +4,11 @@
             <v-card
                 class="pa-5"
             >
+                <add-property-by-csv></add-property-by-csv>
+                <v-divider></v-divider>
+                <v-subheader class="mt-5">
+                    マニュアル登録
+                </v-subheader>
                 <v-content>
                     <v-form
                         ref="form"
@@ -389,9 +394,11 @@
 
 <script>
     import VueUploadMultipleImage from 'vue-upload-multiple-image';
+    import AddPropertyByCsv from "../../moducule/corp/AddPropertyByCsv";
 
     export default {
         components: {
+            AddPropertyByCsv,
             VueUploadMultipleImage,
         },
         computed: {
@@ -478,6 +485,7 @@
                     return false;
                 }
                 this.property.corp_id=this.corpId;
+                this.$parent.overlay = true;
                 this.$http
                     .post('/api/add-property', this.property)
                     .then(response => {
@@ -518,11 +526,13 @@
                         this.property.images = [];
                         this.$refs.uploader.images = [];
                         this.$refs.form.resetValidation();
+                        this.$parent.overlay = false;
                     })
                     .catch(error => {
                         this.$parent.snack_text = "エラーが発生しました";
                         this.$parent.snack_color = "warning";
                         this.$parent.snackbar = true;
+                        this.$parent.overlay = false;
                     });
             },
             uploadImageSuccess(formData, index, fileList) {

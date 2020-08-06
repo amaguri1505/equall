@@ -26,13 +26,15 @@ Route::middleware('auth:sanctum_corp')->group(function () {
         Route::get('get-inquiries-by-corp', 'Api\ApiController@getInquiriesByCorp');
         Route::post('modify-corp-email', 'Api\ApiController@modifyCorpEmail');
         Route::post('modify-corp-password', 'Api\ApiController@modifyCorpPassword');
+        Route::post('add-property', 'Api\ApiController@addProperty');
+        Route::post('delete-property', 'Api\ApiController@deleteProperty');
+        Route::post('update-property', 'Api\ApiController@updateProperty');
+        Route::post('add-images', 'Api\ApiController@addImages');
     });
 });
 
 Route::group(['middleware' => ['api']], function () {
 
-    Route::post('add-property', 'Api\ApiController@addProperty');
-    Route::post('add-images', 'Api\ApiController@addImages');
     Route::post('add-inquiry', 'Api\ApiController@addInquiry');
 
     Route::get('get-detail/{id}', 'Api\ApiController@getDetail');

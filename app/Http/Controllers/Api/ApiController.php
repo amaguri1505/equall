@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Hash;
 
 class ApiController extends Controller
 {
-    public function getUser(Request $req) {
+    public function getUser(Request $req)
+    {
         return $req->user();
     }
 
-    public function getCorp(Request $req) {
+    public function getCorp(Request $req)
+    {
         return $req->user('sanctum_corp');
     }
 
@@ -76,7 +78,7 @@ class ApiController extends Controller
     public function getPropertiesByCorp()
     {
         $corp_id = auth()->guard('sanctum_corp')->user()->id;
-        $properties = HouseProperty::where('corp_id', $corp_id)->get();
+        $properties = HouseProperty::where('corp_id', $corp_id)->withCount('inquiries')->get();
         return response()->json($properties);
     }
 
@@ -112,6 +114,17 @@ class ApiController extends Controller
             ->update(['password' => Hash::make($req->password)]);
 
         return response()->json('success');
+    }
+
+    public function updateProperty(Request $req)
+    {
+
+    }
+
+    public function deleteProperty(Request $req)
+    {
+        DB::table('house_properties')
+            ->where('id', $req->id)->delete();
     }
 
     public function searchProperties(Request $req)

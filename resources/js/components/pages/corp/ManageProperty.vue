@@ -3,20 +3,18 @@
         <div class="manage-property__table-wrap">
             <v-data-table
                 :headers="headers"
-                :items="properties"
+                :items="tableProperties"
                 item-key="id"
-                show-select
                 single-select=false
                 class="manage-property__table"
             >
-                <template v-slot:item.created_at="{ item }">
-                    <span>{{new Date(item.created_at).toDateString()}}</span>
-                </template>
-                <template v-slot:item.end_date="{ item }">
-                    <span>{{new Date(item.end_date).toDateString()}}</span>
-                </template>
-                <template v-slot:item.updated_at="{ item }">
-                    <span>{{new Date(item.updated_at).toDateString()}}</span>
+                <template v-slot:item.action="{ item }">
+                    <v-icon class="mr-2" @click="editProperty(item)">
+                        mdi-pencil
+                    </v-icon>
+                    <v-icon @click="deleteProperty(item)">
+                        mdi-delete
+                    </v-icon>
                 </template>
             </v-data-table>
         </div>
@@ -33,6 +31,46 @@
 
 <script>
     export default {
+        computed: {
+            tableProperties: function () {
+                return this.properties.map(property => {
+                    const today = new Date().toISOString().substr(0, 10);
+                    const start_date = new Date(property.start_date).toISOString().substr(0, 10);
+                    const end_date = new Date(property.end_date).toISOString().substr(0, 10);
+                    const created_date = new Date(property.created_at).toISOString().substr(0, 10);
+                    const updated_date = new Date(property.updated_at).toISOString().substr(0, 10);
+                    return {
+                        id: property.id,
+                        publish_flg: start_date <= today && today >= end_date ? "公開" : "未公開",
+                        end_date: property.end_date,
+                        created_at: created_date,
+                        updated_at: updated_date,
+                        name: property.name,
+                        cost: property.cost,
+                        inquiry_cnt: property.inquiries_count,
+                    }
+                });
+            },
+        },
+        methods: {
+            editProperty: function () {
+
+            },
+            deleteProperty: function (property) {
+                if (!confirm('選択した不動産情報を削除します')) {
+                    return false;
+                }
+                this.$parent.overlay = true;
+                this.$http.post('/api/delete-property', property
+                ).then(response => {
+                    const index = this.properties.indexOf(property);
+                    this.properties.splice(index, 1);
+                    this.$parent.overlay = false;
+                }).catch(error => {
+                    this.$parent.overlay = false;
+                });
+            },
+        },
         data() {
             return {
                 selected: [],
@@ -75,11 +113,16 @@
                         value: 'inquiry_cnt',
                         align: 'center',
                     },
+                    {
+                        text: '操作',
+                        value: 'action',
+                        align: 'center',
+                    },
                 ],
                 properties: [],
             }
         },
-        created () {
+        created() {
             this.$parent.overlay = true;
             this.$http
                 .get('/api/get-properties-by-corp')

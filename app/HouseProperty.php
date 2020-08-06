@@ -46,4 +46,8 @@ class HouseProperty extends Model
     public function post_images() {
         return $this->hasMany('App\HousePropertyImage');
     }
+
+    public function inquiries() {
+        return $this->hasMany('App\Inquiry', 'property_id');
+    }
 }
