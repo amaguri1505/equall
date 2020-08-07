@@ -58,9 +58,9 @@
             },
             loadCsvFile: function (file) {
                 if (!file.type.match("text/csv")) {
-                    this.snack_text = "CSVファイルを取り込んでください";
-                    this.snack_color = "warning";
-                    this.snackbar = true;
+                    this.$store.dispatch('modifySnackText', "CSVファイルを取り込んでください");
+                    this.$store.dispatch('modifySnackColor', 'warning');
+                    this.$store.dispatch('modifySnackbar', true);
                     return false;
                 }
 
@@ -69,13 +69,13 @@
 
                 const loadFunc = () => {
                     const lines = reader.result.split("\n");
+                    console.log(lines);
                     lines.forEach(element => {
                         const workerData = element.split(",");
                         if (workerData.length != 31) {
-                            this.snack_text =
-                                "CSVの列数が足りません";
-                            this.snack_color = "warning";
-                            this.snackbar = true;
+                            this.$store.dispatch('modifySnackText', "CSVの列数が足りません");
+                            this.$store.dispatch('modifySnackColor', 'warning');
+                            this.$store.dispatch('modifySnackbar', true);
                             return false;
                         }
                         const worker = {
@@ -113,20 +113,21 @@
                         };
                         workers.push(worker);
                     });
-                    this.$parent.$parent.overlay = true;
+                    this.$store.dispatch('modifyOverlay', true);
+                    console.log(workers);
                     this.$http.post('/api/add-properties', workers).then(response => {
-                        this.overlay = false;
-                        this.snack_text = "CSV取り込みが完了しました";
-                        this.snack_color = "#76c3bf";
-                        this.snackbar = true;
+                        this.$store.dispatch('modifyOverlay', false);
+                        this.$store.dispatch('modifySnackText', "CSV取り込みが完了しました");
+                        this.$store.dispatch('modifySnackColor', '#76c3bf');
+                        this.$store.dispatch('modifySnackbar', true);
                     }).catch(error => {
-                        this.overlay = false;
-                        this.$parent.$parent.snack_text =
-                            "CSV取り込みに失敗しました。\n"
-                            + "エラーメッセージ：\n"
-                            + error.toString();
-                        this.$parent.snack_color = "warning";
-                        this.$parent.snackbar = true;
+                        this.$store.dispatch('modifyOverlay', false);
+                        this.$store.dispatch('modifySnackText',
+                            "CSV取り込みに失敗しました："
+                            + error.toString()
+                        );
+                        this.$store.dispatch('modifySnackColor', 'warning');
+                        this.$store.dispatch('modifySnackbar', true);
                     });
                 };
 

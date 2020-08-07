@@ -44,12 +44,12 @@
             }
         },
         created () {
-            this.$parent.overlay = true;
+            this.$store.dispatch('modifyOverlay', true);
             this.$http
                 .get('/api/get-inquiries-by-corp')
                 .then(response => {
                     this.inquiries = response.data;
-                    this.$parent.overlay = false;
+                    this.$store.dispatch('modifyOverlay', false);
                 });
         }
     }

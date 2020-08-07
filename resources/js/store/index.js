@@ -23,6 +23,7 @@ export default new Vuex.Store({
         snackbar: false,
         snack_color: "",
         snack_text: "",
+        overlay: false,
     },
 
     mutations: {
@@ -56,6 +57,10 @@ export default new Vuex.Store({
 
         changeSnackText (state, snack_text) {
             state.snack_text = snack_text;
+        },
+
+        changeOverlay (state, overlay) {
+            state.overlay = overlay;
         },
 
     },
@@ -94,6 +99,10 @@ export default new Vuex.Store({
             store.commit('changeSnackText', snack_text);
         },
 
+        modifyOverlay (store, overlay) {
+            store.commit('changeOverlay', overlay);
+        },
+
     },
 
     getters : {
@@ -102,5 +111,6 @@ export default new Vuex.Store({
         snackbar: state => state.snackbar,
         snack_color: state => state.snack_color,
         snack_text: state => state.snack_text,
+        overlay: state => state.overlay,
     },
 });

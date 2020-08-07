@@ -107,17 +107,20 @@
         },
         methods: {
             submit_email: function () {
+                this.$store.dispatch('modifyOverlay', true);
                 this.$http
                     .post('/api/modify-corp-email', this.current_corp)
                     .then(response => {
-                        this.$parent.snack_text = "メールアドレスを変更しました。";
-                        this.$parent.snack_color = "#76c3bf";
-                        this.$parent.snackbar = true;
+                        this.$store.dispatch('modifyOverlay', false);
+                        this.$store.dispatch('modifySnackText', "メールアドレスを変更しました。");
+                        this.$store.dispatch('modifySnackColor', '#76c3bf');
+                        this.$store.dispatch('modifySnackbar', true);
                     })
                     .catch(error => {
-                        this.$parent.snack_text = "メールアドレスの更新に失敗しました。";
-                        this.$parent.snack_color = "warning";
-                        this.$parent.snackbar = true;
+                        this.$store.dispatch('modifyOverlay', false);
+                        this.$store.dispatch('modifySnackText', "メールアドレスの更新に失敗しました。");
+                        this.$store.dispatch('modifySnackColor', 'warning');
+                        this.$store.dispatch('modifySnackbar', true);
                     });
             },
             submit_password: function () {
@@ -127,11 +130,16 @@
                         this.$parent.snack_text = "パスワードを変更しました。";
                         this.$parent.snack_color = "#76c3bf";
                         this.$parent.snackbar = true;
+                        this.$store.dispatch('modifyOverlay', false);
+                        this.$store.dispatch('modifySnackText', "パスワードを変更しました。");
+                        this.$store.dispatch('modifySnackColor', '#76c3bf');
+                        this.$store.dispatch('modifySnackbar', true);
                     })
                     .catch(error => {
-                        this.$parent.snack_text = "パスワードの更新に失敗しました。";
-                        this.$parent.snack_color = "warning";
-                        this.$parent.snackbar = true;
+                        this.$store.dispatch('modifyOverlay', false);
+                        this.$store.dispatch('modifySnackText', "パスワードの更新に失敗しました。");
+                        this.$store.dispatch('modifySnackColor', 'warning');
+                        this.$store.dispatch('modifySnackbar', true);
                     });
             },
         },

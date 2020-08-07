@@ -164,9 +164,9 @@ const router = new Router({
     },
     methods: {
         setData (color,text) {
-            this.snack_text = text;
-            this.color = color;
-            this.snackbar = true;
+            this.$store.dispatch('modifySnackText', text);
+            this.$store.dispatch('modifySnackColor', color);
+            this.$store.dispatch('modifySnackbar', true);
         }
     },
 });

@@ -484,8 +484,8 @@
                 if (!this.$refs.form.validate()) {
                     return false;
                 }
-                this.property.corp_id=this.corpId;
-                this.$parent.overlay = true;
+                this.property.corp_id = this.corpId;
+                this.$store.dispatch('modifyOverlay', true);
                 this.$http
                     .post('/api/add-property', this.property)
                     .then(response => {
@@ -526,13 +526,13 @@
                         this.property.images = [];
                         this.$refs.uploader.images = [];
                         this.$refs.form.resetValidation();
-                        this.$parent.overlay = false;
+                        this.$store.dispatch('modifyOverlay', false);
                     })
                     .catch(error => {
-                        this.$parent.snack_text = "エラーが発生しました";
-                        this.$parent.snack_color = "warning";
-                        this.$parent.snackbar = true;
-                        this.$parent.overlay = false;
+                        this.$store.dispatch('modifyOverlay', false);
+                        this.$store.dispatch('modifySnackText', "エラーが発生しました");
+                        this.$store.dispatch('modifySnackColor', 'warning');
+                        this.$store.dispatch('modifySnackbar', true);
                     });
             },
             uploadImageSuccess(formData, index, fileList) {

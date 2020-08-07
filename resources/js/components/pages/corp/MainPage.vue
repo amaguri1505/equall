@@ -48,6 +48,7 @@
     import TheHeader from '../../includes/corp/Header';
     import TheSidebar from '../../includes/corp/SideBar';
     import { mapActions } from 'vuex';
+    import { mapState } from 'vuex';
 
     export default {
         name: 'appcorp',
@@ -57,11 +58,18 @@
         },
         data () {
             return {
-                snackbar: false,
-                overlay: false,
-                snack_color: "success",
-                snack_text: "test",
                 total_inquiry: 0,
+            };
+        },
+        computed: {
+            ...mapState(['overlay', 'snack_color', 'snack_text']),
+            snackbar: {
+                get () {
+                    return this.$store.state.snackbar;
+                },
+                set (value) {
+                    this.$store.dispatch('modifySnackbar', value);
+                }
             }
         },
         methods: {

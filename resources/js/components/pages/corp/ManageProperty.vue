@@ -60,14 +60,14 @@
                 if (!confirm('選択した不動産情報を削除します')) {
                     return false;
                 }
-                this.$parent.overlay = true;
+                this.$store.dispatch('modifyOverlay', true);
                 this.$http.post('/api/delete-property', property
                 ).then(response => {
                     const index = this.properties.indexOf(property);
                     this.properties.splice(index, 1);
-                    this.$parent.overlay = false;
+                    this.$store.dispatch('modifyOverlay', false);
                 }).catch(error => {
-                    this.$parent.overlay = false;
+                    this.$store.dispatch('modifyOverlay', false);
                 });
             },
         },
@@ -123,12 +123,12 @@
             }
         },
         created() {
-            this.$parent.overlay = true;
+            this.$store.dispatch('modifyOverlay', true);
             this.$http
                 .get('/api/get-properties-by-corp')
                 .then(response => {
                     this.properties = response.data;
-                    this.$parent.overlay = false;
+                    this.$store.dispatch('modifyOverlay', false);
                 });
         },
     }
