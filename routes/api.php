@@ -27,6 +27,7 @@ Route::middleware('auth:sanctum_corp')->group(function () {
         Route::post('modify-corp-email', 'Api\ApiController@modifyCorpEmail');
         Route::post('modify-corp-password', 'Api\ApiController@modifyCorpPassword');
         Route::post('add-property', 'Api\ApiController@addProperty');
+        Route::post('add-properties', 'Api\ApiController@addProperties');
         Route::post('delete-property', 'Api\ApiController@deleteProperty');
         Route::post('update-property', 'Api\ApiController@updateProperty');
         Route::post('add-images', 'Api\ApiController@addImages');
