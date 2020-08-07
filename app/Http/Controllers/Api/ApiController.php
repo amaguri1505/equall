@@ -170,7 +170,6 @@ class ApiController extends Controller
         $cnt = 0;
         $start_date = $req->input('start_date');
         $end_date = date('Y-m-d', strtotime("+1 months", strtotime($start_date)));
-//        $end_date = '2000/10/10';
         $houseProperty = new HouseProperty([
             'type' => $req->input('type'),
             'is_pet' => $req->input('is_pet'),
@@ -223,6 +222,50 @@ class ApiController extends Controller
         }
 
         return response()->json('success addProperty');
+    }
+
+    public function addProperties(Request $requests)
+    {
+        foreach ($requests as $req) {
+            $start_date = $req->input('start_date');
+            $end_date = date('Y-m-d', strtotime("+1 months", strtotime($start_date)));
+            $houseProperty = new HouseProperty([
+                'type' => $req->input('type'),
+                'is_pet' => $req->input('is_pet'),
+                'property_type' => $req->input('property_type'),
+                'name' => $req->input('name'),
+                'hitokoto' => $req->input('hitokoto'),
+                'good' => $req->input('good'),
+                'bad' => $req->input('bad'),
+                'pet_types' => $req->input('pet_types'),
+                'pet_cnt' => $req->input('pet_cnt'),
+                'nearest_station' => $req->input('nearest_station'),
+                'minutes_on' => $req->input('minutes_on'),
+                'address' => $req->input('address'),
+                'cost' => $req->input('cost'),
+                'manage_cost' => $req->input('manage_cost'),
+                'deposit' => $req->input('deposit'),
+                'deposit_for_pet' => $req->input('deposit_for_pet'),
+                'key_money' => $req->input('key_money'),
+                'deposit_ex' => $req->input('deposit_ex'),
+                'update_cost' => $req->input('update_cost'),
+                'insurance' => $req->input('insurance'),
+                'insurance_corp' => $req->input('insurance_corp'),
+                'cost_memo' => $req->input('cost_memo'),
+                'deal_form' => $req->input('deal_form'),
+                'area' => $req->input('area'),
+                'floor_plan' => $req->input('floor_plan'),
+                'floor' => $req->input('floor'),
+                'age' => $req->input('age'),
+                'structure' => $req->input('structure'),
+                'park' => $req->input('park'),
+                'other_condition' => $req->input('other_condition'),
+                'start_date' => $start_date,
+                'end_date' => $end_date,
+                'corp_id' => auth()->guard('sanctum_corp')->user()->id,
+            ]);
+            $houseProperty->save();
+        }
     }
 
     public function addInquiry(Request $req)

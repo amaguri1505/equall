@@ -20,6 +20,9 @@ export default new Vuex.Store({
         s_areas: {},
         s_costs: {},
         s_pets: {},
+        snackbar: false,
+        snack_color: "",
+        snack_text: "",
     },
 
     mutations: {
@@ -42,6 +45,19 @@ export default new Vuex.Store({
         changeSearchPets (state, s_pets) {
             state.s_pets = s_pets;
         },
+
+        changeSnackbar (state, snackbar) {
+            state.snackbar = snackbar;
+        },
+
+        changeSnackColor (state, snack_color) {
+            state.snack_color = snack_color;
+        },
+
+        changeSnackText (state, snack_text) {
+            state.snack_text = snack_text;
+        },
+
     },
 
     actions: {
@@ -66,10 +82,25 @@ export default new Vuex.Store({
             store.commit('changeSearchPets', s_pets);
         },
 
+        modifySnackbar (store, snackbar) {
+            store.commit('changeSnackbar', snackbar);
+        },
+
+        modifySnackColor (store, snack_color) {
+            store.commit('changeSnackColor', snack_color);
+        },
+
+        modifySnackText (store, snack_text) {
+            store.commit('changeSnackText', snack_text);
+        },
+
     },
 
     getters : {
         isLogged: state => !!state.auth.user,
         isLoggedCorp: state => !!state.auth_corp.corp,
+        snackbar: state => state.snackbar,
+        snack_color: state => state.snack_color,
+        snack_text: state => state.snack_text,
     },
 });

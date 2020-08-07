@@ -56,11 +56,10 @@
                 link.click();
                 URL.revokeObjectURL(link.href);
             },
-            loadCsvFile: function (event) {
-                const file = event.target.files[0];
+            loadCsvFile: function (file) {
                 if (!file.type.match("text/csv")) {
                     this.snack_text = "CSVファイルを取り込んでください";
-                    this.color = warning;
+                    this.snack_color = "warning";
                     this.snackbar = true;
                     return false;
                 }
@@ -75,7 +74,7 @@
                         if (workerData.length != 31) {
                             this.snack_text =
                                 "CSVの列数が足りません";
-                            this.color = warning;
+                            this.snack_color = "warning";
                             this.snackbar = true;
                             return false;
                         }
@@ -114,7 +113,7 @@
                         };
                         workers.push(worker);
                     });
-                    this.overlay = true;
+                    this.$parent.$parent.overlay = true;
                     this.$http.post('/api/add-properties', workers).then(response => {
                         this.overlay = false;
                         this.snack_text = "CSV取り込みが完了しました";
@@ -122,12 +121,12 @@
                         this.snackbar = true;
                     }).catch(error => {
                         this.overlay = false;
-                        this.snack_text =
+                        this.$parent.$parent.snack_text =
                             "CSV取り込みに失敗しました。\n"
                             + "エラーメッセージ：\n"
                             + error.toString();
-                        this.color = warning;
-                        this.snackbar = true;
+                        this.$parent.snack_color = "warning";
+                        this.$parent.snackbar = true;
                     });
                 };
 

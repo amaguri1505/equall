@@ -25,7 +25,6 @@
                 <v-card-text>
                     <v-form
                         ref="form"
-                        lazy-validation
                     >
                         <v-text-field
                             class="mt-5"
