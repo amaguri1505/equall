@@ -1,5 +1,5 @@
 <template>
-    <div class="corp-register">
+    <div class="register">
         <v-snackbar
             top
             v-model="snackbar"
@@ -129,7 +129,7 @@
 <style lang="sass">
     @import "../../../../sass/common/_variable.scss"
 
-    .corp-register
+    .register
         height: 100vh
         padding: 40px 20px 0 20px
         background-color: rgba(118, 195, 191, 0.5)

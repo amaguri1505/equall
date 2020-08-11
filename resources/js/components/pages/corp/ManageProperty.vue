@@ -5,7 +5,6 @@
                 :headers="headers"
                 :items="tableProperties"
                 item-key="id"
-                single-select=false
                 class="manage-property__table"
             >
                 <template v-slot:item.action="{ item }">
@@ -15,6 +14,22 @@
                     <v-icon @click="deleteProperty(item)">
                         mdi-delete
                     </v-icon>
+                </template>
+
+                <template v-slot:top>
+                    <v-dialog v-model="dialog">
+                        <v-toolbar color="#76c3bf">
+                            <v-btn dark icon @click="dialog = false">
+                                <v-icon>mdi-close</v-icon>
+                            </v-btn>
+                        </v-toolbar>
+                        <v-card>
+                            <corp-register
+                                :target_property="property"
+                                @saved="close"
+                            ></corp-register>
+                        </v-card>
+                    </v-dialog>
                 </template>
             </v-data-table>
         </div>
@@ -30,7 +45,10 @@
 </style>
 
 <script>
+    import CorpRegister from "../../organism/corp/CorpRegister";
+
     export default {
+        components: {CorpRegister},
         computed: {
             tableProperties: function () {
                 return this.properties.map(property => {
@@ -41,7 +59,7 @@
                     const updated_date = new Date(property.updated_at).toISOString().substr(0, 10);
                     return {
                         id: property.id,
-                        publish_flg: start_date <= today && today >= end_date ? "公開" : "未公開",
+                        publish_flg: start_date <= today && today <= end_date ? "公開" : "未公開",
                         end_date: property.end_date,
                         created_at: created_date,
                         updated_at: updated_date,
@@ -53,8 +71,10 @@
             },
         },
         methods: {
-            editProperty: function () {
-
+            editProperty: function (item) {
+                this.property =
+                    this.properties.filter(property => property.id == item.id)[0];
+                this.dialog = true;
             },
             deleteProperty: function (property) {
                 if (!confirm('選択した不動産情報を削除します')) {
@@ -70,9 +90,20 @@
                     this.$store.dispatch('modifyOverlay', false);
                 });
             },
+
+            close () {
+                this.property = [];
+                this.dialog = false;
+            },
+
+            save () {
+                this.close();
+            },
         },
         data() {
             return {
+                dialog: false,
+                property: [],
                 selected: [],
                 headers: [
                     {

@@ -170,55 +170,99 @@ class ApiController extends Controller
         $cnt = 0;
         $start_date = $req->input('start_date');
         $end_date = date('Y-m-d', strtotime("+1 months", strtotime($start_date)));
-        $houseProperty = new HouseProperty([
-            'type' => $req->input('type'),
-            'is_pet' => $req->input('is_pet'),
-            'property_type' => $req->input('property_type'),
-            'name' => $req->input('name'),
-            'hitokoto' => $req->input('hitokoto'),
-            'good' => $req->input('good'),
-            'bad' => $req->input('bad'),
-            'pet_types' => $req->input('pet_types'),
-            'pet_cnt' => $req->input('pet_cnt'),
-            'nearest_station' => $req->input('nearest_station'),
-            'minutes_on' => $req->input('minutes_on'),
-            'address' => $req->input('address'),
-            'cost' => $req->input('cost'),
-            'manage_cost' => $req->input('manage_cost'),
-            'deposit' => $req->input('deposit'),
-            'deposit_for_pet' => $req->input('deposit_for_pet'),
-            'key_money' => $req->input('key_money'),
-            'deposit_ex' => $req->input('deposit_ex'),
-            'update_cost' => $req->input('update_cost'),
-            'insurance' => $req->input('insurance'),
-            'insurance_corp' => $req->input('insurance_corp'),
-            'cost_memo' => $req->input('cost_memo'),
-            'deal_form' => $req->input('deal_form'),
-            'area' => $req->input('area'),
-            'floor_plan' => $req->input('floor_plan'),
-            'floor' => $req->input('floor'),
-            'age' => $req->input('age'),
-            'structure' => $req->input('structure'),
-            'park' => $req->input('park'),
-            'other_condition' => $req->input('other_condition'),
-            'start_date' => $start_date,
-            'end_date' => $end_date,
-            'corp_id' => auth()->guard('sanctum_corp')->user()->id,
-        ]);
-        $houseProperty->save();
+        if ($req->has('id')) {
+            $houseProperty = HouseProperty::updateOrCreate(
+                [
+                    'id' => $req->id,
+                ],
+                [
+                    'type' => $req->input('type'),
+                    'is_pet' => $req->input('is_pet'),
+                    'property_type' => $req->input('property_type'),
+                    'name' => $req->input('name'),
+                    'hitokoto' => $req->input('hitokoto'),
+                    'good' => $req->input('good'),
+                    'bad' => $req->input('bad'),
+                    'pet_types' => $req->input('pet_types'),
+                    'pet_cnt' => $req->input('pet_cnt'),
+                    'nearest_station' => $req->input('nearest_station'),
+                    'minutes_on' => $req->input('minutes_on'),
+                    'address' => $req->input('address'),
+                    'cost' => $req->input('cost'),
+                    'manage_cost' => $req->input('manage_cost'),
+                    'deposit' => $req->input('deposit'),
+                    'deposit_for_pet' => $req->input('deposit_for_pet'),
+                    'key_money' => $req->input('key_money'),
+                    'deposit_ex' => $req->input('deposit_ex'),
+                    'update_cost' => $req->input('update_cost'),
+                    'insurance' => $req->input('insurance'),
+                    'insurance_corp' => $req->input('insurance_corp'),
+                    'cost_memo' => $req->input('cost_memo'),
+                    'deal_form' => $req->input('deal_form'),
+                    'area' => $req->input('area'),
+                    'floor_plan' => $req->input('floor_plan'),
+                    'floor' => $req->input('floor'),
+                    'age' => $req->input('age'),
+                    'structure' => $req->input('structure'),
+                    'park' => $req->input('park'),
+                    'other_condition' => $req->input('other_condition'),
+                    'start_date' => $start_date,
+                    'end_date' => $end_date,
+                    'corp_id' => auth()->guard('sanctum_corp')->user()->id,
+                ]);
+        } else {
+            $houseProperty = HouseProperty::Create(
+                [
+                    'type' => $req->input('type'),
+                    'is_pet' => $req->input('is_pet'),
+                    'property_type' => $req->input('property_type'),
+                    'name' => $req->input('name'),
+                    'hitokoto' => $req->input('hitokoto'),
+                    'good' => $req->input('good'),
+                    'bad' => $req->input('bad'),
+                    'pet_types' => $req->input('pet_types'),
+                    'pet_cnt' => $req->input('pet_cnt'),
+                    'nearest_station' => $req->input('nearest_station'),
+                    'minutes_on' => $req->input('minutes_on'),
+                    'address' => $req->input('address'),
+                    'cost' => $req->input('cost'),
+                    'manage_cost' => $req->input('manage_cost'),
+                    'deposit' => $req->input('deposit'),
+                    'deposit_for_pet' => $req->input('deposit_for_pet'),
+                    'key_money' => $req->input('key_money'),
+                    'deposit_ex' => $req->input('deposit_ex'),
+                    'update_cost' => $req->input('update_cost'),
+                    'insurance' => $req->input('insurance'),
+                    'insurance_corp' => $req->input('insurance_corp'),
+                    'cost_memo' => $req->input('cost_memo'),
+                    'deal_form' => $req->input('deal_form'),
+                    'area' => $req->input('area'),
+                    'floor_plan' => $req->input('floor_plan'),
+                    'floor' => $req->input('floor'),
+                    'age' => $req->input('age'),
+                    'structure' => $req->input('structure'),
+                    'park' => $req->input('park'),
+                    'other_condition' => $req->input('other_condition'),
+                    'start_date' => $start_date,
+                    'end_date' => $end_date,
+                    'corp_id' => auth()->guard('sanctum_corp')->user()->id,
+                ]);
+        }
 
-        $housePropertyImages = $req->images;
+        if ($req->has('images') && isset($req->images)) {
+            $housePropertyImages = $req->images;
 
-        foreach ($housePropertyImages as $image_obj) {
-            $cnt++;
-            $image_str = substr($image_obj['path'], strpos($image_obj['path'], ",") + 1);
-            $image = base64_decode($image_str);
-            $imagePath = Storage::disk('uploads')->put('/' . $houseProperty->id . '/' . $cnt . '.jpg', $image);
-            HousePropertyImage::create([
-                'image_caption' => $cnt,
-                'image_path' => '/uploads/' . $houseProperty->id . '/' . $cnt . '.jpg',
-                'property_id' => $houseProperty->id,
-            ]);
+            foreach ($housePropertyImages as $image_obj) {
+                $cnt++;
+                $image_str = substr($image_obj['path'], strpos($image_obj['path'], ",") + 1);
+                $image = base64_decode($image_str);
+                $imagePath = Storage::disk('uploads')->put('/' . $houseProperty->id . '/' . $cnt . '.jpg', $image);
+                HousePropertyImage::create([
+                    'image_caption' => $cnt,
+                    'image_path' => '/uploads/' . $houseProperty->id . '/' . $cnt . '.jpg',
+                    'property_id' => $houseProperty->id,
+                ]);
+            }
         }
 
         return response()->json('success addProperty');
@@ -228,39 +272,39 @@ class ApiController extends Controller
     {
         $properties = $req->all();
         foreach ($properties as $property) {
-            $start_date = $property->start_date;
+            $start_date = $property['start_date'];
             $end_date = date('Y-m-d', strtotime("+1 months", strtotime($start_date)));
             $houseProperty = new HouseProperty([
-                'type' => $property->type,
-                'is_pet' => $property->is_pet,
-                'property_type' => $property->property_type,
-                'name' => $property->name,
-                'hitokoto' => $property->hitokoto,
-                'good' => $property->good,
-                'bad' => $property->bad,
-                'pet_types' => $property->pet_types,
-                'pet_cnt' => $property->pet_cnt,
-                'nearest_station' => $property->nearest_station,
-                'minutes_on' => $property->minutes_on,
-                'address' => $property->address,
-                'cost' => $property->cost,
-                'manage_cost' => $property->manage_cost,
-                'deposit' => $property->deposit,
-                'deposit_for_pet' => $property->deposit_for_pet,
-                'key_money' => $property->key_money,
-                'deposit_ex' => $property->deposit_ex,
-                'update_cost' => $property->update_cost,
-                'insurance' => $property->insurance,
-                'insurance_corp' => $property->insurance_corp,
-                'cost_memo' => $property->cost_memo,
-                'deal_form' => $property->deal_form,
-                'area' => $property->area,
-                'floor_plan' => $property->floor_plan,
-                'floor' => $property->floor,
-                'age' => $property->age,
-                'structure' => $property->structure,
-                'park' => $property->park,
-                'other_condition' => $property->other_condition,
+                'type' => $property['type'],
+                'is_pet' => $property['is_pet'],
+                'property_type' => $property['property_type'],
+                'name' => $property['name'],
+                'hitokoto' => $property['hitokoto'],
+                'good' => $property['good'],
+                'bad' => $property['bad'],
+                'pet_types' => $property['pet_types'],
+                'pet_cnt' => $property['pet_cnt'],
+                'nearest_station' => $property['nearest_station'],
+                'minutes_on' => $property['minutes_on'],
+                'address' => $property['address'],
+                'cost' => $property['cost'],
+                'manage_cost' => $property['manage_cost'],
+                'deposit' => $property['deposit'],
+                'deposit_for_pet' => $property['deposit_for_pet'],
+                'key_money' => $property['key_money'],
+                'deposit_ex' => $property['deposit_ex'],
+                'update_cost' => $property['update_cost'],
+                'insurance' => $property['insurance'],
+                'insurance_corp' => $property['insurance_corp'],
+                'cost_memo' => $property['cost_memo'],
+                'deal_form' => $property['deal_form'],
+                'area' => $property['area'],
+                'floor_plan' => $property['floor_plan'],
+                'floor' => $property['floor'],
+                'age' => $property['age'],
+                'structure' => $property['structure'],
+                'park' => $property['park'],
+                'other_condition' => $property['other_condition'],
                 'start_date' => $start_date,
                 'end_date' => $end_date,
                 'corp_id' => auth()->guard('sanctum_corp')->user()->id,

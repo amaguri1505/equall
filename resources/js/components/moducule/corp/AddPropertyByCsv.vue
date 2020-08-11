@@ -1,8 +1,5 @@
 <template>
     <div class="add-property-by-csv mb-4">
-        <v-subheader>
-            CSV取り込み（ベータ版）
-        </v-subheader>
         <v-container>
             <v-row>
                 <v-col
@@ -57,25 +54,22 @@
                 URL.revokeObjectURL(link.href);
             },
             loadCsvFile: function (file) {
-                if (!file.type.match("text/csv")) {
-                    this.$store.dispatch('modifySnackText', "CSVファイルを取り込んでください");
-                    this.$store.dispatch('modifySnackColor', 'warning');
-                    this.$store.dispatch('modifySnackbar', true);
-                    return false;
-                }
+                // if (!file.type.match("text/csv")) {
+                //     this.$store.dispatch('modifySnackText', "CSVファイルを取り込んでください");
+                //     this.$store.dispatch('modifySnackColor', 'warning');
+                //     this.$store.dispatch('modifySnackbar', true);
+                //     return false;
+                // }
 
                 const reader = new FileReader();
                 const workers = [];
 
                 const loadFunc = () => {
                     const lines = reader.result.split("\n");
-                    console.log(lines);
+                    lines.splice(0,1);
                     lines.forEach(element => {
                         const workerData = element.split(",");
                         if (workerData.length != 31) {
-                            this.$store.dispatch('modifySnackText', "CSVの列数が足りません");
-                            this.$store.dispatch('modifySnackColor', 'warning');
-                            this.$store.dispatch('modifySnackbar', true);
                             return false;
                         }
                         const worker = {
@@ -114,7 +108,6 @@
                         workers.push(worker);
                     });
                     this.$store.dispatch('modifyOverlay', true);
-                    console.log(workers);
                     this.$http.post('/api/add-properties', workers).then(response => {
                         this.$store.dispatch('modifyOverlay', false);
                         this.$store.dispatch('modifySnackText', "CSV取り込みが完了しました");
@@ -132,7 +125,8 @@
                 };
 
                 reader.onload = loadFunc;
-                reader.readAsBinaryString(file);
+                // reader.readAsBinaryString(file);
+                reader.readAsText(file);
             },
         },
     };
