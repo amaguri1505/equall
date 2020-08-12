@@ -19,8 +19,31 @@
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
-                <v-divider class="mb-5"></v-divider>
-                <corp-register></corp-register>
+                <v-divider class="mb-3"></v-divider>
+                <v-tabs
+                    color="#76c3bf"
+                >
+                    <v-tab>
+                        登録フォーム
+                    </v-tab>
+                    <v-tab>
+                        プレビュー
+                    </v-tab>
+
+                    <v-tab-item>
+                        <corp-register
+                            :property="this.property"
+                        ></corp-register>
+                    </v-tab-item>
+                    <v-tab-item>
+                        <div class="corp-index__preview">
+                            <house-detail
+                                :house_property="this.property"
+                                :house_property_images="target_images"
+                            ></house-detail>
+                        </div>
+                    </v-tab-item>
+                </v-tabs>
             </v-card>
         </div>
     </div>
@@ -31,6 +54,12 @@
     .corp-index
         &__wrap
             position: relative
+
+        &__preview
+            margin: 20px auto
+            max-width: 540px
+            padding: 10px
+            border: 1px solid #ccc
 
     .corp-register
         &__image-uploader-wrap
@@ -46,12 +75,14 @@
     import VueUploadMultipleImage from 'vue-upload-multiple-image';
     import AddPropertyByCsv from "../../moducule/corp/AddPropertyByCsv";
     import CorpRegister from "../../organism/corp/CorpRegister";
+    import HouseDetail from "../../organism/HouseDetail";
 
     export default {
         components: {
             CorpRegister,
             AddPropertyByCsv,
             VueUploadMultipleImage,
+            HouseDetail,
         },
         computed: {
             corpName: {
@@ -64,6 +95,17 @@
                     return this.$store.state.auth_corp.id;
                 }
             }
+        },
+        watch: {
+            property: {
+                handler (val) {
+                    this.target_images = val.images.map(function(image) {
+                        image.image_path = image.path;
+                        return image;
+                    });
+                },
+                deep: true,
+            },
         },
         beforeRouteLeave(to, from, next) {
             if (this.isEdited) {
@@ -126,70 +168,13 @@
                 is_pet: ["可"],
                 structure: ["木造", "鉄骨造", "鉄筋コンクリート", "鉄骨鉄筋コンクリート", "その他"],
                 park: ["有", "無"],
+                target_images: [],
             }
         },
         methods: {
             edited: function () {
                 this.isEdited = true;
             },
-            submit: function () {
-                if (!this.$refs.form.validate()) {
-                    return false;
-                }
-                this.property.corp_id = this.corpId;
-                this.$store.dispatch('modifyOverlay', true);
-                this.$http
-                    .post('/api/add-property', this.property)
-                    .then(response => {
-                        this.$parent.snack_text = "物件を登録しました";
-                        this.$parent.snack_color = "#76c3bf";
-                        this.$parent.snackbar = true;
-                        // this.$refs.form.reset();
-                        this.property.start_date = "";
-                        this.property.property_type = "";
-                        this.property.name = "";
-                        this.property.hitokoto = "";
-                        this.property.good = "";
-                        this.property.bad = "";
-                        this.property.pet_types = "";
-                        this.property.pet_cnt = "";
-                        this.property.nearest_station = "";
-                        this.property.minutes_on_foot = "";
-                        this.property.address = "";
-                        this.property.cost = "";
-                        this.property.manage_cost = "";
-                        this.property.deposit = "";
-                        this.property.deposit_for_pet = "";
-                        this.property.key_money = "";
-                        this.property.deposit_ex = "";
-                        this.property.update_cost = "";
-                        this.property.insurance = "";
-                        this.property.insurance_corp = "";
-                        this.property.cost_memo = "";
-                        this.property.deal_form = "";
-                        this.property.area = "";
-                        this.property.floor_plan = "";
-                        this.property.floor = "";
-                        this.property.age = "";
-                        this.property.structure = "";
-                        this.property.park = "";
-                        this.property.other_condition = "";
-                        this.property.start_date = "";
-                        this.property.images = [];
-                        this.$refs.uploader.images = [];
-                        this.$refs.form.resetValidation();
-                        this.$store.dispatch('modifyOverlay', false);
-                    })
-                    .catch(error => {
-                        this.$store.dispatch('modifyOverlay', false);
-                        this.$store.dispatch('modifySnackText', "エラーが発生しました");
-                        this.$store.dispatch('modifySnackColor', 'warning');
-                        this.$store.dispatch('modifySnackbar', true);
-                    });
-            },
-            uploadImageSuccess(formData, index, fileList) {
-                this.property.images = this.$refs.uploader.images;
-            },
-        }
+        },
     }
 </script>

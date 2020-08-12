@@ -25,7 +25,7 @@
                         </v-toolbar>
                         <v-card>
                             <corp-register
-                                :target_property="property"
+                                :property="property"
                                 @saved="close"
                             ></corp-register>
                         </v-card>

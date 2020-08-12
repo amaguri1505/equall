@@ -380,25 +380,7 @@
         components: {
             VueUploadMultipleImage,
         },
-        props: ['target_property'],
-        watch: {
-            target_property(val) {
-                this.property = val;
-                this.property.images = [];
-            }
-        },
-        mounted() {
-            if (!this.target_property) {
-                this.property = {
-                    type: "賃貸",
-                    is_pet: "可",
-                    start_date: new Date().toISOString().substr(0, 10),
-                    images: [],
-                }
-            } else {
-                this.property = this.target_property;
-            }
-        },
+        props: ['property'],
         computed: {
             corpName: {
                 get() {
@@ -413,7 +395,6 @@
         },
         data() {
             return {
-                property: [],
                 isEdited: false,
                 rule_required:
                     [
@@ -428,7 +409,6 @@
                         v => !!v || 'この項目は必須です',
                         v => !v || v.length <= 200 || 'この項目は200文字が最大です。',
                     ],
-                images: [],
                 types: ["賃貸"],
                 property_types: ["マンション", "アパート", "戸建て", "テラスハウス", "シェアハウス"],
                 pet_types: ["犬", "猫", "犬と猫"],
@@ -474,7 +454,6 @@
                         this.$parent.snack_text = "物件を登録しました";
                         this.$parent.snack_color = "#76c3bf";
                         this.$parent.snackbar = true;
-                        // this.$refs.form.reset();
                         this.property.start_date = "";
                         this.property.property_type = "";
                         this.property.name = "";
@@ -523,8 +502,7 @@
             },
             uploadImageSuccess(formData, index, fileList) {
                 this.property.images = this.$refs.uploader.images;
-                console.log(this.property.images);
             },
-        }
+        },
     }
 </script>

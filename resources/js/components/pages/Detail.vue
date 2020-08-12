@@ -4,156 +4,11 @@
             物件詳細
         </div>
         <v-divider></v-divider>
-        <div class="detail__content pt-2">
-            <detail-thumbnail
-                :house_property_images="house_property_images"
-            ></detail-thumbnail>
-            <div class="detail__catch mt-5">
-                日本の暮らし方を改革する
-            </div>
-            <div class="detail__balloon mt-5">
-                <div class="detail__balloon-text">
-                    この物件はいいよねー
-                    <div class="detail__balloon-arrow"></div>
-                </div>
-                <div class="detail__balloon-avatar">
-                    <v-img
-                        class="detail__balloon-avatar-img"
-                        src="/images/samplees.jpg"
-                    ></v-img>
-                </div>
-            </div>
-            <div class="detail__pet-info mt-5">
-                <div class="detail__sub-content detail__sub-content--pet-info">
-                    <detail-sub-content-item
-                        title="種類"
-                        v-bind:subtitle="this.house_property.type"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="物件名"
-                        v-bind:subtitle="this.house_property.name"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="Goodポイント"
-                        v-bind:subtitle="this.house_property.good"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="Badポイント"
-                        v-bind:subtitle="this.house_property.bad"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="ペットの種類"
-                        v-bind:subtitle="this.house_property.pet_type"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="ペット数"
-                        v-bind:subtitle="this.house_property.pet_cnt"
-                        unit="頭"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="最寄駅 徒歩（分）"
-                        v-bind:subtitle="this.house_property.nearest_station"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="所在地"
-                        v-bind:subtitle="this.house_property.address"
-                    ></detail-sub-content-item>
-                    <div class="detail__map">
-                        <iframe src="https://www.google.com/maps/d/embed?mid=1AJeFEUctVjLyANcnoHSS0-ZWAx0&hl=ja"
-                                width="400" height="320"></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="detail__property-info mt-5">
-                <div class="detail__sub-content detail__sub-content--property-info">
-                    <detail-sub-content-item
-                        title="ペット飼育"
-                        v-bind:subtitle="this.house_property.is_pet"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="賃料"
-                        v-bind:subtitle="this.house_property.cost"
-                        unit="円"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="管理費"
-                        v-bind:subtitle="this.house_property.manage_cost"
-                        unit="円"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="管理費"
-                        v-bind:subtitle="this.house_property.manage_cost"
-                        unit="円"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="管理費"
-                        v-bind:subtitle="this.house_property.manage_cost"
-                        unit="円"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="専有面積"
-                        v-bind:subtitle="this.house_property.area"
-                        unit="㎡"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="間取り"
-                        v-bind:subtitle="this.house_property.floor_plan"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="階数"
-                        v-bind:subtitle="this.house_property.floor"
-                        unit="階"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="築年月"
-                        v-bind:subtitle="this.house_property.age"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="建物構造"
-                        v-bind:subtitle="this.house_property.structure"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="駐車場・バイク・駐輪場"
-                        v-bind:subtitle="this.house_property.park"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="設備"
-                        v-bind:subtitle="this.house_property.facility"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="掲載日"
-                        v-bind:subtitle="this.house_property.start_date"
-                    ></detail-sub-content-item>
-                    <detail-sub-content-item
-                        title="物件ID"
-                        v-bind:subtitle="this.house_property.id"
-                    ></detail-sub-content-item>
-                </div>
-            </div>
-            <div class="detail__inquiry mt-5">
-                <v-btn
-                    class="detail__inquiry-btn"
-                    :to="this.contact_url"
-                    color="#f09299"
-                    large
-                >
-                    お問い合わせ
-                </v-btn>
-            </div>
-            <div class="detail__agent-info mt-5">
-                <v-card>
-                    <v-card-title>
-                        取扱不動産会社
-                    </v-card-title>
-                    <v-card-text>
-                        <div class="detail__agent-sub">不動産会社名：{{ estate_agent.name }}</div>
-                        <div class="detail__agent-sub">所在地：{{ estate_agent.address }}</div>
-                        <div class="detail__agent-sub">事務所電話番号：{{ estate_agent.name }} （equallからのお問い合わせ時は、上記のお問い合わせボタンからご連絡ください）</div>
-                        <div class="detail__agent-sub">免許証番号：{{ estate_agent.name }}</div>
-                    </v-card-text>
-                </v-card>
-            </div>
-        </div>
+        <house-detail
+            class="mt-2"
+            :house_property="house_property"
+            :house_property_images="house_property_images"
+        ></house-detail>
     </div>
 </template>
 <style lang="sass">
@@ -234,11 +89,13 @@
 <script>
     import DetailThumbnail from "../moducule/DetailThumbnail";
     import DetailSubContentItem from "../moducule/DetailSubContentItem";
+    import HouseDetail from "../organism/HouseDetail";
 
     export default {
         components: {
             DetailThumbnail,
             DetailSubContentItem,
+            HouseDetail,
         },
         created() {
             this.$parent.overlay = true;
@@ -263,6 +120,6 @@
                 estate_agent: [],
                 contact_url: "",
             }
-        }
+        },
     }
 </script>
