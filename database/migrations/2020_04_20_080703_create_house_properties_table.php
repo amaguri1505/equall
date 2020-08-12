@@ -68,6 +68,7 @@ class CreateHousePropertiesTable extends Migration
                 "5LDK", "5DK", "5SLDK", "5K", "5R",
                 "6LDK", "6DK", "6SLDK", "6K", "6R",
                 "7LDK", "7DK", "7SLDK", "7K", "7R",
+                "お問い合わせください",
             ]);
             $table->integer('floor')->nullable();
             $table->string('age',10);

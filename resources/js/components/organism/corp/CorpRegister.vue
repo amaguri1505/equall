@@ -380,7 +380,7 @@
         components: {
             VueUploadMultipleImage,
         },
-        props: ['property'],
+        props: ['property', 'snackbar_text_success'],
         computed: {
             corpName: {
                 get() {
@@ -431,6 +431,7 @@
                     "5LDK", "5DK", "5SLDK", "5K", "5R",
                     "6LDK", "6DK", "6SLDK", "6K", "6R",
                     "7LDK", "7DK", "7SLDK", "7K", "7R",
+                    "お問い合わせください",
                 ],
                 is_pet: ["可"],
                 structure: ["木造", "鉄骨造", "鉄筋コンクリート", "鉄骨鉄筋コンクリート", "その他"],
@@ -438,9 +439,6 @@
             }
         },
         methods: {
-            edited: function () {
-                this.isEdited = true;
-            },
             submit: function () {
                 if (!this.$refs.form.validate()) {
                     return false;
@@ -450,10 +448,6 @@
                 this.$http
                     .post('/api/add-property', this.property)
                     .then(response => {
-                        this.$emit('saved');
-                        this.$parent.snack_text = "物件を登録しました";
-                        this.$parent.snack_color = "#76c3bf";
-                        this.$parent.snackbar = true;
                         this.property.start_date = "";
                         this.property.property_type = "";
                         this.property.name = "";
@@ -488,9 +482,10 @@
                         this.$refs.uploader.images = [];
                         this.$refs.form.resetValidation();
                         this.$store.dispatch('modifyOverlay', false);
-                        this.$store.dispatch('modifySnackText', "成功しました");
+                        this.$store.dispatch('modifySnackText', this.snackbar_text_success);
                         this.$store.dispatch('modifySnackColor', '#76c3bf');
                         this.$store.dispatch('modifySnackbar', true);
+                        this.$emit('saved');
                     })
                     .catch(error => {
                         this.$store.dispatch('modifyOverlay', false);

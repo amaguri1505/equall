@@ -1,8 +1,6 @@
 <template>
     <div class="corp-index pa-2">
-        <div class="corp-index__wrap"
-             @click="edited"
-        >
+        <div class="corp-index__wrap">
             <v-card
                 class="pa-5"
             >
@@ -29,10 +27,11 @@
                     <v-tab>
                         プレビュー
                     </v-tab>
-
                     <v-tab-item>
                         <corp-register
                             :property="this.property"
+                            snackbar_text_success="物件を登録しました"
+                            @saved="haltEdited"
                         ></corp-register>
                     </v-tab-item>
                     <v-tab-item>
@@ -103,6 +102,9 @@
                         image.image_path = image.path;
                         return image;
                     });
+                    this.isEdited = true;
+                    console.log('watch');
+                    console.log(val);
                 },
                 deep: true,
             },
@@ -172,9 +174,13 @@
             }
         },
         methods: {
-            edited: function () {
-                this.isEdited = true;
-            },
+            haltEdited () {
+                setTimeout(() =>
+                    this.isEdited = false,
+                    500
+                );
+                console.log('halt');
+            }
         },
     }
 </script>

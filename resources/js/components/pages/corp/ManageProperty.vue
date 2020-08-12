@@ -26,6 +26,7 @@
                         <v-card>
                             <corp-register
                                 :property="property"
+                                snackbar_text_success="不動産情報を更新しました"
                                 @saved="close"
                             ></corp-register>
                         </v-card>
