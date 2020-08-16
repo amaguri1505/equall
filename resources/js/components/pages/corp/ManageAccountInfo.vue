@@ -45,7 +45,7 @@
                             dark
                             color="#76c3bf"
                             class="ma-0"
-                            @click="submit_password"
+                            @click="open_password_dialog"
                         >
                             変更
                         </v-btn>
@@ -66,8 +66,61 @@
                     担当者へ連絡
                 </v-btn>
             </div>
-
         </v-card>
+
+        <v-dialog
+            v-model="email_confirm"
+            max-width="500"
+        >
+            <v-card>
+                <v-card-text>
+                    確認用メールを送信しました。
+                </v-card-text>
+                <v-card-actions>
+                    <v-btn
+                        @click="email_confirm = false"
+                    >
+                        close
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+
+        <v-dialog
+            v-model="password_confirm"
+            max-width="500"
+        >
+            <v-card>
+                <v-card-title>
+                    現在のパスワードを入力してください。
+                </v-card-title>
+                <v-card-text>
+                    <v-text-field
+                        background-color="white"
+                        v-model="current_corp.current_email"
+                        type="password"
+                        outlined
+                        label="現在のパスワード"
+                    ></v-text-field>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        @click="password_confirm = false"
+                        color="#76c3bf"
+                        dark
+                    >
+                        パスワードの変更
+                    </v-btn>
+                    <v-btn
+                        @click="password_confirm = false"
+                    >
+                        キャンセル
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+
     </div>
 </template>
 
@@ -103,9 +156,17 @@
                     email: "",
                     password: "",
                 },
+                email_confirm: false,
+                password_confirm: false,
             }
         },
         methods: {
+            open_email_dialog: function () {
+
+            },
+            open_password_dialog: function () {
+                this.password_confirm = true;
+            },
             submit_email: function () {
                 this.$store.dispatch('modifyOverlay', true);
                 this.$http

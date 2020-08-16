@@ -5,7 +5,6 @@
                 :headers="headers"
                 :items="inquiries"
                 item-key="name"
-                show-select
                 class="manage-inquiry__table"
             >
             </v-data-table>
