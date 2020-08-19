@@ -10,22 +10,14 @@
                             <div class="corp-register__image-uploader-title">
                                 不動産の画像
                             </div>
-                            <vue-upload-multiple-image
-                                @upload-success="uploadImageSuccess"
-                                idUpload="myIdUpload"
-                                editUpload="myIdEdit"
-                                dragText="ここに画像をドラッグ"
-                                browseText="画像を選択"
-                                primaryText="先頭の画像"
-                                markIsPrimaryText=""
-                                popupText=""
-                                dropText=""
-                                :data-images="property.images"
+                            <image-uploader
                                 ref="uploader"
-                            ></vue-upload-multiple-image>
+                                @upload-success="uploadImageSuccess"
+                                @before-remove="beforeRemove"
+                            >
+                            </image-uploader>
                         </div>
                     </v-col>
-
                     <v-col cols="4">
                         <v-select
                             class="required"
@@ -375,10 +367,12 @@
 
 <script>
     import VueUploadMultipleImage from 'vue-upload-multiple-image';
+    import ImageUploader from "../../organism/corp/ImageUploader";
 
     export default {
         components: {
             VueUploadMultipleImage,
+            ImageUploader,
         },
         props: ['property', 'snackbar_text_success'],
         computed: {
@@ -497,6 +491,9 @@
             },
             uploadImageSuccess(formData, index, fileList) {
                 this.property.images = this.$refs.uploader.images;
+            },
+            beforeRemove(index, done, fileList) {
+                done();
             },
         },
     }
