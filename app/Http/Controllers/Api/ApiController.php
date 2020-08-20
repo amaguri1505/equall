@@ -109,11 +109,20 @@ class ApiController extends Controller
     public function modifyCorpPassword(Request $req)
     {
         $corp_id = auth()->guard('sanctum_corp')->user()->id;
+        $password = auth()->guard('sanctum_corp')->user()->password;
+
+        if (!Hash::check($req->current_password, $password)) {
+            return response()->json([
+                "status" => "current_pass_validate_error"
+            ]);
+        }
 
         EstateAgent::find($corp_id)
-            ->update(['password' => Hash::make($req->password)]);
+            ->update(['password' => Hash::make($req->new_password)]);
 
-        return response()->json('success');
+        return response()->json([
+            "status" => "success"
+        ]);
     }
 
     public function updateProperty(Request $req)

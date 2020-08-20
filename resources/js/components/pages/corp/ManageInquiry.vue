@@ -50,6 +50,6 @@
                     this.inquiries = response.data;
                     this.$store.dispatch('modifyOverlay', false);
                 });
-        }
+        },
     }
 </script>

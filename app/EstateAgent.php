@@ -2,13 +2,14 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\VerifyEmail;
 use Laravel\Sanctum\HasApiTokens;
 
-class EstateAgent extends Authenticatable
+class EstateAgent extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable;
 
