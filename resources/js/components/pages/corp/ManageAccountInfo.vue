@@ -195,12 +195,14 @@
                         this.$store.dispatch('modifySnackText', "パスワードを変更しました。");
                         this.$store.dispatch('modifySnackColor', '#76c3bf');
                         this.$store.dispatch('modifySnackbar', true);
+                        this.password_confirm = false;
                     })
                     .catch(error => {
                         this.$store.dispatch('modifyOverlay', false);
                         this.$store.dispatch('modifySnackText', "パスワードの更新に失敗しました。");
                         this.$store.dispatch('modifySnackColor', 'warning');
                         this.$store.dispatch('modifySnackbar', true);
+                        this.password_confirm = false;
                     });
             },
         },

@@ -1,9 +1,6 @@
 <template>
     <div
         style="outline: none;"
-        @drag="preventEvent"
-        @dragstart="preventEvent"
-        @dragend="preventEvent"
         @dragover="preventEvent"
         @dragenter="preventEvent"
         @dragleave="preventEvent"
@@ -75,11 +72,18 @@
             </div>
 
             <div class="image-uploader__image-list-container" v-if="images.length && multiple">
-                <div class="image-uploader__image-list-item"
-                     :class="image.highlight && 'image-highlight'"
-                     v-for="(image, index) in images" :key="index" @click="changeHighlight(index)">
-                    <img class="image-uploader__image-list-img" :src="image.path">
-                </div>
+                <draggable
+                    :list="images"
+                    class="image-uploader__draggable"
+                >
+                    <div
+                        class="image-uploader__image-list-item"
+                        :class="image.highlight && 'image-highlight'"
+                        v-for="(image, index) in images" :key="image.path" @click="changeHighlight(index)"
+                    >
+                        <img class="image-uploader__image-list-img" :src="image.path">
+                    </div>
+                </draggable>
             </div>
 
             <vue-image-lightbox-carousel
@@ -139,9 +143,9 @@
     import Popper from 'vue-popperjs'
     import 'vue-popperjs/dist/css/vue-popper.css'
     import VueImageLightboxCarousel from 'vue-image-lightbox-carousel'
+    import Draggable from 'vuedraggable'
 
     export default {
-        name: 'VueUploadMultipleImage',
         props: {
             accept: {
                 type: String,
@@ -185,6 +189,7 @@
         components: {
             Popper,
             VueImageLightboxCarousel,
+            Draggable,
         },
         computed: {
             imagePreview() {
@@ -381,6 +386,9 @@
     .image-uploader
         display: flex
         flex-wrap: nowrap
+
+        &__draggable
+            display: flex
 
         &__input
             display: none
