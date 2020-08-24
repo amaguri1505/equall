@@ -81,6 +81,7 @@
     .corp-index
         &__wrap
             position: relative
+            padding-top: 30px
 
         &__card-wrap
             position: relative
