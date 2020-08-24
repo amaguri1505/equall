@@ -12,6 +12,7 @@ use App\Inquiry;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Notifications\VerifyEmail;
 
 class ApiController extends Controller
 {
@@ -98,10 +99,18 @@ class ApiController extends Controller
 
     public function modifyCorpEmail(Request $req)
     {
-        $corp_id = auth()->guard('sanctum_corp')->user()->id;
+        $corp = auth()->guard('sanctum_corp')->user();
+        $corp_id = $corp->id;
 
         EstateAgent::find($corp_id)
-            ->update(['email' => $req->email]);
+            ->update(
+                [
+                    'email' => $req->email,
+                    'email_verified_at' => null,
+                ]
+            );
+
+        $corp->notify(new VerifyEmail());
 
         return response()->json('success');
     }

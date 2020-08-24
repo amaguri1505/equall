@@ -1,5 +1,5 @@
 <template>
-    <div class="register">
+    <div class="corp-account-register">
         <v-snackbar
             top
             v-model="snackbar"
@@ -16,78 +16,110 @@
                 color="#76c3bf"
             ></v-progress-circular>
         </v-overlay>
-        <div class="corp-register__wrap">
-            <equall-logo class="corp-register__logo"/>
+        <div class="corp-account-register__wrap">
+            <equall-logo class="corp-account-register__logo"/>
             <v-card
                 max-width="540"
-                class="corp-register__card mx-auto"
+                class="corp-account-register__card mx-auto"
             >
                 <v-card-text>
                     <v-form
                         ref="form"
                     >
-                        <v-text-field
-                            class="mt-5"
-                            background-color="white"
-                            outlined
-                            required
-                            hide-details
-                            v-model="corp_info.email"
-                            label="メールアドレス"
-                        ></v-text-field>
-                        <v-text-field
-                            class="mt-5"
-                            background-color="white"
-                            outlined
-                            type="password"
-                            required
-                            hide-details
-                            v-model="corp_info.password"
-                            label="パスワード"
-                        ></v-text-field>
-                        <v-text-field
-                            class="mt-5"
-                            background-color="white"
-                            outlined
-                            hide-details
-                            v-model="corp_info.name"
-                            label="会社名"
-                        ></v-text-field>
-                        <v-text-field
-                            class="mt-5"
-                            background-color="white"
-                            outlined
-                            hide-details
-                            v-model="corp_info.address"
-                            label="所在地"
-                        ></v-text-field>
-                        <v-text-field
-                            class="mt-5"
-                            background-color="white"
-                            outlined
-                            hide-details
-                            v-model="corp_info.tel"
-                            label="事務所電話番号"
-                        ></v-text-field>
-                        <v-text-field
-                            class="mt-5"
-                            background-color="white"
-                            outlined
-                            hide-details
-                            v-model="corp_info.license_number"
-                            label="免許証番号"
-                        ></v-text-field>
-                        <v-btn
-                            class="mt-5 login__btn"
-                            block
-                            x-large
-                            color="#f09299"
-                            dark
-                            depressed
-                            @click="submit"
-                        >
-                            登録
-                        </v-btn>
+                        <v-container>
+                            <v-row>
+                                <v-col
+                                    cols="12"
+                                >
+                                    <v-text-field
+                                        class="mt-5"
+                                        background-color="white"
+                                        outlined
+                                        required
+                                        hide-details
+                                        v-model="corp_info.email"
+                                        label="メールアドレス"
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                >
+                                    <v-text-field
+                                        class="mt-5"
+                                        background-color="white"
+                                        outlined
+                                        type="password"
+                                        required
+                                        hide-details
+                                        v-model="corp_info.password"
+                                        label="パスワード"
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="6"
+                                >
+                                    <v-text-field
+                                        class="mt-5"
+                                        background-color="white"
+                                        outlined
+                                        hide-details
+                                        v-model="corp_info.name"
+                                        label="会社名"
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="6"
+                                >
+                                    <v-text-field
+                                        class="mt-5"
+                                        background-color="white"
+                                        outlined
+                                        hide-details
+                                        v-model="corp_info.address"
+                                        label="所在地"
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col
+                                    col="6"
+                                >
+                                    <v-text-field
+                                        class="mt-5"
+                                        background-color="white"
+                                        outlined
+                                        hide-details
+                                        v-model="corp_info.tel"
+                                        label="事務所電話番号"
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col
+                                    col="6"
+                                >
+                                    <v-text-field
+                                        class="mt-5"
+                                        background-color="white"
+                                        outlined
+                                        hide-details
+                                        v-model="corp_info.license_number"
+                                        label="免許証番号"
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col
+                                    cols="12"
+                                >
+                                    <v-btn
+                                        class="mt-5 login__btn"
+                                        block
+                                        x-large
+                                        color="#f09299"
+                                        dark
+                                        depressed
+                                        @click="submit"
+                                    >
+                                        登録
+                                    </v-btn>
+                                </v-col>
+                            </v-row>
+                        </v-container>
                     </v-form>
                 </v-card-text>
             </v-card>
@@ -129,8 +161,7 @@
 <style lang="sass">
     @import "../../../../sass/common/_variable.scss"
 
-    .register
-        height: 100vh
+    .corp-account-register
         padding: 40px 20px 0 20px
         background-color: rgba(118, 195, 191, 0.5)
         text-align: center

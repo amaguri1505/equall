@@ -17,6 +17,6 @@ class VerifyEmail extends VerifyEmailBase
             $routeName, Carbon::now()->addMinutes(60), ['id' => $user->getKey()]
         );
 
-        return $prefix . urlencode($temporarySignedURL);
+        return urldecode($prefix . urlencode($temporarySignedURL));
     }
 }

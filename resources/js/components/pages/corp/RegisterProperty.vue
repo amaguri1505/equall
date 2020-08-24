@@ -60,14 +60,6 @@
             padding: 10px
             border: 1px solid #ccc
 
-    .corp-register
-        &__image-uploader-wrap
-            margin-bottom: 30px
-
-        &__image-uploader-title
-            color: rgba(0, 0, 0, 0.6)
-            margin-bottom: 10px
-
 </style>
 
 <script>

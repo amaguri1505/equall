@@ -7,6 +7,7 @@ use App\EstateAgent;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterCorpController extends Controller
 {
@@ -78,7 +79,7 @@ class RegisterCorpController extends Controller
             return new JsonResponse($validate->errors());
         }
 
-        $corp = $this->create($request->all());
+        event(new Registered($corp = $this->create($request->all())));
 
         return new JsonResponse($corp);
     }

@@ -192,17 +192,12 @@
                 this.$http
                     .post('/api/modify-corp-email', this.corp_info)
                     .then(response => {
-                        if (response['status'] == "current_pass_validate_error") {
-                            this.$store.dispatch('modifyOverlay', false);
-                            this.$store.dispatch('modifySnackText', "現在の");
-                            this.$store.dispatch('modifySnackColor', '#76c3bf');
-                            this.$store.dispatch('modifySnackbar', true);
-                        } else {
-                            this.$store.dispatch('modifyOverlay', false);
-                            this.$store.dispatch('modifySnackText', "メールアドレスを変更しました。");
-                            this.$store.dispatch('modifySnackColor', '#76c3bf');
-                            this.$store.dispatch('modifySnackbar', true);
-                        }
+                        this.$store.dispatch('modifyOverlay', false);
+                        this.$store.dispatch('modifySnackText', "メールアドレスの変更確認メールを送信しました。");
+                        this.$store.dispatch('modifySnackColor', '#76c3bf');
+                        this.$store.dispatch('modifySnackbar', true);
+                        this.corp_info.new_email = "";
+                        this.$refs.form_email.resetValidation();
                     })
                     .catch(error => {
                         this.$store.dispatch('modifyOverlay', false);
