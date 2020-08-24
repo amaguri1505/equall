@@ -21,10 +21,11 @@ Route::post('/corp/login', 'Auth\LoginCorpController@login')->name('login-corp')
 Route::post('/corp/logout', 'Auth\LoginCorpController@logout')->name('logout-corp');
 Route::get('/corp/{any}', 'CorpController@index')->where('any', '.*');
 
-Route::get('/email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-Route::get('/email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
-Route::get('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
-Route::get('/email/corp/verify/{id}', 'Auth\VerificationCorpController@verify')->name('verification-corp.verify');
+//Route::get('/email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+//Route::get('/email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+//Route::get('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+//
+//Route::get('/email/corp/verify/{id}', 'Auth\VerificationCorpController@verify')->name('verification-corp.verify');
 
 Auth::routes();
 

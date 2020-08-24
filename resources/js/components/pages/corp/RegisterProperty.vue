@@ -1,6 +1,6 @@
 <template>
-    <div class="corp-index pa-2">
-        <div class="corp-index__wrap">
+    <div class="register-property pa-2">
+        <div class="register-property__wrap">
             <v-card
                 class="pa-5"
             >
@@ -35,7 +35,7 @@
                         ></corp-register>
                     </v-tab-item>
                     <v-tab-item>
-                        <div class="corp-index__preview">
+                        <div class="register-property__preview">
                             <house-detail
                                 :house_property="this.property"
                                 :house_property_images="target_images"
@@ -50,7 +50,7 @@
 
 <style lang="sass">
     @import "../../../../sass/common/_variable.scss"
-    .corp-index
+    .register-property
         &__wrap
             position: relative
 
@@ -171,7 +171,6 @@
                     this.isEdited = false,
                     500
                 );
-                console.log('halt');
             }
         },
     }

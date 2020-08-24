@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\Events\Verified;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class VerificationCorpController extends Controller
 {
@@ -31,7 +35,7 @@ class VerificationCorpController extends Controller
     {
         $corp = auth()->guard('sanctum_corp')->user();
 
-        if (! hash_equals((string) $request->route('id'), (string) $corp->getKey())) {
+        if (! hash_equals((string) $request->route('id'), (string) $corp->id)) {
             throw new AuthorizationException;
         }
 
@@ -70,7 +74,7 @@ class VerificationCorpController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/corp';
 
     /**
      * Create a new controller instance.
@@ -79,8 +83,8 @@ class VerificationCorpController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
+//        $this->middleware('auth_corp');
+//        $this->middleware('signed')->only('verify');
+//        $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 }

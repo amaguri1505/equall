@@ -78,10 +78,11 @@
 
 <style lang="sass">
     @import "../../../../sass/common/_variable.scss"
+
     .corp-index
         &__wrap
             position: relative
-            padding-top: 30px
+            padding-top: 20px
 
         &__card-wrap
             position: relative

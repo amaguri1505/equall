@@ -81,6 +81,8 @@ class RegisterCorpController extends Controller
 
         event(new Registered($corp = $this->create($request->all())));
 
+        auth()->guard('sanctum_corp')->login($corp);
+
         return new JsonResponse($corp);
     }
 }
