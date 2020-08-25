@@ -19,6 +19,7 @@
                                 class="mr-2"
                                 @click="editProperty(item)"
                                 v-on="on"
+                                :disabled="item.is_published !== 0"
                             >
                                 mdi-pencil
                             </v-icon>
@@ -45,6 +46,7 @@
                             <v-icon
                                 @click="deleteProperty(item)"
                                 v-on="on"
+                                :disabled="item.is_published !== 0"
                             >
                                 mdi-delete
                             </v-icon>
@@ -122,7 +124,7 @@
                 this.$store.dispatch('modifyOverlay', true);
                 this.$http.post('/api/delete-property', property
                 ).then(response => {
-                    const index = this.properties.indexOf(property);
+                    const index = this.properties.findIndex(({ id }) => id === property.id);
                     this.properties.splice(index, 1);
                     this.$store.dispatch('modifySnackText', '不動産情報を削除しました');
                     this.$store.dispatch('modifySnackColor', '#76c3bf');
