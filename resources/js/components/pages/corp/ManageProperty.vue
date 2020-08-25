@@ -7,10 +7,6 @@
                 item-key="id"
                 class="manage-property__table"
             >
-                <!--<template v-slot:item.publish_flg="{ item }">-->
-                <!--<v-switch v-model="switch1" :label="`Switch 1: ${switch1.toString()}`"></v-switch>-->
-                <!--</template>-->
-
 
                 <template v-slot:item.action="{ item }">
                     <v-tooltip bottom>
