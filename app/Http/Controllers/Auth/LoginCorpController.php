@@ -60,7 +60,7 @@ class LoginCorpController extends Controller
         if (!$corp || !Hash::check($request->password, $corp->password)) {
             return response()->json('Not Matched');
         } else {
-            if ($this->guard()->login($corp)) {
+            if ($this->guard('sanctum_corp')->login($corp)) {
                 return response()->json('complete');
             }
             return response()->json('login error');

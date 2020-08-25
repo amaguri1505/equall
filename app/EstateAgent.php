@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Notifications\VerifyCorpEmail;
 use Laravel\Sanctum\HasApiTokens;
 
-class EstateAgent extends Authenticatable implements MustVerifyEmail
+class EstateAgent extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
