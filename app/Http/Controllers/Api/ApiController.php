@@ -353,4 +353,17 @@ class ApiController extends Controller
 
         return response()->json('success submitRelation');
     }
+
+    public function closeProperty(Request $req)
+    {
+        HouseProperty::find($req->id)
+            ->update(
+            [
+                'is_published' => 0,
+            ]);
+
+        return response()->json('success closeProperty');
+    }
+
+
 }

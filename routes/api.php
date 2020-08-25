@@ -30,6 +30,7 @@ Route::middleware('auth:sanctum_corp')->group(function () {
         Route::post('add-properties', 'Api\ApiController@addProperties');
         Route::post('delete-property', 'Api\ApiController@deleteProperty');
         Route::post('update-property', 'Api\ApiController@updateProperty');
+        Route::post('close-property', 'Api\ApiController@closeProperty');
         Route::post('add-images', 'Api\ApiController@addImages');
     });
 });

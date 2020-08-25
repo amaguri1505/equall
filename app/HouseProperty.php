@@ -41,6 +41,7 @@ class HouseProperty extends Model
         'start_date',
         'end_date',
         'corp_id',
+        'is_published',
     ];
 
     public function post_images() {

@@ -7,13 +7,50 @@
                 item-key="id"
                 class="manage-property__table"
             >
+                <!--<template v-slot:item.publish_flg="{ item }">-->
+                <!--<v-switch v-model="switch1" :label="`Switch 1: ${switch1.toString()}`"></v-switch>-->
+                <!--</template>-->
+
+
                 <template v-slot:item.action="{ item }">
-                    <v-icon class="mr-2" @click="editProperty(item)">
-                        mdi-pencil
-                    </v-icon>
-                    <v-icon @click="deleteProperty(item)">
-                        mdi-delete
-                    </v-icon>
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                            <v-icon
+                                class="mr-2"
+                                @click="editProperty(item)"
+                                v-on="on"
+                            >
+                                mdi-pencil
+                            </v-icon>
+                        </template>
+                        <span>編集する</span>
+                    </v-tooltip>
+
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                            <v-icon
+                                class="mr-2"
+                                @click="stopProperty(item)"
+                                v-on="on"
+                                :disabled="item.is_published === 0"
+                            >
+                                mdi-stop-circle-outline
+                            </v-icon>
+                        </template>
+                        <span>公開を終了する</span>
+                    </v-tooltip>
+
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                            <v-icon
+                                @click="deleteProperty(item)"
+                                v-on="on"
+                            >
+                                mdi-delete
+                            </v-icon>
+                        </template>
+                        <span>削除する</span>
+                    </v-tooltip>
                 </template>
 
                 <template v-slot:top>
@@ -60,7 +97,8 @@
                     const updated_date = new Date(property.updated_at).toISOString().substr(0, 10);
                     return {
                         id: property.id,
-                        publish_flg: start_date <= today && today <= end_date ? "公開" : "未公開",
+                        publish_flg: start_date <= today && today <= end_date && property.is_published > 0 ? "公開" : "未公開",
+                        is_published: property.is_published,
                         end_date: property.end_date,
                         created_at: created_date,
                         updated_at: updated_date,
@@ -86,18 +124,44 @@
                 ).then(response => {
                     const index = this.properties.indexOf(property);
                     this.properties.splice(index, 1);
+                    this.$store.dispatch('modifySnackText', '不動産情報を削除しました');
+                    this.$store.dispatch('modifySnackColor', '#76c3bf');
+                    this.$store.dispatch('modifySnackbar', true);
                     this.$store.dispatch('modifyOverlay', false);
                 }).catch(error => {
+                    this.$store.dispatch('modifySnackText', '不動産情報の削除に失敗しました');
+                    this.$store.dispatch('modifySnackColor', 'warning');
+                    this.$store.dispatch('modifySnackbar', true);
+                    this.$store.dispatch('modifyOverlay', false);
+                });
+            },
+            stopProperty: function (property) {
+                if (!confirm('この操作は取り消せません。本当に公開を停止しますか？')) {
+                    return false;
+                }
+                this.$store.dispatch('modifyOverlay', true);
+                this.$http.post('/api/close-property', property
+                ).then(response => {
+                    const index = this.properties.findIndex(({ id }) => id === property.id);
+                    this.properties[index].is_published = 0;
+                    this.$store.dispatch('modifySnackText', '不動産を非公開にしました');
+                    this.$store.dispatch('modifySnackColor', '#76c3bf');
+                    this.$store.dispatch('modifySnackbar', true);
+                    this.$store.dispatch('modifyOverlay', false);
+                }).catch(error => {
+                    this.$store.dispatch('modifySnackText', '不動産情報の変更に失敗しました');
+                    this.$store.dispatch('modifySnackColor', 'warning');
+                    this.$store.dispatch('modifySnackbar', true);
                     this.$store.dispatch('modifyOverlay', false);
                 });
             },
 
-            close () {
+            close() {
                 this.property = [];
                 this.dialog = false;
             },
 
-            save () {
+            save() {
                 this.close();
             },
         },
