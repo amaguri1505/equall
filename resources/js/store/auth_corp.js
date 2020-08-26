@@ -23,7 +23,7 @@ export default {
                 state.corp = value;
                 state.corp_name = value.name;
             }
-        }
+        },
     },
 
     actions: {

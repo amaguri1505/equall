@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/mypage', 'MypageController@index')->name('mypage');
 
+Route::post('/login', 'Auth\LoginController@login');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::get('/corp/login', 'Auth\LoginCorpController@index');
 Route::get('/corp/register', 'ViewController@viewMetaCorp');
 Route::get('/corp', 'CorpController@index');
@@ -27,6 +30,5 @@ Route::get('/corp/{any}', 'CorpController@index')->where('any', '.*');
 //
 //Route::get('/email/corp/verify/{id}', 'Auth\VerificationCorpController@verify')->name('verification-corp.verify');
 
-Auth::routes();
 
 Route::get('{any}', 'ViewController@viewApp')->where('any', '.*');

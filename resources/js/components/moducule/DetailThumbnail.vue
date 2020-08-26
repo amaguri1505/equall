@@ -9,17 +9,6 @@
                     v-for="image in house_property_images"
                     :key="image.id"
                 >
-                    test
-                    test
-                    test
-                    test
-                    test
-                    test
-                    test
-                    test
-                    test
-                    test
-                    test
                     <v-img
                         :src="image.image_path"
                     ></v-img>

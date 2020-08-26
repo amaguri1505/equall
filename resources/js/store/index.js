@@ -24,6 +24,7 @@ export default new Vuex.Store({
         snack_color: "",
         snack_text: "",
         overlay: false,
+        overlay_white: false,
     },
 
     mutations: {
@@ -61,6 +62,10 @@ export default new Vuex.Store({
 
         changeOverlay (state, overlay) {
             state.overlay = overlay;
+        },
+
+        changeOverlayWhite (state, overlay) {
+            state.overlay_white = overlay;
         },
 
     },
@@ -103,6 +108,10 @@ export default new Vuex.Store({
             store.commit('changeOverlay', overlay);
         },
 
+        modifyOverlayWhite (store, overlay_white) {
+            store.commit('changeOverlayWhite', overlay_white);
+        },
+
     },
 
     getters : {
@@ -112,5 +121,6 @@ export default new Vuex.Store({
         snack_color: state => state.snack_color,
         snack_text: state => state.snack_text,
         overlay: state => state.overlay,
+        overlay_white: state => state.overlay_white,
     },
 });
