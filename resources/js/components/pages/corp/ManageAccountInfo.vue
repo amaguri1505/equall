@@ -6,32 +6,32 @@
             height="100%"
         >
             <div class="manage-account-info__forms">
-                <v-form
-                    ref="form_email"
-                >
-                    <v-text-field
-                        background-color="white"
-                        v-model="corp_info.new_email"
-                        outlined
-                        label="メールアドレス"
-                        placeholder="メールアドレス"
-                        class="mt-5"
-                    >
-                        <template v-slot:append>
-                            <v-btn
-                                depressed
-                                tile
-                                x-large
-                                dark
-                                color="#76c3bf"
-                                class="ma-0"
-                                @click="submit_email"
-                            >
-                                変更
-                            </v-btn>
-                        </template>
-                    </v-text-field>
-                </v-form>
+                <!--<v-form-->
+                    <!--ref="form_email"-->
+                <!--&gt;-->
+                    <!--<v-text-field-->
+                        <!--background-color="white"-->
+                        <!--v-model="corp_info.new_email"-->
+                        <!--outlined-->
+                        <!--label="メールアドレス"-->
+                        <!--placeholder="メールアドレス"-->
+                        <!--class="mt-5"-->
+                    <!--&gt;-->
+                        <!--<template v-slot:append>-->
+                            <!--<v-btn-->
+                                <!--depressed-->
+                                <!--tile-->
+                                <!--x-large-->
+                                <!--dark-->
+                                <!--color="#76c3bf"-->
+                                <!--class="ma-0"-->
+                                <!--@click="submit_email"-->
+                            <!--&gt;-->
+                                <!--変更-->
+                            <!--</v-btn>-->
+                        <!--</template>-->
+                    <!--</v-text-field>-->
+                <!--</v-form>-->
                 <v-form
                     ref="form_password"
                     lazy-validation
@@ -63,7 +63,7 @@
                 </v-form>
             </div>
             <div class="manage-account-info__text">
-                企業情報（会社名、住所など）を変更したい場合は直接ご連絡ください
+                企業情報（メールアドレス、会社名、住所など）を変更したい場合は直接ご連絡ください
             </div>
             <div class="manage-account-info__btn-wrap mt-5">
                 <v-btn
