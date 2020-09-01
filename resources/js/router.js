@@ -117,17 +117,11 @@ const router = new Router({
             path: '/corp/',
             name: 'corp_index',
             component: CorpIndex,
-            meta: {
-                corp_auth: true
-            },
         },
         {
             path: '/corp/manage-property/',
             name: 'manage-property',
             component: ManageProperty,
-            meta: {
-                corp_auth: true
-            },
         },
         {
             path: '/corp/register-property/',
@@ -173,17 +167,12 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
     const loggedIn = store.getters.isLogged;
-    const loggedInCorp = store.getters.isLoggedCorp;
 
     if (to.matched.some(record => record.meta.auth) && !loggedIn) {
+        store.dispatch('modifySnackText', '会員限定ページです。ログインしてください。');
+        store.dispatch('modifySnackColor', 'warning');
+        store.dispatch('modifySnackbar', true);
         next({name: 'login'});
-    } else {
-        next();
-    }
-
-    if (to.matched.some(record => record.meta.corp_auth) && !loggedInCorp) {
-        // window.location.href='/corp/login';
-        next();
     } else {
         next();
     }

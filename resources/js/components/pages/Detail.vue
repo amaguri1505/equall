@@ -86,6 +86,7 @@
                 color: white
 
 </style>
+
 <script>
     import DetailThumbnail from "../moducule/DetailThumbnail";
     import DetailSubContentItem from "../moducule/DetailSubContentItem";

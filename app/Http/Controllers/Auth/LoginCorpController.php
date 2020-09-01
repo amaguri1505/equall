@@ -65,7 +65,6 @@ class LoginCorpController extends Controller
             }
             return response()->json('login error');
         }
-
     }
 
 }

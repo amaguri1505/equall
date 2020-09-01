@@ -18,7 +18,7 @@ class ApiController extends Controller
 {
     public function getUser(Request $req)
     {
-        return $req->user();
+        return $req->user('sanctum');
     }
 
     public function getCorp(Request $req)
