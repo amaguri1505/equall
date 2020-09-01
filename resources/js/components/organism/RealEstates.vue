@@ -50,7 +50,7 @@
             "s_pets",
         ],
         created() {
-            this.$parent.$parent.overlay = true;
+            this.$store.dispatch('modifyOverlayWhite', true);
             this.$http
                 .post('/api/search-properties', {
                     s_search_word: this.s_search_word,
@@ -61,7 +61,7 @@
                 })
                 .then(response => {
                     this.properties = response.data;
-                    this.$parent.$parent.overlay = false;
+                    this.$store.dispatch('modifyOverlayWhite', false);
                 });
         }
     };

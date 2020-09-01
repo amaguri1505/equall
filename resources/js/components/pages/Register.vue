@@ -6,8 +6,9 @@
                 title="イコールの利用を始める"
                 class="mt-5"
             />
-            <v-form>
-                <input type="hidden" name="_token" :value="csrf" />
+            <v-form
+                ref="form"
+            >
                 <v-text-field
                     class="mt-5"
                     background-color="white"
@@ -63,16 +64,28 @@
                         return pattern.test(value) || 'メールアドレスを入力してください'
                     },
                 },
-                csrf: document
-                    .querySelector('meta[name="csrf-token"]')
-                    .getAttribute("content"),
             }
         },
         methods: {
-            submit () {
+            submit() {
+                this.$store.dispatch('modifyOverlay', true);
                 this.$http.post('/api/register', {
-                    email: this.$data.email,
-                })
+                    email: this.email,
+                    name: "TEST_USER_NAME",
+                    password: "nyanconyanco",
+                }).then(response => {
+                    this.$store.dispatch('modifyOverlay', false);
+                    this.$store.dispatch('modifySnackText', "[仮]仮登録ページのURLを送信しました");
+                    this.$store.dispatch('modifySnackColor', '#76c3bf');
+                    this.$store.dispatch('modifySnackbar', true);
+                    this.$refs.form.reset();
+                    this.$refs.form.resetValidation();
+                }).catch(error => {
+                    this.$store.dispatch('modifyOverlay', false);
+                    this.$store.dispatch('modifySnackText', "登録に失敗しました");
+                    this.$store.dispatch('modifySnackColor', 'warning');
+                    this.$store.dispatch('modifySnackbar', true);
+                });
             },
         },
     };

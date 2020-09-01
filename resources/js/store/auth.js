@@ -20,22 +20,20 @@ export default {
     },
 
     actions: {
-        signIn({dispatch}, credentials) {
-            axios.get('/sanctum/csrf-cookie').then(response => {
-                axios.post('/login', credentials).then(response => {
-                    return dispatch('me');
-                });
-            });
+        async signIn({dispatch}, credentials) {
+            await axios.get('/sanctum/csrf-cookie');
+            await axios.post('/login', credentials);
+            await dispatch('me');
+            window.location.href = "/";
         },
 
-        signOut({dispatch}) {
-            axios.post('/logout').then(response =>
-            {
-                return dispatch('me');
-            });
+        async signOut({dispatch}) {
+            await axios.post('/logout');
+            await dispatch('me');
+            window.location.href = "/login";
         },
 
-        me({commit}) {
+        async me({commit}) {
             return axios.get('/api/user').then((response) => {
                 commit('SET_USER', response.data);
             }).catch(() => {

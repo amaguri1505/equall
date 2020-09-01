@@ -86,6 +86,7 @@
                 color: white
 
 </style>
+
 <script>
     import DetailThumbnail from "../moducule/DetailThumbnail";
     import DetailSubContentItem from "../moducule/DetailSubContentItem";
@@ -98,7 +99,7 @@
             HouseDetail,
         },
         created() {
-            this.$parent.overlay = true;
+            this.$store.dispatch('modifyOverlayWhite', true);
             const detail_id = this.$route.params.detail_id;
             this.contact_url = "/detail/" + detail_id + "/contact";
             this.$http
@@ -109,7 +110,7 @@
                         .get(`/api/get-property-image/${detail_id}`)
                         .then(response => {
                             this.house_property_images = response.data;
-                            this.$parent.overlay = false;
+                            this.$store.dispatch('modifyOverlayWhite', false);
                         });
                 });
         },

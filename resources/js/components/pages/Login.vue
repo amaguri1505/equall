@@ -82,22 +82,6 @@
                     email: this.email,
                     password: this.password,
                 });
-
-                this.$router.replace({name: 'mypage'});
-            },
-
-            login() {
-                this.$store
-                    .dispatch('login', {
-                        email: this.email,
-                        password: this.password
-                    })
-                    .then(() => {
-                        this.$router.push({name: 'mypage'});
-                    })
-                    .catch(err => {
-                        console.log("error:".err);
-                    });
             },
         },
     };

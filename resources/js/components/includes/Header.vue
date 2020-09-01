@@ -31,9 +31,14 @@
                     v-model="group"
                     active-class="text--accent-4"
                 >
+                    <v-list-item to="/register">
+                        <v-list-item-title>
+                            新規登録
+                        </v-list-item-title>
+                    </v-list-item>
                     <v-list-item to="/login">
                         <v-list-item-title>
-                            登録/ログイン
+                            登録済みの方はこちら
                         </v-list-item-title>
                     </v-list-item>
                     <v-list-item to="/bookmark">
