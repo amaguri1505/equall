@@ -133,6 +133,11 @@
         components: {
             RealEstates,
         },
+        data () {
+            return {
+                equallUser: [],
+            }
+        }
     };
 </script>
 <style lang="sass">
