@@ -43,6 +43,7 @@
                 color: #333
 
         &__detail-wrap
+            color: #333
             line-height: 1.5rem
 
 </style>

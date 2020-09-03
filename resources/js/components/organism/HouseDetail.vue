@@ -54,8 +54,17 @@
                     v-bind:subtitle="this.house_property.address"
                 ></detail-sub-content-item>
                 <div class="house-detail__map">
-                    <iframe src="https://www.google.com/maps/d/embed?mid=1AJeFEUctVjLyANcnoHSS0-ZWAx0&hl=ja"
-                            width="400" height="320"></iframe>
+                    <iframe
+                        width="400"
+                        height="320"
+                        frameborder="0" style="border:0"
+                        :src="'https://www.google.com/maps/embed/v1/search?key=' +
+                        embed_map_api_key +
+                        '&q=' +
+                        house_property.address"
+                        allowfullscreen
+                    >
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -214,6 +223,9 @@
             &:visited, &:link, &:active, &:hover
                 color: white
 
+        &__map
+            padding: 16px 16px 8px 16px
+
 </style>
 <script>
     import DetailThumbnail from "../moducule/DetailThumbnail";
@@ -229,6 +241,7 @@
             return {
                 estate_agent: [],
                 contact_url: "",
+                embed_map_api_key: "AIzaSyDogWEJf-SbI38v5XOqtMoyyd2FQD4tYO4",
             }
         },
     }
