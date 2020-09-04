@@ -174,6 +174,7 @@ router.beforeEach((to, from, next) => {
         store.dispatch('modifySnackbar', true);
         next({name: 'login'});
     } else {
+        store.dispatch('modifySnackbar', false);
         next();
     }
 });

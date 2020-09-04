@@ -9,6 +9,7 @@ use App\HouseProperty;
 use App\HousePropertyImage;
 use App\AdminInquiry;
 use App\Inquiry;
+use App\Bookmark;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -343,6 +344,21 @@ class ApiController extends Controller
         ]);
         $inquiry->save();
     }
+
+    public function addBookmark(Request $req)
+    {
+        $user_id = auth()->guard('sanctum')->user()->id;
+        $house_id = $req->house_id;
+
+        $bookmark = new Bookmark([
+            'user_id' => $user_id,
+            'house_id' => $house_id,
+        ]);
+        $bookmark->save();
+
+        return response()->json('success addBookmark');
+    }
+
 
     public function submitRelation(Request $req)
     {

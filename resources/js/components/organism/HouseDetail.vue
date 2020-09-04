@@ -267,7 +267,17 @@
         methods: {
             add_bookmark: function(event) {
                 if ( this.$store.getters.isLogged ) {
-
+                    this.$http.post('/api/add-bookmark',{
+                        house_id: this.house_property.id,
+                    }).then(response => {
+                        this.$store.dispatch('modifySnackText', 'お気に入りに追加しました');
+                        this.$store.dispatch('modifySnackColor', '#76c3bf');
+                        this.$store.dispatch('modifySnackbar', true);
+                    }).catch(error => {
+                        this.$store.dispatch('modifySnackText', 'エラーが発生しました');
+                        this.$store.dispatch('modifySnackColor', 'warning');
+                        this.$store.dispatch('modifySnackbar', true);
+                    });
                 } else {
                     this.$store.dispatch('modifySnackText', '会員限定機能です。ログインしてください。');
                     this.$store.dispatch('modifySnackColor', 'warning');

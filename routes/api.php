@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', 'Api\ApiController@getUser');
+    Route::group(['middleware' => ['api']], function () {
+        Route::post('/add-bookmark', 'Api\ApiController@addBookmark');
+    });
 });
 
 Route::middleware('auth:sanctum_corp')->group(function () {
