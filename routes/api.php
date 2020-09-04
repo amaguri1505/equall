@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', 'Api\ApiController@getUser');
     Route::group(['middleware' => ['api']], function () {
+        Route::get('/get-bookmarked-properties', 'Api\ApiController@getBookmarkedProperties');
         Route::post('/add-bookmark', 'Api\ApiController@addBookmark');
     });
 });
@@ -50,6 +51,7 @@ Route::group(['middleware' => ['api']], function () {
     Route::get('get-inquiries', 'Api\ApiController@getInquiries');
 
     Route::post('search-properties', 'Api\ApiController@searchProperties');
+    Route::post('get-latest-properties', 'Api\ApiController@getLatestProperties');
 
     Route::post('/register', 'Auth\RegisterController@register');
     Route::post('/register-corp', 'Auth\RegisterCorpController@register');

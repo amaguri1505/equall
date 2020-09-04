@@ -160,8 +160,8 @@ class ApiController extends Controller
             $properties_query->
             orWhere('name', 'LIKE', '%' . $search_word . '%')->
             orWhere('good', 'LIKE', '%' . $search_word . '%')->
-            orwhere('bad', 'LIKE', '%' . $search_word . '%')->
-            orwhere('nearest_station', 'LIKE', '%' . $search_word . '%')->
+            orWhere('bad', 'LIKE', '%' . $search_word . '%')->
+            orWhere('nearest_station', 'LIKE', '%' . $search_word . '%')->
             orWhere('address', 'LIKE', '%' . $search_word . '%')->
             orWhere('area', 'LIKE', '%' . $search_word . '%')->
             orWhere('floor_plan', 'LIKE', '%' . $search_word . '%')->
@@ -174,6 +174,38 @@ class ApiController extends Controller
         $properties = $properties_query->get();
 
         return response()->json($properties);
+    }
+
+    public function getLatestProperties(Request $req)
+    {
+        $properties_query = HouseProperty::query();
+
+        $s_pet_type = $req->pet_types;
+
+        if ($s_pet_type) {
+            $properties_query->
+                orWhere('pet_types','=',  '犬と猫');
+            if ($s_pet_type === "cat") {
+                $properties_query->
+                orWhere('pet_types','=', '猫');
+            } else if ($s_pet_type === "dog") {
+                $properties_query->
+                orWhere('pet_types','=', '犬');
+            }
+        }
+
+        $properties_query->
+        orderBy('created_at', 'desc')->
+        limit(10);
+
+        $properties = $properties_query->get();
+
+        return response()->json($properties);
+    }
+
+    public function getBookmarkedProperties(Request $req)
+    {
+
     }
 
     public function addImages(Request $req)
@@ -374,9 +406,9 @@ class ApiController extends Controller
     {
         HouseProperty::find($req->id)
             ->update(
-            [
-                'is_published' => 0,
-            ]);
+                [
+                    'is_published' => 0,
+                ]);
 
         return response()->json('success closeProperty');
     }
