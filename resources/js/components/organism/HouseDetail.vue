@@ -1,7 +1,24 @@
 <template>
     <div class="house-detail">
+        <div class="house-detail__btn-wrap mt-5">
+            <v-btn
+                large
+                tile
+                dark
+                color="#f09299"
+                @click="add_bookmark"
+            >
+                お気に入りに追加
+                <v-icon
+                    right
+                >
+                    mdi-star
+                </v-icon>
+            </v-btn>
+        </div>
         <detail-thumbnail
             :house_property_images="house_property_images"
+            class="mt-5"
         ></detail-thumbnail>
         <div class="house-detail__catch mt-5">
             日本の暮らし方を改革する
@@ -174,6 +191,9 @@
             line-height: 1.2
             margin-bottom: 2px
 
+        &__btn-wrap
+            text-align: right
+
         &__catch
             background-color: colors(primary)
             color: white
@@ -244,5 +264,17 @@
                 embed_map_api_key: "AIzaSyDogWEJf-SbI38v5XOqtMoyyd2FQD4tYO4",
             }
         },
+        methods: {
+            add_bookmark: function(event) {
+                if ( this.$store.getters.isLogged ) {
+
+                } else {
+                    this.$store.dispatch('modifySnackText', '会員限定機能です。ログインしてください。');
+                    this.$store.dispatch('modifySnackColor', 'warning');
+                    this.$store.dispatch('modifySnackbar', true);
+                }
+
+            }
+        }
     }
 </script>
