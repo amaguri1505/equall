@@ -205,7 +205,18 @@ class ApiController extends Controller
 
     public function getBookmarkedProperties(Request $req)
     {
+        $user = auth()->guard('sanctum')->user();
+        $user_id = $user->id;
 
+        $bookmarks_query = Bookmark::query();
+        $bookmarks_query->where('user_id', $user_id);
+        $bookmarks = $bookmarks_query->get();
+
+        $properties_query = HouseProperty::query();
+        $properties_query->whereIn('id', $bookmarks);
+        $properties = $properties_query->get();
+
+        return response()->json($properties);
     }
 
     public function addImages(Request $req)
