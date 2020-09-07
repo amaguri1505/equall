@@ -48,11 +48,11 @@
                                 >
                                     メールアドレス
                                 </v-card-title>
-                                <v-card-content
+                                <v-card-text
                                     class="mypage__card-content"
                                 >
-                                    sample@example.com
-                                </v-card-content>
+                                    {{ equall_user.email }}
+                                </v-card-text>
                             </v-card>
                         </v-col>
                         <v-col cols="6">
@@ -66,10 +66,10 @@
                                 >
                                     性別
                                 </v-card-title>
-                                <v-card-content
+                                <v-card-text
                                     class="mypage__card-content"
                                 >
-                                </v-card-content>
+                                </v-card-text>
                             </v-card>
                         </v-col>
                         <v-col cols="6">
@@ -83,10 +83,10 @@
                                 >
                                     ペット飼育
                                 </v-card-title>
-                                <v-card-content
+                                <v-card-text
                                     class="mypage__card-content"
                                 >
-                                </v-card-content>
+                                </v-card-text>
                             </v-card>
                         </v-col>
                         <v-col cols="6">
@@ -100,8 +100,10 @@
                                 >
                                     ペットの種類
                                 </v-card-title>
-                                <v-card-content>
-                                </v-card-content>
+                                <v-card-text
+                                    class="mypage__card-content"
+                                >
+                                </v-card-text>
                             </v-card>
                         </v-col>
                         <v-col cols="7"></v-col>
@@ -122,7 +124,11 @@
             <v-divider
                 class="mt-5"
             ></v-divider>
-            <real-estates class="mt-5 mb-5" label="あなたにおすすめの物件"></real-estates>
+            <real-estates
+                class="mt-5 mb-5"
+                label="あなたにおすすめの物件"
+                :properties="latest_properties"
+            ></real-estates>
         </div>
     </div>
 </template>
@@ -133,11 +139,44 @@
         components: {
             RealEstates,
         },
-        data () {
+        data() {
             return {
-                equallUser: [],
+                equall_user: {},
+                latest_properties: [],
+                request_cnt: 0,
             }
-        }
+        },
+        created () {
+            this.$store.dispatch('modifyOverlayWhite', true);
+            this.$http
+                .post('/api/get-latest-properties', {})
+                .then(response => {
+                    this.latest_properties = response.data;
+                    this.request_cnt++;
+                    if (this.request_cnt >= 2) {
+                        this.$store.dispatch('modifyOverlayWhite', false);
+                    }
+                })
+                .catch(error => {
+                    this.$store.dispatch('modifySnackText', '読み込みに失敗しました。リロードしてください。');
+                    this.$store.dispatch('modifySnackColor', 'warning');
+                    this.$store.dispatch('modifySnackbar', true);
+                });
+            this.$http
+                .get('/user')
+                .then(response => {
+                    this.equall_user = response.data;
+                    this.request_cnt++;
+                    if (this.request_cnt >= 2) {
+                        this.$store.dispatch('modifyOverlayWhite', false);
+                    }
+                })
+                .catch(error => {
+                    this.$store.dispatch('modifySnackText', '読み込みに失敗しました。リロードしてください。');
+                    this.$store.dispatch('modifySnackColor', 'warning');
+                    this.$store.dispatch('modifySnackbar', true);
+                });
+        },
     };
 </script>
 <style lang="sass">
