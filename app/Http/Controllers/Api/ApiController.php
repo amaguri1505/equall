@@ -424,5 +424,10 @@ class ApiController extends Controller
         return response()->json('success closeProperty');
     }
 
+    public function updateUser(Request $req)
+    {
+
+    }
+
 
 }

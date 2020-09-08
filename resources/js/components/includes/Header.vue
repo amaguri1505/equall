@@ -19,12 +19,10 @@
         </v-app-bar>
         <v-navigation-drawer
             v-model="drawer"
-            absolute
+            app
             temporary
-            top
         >
             <v-list
-                nav
                 dense
             >
                 <v-list-item-group
@@ -83,6 +81,7 @@
 </style>
 <script>
     import { mapGetters } from 'vuex';
+    import { mapActions } from 'vuex';
 
     export default {
         computed: {
@@ -91,8 +90,11 @@
             ])
         },
         methods: {
+            ...mapActions({
+                signIn: 'auth/signOut',
+            }),
             logout() {
-                this.$store.dispatch('logoutCorp');
+                this.signIn();
             }
         },
         data: () => ({

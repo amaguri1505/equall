@@ -24,21 +24,33 @@ export default {
             await axios.get('/sanctum/csrf-cookie');
             await axios.post('/login', credentials);
             await dispatch('me');
-            window.location.href = "/";
         },
 
         async signOut({dispatch}) {
             await axios.post('/logout');
             await dispatch('me');
-            window.location.href = "/login";
+            window.location.href = "/";
         },
 
         async me({commit}) {
-            return axios.get('/api/user').then((response) => {
-                commit('SET_USER', response.data);
-            }).catch(() => {
-                commit('SET_USER', null);
-            });
-        }
+            return axios.get('/api/user')
+                .then((response) => {
+                    commit('SET_USER', response.data);
+                }).catch(() => {
+                    commit('SET_USER', null);
+                });
+        },
+
+        async updateUser({dispatch}) {
+            await axios.post('/api/update-user', state.user)
+                .then(response => {
+                    commit('SET_USER', response.data);
+                })
+                .catch(error => {
+                    store.dispatch('modifySnackText', '会員情報の更新に失敗しました。');
+                    store.dispatch('modifySnackColor', 'warning');
+                    store.dispatch('modifySnackbar', true);
+                });
+        },
     }
 }
