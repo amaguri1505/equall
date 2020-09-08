@@ -17,7 +17,7 @@
                         cols="6"
                     >
                         <v-text-field
-                            v-model="equall_user.familyname"
+                            v-model="equall_user.family_name"
                             color="white"
                             dark
                             :counter="30"
@@ -29,7 +29,7 @@
                         cols="6"
                     >
                         <v-text-field
-                            v-model="equall_user.givenname"
+                            v-model="equall_user.first_name"
                             color="white"
                             dark
                             :counter="30"
@@ -61,7 +61,7 @@
                 </v-row>
             </v-container>
             <equall-start
-                title="パスワードを教えてください"
+                title="新しいパスワードを教えてください"
                 class="mt-5"
             />
             <v-container
@@ -72,7 +72,7 @@
                         cols="12"
                     >
                         <v-text-field
-                            v-model="equall_user.password"
+                            v-model="equall_user.new_password"
                             color="white"
                             dark
                             type="password"
@@ -100,14 +100,14 @@
                         >
                             <v-radio
                                 label="男性"
-                                value="male"
+                                value="男性"
                                 dark
                                 color="#f09299"
                                 class="mypage-edit__radio--left"
                             ></v-radio>
                             <v-radio
                                 label="女性"
-                                value="female"
+                                value="女性"
                                 dark
                                 color="#f09299"
                                 class="mypage-edit__radio--right"
@@ -134,14 +134,14 @@
                         >
                             <v-radio
                                 label="はい"
-                                value="1"
+                                value="はい"
                                 dark
                                 color="#f09299"
                                 class="mypage-edit__radio--left"
                             ></v-radio>
                             <v-radio
                                 label="いいえ"
-                                value="0"
+                                value="いいえ"
                                 dark
                                 color="#f09299"
                                 class="mypage-edit__radio--right"
@@ -293,7 +293,7 @@
                         cols="12"
                     >
                     <v-text-field
-                        v-model="equall_user.nearest_station"
+                        v-model="equall_user.cond_nearest_station"
                         color="white"
                         dark
                         :counter="30"
@@ -305,7 +305,7 @@
                         cols="12"
                     >
                         <v-text-field
-                            v-model="equall_user.area"
+                            v-model="equall_user.cond_area"
                             color="white"
                             dark
                             :counter="30"
@@ -317,7 +317,7 @@
                         cols="12"
                     >
                         <v-text-field
-                            v-model="equall_user.cost_limit"
+                            v-model="equall_user.cond_limit_cost"
                             color="white"
                             dark
                             :counter="30"
@@ -330,6 +330,7 @@
             <v-btn
                 color="#f09299"
                 dark
+                x-large
                 class="mt-5 mx-auto"
                 @click="submit"
             >
@@ -341,15 +342,18 @@
 <script>
     import EquallLogo from "../atom/EquallLogo";
     import EquallStart from "../atom/EquallStart";
+    import {mapState} from "vuex";
 
     export default {
         components: {
             EquallLogo,
             EquallStart,
         },
+        computed: mapState({
+            equall_user: state => state.auth.user,
+        }),
         data() {
             return {
-                equall_user: [],
                 num_of_pets: [
                     "0",
                     "1",

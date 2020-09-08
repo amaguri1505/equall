@@ -29,8 +29,11 @@
                                         </v-list-item-avatar>
 
                                         <v-list-item-content>
-                                            <div>子猫</div>
-                                            <div>子猫</div>
+                                            <div
+                                                class="mypage__name-wrap"
+                                            >
+                                                {{ equall_user.name }}
+                                            </div>
                                         </v-list-item-content>
                                     </v-list-item>
                                 </v-list>
@@ -69,6 +72,7 @@
                                 <v-card-text
                                     class="mypage__card-content"
                                 >
+                                    {{ equall_user.gender }}
                                 </v-card-text>
                             </v-card>
                         </v-col>
@@ -86,6 +90,7 @@
                                 <v-card-text
                                     class="mypage__card-content"
                                 >
+                                    {{ equall_user.is_pet_owner }}
                                 </v-card-text>
                             </v-card>
                         </v-col>
@@ -103,6 +108,37 @@
                                 <v-card-text
                                     class="mypage__card-content"
                                 >
+                                    猫：{{ equall_user.num_cat }}頭,
+                                    大型犬：{{ equall_user.num_large_dog }}頭,<br>
+                                    中型犬：{{ equall_user.num_middle_dog }}頭,
+                                    小型犬：{{ equall_user.num_small_dog }}頭,<br>
+                                    その他：{{ equall_user.num_other }}頭,
+                                </v-card-text>
+                            </v-card>
+                        </v-col>
+                        <v-col cols="12">
+                            <v-card
+                                class="mypage__card"
+                                flat
+                                rounded-0
+                            >
+                                <v-card-title
+                                    class="mypage__card-title"
+                                >
+                                    お客様の検索条件
+                                </v-card-title>
+                                <v-card-text
+                                    class="mypage__card-content"
+                                >
+                                    <div>
+                                        最寄駅：{{ equall_user.cond_nearest_station }}
+                                    </div>
+                                    <div>
+                                        エリア：{{ equall_user.cond_area }}
+                                    </div>
+                                    <div>
+                                        ご予算：{{ equall_user.cond_limit_cost }}
+                                    </div>
                                 </v-card-text>
                             </v-card>
                         </v-col>
@@ -134,6 +170,7 @@
 </template>
 <script>
     import RealEstates from "../organism/RealEstates";
+    import {mapState} from "vuex";
 
     export default {
         components: {
@@ -141,35 +178,20 @@
         },
         data() {
             return {
-                equall_user: {},
                 latest_properties: [],
                 request_cnt: 0,
             }
         },
-        created () {
+        computed: mapState({
+            equall_user: state => state.auth.user,
+        }),
+        created() {
             this.$store.dispatch('modifyOverlayWhite', true);
             this.$http
                 .post('/api/get-latest-properties', {})
                 .then(response => {
                     this.latest_properties = response.data;
-                    this.request_cnt++;
-                    if (this.request_cnt >= 2) {
-                        this.$store.dispatch('modifyOverlayWhite', false);
-                    }
-                })
-                .catch(error => {
-                    this.$store.dispatch('modifySnackText', '読み込みに失敗しました。リロードしてください。');
-                    this.$store.dispatch('modifySnackColor', 'warning');
-                    this.$store.dispatch('modifySnackbar', true);
-                });
-            this.$http
-                .get('/user')
-                .then(response => {
-                    this.equall_user = response.data;
-                    this.request_cnt++;
-                    if (this.request_cnt >= 2) {
-                        this.$store.dispatch('modifyOverlayWhite', false);
-                    }
+                    this.$store.dispatch('modifyOverlayWhite', false);
                 })
                 .catch(error => {
                     this.$store.dispatch('modifySnackText', '読み込みに失敗しました。リロードしてください。');
@@ -185,6 +207,9 @@
         &__wrap
             margin-top: 48px
             padding: 40px 20px 80px 20px
+
+        &__name-wrap
+            text-align: center
 
         &__title
             color: colors(primary)

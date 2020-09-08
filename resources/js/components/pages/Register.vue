@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="register">
         <div class="register__wrap">
             <equall-logo class="register__logo"/>
             <equall-start
@@ -35,8 +35,8 @@
             </v-form>
             <equall-line-login class="mt-0"/>
             <equall-terms class="mt-5"/>
-            <equall-family class="mt-5 register__family"/>
         </div>
+        <equall-family class="register__family"/>
     </div>
 </template>
 <script>
@@ -93,12 +93,15 @@
 <style lang="sass">
     @import "../../../sass/common/_variable.scss"
     .register
+        height: calc(100vh - 48px)
+        margin-top: 48px
+        padding: 40px 20px 0 20px
+        background-color: colors(primary)
+        position: relative
+
         &__wrap
-            height: calc(100vh - 48px)
-            margin-top: 48px
-            padding: 40px 20px 0 20px
-            background-color: colors(primary)
             position: relative
+            z-index: 10
 
             .v-input
                 &__slot

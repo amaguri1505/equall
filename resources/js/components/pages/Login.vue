@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="login">
         <div class="login__wrap">
             <equall-logo class="login__logo"/>
             <equall-start
@@ -43,8 +43,8 @@
                     はじめての方はこちら
                 </router-link>
             </div>
-            <equall-family class="mt-5 login__family"/>
         </div>
+        <equall-family class="mt-5 login__family"/>
     </div>
 </template>
 <script>
@@ -89,12 +89,15 @@
 <style lang="sass">
     @import "../../../sass/common/_variable.scss"
     .login
+        height: calc(100vh - 48px)
+        margin-top: 48px
+        padding: 40px 20px 0 20px
+        background-color: colors(primary)
+        position: relative
+
         &__wrap
-            height: calc(100vh - 48px)
-            margin-top: 48px
-            padding: 40px 20px 0 20px
-            background-color: colors(primary)
             position: relative
+            z-index: 10
 
         &__family
             position: absolute
