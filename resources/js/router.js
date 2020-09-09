@@ -156,13 +156,6 @@ const router = new Router({
     scrollBehavior(to, from, savedPosition) {
         return {x: 0, y: 0}
     },
-    methods: {
-        setData (color,text) {
-            this.$store.dispatch('modifySnackText', text);
-            this.$store.dispatch('modifySnackColor', color);
-            this.$store.dispatch('modifySnackbar', true);
-        }
-    },
 });
 
 router.beforeEach((to, from, next) => {
@@ -174,7 +167,6 @@ router.beforeEach((to, from, next) => {
         store.dispatch('modifySnackbar', true);
         next({name: 'login'});
     } else {
-        store.dispatch('modifySnackbar', false);
         next();
     }
 });

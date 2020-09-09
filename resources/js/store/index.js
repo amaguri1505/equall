@@ -96,6 +96,10 @@ export default new Vuex.Store({
             store.commit('changeSnackbar', snackbar);
         },
 
+        async modifyToFalseSnackbar (store) {
+            store.commit('changeSnackbar', false);
+        },
+
         modifySnackColor (store, snack_color) {
             store.commit('changeSnackColor', snack_color);
         },
