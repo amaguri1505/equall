@@ -165,7 +165,7 @@ router.beforeEach((to, from, next) => {
         store.dispatch('modifySnackText', '会員限定ページです。ログインしてください。');
         store.dispatch('modifySnackColor', 'warning');
         store.dispatch('modifySnackbar', true);
-        next({name: 'login'});
+        next({name: 'login', query: { redirect: next }});
     } else {
         next();
     }

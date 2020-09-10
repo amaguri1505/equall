@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\User;
 use App\EstateAgent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -426,7 +427,34 @@ class ApiController extends Controller
 
     public function updateUser(Request $req)
     {
+        $user = auth()->guard('sanctum')->user();
+        $user_id = $user->id;
 
+        User::find($user_id)
+            ->update(
+                array_filter(
+                    $req->all()
+                ));
+
+//            ->update(
+//                [
+//                    'family_name' => $req->input('family_name'),
+//                    'first_name' => $req->input('first_name'),
+//                    'email' => $req->input('email'),
+//                    'password' => Hash::make($req->input('email')),
+//                    'gender' => $req->input('gender'),
+//                    'is_pet_owner' => $req->input('is_pet_owner'),
+//                    'num_cat' => $req->input('num_cat'),
+//                    'num_large_dog' => $req->input('num_large_dog'),
+//                    'num_middle_dog' => $req->input('num_middle_dog'),
+//                    'num_small_dog' => $req->input('num_small_dog'),
+//                    'num_other' => $req->input('num_other'),
+//                    'cond_nearest_station' => $req->input('cond_nearest_station'),
+//                    'cond_area' => $req->input('cond_area'),
+//                    'cond_limit_cost' => $req->input('cond_limit_cost'),
+//                ]);
+
+        return response()->json('success updateUser');
     }
 
 

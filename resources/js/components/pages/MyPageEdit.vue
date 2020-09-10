@@ -342,7 +342,7 @@
 <script>
     import EquallLogo from "../atom/EquallLogo";
     import EquallStart from "../atom/EquallStart";
-    import {mapState} from "vuex";
+    import {mapState, mapActions} from "vuex";
 
     export default {
         components: {
@@ -363,6 +363,14 @@
                     "5",
                     "それ以上",
                 ],
+            }
+        },
+        methods: {
+            ...mapActions({
+                update: 'auth/updateUser',
+            }),
+            submit() {
+                this.update();
             }
         },
     }

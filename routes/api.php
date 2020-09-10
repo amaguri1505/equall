@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::group(['middleware' => ['api']], function () {
         Route::get('/get-bookmarked-properties', 'Api\ApiController@getBookmarkedProperties');
         Route::post('/add-bookmark', 'Api\ApiController@addBookmark');
+        Route::post('/update-user', 'Api\ApiController@updateUser');
     });
 });
 

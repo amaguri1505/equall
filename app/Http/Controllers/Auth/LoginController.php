@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\User;
 
 class LoginController extends Controller
@@ -49,13 +50,12 @@ class LoginController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json('Not Matched');
+            return new JsonResponse('Not Matched', 401);
         } else {
-            if ($this->guard('sanctum')->login($user)) {
-                return response()->json('complete');
-            }
-            return response()->json('login error');
+            $this->guard('sanctum')->login($user);
+            return new JsonResponse('Success', 200);
         }
+
     }
 
     /**
