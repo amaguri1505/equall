@@ -7,7 +7,11 @@
             </div>
             <v-divider></v-divider>
             <div class="terms__content pt-2">
-                <real-estates class="mt-5 mb-5" label="わんちゃんと暮らせるおうち"></real-estates>
+                <real-estates
+                    class="mt-5 mb-5"
+                    label="わんちゃんと暮らせるおうち"
+                    :properties="dogs_properties"
+                ></real-estates>
             </div>
         </div>
     </div>
@@ -30,6 +34,27 @@
     export default {
         components: {
             RealEstates,
+        },
+        data() {
+            return {
+                dogs_properties: [],
+            }
+        },
+        created() {
+            this.$store.dispatch('modifyOverlayWhite', true);
+            this.$http
+                .post('/api/get-latest-properties', {
+                    pet_types: 'dog',
+                })
+                .then(response => {
+                    this.dogs_properties = response.data;
+                    this.$store.dispatch('modifyOverlayWhite', false);
+                })
+                .catch(error => {
+                    this.$store.dispatch('modifySnackText', '読み込みに失敗しました。リロードしてください。');
+                    this.$store.dispatch('modifySnackColor', 'warning');
+                    this.$store.dispatch('modifySnackbar', true);
+                });
         }
 
     }
