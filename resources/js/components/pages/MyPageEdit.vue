@@ -54,7 +54,6 @@
                             v-model="equall_user.email"
                             color="white"
                             dark
-                            :rules="rule_email"
                             label="メールアドレス"
                         ></v-text-field>
                     </v-col>
@@ -76,7 +75,6 @@
                             color="white"
                             dark
                             type="password"
-                            :rules="rule_password"
                             label="パスワード"
                         ></v-text-field>
                     </v-col>
@@ -354,6 +352,19 @@
         }),
         data() {
             return {
+                rule_required:
+                    [
+                        v => !!v || 'この項目は必須です',
+                    ],
+                rule_limit30:
+                    [
+                        v => !v || v.length <= 30 || 'この項目は30文字が最大です。',
+                    ],
+                rule_required_limit30:
+                    [
+                        v => !!v || 'この項目は必須です',
+                        v => !v || v.length <= 30 || 'この項目は30文字が最大です。',
+                    ],
                 num_of_pets: [
                     "0",
                     "1",

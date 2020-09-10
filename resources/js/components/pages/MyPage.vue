@@ -32,7 +32,12 @@
                                             <div
                                                 class="mypage__name-wrap"
                                             >
-                                                {{ equall_user.name }}
+                                                <span class="mr-1">
+                                                {{ equall_user.family_name }}
+                                                </span>
+                                                <span class="mr-1">
+                                                {{ equall_user.first_name }}
+                                                </span>
                                             </div>
                                         </v-list-item-content>
                                     </v-list-item>

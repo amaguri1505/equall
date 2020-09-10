@@ -65,7 +65,6 @@ export default {
         async updateUser({commit, dispatch, state}) {
             await axios.post('/api/update-user', state.user)
                 .then(response => {
-                    commit('SET_USER', response.data);
                     dispatch('modifySnackText', '会員情報を更新しました。', {root: true});
                     dispatch('modifySnackColor', '#76c3bf', {root: true});
                     dispatch('modifySnackbar', true, {root: true});
