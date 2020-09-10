@@ -18,12 +18,10 @@
                         価格で探す
                     </div>
                     <v-chip
-                        v-if="s_cost.chip"
+                        v-if="s_cost.chip && (cost.under || cost.limit)"
                         dark
                         color="#f09299"
                         class="mt-1"
-                        close
-                        @click:close="s_cost.chip=false"
                     >
                         {{ s_cost.name }}
                     </v-chip>
@@ -131,8 +129,10 @@
         },
         methods: {
             add_cost: function (event) {
+                const under_cost = this.cost.under ? this.cost.under : "";
+                const limit_cost = this.cost.limit ? this.cost.limit : "";
                 this.s_cost = {
-                    name: this.cost.under + "〜" + this.cost.limit,
+                    name: under_cost + "〜" + limit_cost,
                     chip: true,
                 };
                 this.$store.dispatch('addSearchCosts', this.s_cost);

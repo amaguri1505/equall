@@ -20,13 +20,19 @@
                             v-if="s_train.chip"
                             dark
                             color="#f09299"
-                            v-for="s_train in s_trains"
+                            v-for="s_train in s_trains.slice(0,3)"
                             :key="s_train.name"
                             class="mt-1"
-                            close
-                            @click:close="s_train.chip=false"
                         >
                             {{ s_train.name }}
+                        </v-chip>
+                        <v-chip
+                            v-if="s_trains.length >= 4"
+                            dark
+                            color="#f09299"
+                            class="mt-1"
+                        >
+                            その他{{ s_trains.length - 3 }}駅
                         </v-chip>
                     </div>
                 </div>

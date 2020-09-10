@@ -23,13 +23,19 @@
                             v-if="decided_ward.chip"
                             dark
                             color="#f09299"
-                            v-for="decided_ward in decided_wards"
+                            v-for="decided_ward in decided_wards.slice(0, 3)"
                             :key="decided_ward.name"
                             class="mt-1"
-                            close
-                            @click:close="decided_ward.chip=false"
                         >
                             {{ decided_ward.name }}
+                        </v-chip>
+                        <v-chip
+                            v-if="decided_wards.length >= 4"
+                            dark
+                            color="#f09299"
+                            class="mt-1"
+                        >
+                            その他{{ decided_wards.length - 3 }}箇所
                         </v-chip>
                     </div>
                 </div>
@@ -112,6 +118,7 @@
             add_value: function (event) {
                 let myward = this.selected_ward;
                 let this_ = this;
+                this.decided_wards = [];
                 myward.map(function (key, value) {
                     this_.decided_wards.push( {
                         name: key,
