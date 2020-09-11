@@ -122,7 +122,6 @@
             &--headline
                 position: relative
                 height: calc(100vh - 48px)
-                //ヘッダーが50px固定なので
                 margin-top: 48px
                 background-color: colors(primary)
 
