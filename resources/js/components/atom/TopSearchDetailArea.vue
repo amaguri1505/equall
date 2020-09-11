@@ -6,7 +6,7 @@
             max-width="500"
             height="400"
         >
-            <template v-slot:activator="{ on }">
+            <template #activator="{ on }">
                 <div class="search-detail-area__wrap">
                     <div class="search-detail-area__chip-wrap">
                         <v-icon
