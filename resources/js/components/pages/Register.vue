@@ -18,22 +18,31 @@
                     v-model="email"
                     :rules="[rules.required, rules.email]"
                 >
-                    <template v-slot:append>
-                        <v-btn
-                            depressed
-                            tile
-                            x-large
-                            dark
-                            color="#f09299"
-                            class="ma-0"
-                            @click="submit"
-                        >
-                            登録
-                        </v-btn>
-                    </template>
                 </v-text-field>
+                <v-text-field
+                    class="mt-2"
+                    background-color="white"
+                    single-line
+                    outlined
+                    placeholder="メールで始める"
+                    v-model="email"
+                    :rules="[rules.required, rules.email]"
+                >
+                </v-text-field>
+                <v-btn
+                    depressed
+                    tile
+                    x-large
+                    block
+                    dark
+                    color="#f09299"
+                    class="ma-0"
+                    @click="submit"
+                >
+                    登録
+                </v-btn>
             </v-form>
-            <equall-line-login class="mt-0"/>
+            <equall-line-login class="mt-5"/>
             <equall-terms class="mt-5"/>
         </div>
         <equall-family class="register__family"/>
