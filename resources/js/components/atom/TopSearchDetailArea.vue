@@ -57,22 +57,30 @@
                                     >
                                     </v-list-item-title>
                                 </template>
-                                <v-list-item
-                                    v-for="ward in prefecture.wards"
-                                    :key="ward.name"
+                                <v-list-item-group
+                                    multiple
+                                    v-model="selected_ward"
                                 >
-                                    <template #default="{active}">
-                                        <v-list-item-action>
-                                            <v-checkbox
-                                                :value="ward.name"
-                                                v-model="selected_ward"
-                                            ></v-checkbox>
-                                        </v-list-item-action>
-                                        <v-list-item-content>
-                                            {{ ward.name }}
-                                        </v-list-item-content>
-                                    </template>
-                                </v-list-item>
+                                    <v-list-item
+                                        v-for="ward in prefecture.wards"
+                                        :key="ward.name"
+                                        :value="ward.name"
+                                    >
+                                        <template v-slot:default="{active, toggle}">
+                                            <v-list-item-action>
+                                                <v-checkbox
+                                                    :input-value="active"
+                                                    @click="toggle"
+                                                ></v-checkbox>
+                                            </v-list-item-action>
+                                            <v-list-item-content>
+                                                <v-list-item-title>
+                                                    {{ ward.name }}
+                                                </v-list-item-title>
+                                            </v-list-item-content>
+                                        </template>
+                                    </v-list-item>
+                                </v-list-item-group>
                             </v-list-group>
                         </v-list>
                     </v-form>
