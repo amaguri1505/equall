@@ -15,7 +15,7 @@
                     single-line
                     outlined
                     placeholder="メールで始める"
-                    v-model="email"
+                    v-model="user_info.email"
                     :rules="[rules.required, rules.email]"
                 >
                 </v-text-field>
@@ -24,9 +24,10 @@
                     background-color="white"
                     single-line
                     outlined
-                    placeholder="メールで始める"
-                    v-model="email"
-                    :rules="[rules.required, rules.email]"
+                    placeholder="パスワード"
+                    v-model="user_info.password"
+                    type="password"
+                    :rules="[rules.required, rules.password]"
                 >
                 </v-text-field>
                 <v-btn
@@ -65,8 +66,9 @@
         },
         data() {
             return {
-                email: "",
+                user_info: [],
                 rules: {
+                    password: value => (value.length >= 8 && value.length <= 16) || 'パスワードは8文字以上16文字以下に設定してください',
                     required: value => !!value || '必須項目です',
                     email: value => {
                         const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
