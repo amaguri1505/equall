@@ -81,12 +81,11 @@
             submit() {
                 this.$store.dispatch('modifyOverlay', true);
                 this.$http.post('/api/register', {
-                    email: this.email,
-                    name: "TEST_USER_NAME",
-                    password: "nyanconyanco",
+                    email: this.user_info.email,
+                    password: this.user_info.password,
                 }).then(response => {
                     this.$store.dispatch('modifyOverlay', false);
-                    this.$store.dispatch('modifySnackText', "[仮]仮登録ページのURLを送信しました");
+                    this.$store.dispatch('modifySnackText', "仮登録ページのURLを送信しました");
                     this.$store.dispatch('modifySnackColor', '#76c3bf');
                     this.$store.dispatch('modifySnackbar', true);
                     this.$refs.form.reset();

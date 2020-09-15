@@ -28,7 +28,7 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/', 'ViewController@viewApp')->name('index');
 Route::get('{any}', 'ViewController@viewApp')->where('any', '.*');
 
-//Route::get('/email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-//Route::get('/email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
-//Route::get('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
-//Route::get('/email/corp/verify/{id}', 'Auth\VerificationCorpController@verify')->name('verification-corp.verify');
+Route::get('/email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('/email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::get('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+

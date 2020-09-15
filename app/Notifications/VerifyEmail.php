@@ -19,4 +19,18 @@ class VerifyEmail extends VerifyEmailBase
 
         return urldecode($prefix . urlencode($temporarySignedURL));
     }
+
+    public function toMail($notifiable)
+    {
+        $verificationUrl = $this->verificationUrl($notifiable);
+
+        if (static::$toMailCallback) {
+            return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
+        }
+
+        return (new MailMessage)
+            ->subject(Lang::get('【eqaull】メールアドレスをご確認ください'))
+            ->line(Lang::get('下記ボタンをクリックし、メールアドレスを確認してください。'))
+            ->action(Lang::get('メールアドレスの確認'), $verificationUrl);
+    }
 }
