@@ -1,25 +1,24 @@
 <?php
 
-namespace app\Notifications;
+namespace App\Notifications;
 
-use App;
-use Illuminate\Auth\Notifications\VerifyEmail as VerifyEmailBase;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\URL;
 use Carbon\Carbon;
 
-class VerifyEmail extends VerifyEmailBase
+class CustomVerifyEmail extends VerifyEmail
 {
-    protected function verificationUrl($user)
-    {
-        $prefix = config('frontend.url') .config('frontend.email_verify_url');
-        $routeName = 'verification.verify';
-        $temporarySignedURL = URL::temporarySignedRoute(
-            $routeName, Carbon::now()->addMinutes(60), ['id' => $user->getKey()]
-        );
 
-        return urldecode($prefix . urlencode($temporarySignedURL));
-    }
-
+    /**
+     * Get the mail representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
     public function toMail($notifiable)
     {
         $verificationUrl = $this->verificationUrl($notifiable);
@@ -33,4 +32,5 @@ class VerifyEmail extends VerifyEmailBase
             ->line('下記ボタンをクリックし、メールアドレスを確認してください。')
             ->action('メールアドレスの確認', $verificationUrl);
     }
+
 }

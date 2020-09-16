@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//Route::get('/email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', 'Api\ApiController@getUser');
@@ -20,6 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/get-bookmarked-properties', 'Api\ApiController@getBookmarkedProperties');
         Route::post('/add-bookmark', 'Api\ApiController@addBookmark');
         Route::post('/update-user', 'Api\ApiController@updateUser');
+        Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
     });
 });
 
@@ -41,6 +43,7 @@ Route::middleware('auth:sanctum_corp')->group(function () {
 });
 
 Route::group(['middleware' => ['api']], function () {
+
 
     Route::post('add-inquiry', 'Api\ApiController@addInquiry');
 

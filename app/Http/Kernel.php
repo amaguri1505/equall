@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'is_admin' => \App\Http\Middleware\IsAdmin::class,
         'is_corp_guest' => \App\Http\Middleware\IsCorpGuest::class,
         'is_guest' => \App\Http\Middleware\IsGuest::class,
+        'is_verified' => \App\Http\Middleware\EnsureMailIsVerified::class,
     ];
 }
