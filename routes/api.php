@@ -17,12 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', 'Api\ApiController@getUser');
-    Route::group(['middleware' => ['api']], function () {
-        Route::get('/get-bookmarked-properties', 'Api\ApiController@getBookmarkedProperties');
-        Route::post('/add-bookmark', 'Api\ApiController@addBookmark');
-        Route::post('/update-user', 'Api\ApiController@updateUser');
-        Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
-    });
+});
+
+Route::middleware('is_verified')->group(function () {
+    Route::get('/get-bookmarked-properties', 'Api\ApiController@getBookmarkedProperties');
+    Route::post('/add-bookmark', 'Api\ApiController@addBookmark');
+    Route::post('/update-user', 'Api\ApiController@updateUser');
+    Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 });
 
 Route::middleware('auth:sanctum_corp')->group(function () {
