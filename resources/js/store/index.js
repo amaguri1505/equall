@@ -19,7 +19,7 @@ export default new Vuex.Store({
         s_stations: [],
         s_areas: [],
         s_costs: [],
-        s_pets: [],
+        s_pets: ['猫', '小型犬', '中型犬', '大型犬'],
         snackbar: false,
         snack_color: "",
         snack_text: "",

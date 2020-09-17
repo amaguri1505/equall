@@ -9,7 +9,6 @@
                 <real-estates
                     class="mt-5 mb-5"
                     label="検索結果"
-                    :s_search_word="s_search_word"
                 ></real-estates>
             </div>
         </div>
@@ -39,11 +38,32 @@
         computed: {
             ...mapState([
                 's_search_word',
+                's_pets',
                 's_stations',
                 's_areas',
                 's_costs',
-                's_pets',
             ])
         },
+        created () {
+            this.$store.dispatch('modifyOverlayWhite', true);
+            this.$http
+                .post('/api/get-latest-properties', {
+                    s_search_word: this.s_search_word,
+                    s_pets: this.s_pets,
+                    s_stations: this.s_stations,
+                    s_areas: this.s_areas,
+                    s_under_cost: this.costs,
+                    s_limit_cost: this.costs,
+                })
+                .then(response => {
+                    this.cats_properties = response.data;
+                    this.$store.dispatch('modifyOverlayWhite', false);
+                })
+                .catch(error => {
+                    this.$store.dispatch('modifySnackText', '読み込みに失敗しました。リロードしてください。');
+                    this.$store.dispatch('modifySnackColor', 'warning');
+                    this.$store.dispatch('modifySnackbar', true);
+                });
+        }
     }
 </script>

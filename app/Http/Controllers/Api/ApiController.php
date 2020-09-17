@@ -158,18 +158,62 @@ class ApiController extends Controller
         $s_limit_cost = $req->s_limit_cost;
 
         if ($search_word) {
+            $properties_query->where(function ($q) use ($search_word) {
+                $q->
+                orWhere('name', 'LIKE', '%' . $search_word . '%')->
+                orWhere('good', 'LIKE', '%' . $search_word . '%')->
+                orWhere('bad', 'LIKE', '%' . $search_word . '%')->
+                orWhere('nearest_station', 'LIKE', '%' . $search_word . '%')->
+                orWhere('address', 'LIKE', '%' . $search_word . '%')->
+                orWhere('area', 'LIKE', '%' . $search_word . '%')->
+                orWhere('floor_plan', 'LIKE', '%' . $search_word . '%')->
+                orWhere('floor', 'LIKE', '%' . $search_word . '%')->
+                orWhere('structure', 'LIKE', '%' . $search_word . '%')->
+                orWhere('facility', 'LIKE', '%' . $search_word . '%')->
+                orWhere('corp', 'LIKE', '%' . $search_word . '%');
+            });
+        }
+
+        if ($s_pets) {
             $properties_query->
-            orWhere('name', 'LIKE', '%' . $search_word . '%')->
-            orWhere('good', 'LIKE', '%' . $search_word . '%')->
-            orWhere('bad', 'LIKE', '%' . $search_word . '%')->
-            orWhere('nearest_station', 'LIKE', '%' . $search_word . '%')->
-            orWhere('address', 'LIKE', '%' . $search_word . '%')->
-            orWhere('area', 'LIKE', '%' . $search_word . '%')->
-            orWhere('floor_plan', 'LIKE', '%' . $search_word . '%')->
-            orWhere('floor', 'LIKE', '%' . $search_word . '%')->
-            orWhere('structure', 'LIKE', '%' . $search_word . '%')->
-            orWhere('facility', 'LIKE', '%' . $search_word . '%')->
-            orWhere('corp', 'LIKE', '%' . $search_word . '%');
+            orWhere('pet_types', '犬と猫');
+            if (in_array('猫', $s_pets, true)) {
+                $properties_query->
+                orWhere('pet_types', '猫');
+            }
+            if (
+                in_array('小型犬', $s_pets, true) ||
+                in_array('中型犬', $s_pets, true) ||
+                in_array('大型犬', $s_pets, true)
+            ) {
+                $properties_query->
+                orWhere('pet_types', '犬');
+            }
+        }
+
+        if ($s_stations) {
+            $properties_query->
+            whereIn('nearest_station', $s_stations);
+        }
+
+        if ($s_areas) {
+            $properties_query->
+            where(function ($q) use ($s_areas) {
+                foreach ($s_areas as $area) {
+                    $q->
+                    orWhere('address', '%' . $area . '%');
+                }
+            });
+        }
+
+        if ($s_under_cost) {
+            $properties_query->
+            where('cost', '>=', $s_under_cost);
+        }
+
+        if ($s_limit_cost) {
+            $properties_query->
+            where('cost', '<=', $s_limit_cost);
         }
 
         $properties = $properties_query->get();
@@ -181,17 +225,20 @@ class ApiController extends Controller
     {
         $properties_query = HouseProperty::query();
 
+
+        //workaround
         $s_pet_type = $req->pet_types;
+
 
         if ($s_pet_type) {
             $properties_query->
-                orWhere('pet_types','=',  '犬と猫');
+            orWhere('pet_types', '=', '犬と猫');
             if ($s_pet_type === "cat") {
                 $properties_query->
-                orWhere('pet_types','=', '猫');
+                orWhere('pet_types', '=', '猫');
             } else if ($s_pet_type === "dog") {
                 $properties_query->
-                orWhere('pet_types','=', '犬');
+                orWhere('pet_types', '=', '犬');
             }
         }
 
