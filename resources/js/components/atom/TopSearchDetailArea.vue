@@ -20,22 +20,21 @@
                             エリアで探す
                         </div>
                         <v-chip
-                            v-if="decided_ward.chip"
                             dark
                             color="#f09299"
-                            v-for="decided_ward in decided_wards.slice(0, 3)"
-                            :key="decided_ward.name"
+                            v-for="s_ward in s_areas.slice(0, 3)"
+                            :key="s_ward"
                             class="mt-1"
                         >
-                            {{ decided_ward.name }}
+                            {{ s_ward }}
                         </v-chip>
                         <v-chip
-                            v-if="decided_wards.length >= 4"
+                            v-if="s_areas.length >= 4"
                             dark
                             color="#f09299"
                             class="mt-1"
                         >
-                            その他{{ decided_wards.length - 3 }}箇所
+                            その他{{ s_areas.length - 3 }}箇所
                         </v-chip>
                     </div>
                 </div>
@@ -59,7 +58,7 @@
                                 </template>
                                 <v-list-item-group
                                     multiple
-                                    v-model="selected_ward"
+                                    v-model="s_areas"
                                 >
                                     <v-list-item
                                         v-for="ward in prefecture.wards"
@@ -112,6 +111,16 @@
 </style>
 <script>
     export default {
+        computed: {
+            s_areas: {
+                get() {
+                    return this.$store.state.s_areas;
+                },
+                set(value) {
+                    this.$store.dispatch('addSearchAreas', value);
+                },
+            }
+        },
         data() {
             return {
                 dialog: false,

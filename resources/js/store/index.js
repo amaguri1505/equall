@@ -16,10 +16,10 @@ export default new Vuex.Store({
 
     state: {
         s_search_word: "",
-        s_stations: {},
-        s_areas: {},
-        s_costs: {},
-        s_pets: {},
+        s_stations: [],
+        s_areas: [],
+        s_costs: [],
+        s_pets: [],
         snackbar: false,
         snack_color: "",
         snack_text: "",

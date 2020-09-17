@@ -18,22 +18,21 @@
                     </div>
                     <div class="search-detail-train__chip-wrap">
                         <v-chip
-                            v-if="s_train.chip"
                             dark
                             color="#f09299"
-                            v-for="s_train in s_trains.slice(0,3)"
-                            :key="s_train.name"
+                            v-for="s_station in s_stations.slice(0,3)"
+                            :key="s_station"
                             class="mt-1"
                         >
-                            {{ s_train.name }}
+                            {{ s_station }}
                         </v-chip>
                         <v-chip
-                            v-if="s_trains.length >= 4"
+                            v-if="s_stations.length >= 4"
                             dark
                             color="#f09299"
                             class="mt-1"
                         >
-                            その他{{ s_trains.length - 3 }}駅
+                            その他{{ s_stations.length - 3 }}駅
                         </v-chip>
                     </div>
                 </div>
@@ -57,7 +56,7 @@
                                 </template>
                                 <v-list-item-group
                                     multiple
-                                    v-model="selected_station"
+                                    v-model="s_stations"
                                 >
                                     <v-list-item
                                         v-for="station in line.stations"
@@ -115,6 +114,20 @@
     export default {
         components: {
             StationAuto,
+        },
+        computed: {
+            stations_cnt() {
+                return this.$store.state.s_stations.length;
+            },
+            s_stations: {
+                get() {
+                    return this.$store.state.s_stations;
+                },
+                set(value) {
+                    console.log(value);
+                    this.$store.dispatch('addSearchStations', value);
+                },
+            }
         },
         data() {
             return {
@@ -2642,46 +2655,6 @@
                         ],
                     },
                     {
-                        name: "東武野田線",
-                        stations: [
-                            {name: "大宮"},
-                            {name: "北大宮"},
-                            {name: "大宮公園"},
-                            {name: "大和田"},
-                            {name: "七里"},
-                            {name: "岩槻"},
-                            {name: "東岩槻"},
-                            {name: "豊春"},
-                            {name: "八木崎"},
-                            {name: "春日部"},
-                            {name: "藤の牛島"},
-                            {name: "南桜井"},
-                            {name: "川間"},
-                            {name: "七光台"},
-                            {name: "清水公園"},
-                            {name: "愛宕"},
-                            {name: "野田市"},
-                            {name: "梅郷"},
-                            {name: "運河"},
-                            {name: "江戸川台"},
-                            {name: "初石"},
-                            {name: "流山おおたかの森"},
-                            {name: "豊四季"},
-                            {name: "柏"},
-                            {name: "新柏"},
-                            {name: "増尾"},
-                            {name: "逆井"},
-                            {name: "高柳"},
-                            {name: "六実"},
-                            {name: "新鎌ヶ谷"},
-                            {name: "鎌ヶ谷"},
-                            {name: "馬込沢"},
-                            {name: "塚田"},
-                            {name: "新船橋"},
-                            {name: "船橋"},
-                        ],
-                    },
-                    {
                         name: "東葉高速鉄道",
                         stations: [
                             {name: "西船橋"},
@@ -2811,16 +2784,6 @@
         },
         methods: {
             add_value: function (event) {
-                const mystation = this.selected_station;
-                const this_ = this;
-                this.s_trains = [];
-                mystation.map(function (key, value) {
-                    this_.s_trains.push({
-                        name: key,
-                        chip: true,
-                    });
-                });
-                this.$store.dispatch('addSearchStations', this.s_trains);
                 this.dialog = false;
             }
         }
