@@ -401,16 +401,6 @@
         },
         methods: {
             add_value: function (event) {
-                let myward = this.selected_ward;
-                let this_ = this;
-                this.decided_wards = [];
-                myward.map(function (key, value) {
-                    this_.decided_wards.push( {
-                        name: key,
-                        chip: true,
-                    });
-                });
-                this.$store.dispatch('addSearchAreas', this.decided_wards);
                 this.dialog = false;
             }
         },

@@ -1,10 +1,34 @@
 <template>
     <v-container fluid class="search-form">
         <v-row justify="space-around">
-            <v-checkbox dark color="#f09299" label="猫" value="radio-1"></v-checkbox>
-            <v-checkbox dark color="#f09299" label="小型犬" value="radio-2"></v-checkbox>
-            <v-checkbox dark color="#f09299" label="中型犬" value="radio-2"></v-checkbox>
-            <v-checkbox dark color="#f09299" label="大型犬" value="radio-2"></v-checkbox>
+            <v-checkbox
+                dark
+                color="#f09299"
+                label="猫"
+                value="猫"
+                v-model="s_pets"
+            ></v-checkbox>
+            <v-checkbox
+                dark
+                color="#f09299"
+                label="小型犬"
+                value="小型犬"
+                v-model="s_pets"
+            ></v-checkbox>
+            <v-checkbox
+                dark
+                color="#f09299"
+                label="中型犬"
+                value="中型犬"
+                v-model="s_pets"
+            ></v-checkbox>
+            <v-checkbox
+                dark
+                color="#f09299"
+                label="大型犬"
+                value="大型犬"
+                v-model="s_pets"
+            ></v-checkbox>
         </v-row>
         <v-row>
             <v-text-field
@@ -33,7 +57,17 @@
 </template>
 <script>
     export default {
-        data () {
+        computed: {
+            s_pets: {
+                get() {
+                    return this.$store.state.s_pets;
+                },
+                set(value) {
+                    this.$store.dispatch('addSearchPets', value);
+                },
+            }
+        },
+        data() {
             return {
                 s_search_word: "",
             }

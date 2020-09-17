@@ -116,15 +116,11 @@
             StationAuto,
         },
         computed: {
-            stations_cnt() {
-                return this.$store.state.s_stations.length;
-            },
             s_stations: {
                 get() {
                     return this.$store.state.s_stations;
                 },
                 set(value) {
-                    console.log(value);
                     this.$store.dispatch('addSearchStations', value);
                 },
             }
