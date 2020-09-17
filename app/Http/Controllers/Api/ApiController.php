@@ -46,6 +46,12 @@ class ApiController extends Controller
         return response()->json($house_property);
     }
 
+    public function getCorpIdByHouse($id)
+    {
+        $house_property = HouseProperty::select('name')->where('id', $id)->get();
+        return response()->json($house_property);
+    }
+
     public function getProperties()
     {
         $properties = HouseProperty::get();
@@ -425,10 +431,11 @@ class ApiController extends Controller
 
     public function addInquiry(Request $req)
     {
+        $user = auth()->guard('sanctum')->user();
+        $user_id = $user->id;
         $inquiry = new Inquiry([
             'property_id' => $req->input('property_id'),
-//            'user_id' => $req->input('user_id'),
-            'user_id' => 1,
+            'user_id' => $user_id,
 //            'corp_id' => $req->input('corp_id'),
             'corp_id' => 1,
             'contact_text' => $req->input('contact_text'),

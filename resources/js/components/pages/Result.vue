@@ -9,6 +9,7 @@
                 <real-estates
                     class="mt-5 mb-5"
                     label="検索結果"
+                    :properties="result_properties"
                 ></real-estates>
             </div>
         </div>
@@ -35,19 +36,25 @@
         components: {
             RealEstates,
         },
+        data() {
+            return {
+                result_properties: [],
+            }
+        },
         computed: {
             ...mapState([
                 's_search_word',
                 's_pets',
                 's_stations',
                 's_areas',
-                's_costs',
+                's_under_cost',
+                's_limit_cost',
             ])
         },
         created () {
             this.$store.dispatch('modifyOverlayWhite', true);
             this.$http
-                .post('/api/get-latest-properties', {
+                .post('/api/search-properties', {
                     s_search_word: this.s_search_word,
                     s_pets: this.s_pets,
                     s_stations: this.s_stations,
@@ -56,7 +63,7 @@
                     s_limit_cost: this.costs,
                 })
                 .then(response => {
-                    this.cats_properties = response.data;
+                    this.result_properties = response.data;
                     this.$store.dispatch('modifyOverlayWhite', false);
                 })
                 .catch(error => {

@@ -86,6 +86,9 @@ const router = new Router({
             path: '/detail/:detail_id/contact',
             name: 'contact',
             component: Contact,
+            meta: {
+                auth: true
+            },
         },
         {
             path: '/mypage',

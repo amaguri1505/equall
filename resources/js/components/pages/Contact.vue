@@ -74,8 +74,6 @@
             const detail_id = this.$route.params.detail_id;
             this.inquiry = {
                 property_id: detail_id,
-                corp_id: 1,
-                user_id: 1,
             };
             this.$http
                 .get(`/api/get-title/${detail_id}`)

@@ -43,7 +43,7 @@
                     登録
                 </v-btn>
             </v-form>
-            <equall-line-login class="mt-5"/>
+            <!--<equall-line-login class="mt-5"/>-->
             <equall-terms class="mt-5"/>
         </div>
         <equall-family class="register__family"/>

@@ -36,7 +36,7 @@
             >
                 ログイン
             </v-btn>
-            <equall-line-login class="mt-5"/>
+            <!--<equall-line-login class="mt-5"/>-->
             <equall-terms class="mt-5"/>
             <div class="text-center mt-5">
                 <router-link class="login__link" to="/register">

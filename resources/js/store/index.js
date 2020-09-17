@@ -16,6 +16,8 @@ export default new Vuex.Store({
 
     state: {
         s_search_word: "",
+        s_under_cost: 0,
+        s_limit_cost: 0,
         s_stations: [],
         s_areas: [],
         s_costs: [],

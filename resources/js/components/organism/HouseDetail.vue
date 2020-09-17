@@ -256,7 +256,7 @@
             DetailThumbnail,
             DetailSubContentItem,
         },
-        props: ['house_property', 'house_property_images', ],
+        props: ['house_property', 'house_property_images',],
         data() {
             return {
                 estate_agent: [],
@@ -265,9 +265,9 @@
             }
         },
         methods: {
-            add_bookmark: function(event) {
-                if ( this.$store.getters.isLogged ) {
-                    this.$http.post('/api/add-bookmark',{
+            add_bookmark: function (event) {
+                if (this.$store.getters.isLogged) {
+                    this.$http.post('/api/add-bookmark', {
                         house_id: this.house_property.id,
                     }).then(response => {
                         this.$store.dispatch('modifySnackText', 'お気に入りに追加しました');
@@ -285,6 +285,9 @@
                 }
 
             }
+        },
+        created () {
+            this.contact_url = "/detail/" + this.$route.params.detail_id + "/contact";
         }
     }
 </script>
