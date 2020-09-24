@@ -97,6 +97,7 @@
 
         &__wrap
             position: relative
+            z-index: 10
 
         &__family
             position: absolute

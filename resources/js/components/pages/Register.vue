@@ -111,6 +111,7 @@
 
         &__wrap
             position: relative
+            z-index: 10
 
             .v-input
                 &__slot
