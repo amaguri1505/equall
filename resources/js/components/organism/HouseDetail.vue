@@ -80,6 +80,7 @@
                         '&q=' +
                         house_property.address"
                         allowfullscreen
+                        class="house-detail__map-iframe"
                     >
                     </iframe>
                 </div>
@@ -245,6 +246,10 @@
 
         &__map
             padding: 16px 16px 8px 16px
+
+        &__map-iframe
+            width: 100%
+            max-width: 400px
 
 </style>
 <script>
