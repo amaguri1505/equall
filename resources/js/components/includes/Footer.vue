@@ -86,7 +86,9 @@
             text-align: center
 
         &__text
+            font-size: 12px
             text-align: center
+            padding: 5px
 
         &__divider-wrap
             padding: 0 20px
