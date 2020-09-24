@@ -5,10 +5,9 @@
             ref="form"
         >
             <equall-logo class="mypage-edit__logo"/>
-            <equall-start
-                title="あなたのお名前を教えてください"
-                class="mt-5"
-            />
+            <div class="mypage-edit__title mt-5">
+                あなたのお名前を教えてください
+            </div>
             <v-container
                 class="mypage-edit__container"
             >
@@ -39,10 +38,9 @@
                     </v-col>
                 </v-row>
             </v-container>
-            <equall-start
-                title="メールアドレスを教えてください"
-                class="mt-5"
-            />
+            <div class="mypage-edit__title mt-5">
+                メールアドレスを教えてください
+            </div>
             <v-container
                 class="mypage-edit__container"
             >
@@ -59,10 +57,9 @@
                     </v-col>
                 </v-row>
             </v-container>
-            <equall-start
-                title="新しいパスワードを教えてください"
-                class="mt-5"
-            />
+            <div class="mypage-edit__title mt-5">
+                新しいパスワードを教えてください
+            </div>
             <v-container
                 class="mypage-edit__container"
             >
@@ -80,10 +77,9 @@
                     </v-col>
                 </v-row>
             </v-container>
-            <equall-start
-                title="あなたの性別を教えてください"
-                class="mt-5"
-            />
+            <div class="mypage-edit__title mt-5">
+                あなたの性別を教えてください
+            </div>
             <v-container
                 class="mypage-edit__container"
             >
@@ -114,10 +110,9 @@
                     </v-col>
                 </v-row>
             </v-container>
-            <equall-start
-                title="ペットを飼っていますか？"
-                class="mt-5"
-            />
+            <div class="mypage-edit__title mt-5">
+                ペットを買っていますか？
+            </div>
             <v-container
                 class="mypage-edit__container"
             >
@@ -279,10 +274,9 @@
                     </v-col>
                 </v-row>
             </v-container>
-            <equall-start
-                title="希望の条件を教えてください"
-                class="mt-5"
-            />
+            <div class="mypage-edit__title mt-5">
+                希望の条件を教えてください
+            </div>
             <v-container
                 class="mypage-edit__container"
             >
@@ -416,5 +410,12 @@
             background-color: #badde6
             border-radius: 10px
             padding: 20px 50px
+
+        &__title
+            color: white
+            padding-bottom: 0.3rem
+            text-align: center
+            font-size: 1.25rem
+            letter-spacing: 0.2rem
 
 </style>
