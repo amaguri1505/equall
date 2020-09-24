@@ -40,7 +40,8 @@
             <equall-terms class="mt-5"/>
             <div class="text-center mt-5">
                 <router-link class="login__link" to="/register">
-                    はじめての方はこちら
+                    はじめての方はこちら<br>
+                    （新規会員登録）
                 </router-link>
             </div>
         </div>
