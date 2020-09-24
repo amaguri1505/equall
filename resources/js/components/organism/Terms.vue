@@ -18,8 +18,8 @@
         <p class="p7"><span class="s8">2.</span><span class="s5">住宅情報の取り扱い企業に問い合わせ情報を提供するサービス</span></p>
         <p class="p7"><span class="s8">3.</span><span class="s5">住宅に関する口コミ、画像（動画を含む。以下同様）</span></p>
         <p class="p7"><span class="s8">4.</span><span class="s5">地域に関する口コミ、画像、その他関連情報</span></p>
-        <p class="p7"><span class="s8">5.</span><span class="s5">利用者の登録情報、履歴情報</span><span
-            class="s9">（以下（１）～（３）</span><span class="s5">を総称して「投稿登録情報」といいます）をコンテンツとするサイトであり、</span><span class="s3">equall</span><span
+        <p class="p7"><span class="s8">5.</span><span class="s5">利用者の登録情報、履歴情報</span>
+            （以下（１）～（３）<span class="s5">を総称して「投稿登録情報」といいます）をコンテンツとするサイトであり、</span><span class="s3">equall</span><span
             class="s5">利用者が投稿登録情報を住宅を購入または賃借する際の参考としてご活用いただくことを主な目的としています。</span></p>
         <p class="p8"><br></p>
         <ol class="ol1">
