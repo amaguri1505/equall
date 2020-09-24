@@ -30,16 +30,6 @@
         <div class="footer__link-table-wrap">
             <v-container pa-0>
                 <v-row no-gutters>
-                    <v-col cols="12">
-                        <v-card to="/real-estates-for-dog" class="text-center pa-2" outlined>
-                            わんちゃん用物件
-                        </v-card>
-                    </v-col>
-                    <v-col cols="12">
-                        <v-card to="/real-estates-for-cat" class="text-center pa-2" outlined>
-                            ねこちゃん用物件
-                        </v-card>
-                    </v-col>
                     <v-col cols="6">
                         <v-card to="/login" class="text-center pa-2" outlined>
                             登録/ログイン

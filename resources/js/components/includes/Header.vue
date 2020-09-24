@@ -35,13 +35,23 @@
                         </v-list-item-title>
                     </v-list-item>
                     <v-list-item to="/login" v-if="!isLogged">
-                        <v-list-item-title>
+                        <v-list-item-title">
                             登録済みの方はこちら
-                        </v-list-item-title>
+                        </v-list-item-title">
                     </v-list-item>
                     <v-list-item to="/bookmark">
                         <v-list-item-title>
                             お気に入り
+                        </v-list-item-title>
+                    </v-list-item>
+                    <v-list-item to="/real-estates-for-cat">
+                        <v-list-item-title>
+                            ねこちゃん用物件
+                        </v-list-item-title>
+                    </v-list-item>
+                    <v-list-item to="/real-estates-for-dog">
+                        <v-list-item-title>
+                            わんちゃん用物件
                         </v-list-item-title>
                     </v-list-item>
                     <v-list-item href="https://media.equall.jp" target="_blank">

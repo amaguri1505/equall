@@ -31,7 +31,18 @@
 </style>
 <script>
     export default {
-        props: ['title', 'subtitle', 'unit'],
+        props: {
+            title: {
+                type: String,
+            },
+            subtitle: {
+                type: String,
+                default: "-",
+            },
+            unit: {
+                type: String,
+            },
+        },
     }
 
 </script>
