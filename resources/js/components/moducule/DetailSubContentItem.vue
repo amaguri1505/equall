@@ -21,11 +21,12 @@
             padding: 16px 16px 8px 16px
 
         &__title
-            font-size: 1.2rem
+            font-size: 1.0rem
             line-height: 1.2
             margin-bottom: 4px
 
         &__subtitle
+            font-size: 1.0rem
 
 </style>
 <script>
