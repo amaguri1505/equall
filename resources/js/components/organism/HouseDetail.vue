@@ -12,7 +12,7 @@
                 <v-icon
                     right
                 >
-                    mdi-star
+                    mdi-heart
                 </v-icon>
             </v-btn>
         </div>
@@ -196,7 +196,7 @@
             margin-bottom: 2px
 
         &__btn-wrap
-            text-align: right
+            text-align: center
 
         &__catch
             background-color: colors(primary)
