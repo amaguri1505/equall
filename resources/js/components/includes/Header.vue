@@ -35,9 +35,9 @@
                         </v-list-item-title>
                     </v-list-item>
                     <v-list-item to="/login" v-if="!isLogged">
-                        <v-list-item-title">
+                        <v-list-item-title>
                             登録済みの方はこちら
-                        </v-list-item-title">
+                        </v-list-item-title>
                     </v-list-item>
                     <v-list-item to="/bookmark">
                         <v-list-item-title>
