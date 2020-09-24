@@ -2,7 +2,7 @@
     <div class="terms">
         <div class="terms__wrap">
             <div class="terms__title">
-                <v-icon color="#76c3bf">mdi-alert-circle</v-icon>
+                <v-icon color="#76c3bf">mdi-cat</v-icon>
                 ねこちゃん用物件
             </div>
             <v-divider></v-divider>
