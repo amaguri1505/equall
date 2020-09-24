@@ -2,7 +2,11 @@
     <div class="mypage">
         <div class="mypage__wrap">
             <h1 class="mypage__title">
-                <v-icon color="#76c3bf">mdi-human-greeting</v-icon>
+                <v-icon
+                    color="#76c3bf"
+                >
+                    mdi-face-profile-woman
+                </v-icon>
                 マイページ
             </h1>
             <v-divider
