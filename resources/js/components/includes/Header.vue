@@ -29,12 +29,12 @@
                     v-model="group"
                     active-class="text--accent-4"
                 >
-                    <v-list-item to="/register">
+                    <v-list-item to="/register" v-if="!isLogged">
                         <v-list-item-title>
                             新規登録
                         </v-list-item-title>
                     </v-list-item>
-                    <v-list-item to="/login">
+                    <v-list-item to="/login" v-if="!isLogged">
                         <v-list-item-title>
                             登録済みの方はこちら
                         </v-list-item-title>
