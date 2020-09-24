@@ -13,7 +13,8 @@
             lazy-validation
         >
             <h1 class="contact__title">
-                {{ title }}へのお問い合わせ
+                お問い合わせ<br>
+                {{ title }}
             </h1>
             <v-textarea
                 v-model="inquiry.contact_text"
