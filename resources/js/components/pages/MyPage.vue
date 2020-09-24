@@ -24,8 +24,13 @@
                                     >
                                         <v-list-item-avatar
                                             size="80"
+                                            color="#ddd"
                                         >
-                                            <v-img src="/images/sample_profile.jpg"></v-img>
+                                            <v-icon
+                                                size="50"
+                                            >
+                                                mdi-camera-plus-outline
+                                            </v-icon>
                                         </v-list-item-avatar>
 
                                         <v-list-item-content>
