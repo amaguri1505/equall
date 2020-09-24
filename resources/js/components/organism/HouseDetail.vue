@@ -163,6 +163,9 @@
                 お問い合わせ
             </v-btn>
         </div>
+        <div class="house-detail__inquiry-alarm">
+            ※会員登録が必要です
+        </div>
         <div class="house-detail__agent-info mt-5">
             <v-card>
                 <v-card-title>
@@ -243,6 +246,11 @@
 
             &:visited, &:link, &:active, &:hover
                 color: white
+
+        &__inquiry-alarm
+            color: #999
+            text-align: center
+            font-size: 10px
 
         &__map
             padding: 16px 16px 8px 16px
