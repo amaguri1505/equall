@@ -118,11 +118,31 @@
                                 <v-card-text
                                     class="mypage__card-content"
                                 >
-                                    猫：{{ equall_user.num_cat }}頭,
-                                    大型犬：{{ equall_user.num_large_dog }}頭,<br>
-                                    中型犬：{{ equall_user.num_middle_dog }}頭,
-                                    小型犬：{{ equall_user.num_small_dog }}頭,<br>
-                                    その他：{{ equall_user.num_other }}頭,
+                                    <div
+                                        v-if="equall_user.num_cat"
+                                    >
+                                        猫：{{ equall_user.num_cat }}頭
+                                    </div>
+                                    <div
+                                        v-if="equall_user.num_large_dog"
+                                    >
+                                        大型犬：{{ equall_user.num_large_dog }}頭
+                                    </div>
+                                    <div
+                                        v-if="equall_user.num_middle_dog"
+                                    >
+                                        中型犬：{{ equall_user.num_middle_dog }}頭
+                                    </div>
+                                    <div
+                                        v-if="equall_user.num_small_dog"
+                                    >
+                                        小型犬：{{ equall_user.num_small_dog }}頭
+                                    </div>
+                                    <div
+                                        v-if="equall_user.num_other"
+                                    >
+                                        その他：{{ equall_user.num_other }}頭
+                                    </div>
                                 </v-card-text>
                             </v-card>
                         </v-col>
