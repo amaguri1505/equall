@@ -31,34 +31,72 @@
             <v-container pa-0>
                 <v-row no-gutters>
                     <v-col cols="6">
-                        <v-card to="/login" class="text-center pa-2" outlined>
+                        <v-card
+                            to="/login"
+                            class="text-center pa-2 footer__card"
+                            outlined
+                            tile
+                            :ripple="false"
+                        >
                             登録/ログイン
                         </v-card>
                     </v-col>
                     <v-col cols="6">
-                        <v-card to="/bookmark" class="text-center pa-2" outlined>
+                        <v-card
+                            to="/bookmark"
+                            class="text-center pa-2 footer__card"
+                            outlined
+                            tile
+                            :ripple="false"
+                        >
                             お気に入り
                         </v-card>
                     </v-col>
                     <v-col cols="6">
-                        <v-card to="/relationship" class="text-center pa-2" outlined>
+                        <v-card
+                            to="/relationship"
+                            class="text-center pa-2 footer__card"
+                            outlined
+                            tile
+                            :ripple="false"
+                        >
                             物件提携希望の方
                         </v-card>
                     </v-col>
                     <v-col cols="6">
-                        <v-card href="mailto:info@equall.jp" class="text-center pa-2" outlined>
+                        <v-card
+                            href="mailto:info@equall.jp"
+                            class="text-center pa-2 footer__card"
+                            outlined
+                            tile
+                            :ripple="false"
+                        >
                             お問い合わせ
                         </v-card>
                     </v-col>
                     <v-col cols="6">
-                        <v-card to="/terms" height="4rem" class="text-center pa-2" outlined>
+                        <v-card
+                            to="/terms"
+                            height="4rem"
+                            class="text-center pa-2 footer__card"
+                            outlined
+                            tile
+                            :ripple="false"
+                        >
                             利用規約<br/>
                             プライバシーポリシー
                         </v-card>
                     </v-col>
                     <v-col cols="6">
-                        <v-card height="4rem" href="https://corp.equall.jp/" target="_blank" class="text-center pa-4"
-                                outlined>
+                        <v-card
+                            height="4rem"
+                            href="https://corp.equall.jp/"
+                            target="_blank"
+                            class="text-center pa-4 footer__card"
+                            outlined
+                            tile
+                            :ripple="false"
+                        >
                             運営会社
                         </v-card>
                     </v-col>
@@ -82,5 +120,9 @@
 
         &__divider-wrap
             padding: 0 20px
+
+        &__card
+            &:before
+                opacity: 0 !important
 
 </style>
