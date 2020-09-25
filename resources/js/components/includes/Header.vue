@@ -1,6 +1,12 @@
 <template>
     <div class="header__wrap">
-        <v-app-bar dense flat app max-width="540">
+        <v-app-bar
+            dense
+            flat
+            app
+            max-width="540"
+            style="z-index: 100"
+        >
 
             <router-link to="/" tag="img" src="/images/logo.png" class="header__logo"></router-link>
 
