@@ -20,6 +20,12 @@
                     primary-title
                 >
                     利用規約
+                    <v-spacer></v-spacer>
+                    <v-btn icon @click="dialog=false">
+                        <v-icon>
+                            mdi-close
+                        </v-icon>
+                    </v-btn>
                 </v-card-title>
 
                 <v-card-text>
@@ -54,7 +60,7 @@
         components: {
             Terms,
         },
-        data () {
+        data() {
             return {
                 dialog: false,
             }

@@ -41,6 +41,16 @@
             <v-card
                 class="pa-5"
             >
+                <div
+                    class="text-right"
+                >
+                    <v-spacer></v-spacer>
+                    <v-btn icon @click="dialog=false">
+                        <v-icon>
+                            mdi-close
+                        </v-icon>
+                    </v-btn>
+                </div>
                 <v-card-content>
                     <v-form>
                         <v-list>
