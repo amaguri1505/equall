@@ -37,6 +37,7 @@
                 single-line
                 outlined
                 hide-details
+                placeholder="地域名、駅名などご入力ください"
             >
                 <template v-slot:append>
                     <v-btn
