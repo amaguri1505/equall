@@ -2,14 +2,13 @@
     <div class="terms">
         <div class="terms__wrap">
             <div class="terms__title">
-                <v-icon color="#76c3bf">mdi-star</v-icon>
+                <v-icon color="#76c3bf">mdi-heart</v-icon>
                 お気に入り
             </div>
             <v-divider></v-divider>
             <div class="terms__content pt-2">
                 <real-estates
                     class="mt-5 mb-5"
-                    label="お気に入り"
                     :properties="properties"
                 ></real-estates>
             </div>
