@@ -4,6 +4,7 @@
             v-model="dialog"
             hide-overlay
             max-width="500"
+            scrollable
         >
             <template v-slot:activator="{ on }">
                 <div class="search-detail-cost__wrap">
@@ -18,12 +19,14 @@
                         価格で探す
                     </div>
                     <v-chip
-                        v-if="s_cost.chip && (cost.under || cost.limit)"
+                        v-if="s_costs.under || s_costs.limit"
                         dark
                         color="#f09299"
                         class="mt-1"
                     >
-                        {{ s_cost.name }}
+                        {{ s_costs.under || "" }}
+                        〜
+                        {{ s_costs.limit || "" }}
                     </v-chip>
                 </div>
             </template>
@@ -31,8 +34,8 @@
             <v-card
                 class="pa-5"
             >
-                <div
-                    class="text-right"
+                <v-card-title
+                    class="text-right pa-0"
                 >
                     <v-spacer></v-spacer>
                     <v-btn icon @click="dialog=false">
@@ -40,11 +43,11 @@
                             mdi-close
                         </v-icon>
                     </v-btn>
-                </div>
+                </v-card-title>
                 <v-content>
                     <v-form>
                         <v-select
-                            v-model="cost.under"
+                            v-model="s_costs.under"
                             :items="under_cost"
                             label="家賃下限"
                             required
@@ -53,7 +56,7 @@
                             〜
                         </div>
                         <v-select
-                            v-model="cost.limit"
+                            v-model="s_costs.limit"
                             :items="limit_cost"
                             label="家賃上限"
                             required
@@ -64,12 +67,21 @@
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
-                        color="primary"
+                        color="#666"
+                        text
+                        @click="reset_cost"
+                    >
+                        リセット
+                    </v-btn>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        color="#666"
                         text
                         @click="add_cost"
                     >
-                        価格を条件に追加
+                        決定
                     </v-btn>
+                    <v-spacer></v-spacer>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -91,7 +103,14 @@
             return {
                 dialog: false,
                 cost: [],
-                s_cost: [],
+                s_costs: {
+                    get() {
+                        return this.$store.state.s_costs;
+                    },
+                    set(value) {
+                        this.$store.dispatch('addSearchCosts', value);
+                    },
+                },
                 under_cost: [
                     "下限なし",
                     "3万円",
@@ -177,16 +196,12 @@
             }
         },
         methods: {
+            reset_cost: function (event) {
+                this.s_costs = [];
+            },
             add_cost: function (event) {
-                const under_cost = this.cost.under ? this.cost.under : "";
-                const limit_cost = this.cost.limit ? this.cost.limit : "";
-                this.s_cost = {
-                    name: under_cost + "〜" + limit_cost,
-                    chip: true,
-                };
-                this.$store.dispatch('addSearchCosts', this.s_cost);
                 this.dialog=false;
-            }
+            },
         }
     }
 </script>

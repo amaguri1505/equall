@@ -4,6 +4,7 @@
             v-model="dialog"
             hide-overlay
             max-width="500"
+            scrollable
         >
             <template v-slot:activator="{ on }">
                 <div class="search-detail-train__wrap">
@@ -41,8 +42,8 @@
             <v-card
                 class="pa-5"
             >
-                <div
-                    class="text-right"
+                <v-card-title
+                    class="text-right pa-0"
                 >
                     <v-spacer></v-spacer>
                     <v-btn icon @click="dialog=false">
@@ -50,8 +51,8 @@
                             mdi-close
                         </v-icon>
                     </v-btn>
-                </div>
-                <v-card-content>
+                </v-card-title>
+                <v-card-text>
                     <v-form>
                         <v-list>
                             <v-list-group
@@ -91,17 +92,26 @@
                             </v-list-group>
                         </v-list>
                     </v-form>
-                </v-card-content>
+                </v-card-text>
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
-                        color="primary"
+                        color="#666"
+                        text
+                        @click="reset_value"
+                    >
+                        リセット
+                    </v-btn>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        color="#666"
                         text
                         @click="add_value"
                     >
-                        駅を条件に追加
+                        決定
                     </v-btn>
+                    <v-spacer></v-spacer>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -2789,6 +2799,9 @@
             }
         },
         methods: {
+            reset_value: function (event) {
+                this.s_stations = [];
+            },
             add_value: function (event) {
                 this.dialog = false;
             }

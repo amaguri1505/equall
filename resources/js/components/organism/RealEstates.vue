@@ -5,9 +5,16 @@
             {{ label }}
         </div>
         <div class="re__carousel">
+            <div
+                v-if="!properties"
+                class="re__nothing"
+            >
+                ０件
+            </div>
             <v-carousel
                 hide-delimiters
                 height="auto"
+                v-if="properties"
             >
                 <v-carousel-item
                     v-for="property in properties"
