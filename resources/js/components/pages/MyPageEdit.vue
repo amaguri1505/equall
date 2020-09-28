@@ -376,6 +376,7 @@
             }),
             submit() {
                 this.update();
+                this.$router.push('/mypage');
             }
         },
     }
