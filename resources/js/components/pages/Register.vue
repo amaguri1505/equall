@@ -14,7 +14,7 @@
                     background-color="white"
                     single-line
                     outlined
-                    placeholder="メールで始める"
+                    placeholder="メールアドレス"
                     v-model="user_info.email"
                     :rules="[rules.required, rules.email]"
                 >
@@ -30,6 +30,17 @@
                     :rules="[rules.required, rules.password]"
                 >
                 </v-text-field>
+                <div
+                    style="display: flex; justify-content: center;"
+                >
+                    <v-checkbox
+                        v-model="checked"
+                        label="利用規約に同意"
+                        dark
+                        color="#f09299"
+                        class="ma-0 pa-0"
+                    ></v-checkbox>
+                </div>
                 <v-btn
                     depressed
                     tile
@@ -38,6 +49,7 @@
                     dark
                     color="#f09299"
                     class="ma-0"
+                    :disabled="!checked"
                     @click="submit"
                 >
                     登録
@@ -66,6 +78,7 @@
         },
         data() {
             return {
+                checked: false,
                 user_info: [],
                 rules: {
                     password: value => (value.length >= 8 && value.length <= 16) || 'パスワードは8文字以上16文字以下に設定してください',
