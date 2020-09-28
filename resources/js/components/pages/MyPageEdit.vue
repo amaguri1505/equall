@@ -111,7 +111,7 @@
                 </v-row>
             </v-container>
             <div class="mypage-edit__title mt-5">
-                ペットを買っていますか？
+                ペットを飼っていますか？
             </div>
             <v-container
                 class="mypage-edit__container"
