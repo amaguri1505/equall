@@ -2,6 +2,11 @@
     <div>
         <div class="index__wrap index__wrap--headline">
             <equall-logo class="index__logo"/>
+            <div
+                class="index__copy"
+            >
+                ペットと暮らせる「おうち」を探そう！
+            </div>
             <search-form/>
             <top-search-detail/>
             <equall-family class="index__family"/>
@@ -131,4 +136,12 @@
             bottom: 0
             left: 0
             right: 0
+
+        &__copy
+            margin-top: 20px
+            text-align: center
+            color: white
+            font-size: 1.25rem
+            font-weight: bold
+
 </style>
