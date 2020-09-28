@@ -1,20 +1,41 @@
 <template>
     <div class="re">
-        <div class="re__title">
+        <div
+            class="re__title"
+            v-if="label"
+        >
             <v-icon></v-icon>
             {{ label }}
         </div>
         <div class="re__carousel">
             <div
-                v-if="!properties"
+                v-if="(!properties || properties.length < 1)"
                 class="re__nothing"
             >
-                ０件
+                <div
+                    class="re__nothing-title"
+                >
+                    検索結果
+                </div>
+                <div
+                    class="re__nothing-content"
+                >
+                    ０件
+                </div>
+                <div
+                    class="re__nothing-link"
+                >
+                    <router-link
+                        to="/"
+                    >
+                        別の条件で検索する&gt;&gt;
+                    </router-link>
+                </div>
             </div>
             <v-carousel
                 hide-delimiters
                 height="auto"
-                v-if="properties"
+                v-if="(properties || properties.lenght > 0)"
             >
                 <v-carousel-item
                     v-for="property in properties"
@@ -64,4 +85,21 @@
                 &:hover, &:visited, &:link, &:active
                     color: #333
 
+        &__nothing-title
+            color: colors(primary)
+            margin-top: 20px
+            font-size: 1.5rem
+            text-align: center
+
+        &__nothing-content
+            color: colors(primary)
+            margin-top: 10px
+            font-size: 1.5rem
+            text-align: center
+
+        &__nothing-link
+            color: #666
+            margin-top: 30px
+            font-size: 0.8rem
+            text-align: center
 </style>

@@ -8,7 +8,6 @@
             <div class="terms__content pt-2">
                 <real-estates
                     class="mt-5 mb-5"
-                    label="検索結果"
                     :properties="result_properties"
                 ></real-estates>
             </div>
