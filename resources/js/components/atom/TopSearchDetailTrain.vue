@@ -70,6 +70,23 @@
                                     v-model="s_stations"
                                 >
                                     <v-list-item
+                                        :key="全て"
+                                    >
+                                        <template v-slot:default="{active, toggle}">
+                                            <v-list-item-action>
+                                                <v-checkbox
+                                                ></v-checkbox>
+                                            </v-list-item-action>
+                                            <v-list-item-content>
+                                                <v-list-item-title
+                                                    style="color: #76c3bf;"
+                                                >
+                                                    {{ line.name }}の駅を全て選択
+                                                </v-list-item-title>
+                                            </v-list-item-content>
+                                        </template>
+                                    </v-list-item>
+                                    <v-list-item
                                         v-for="station in line.stations"
                                         :key="station.name"
                                         :value="station.name"
@@ -2804,7 +2821,10 @@
             },
             add_value: function (event) {
                 this.dialog = false;
-            }
+            },
+            check_rest_stations: function (event, stations) {
+
+            },
         }
     }
 </script>
