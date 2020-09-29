@@ -1,7 +1,6 @@
 <template>
     <div class="register">
         <div class="register__wrap">
-            <equall-logo class="register__logo"/>
             <equall-start
                 title="イコールの利用を始める"
                 class="mt-5"

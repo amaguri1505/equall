@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="index__wrap index__wrap--headline">
-            <equall-logo class="index__logo"/>
             <div
                 class="index__copy"
             >

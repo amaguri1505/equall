@@ -69,12 +69,12 @@
                                     multiple
                                     v-model="s_stations"
                                 >
-                                    <v-list-item
-                                        :key="全て"
-                                    >
+                                    <v-list-item>
                                         <template v-slot:default="{active, toggle}">
                                             <v-list-item-action>
                                                 <v-checkbox
+                                                    :input-value="active"
+                                                    @click="toggle"
                                                 ></v-checkbox>
                                             </v-list-item-action>
                                             <v-list-item-content>
@@ -110,7 +110,6 @@
                         </v-list>
                     </v-form>
                 </v-card-text>
-
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn

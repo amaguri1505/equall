@@ -1,7 +1,6 @@
 <template>
     <div class="login">
         <div class="login__wrap">
-            <equall-logo class="login__logo"/>
             <equall-start
                 title="イコールにログイン"
                 class="mt-5"
