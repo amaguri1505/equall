@@ -250,6 +250,7 @@
         &__inquiry-alarm
             color: #999
             text-align: center
+            margin-top: 10px
             font-size: 10px
 
         &__map
