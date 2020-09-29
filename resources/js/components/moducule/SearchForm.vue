@@ -37,6 +37,7 @@
                 single-line
                 outlined
                 hide-details
+                class="search-form__text"
                 placeholder="地域名、駅名などご入力ください"
             >
                 <template v-slot:append>
@@ -85,6 +86,10 @@
 </script>
 <style lang="sass">
     .search-form
+        &__text
+            ::placeholder
+                font-size: 10px
+
         .v-input
             &__slot
                 padding-right: 1px !important
