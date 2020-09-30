@@ -16,9 +16,30 @@
                 お問い合わせ<br>
                 {{ title }}
             </h1>
+            <v-checkbox
+                label="物件の詳細を知りたい"
+                value="物件の詳細を知りたい"
+                v-model="inquiry.options"
+            ></v-checkbox>
+            <v-checkbox
+                label="実際に物件を見たい"
+                value="実際に物件を見たい"
+                v-model="inquiry.options"
+            ></v-checkbox>
+            <v-checkbox
+                label="空室状況を知りたい"
+                value="空室状況を知りたい"
+                v-model="inquiry.options"
+            ></v-checkbox>
+            <v-checkbox
+                label="その他（フォームにご入力ください）"
+                value="その他（フォームにご入力ください）"
+                v-model="inquiry.options"
+            ></v-checkbox>
             <v-textarea
                 v-model="inquiry.contact_text"
                 label="お問い合わせ内容"
+                class="mt-2"
                 filled
                 auto-grow
                 rows="4"
@@ -73,13 +94,10 @@
         },
         created() {
             const detail_id = this.$route.params.detail_id;
-            this.inquiry = {
-                property_id: detail_id,
-            };
+            this.inquiry.property_id = detail_id;
             this.$http
                 .get(`/api/get-title/${detail_id}`)
                 .then(response => {
-                    // this.title = JSON.parse(response.data).name;
                     this.title = response.data[0].name;
                     this.$parent.overlay = false;
                 });
@@ -88,8 +106,12 @@
             return {
                 title: "",
                 overlay: false,
-                inquiry: [],
+                inquiry: {
+                    options: [],
+                    property_id: 0,
+                },
+                test: [],
             }
-        }
+        },
     }
 </script>

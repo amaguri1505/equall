@@ -44,7 +44,7 @@
                         </v-icon>
                     </v-btn>
                 </v-card-title>
-                <v-content>
+                <v-card-text>
                     <v-form>
                         <v-select
                             v-model="s_costs.under"
@@ -62,7 +62,7 @@
                             required
                         ></v-select>
                     </v-form>
-                </v-content>
+                </v-card-text>
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
