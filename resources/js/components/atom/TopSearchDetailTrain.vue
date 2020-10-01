@@ -65,27 +65,22 @@
                                     >
                                     </v-list-item-title>
                                 </template>
+                                <v-list-item
+                                    @click="check_entire_stations(line.stations)"
+                                >
+                                    <v-list-item-content>
+                                        <v-list-item-title
+                                            style="color: #76c3bf;"
+                                            class="text-center"
+                                        >
+                                            {{ line.name }}の駅を全て選択
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
                                 <v-list-item-group
                                     multiple
                                     v-model="s_stations"
                                 >
-                                    <v-list-item>
-                                        <template v-slot:default="{active, toggle}">
-                                            <v-list-item-action>
-                                                <v-checkbox
-                                                    :input-value="active"
-                                                    @click="toggle"
-                                                ></v-checkbox>
-                                            </v-list-item-action>
-                                            <v-list-item-content>
-                                                <v-list-item-title
-                                                    style="color: #76c3bf;"
-                                                >
-                                                    {{ line.name }}の駅を全て選択
-                                                </v-list-item-title>
-                                            </v-list-item-content>
-                                        </template>
-                                    </v-list-item>
                                     <v-list-item
                                         v-for="station in line.stations"
                                         :key="station.name"
@@ -2821,8 +2816,20 @@
             add_value: function (event) {
                 this.dialog = false;
             },
-            check_rest_stations: function (event, stations) {
-
+            check_entire_stations: function (stations) {
+                const custom_stations =
+                    stations.map(station => station.name);
+                const checked = custom_stations.every(r => this.s_stations.includes(r));
+                if (checked) {
+                    this.s_stations = this.s_stations.filter(function (r) {
+                        return !custom_stations.includes(r);
+                    });
+                } else {
+                    custom_stations.forEach(item => this.s_stations.push(item));
+                    this.s_stations = this.s_stations.filter(function (r, i, self) {
+                        return self.indexOf(r) === i;
+                    });
+                }
             },
         }
     }

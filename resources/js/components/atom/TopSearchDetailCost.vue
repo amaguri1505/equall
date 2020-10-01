@@ -63,7 +63,6 @@
                         ></v-select>
                     </v-form>
                 </v-card-text>
-
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
@@ -200,7 +199,7 @@
                 this.s_costs = [];
             },
             add_cost: function (event) {
-                this.dialog=false;
+                this.dialog = false;
             },
         }
     }

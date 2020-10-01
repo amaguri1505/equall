@@ -67,6 +67,18 @@
                                     >
                                     </v-list-item-title>
                                 </template>
+                                <v-list-item
+                                    @click="check_entire_areas(prefecture.wards)"
+                                >
+                                    <v-list-item-content>
+                                        <v-list-item-title
+                                            style="color: #76c3bf;"
+                                            class="text-center"
+                                        >
+                                            {{ prefecture.name }}を全て選択
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
                                 <v-list-item-group
                                     multiple
                                     v-model="s_areas"
@@ -425,6 +437,21 @@
             },
             add_value: function (event) {
                 this.dialog = false;
+            },
+            check_entire_areas: function (areas) {
+                const custom_areas =
+                    areas.map(area => area.name);
+                const checked = custom_areas.every(r => this.s_areas.includes(r));
+                if (checked) {
+                    this.s_areas = this.s_areas.filter(function (r) {
+                        return !custom_areas.includes(r);
+                    });
+                } else {
+                    custom_areas.forEach(item => this.s_areas.push(item));
+                    this.s_areas = this.s_areas.filter(function (r, i, self) {
+                        return self.indexOf(r) === i;
+                    });
+                }
             },
         },
     }
