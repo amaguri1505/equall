@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddOptionsToHousePropertyTable extends Migration
+class AddColumnsToInquiriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class AddOptionsToHousePropertyTable extends Migration
      */
     public function up()
     {
-        Schema::table('house_properties', function (Blueprint $table) {
+        Schema::table('inquiries', function (Blueprint $table) {
+            $table->enum('options', ['detail','preview','occupied','other'])->nullable();
         });
     }
 
@@ -24,7 +25,8 @@ class AddOptionsToHousePropertyTable extends Migration
      */
     public function down()
     {
-        Schema::table('house_properties', function (Blueprint $table) {
+        Schema::table('inquiries', function (Blueprint $table) {
+            $table->dropColumn('options');
         });
     }
 }

@@ -7,64 +7,72 @@
             </div>
             <v-divider></v-divider>
             <div class="relationship__content pt-5">
+                <v-form ref="form">
 
-                <v-select
-                    v-model="relationship.contact_detail"
-                    :items="contact_detail"
-                    :rules="[v => !!v || 'Item is required']"
-                    label="お問い合わせ内容"
-                    required
-                ></v-select>
 
-                <v-text-field
-                    v-model="relationship.corp_name"
-                    :count="100"
-                    label="法人名"
-                    required
-                ></v-text-field>
+                    <v-select
+                        v-model="relationship.contact_detail"
+                        :items="contact_detail"
+                        :rules="[v => !!v || '必須項目です']"
+                        label="お問い合わせ内容"
+                        required
+                    ></v-select>
 
-                <v-text-field
-                    v-model="relationship.person_name"
-                    :count="100"
-                    label="担当者名"
-                    required
-                ></v-text-field>
+                    <v-text-field
+                        v-model="relationship.corp_name"
+                        :count="100"
+                        :rules="[v => !!v || '必須項目です']"
+                        label="法人名"
+                        required
+                    ></v-text-field>
 
-                <v-text-field
-                    v-model="relationship.email"
-                    :count="100"
-                    label="メールアドレス"
-                    required
-                ></v-text-field>
+                    <v-text-field
+                        v-model="relationship.person_name"
+                        :count="100"
+                        :rules="[v => !!v || '必須項目です']"
+                        label="担当者名"
+                        required
+                    ></v-text-field>
 
-                <v-text-field
-                    v-model="relationship.contact_text"
-                    :count="100"
-                    label="電話番号"
-                ></v-text-field>
+                    <v-text-field
+                        v-model="relationship.email"
+                        :count="100"
+                        :rules="[v => !!v || '必須項目です']"
+                        label="メールアドレス"
+                        required
+                    ></v-text-field>
 
-                <v-textarea
-                    label="お問い合わせ"
-                    filled
-                    auto-grow
-                    rows="4"
-                    required
-                ></v-textarea>
+                    <v-text-field
+                        v-model="relationship.contact_text"
+                        :count="100"
+                        :rules="[v => !!v || '必須項目です']"
+                        label="電話番号"
+                    ></v-text-field>
 
-                <v-btn
-                    color="#76c3bf"
-                    dark
-                    class="mr-4"
-                    @click="submit"
-                >
-                    送信
-                </v-btn>
+                    <v-textarea
+                        label="お問い合わせ"
+                        filled
+                        auto-grow
+                        rows="4"
+                        required
+                    ></v-textarea>
+
+                    <v-btn
+                        color="#76c3bf"
+                        dark
+                        class="mr-4"
+                        @click="submit"
+                    >
+                        送信
+                    </v-btn>
+                </v-form>
             </div>
         </div>
     </div>
 </template>
 <style lang="sass">
     @import "../../../sass/common/_variable.scss"
+
     .relationship
         &__wrap
             margin-top: 48px
@@ -94,18 +102,21 @@
         },
         methods: {
             submit() {
+                if (!this.$refs.form.validate()) {
+                    return false;
+                }
                 this.$http
                     .post('/api/submit-relationship', this.relationship)
                     .then(response => {
-                        this.$parent.snack_text = "お問い合わせを送信しました";
-                        this.$parent.snack_color = "#76c3bf";
-                        this.$parent.snackbar = true;
+                        this.$store.dispatch('modifySnackText', 'お問い合わせを送信しました');
+                        this.$store.dispatch('modifySnackColor', '#76c3bf');
+                        this.$store.dispatch('modifySnackbar', true);
                         this.$refs.form.reset();
                     })
                     .catch(error => {
-                        this.$parent.snack_text = "エラーが発生しました";
-                        this.$parent.snack_color = "warning";
-                        this.$parent.snackbar = true;
+                        this.$store.dispatch('modifySnackText', 'エラーが発生しました');
+                        this.$store.dispatch('modifySnackColor', 'warning');
+                        this.$store.dispatch('modifySnackbar', true);
                     });
             },
         }

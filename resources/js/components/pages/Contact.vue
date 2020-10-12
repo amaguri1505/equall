@@ -18,22 +18,22 @@
             </h1>
             <v-checkbox
                 label="物件の詳細を知りたい"
-                value="物件の詳細を知りたい"
+                value="detail"
                 v-model="inquiry.options"
             ></v-checkbox>
             <v-checkbox
                 label="実際に物件を見たい"
-                value="実際に物件を見たい"
+                value="preview"
                 v-model="inquiry.options"
             ></v-checkbox>
             <v-checkbox
                 label="空室状況を知りたい"
-                value="空室状況を知りたい"
+                value="occupied"
                 v-model="inquiry.options"
             ></v-checkbox>
             <v-checkbox
                 label="その他（フォームにご入力ください）"
-                value="その他（フォームにご入力ください）"
+                value="other"
                 v-model="inquiry.options"
             ></v-checkbox>
             <v-textarea
@@ -74,32 +74,34 @@
     export default {
         methods: {
             submit: function () {
-                this.overlay = true;
+                this.$store.dispatch('modifyOverlay', true);
                 this.$http
                     .post('/api/add-inquiry', this.inquiry)
                     .then(response => {
-                        this.$parent.snack_text = "問い合わせを送信しました";
-                        this.$parent.snack_color = "#76c3bf";
-                        this.$parent.snackbar = true;
+                        this.$store.dispatch('modifySnackText', '問い合わせを送信しました');
+                        this.$store.dispatch('modifySnackColor', '#76c3bf');
+                        this.$store.dispatch('modifySnackbar', true);
                         this.$refs.form.reset();
-                        this.overlay = false;
+                        this.$store.dispatch('modifyOverlay', false);
                     })
                     .catch(error => {
-                        this.$parent.snack_text = "エラーが発生しました";
-                        this.$parent.snack_color = "warning";
-                        this.$parent.snackbar = true;
-                        this.overlay = false;
+                        this.$store.dispatch('modifySnackText', '問い合わせ送信中にエラーが発生しました');
+                        this.$store.dispatch('modifySnackColor', 'warning');
+                        this.$store.dispatch('modifySnackbar', true);
+                        this.$store.dispatch('modifyOverlay', false);
                     });
             }
         },
         created() {
             const detail_id = this.$route.params.detail_id;
             this.inquiry.property_id = detail_id;
+            this.$store.dispatch('modifyOverlay', true);
             this.$http
                 .get(`/api/get-title/${detail_id}`)
                 .then(response => {
                     this.title = response.data[0].name;
-                    this.$parent.overlay = false;
+                    this.inquiry.coirp_id = response.data[0].corp_id;
+                    this.$store.dispatch('modifyOverlay', false);
                 });
         },
         data() {
@@ -109,8 +111,8 @@
                 inquiry: {
                     options: [],
                     property_id: 0,
+                    corp_id: 0,
                 },
-                test: [],
             }
         },
     }

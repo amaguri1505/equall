@@ -42,7 +42,7 @@ class ApiController extends Controller
 
     public function getTitle($id)
     {
-        $house_property = HouseProperty::select('name')->where('id', $id)->get();
+        $house_property = HouseProperty::select('name', 'corp_id')->where('id', $id)->get();
         return response()->json($house_property);
     }
 
@@ -433,11 +433,12 @@ class ApiController extends Controller
     {
         $user = auth()->guard('sanctum')->user();
         $user_id = $user->id;
+        $options = collect($req->input('options'))->implode(',');
         $inquiry = new Inquiry([
             'property_id' => $req->input('property_id'),
             'user_id' => $user_id,
-//            'corp_id' => $req->input('corp_id'),
-            'corp_id' => 1,
+            'options' => $options,
+            'corp_id' => $req->input('corp_id'),
             'contact_text' => $req->input('contact_text'),
         ]);
         $inquiry->save();

@@ -1,8 +1,8 @@
 <template>
-    <div class="login">
-        <div class="login__wrap">
+    <div class="reset">
+        <v-form refs="form">
             <equall-start
-                title="イコールにログイン"
+                title="パスワード変更用フォーム"
                 class="mt-5"
             />
             <v-text-field
@@ -11,18 +11,8 @@
                 single-line
                 outlined
                 hide-details
-                placeholder="メールアドレス"
+                placeholder="登録した際のメールアドレス"
                 v-model="email"
-            ></v-text-field>
-            <v-text-field
-                class="mt-5"
-                background-color="white"
-                single-line
-                outlined
-                hide-details
-                placeholder="パスワード"
-                type="password"
-                v-model="password"
             ></v-text-field>
             <v-btn
                 class="mt-5 login__btn"
@@ -33,23 +23,9 @@
                 depressed
                 @click="submit"
             >
-                ログイン
+                パスワード変更用リンクを送信
             </v-btn>
-            <!--<equall-line-login class="mt-5"/>-->
-            <equall-terms class="mt-5"/>
-            <div class="text-center mt-5">
-                <router-link class="login__link" to="/register">
-                    はじめての方はこちら<br>
-                    （新規会員登録）
-                </router-link>
-            </div>
-            <div class="text-center mt-5">
-                <router-link class="login__remind" to="/reset">
-                    パスワードをお忘れの方
-                </router-link>
-            </div>
-        </div>
-        <equall-family class="mt-5 login__family"/>
+        </v-form>
     </div>
 </template>
 <script>
@@ -93,7 +69,7 @@
 </script>
 <style lang="sass">
     @import "../../../sass/common/_variable.scss"
-    .login
+    .reset
         height: calc(100vh - 48px)
         margin-top: 48px
         padding: 40px 20px 0 20px

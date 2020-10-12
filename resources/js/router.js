@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Index from './components/pages/Index';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
+import Reset from './components/pages/Reset';
 import Terms from './components/pages/Terms';
 import Relationship from './components/pages/Relationship';
 import Bookmark from './components/pages/Bookmark';
@@ -43,6 +44,11 @@ const router = new Router({
             path: '/login',
             name: 'login',
             component: Login,
+        },
+        {
+            path: '/reset',
+            name: 'reset',
+            component: Reset,
         },
         {
             path: '/terms',
