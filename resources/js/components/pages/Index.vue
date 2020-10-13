@@ -6,6 +6,16 @@
             >
                 ペットと暮らせる「おうち」を探そう！
             </div>
+            <div
+                class="index__for-beginner link-white"
+            >
+                <router-link
+                    to="/beginners-guide"
+                >
+                    初めての方へ
+                </router-link>
+
+            </div>
             <search-form/>
             <top-search-detail/>
             <equall-family class="index__family"/>
@@ -142,5 +152,9 @@
             color: white
             font-size: 1.25rem
             font-weight: bold
+
+        &__for-beginner
+            margin-top: 20px
+            text-align: center
 
 </style>

@@ -29,3 +29,23 @@
   color: red;
 }
 
+.link-white a {
+  color: white !important;
+}
+
+.link-white a:hover {
+  color: white !important;
+}
+
+.link-white a:active {
+  color: white !important;
+}
+
+.link-white a:focus {
+  color: white !important;
+}
+
+.link-white a:visited {
+  color: white !important;
+}
+

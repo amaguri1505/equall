@@ -3,7 +3,7 @@
         <div class="terms__wrap">
             <div class="terms__title">
                 <v-icon color="#76c3bf">mdi-heart</v-icon>
-                お気に入り
+                初めて利用される方へ
             </div>
             <v-divider></v-divider>
             <div class="terms__content pt-2">

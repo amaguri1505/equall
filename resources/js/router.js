@@ -14,6 +14,7 @@ import Detail from './components/pages/Detail';
 import MyPage from './components/pages/MyPage';
 import MyPageEdit from './components/pages/MyPageEdit';
 import Contact from './components/pages/Contact';
+import BeginnersGuide from './components/pages/BeginnersGuide';
 import PageNotFound from './components/pages/PageNotFound';
 import CorpLogin from './components/pages/corp/Login';
 import CorpRegister from './components/pages/corp/Register';
@@ -67,6 +68,11 @@ const router = new Router({
             meta: {
                 auth: true
             },
+        },
+        {
+            path: '/beginners-guide',
+            name: 'beginners-guide',
+            component: BeginnersGuide,
         },
         {
             path: '/real-estates-for-dog',
