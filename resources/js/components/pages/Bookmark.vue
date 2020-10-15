@@ -3,7 +3,7 @@
         <div class="terms__wrap">
             <div class="terms__title">
                 <v-icon color="#76c3bf">mdi-heart</v-icon>
-                初めて利用される方へ
+                お気に入り
             </div>
             <v-divider></v-divider>
             <div class="terms__content pt-2">
@@ -19,7 +19,6 @@
     @import "../../../sass/common/_variable.scss"
 
     .terms
-
         &__wrap
             margin-top: 48px
             padding: 40px 20px 80px 20px
@@ -29,6 +28,7 @@
             text-align: center
             letter-spacing: 0.2rem
             font-size: 1.5rem
+
 </style>
 <script>
     import RealEstates from "../organism/RealEstates";

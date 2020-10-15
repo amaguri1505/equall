@@ -9,12 +9,13 @@
             <div class="relationship__content pt-5">
                 <v-form ref="form">
 
-
                     <v-select
-                        v-model="relationship.contact_detail"
+                        v-model="relationship.contact_options"
                         :items="contact_detail"
+                        item-text="title"
+                        item-value="value"
                         :rules="[v => !!v || '必須項目です']"
-                        label="お問い合わせ内容"
+                        label="お問い合わせ種別"
                         required
                     ></v-select>
 
@@ -27,7 +28,7 @@
                     ></v-text-field>
 
                     <v-text-field
-                        v-model="relationship.person_name"
+                        v-model="relationship.person_in_charge"
                         :count="100"
                         :rules="[v => !!v || '必須項目です']"
                         label="担当者名"
@@ -43,13 +44,14 @@
                     ></v-text-field>
 
                     <v-text-field
-                        v-model="relationship.contact_text"
+                        v-model="relationship.tel"
                         :count="100"
                         :rules="[v => !!v || '必須項目です']"
                         label="電話番号"
                     ></v-text-field>
 
                     <v-textarea
+                        v-model="relationship.contact"
                         label="お問い合わせ"
                         filled
                         auto-grow
@@ -91,12 +93,12 @@
     export default {
         data() {
             return {
-                relationship: [],
+                relationship: {},
                 contact_detail: [
-                    "1. 物件掲載に関して",
-                    "2. 広告掲載に関して",
-                    "3. タイアップに関して",
-                    "4. その他",
+                    { title: '1. 掲載に関して', value: 'realestate' },
+                    { title: '2. 広告掲載に関して', value: 'ad' },
+                    { title: '3. タイアップに関して', value: 'tiein' },
+                    { title: '4. その他', value: 'other' },
                 ],
             }
         },

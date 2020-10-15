@@ -11,6 +11,7 @@ use App\HousePropertyImage;
 use App\AdminInquiry;
 use App\Inquiry;
 use App\Bookmark;
+use App\Relationship;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -512,5 +513,11 @@ class ApiController extends Controller
         return response()->json('success updateUser');
     }
 
+    public function submitRelationship(Request $req)
+    {
+        $relationship = new Relationship();
+        $relationship->fill($req->all())->save();
+        return response()->json('success submitRelationship');
+    }
 
 }

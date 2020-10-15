@@ -61,5 +61,6 @@ Route::group(['middleware' => ['api']], function () {
     Route::post('/register', 'Auth\RegisterController@register');
     Route::post('/register-corp', 'Auth\RegisterCorpController@register');
 
+    Route::post('/submit-relationship', 'Api\ApiController@submitRelationship');
 });
 
