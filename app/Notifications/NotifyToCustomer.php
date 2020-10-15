@@ -43,7 +43,7 @@ class NotifyToCustomer extends Notification
         return (new MailMessage)
             ->subject('不動産のお問い合わせが届きました')
             ->line('管理画面からお問い合わせをご確認ください')
-            ->action('管理画面へ移動', env('APP_URL'));
+            ->action('管理画面へ移動', env('APP_URL').'/corp');
     }
 
     /**

@@ -444,8 +444,8 @@ class ApiController extends Controller
             'corp_id' => $corp_id,
             'contact_text' => $req->input('contact_text'),
         ]);
-        EstateAgent::find($corp_id)->notify(new NotifyToCustomer());
         $inquiry->save();
+        EstateAgent::find($corp_id)->notify(new NotifyToCustomer());
     }
 
     public function addBookmark(Request $req)

@@ -100,7 +100,7 @@
                 .get(`/api/get-title/${detail_id}`)
                 .then(response => {
                     this.title = response.data[0].name;
-                    this.inquiry.coirp_id = response.data[0].corp_id;
+                    this.inquiry.corp_id = response.data[0].corp_id;
                     this.$store.dispatch('modifyOverlay', false);
                 });
         },
