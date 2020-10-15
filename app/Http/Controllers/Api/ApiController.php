@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Notifications\NotifyToCustomer;
 use App\User;
 use App\EstateAgent;
 use App\Http\Controllers\Controller;
@@ -434,14 +435,16 @@ class ApiController extends Controller
     {
         $user = auth()->guard('sanctum')->user();
         $user_id = $user->id;
+        $corp_id = $req->input('corp_id');
         $options = collect($req->input('options'))->implode(',');
         $inquiry = new Inquiry([
             'property_id' => $req->input('property_id'),
             'user_id' => $user_id,
             'options' => $options,
-            'corp_id' => $req->input('corp_id'),
+            'corp_id' => $corp_id,
             'contact_text' => $req->input('contact_text'),
         ]);
+        EstateAgent::find($corp_id)->notify(new NotifyToCustomer());
         $inquiry->save();
     }
 
