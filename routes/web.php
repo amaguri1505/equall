@@ -21,6 +21,7 @@ Route::post('/corp/logout', 'Auth\LoginCorpController@logout')->name('logout-cor
 Route::get('/corp/{any}', 'CorpController@index')->where('any', '.*');
 
 Route::get('/login', 'Auth\LoginController@index');
+Route::get('/passreset', 'Auth\ResetPasswordController@showResetForm');
 Route::get('/register', 'ViewController@viewApp');
 //Route::get('/mypage', 'MypageController@index')->name('mypage');
 Route::post('/login', 'Auth\LoginController@login')->name('login');

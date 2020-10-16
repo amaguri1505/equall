@@ -174,7 +174,8 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-    const loggedIn = store.getters.isLogged;
+
+    const loggedIn = localStorage.user;
 
     if (to.matched.some(record => record.meta.auth) && !loggedIn) {
         store.dispatch('modifySnackText', '会員限定ページです。ログインしてください。');

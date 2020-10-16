@@ -54,11 +54,13 @@ export default {
         },
 
         async me({commit}) {
-            return axios.get('/api/user')
+            return await axios.get('/api/user')
                 .then((response) => {
                     commit('SET_USER', response.data);
+                    localStorage.user=response.data;
                 }).catch(() => {
                     commit('SET_USER', null);
+                    localStorage.removeItem('user');
                 });
         },
 
