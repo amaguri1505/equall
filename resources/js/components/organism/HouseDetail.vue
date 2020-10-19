@@ -103,16 +103,6 @@
                     unit="円"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
-                    title="管理費"
-                    v-bind:subtitle="this.house_property.manage_cost"
-                    unit="円"
-                ></detail-sub-content-item>
-                <detail-sub-content-item
-                    title="管理費"
-                    v-bind:subtitle="this.house_property.manage_cost"
-                    unit="円"
-                ></detail-sub-content-item>
-                <detail-sub-content-item
                     title="専有面積"
                     v-bind:subtitle="this.house_property.area"
                     unit="㎡"
