@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="index">
         <div class="index__wrap index__wrap--headline">
             <div
                 class="index__copy"
@@ -130,6 +130,9 @@
 <style lang="sass">
     @import "../../../sass/common/_variable.scss"
     .index
+        @media(max-width: 320px)
+            font-size: 0.8rem
+
         &__wrap
             padding: 40px 20px 0 20px
 
@@ -152,6 +155,12 @@
             color: white
             font-size: 1.25rem
             font-weight: bold
+
+            @media(max-width: 600px)
+                font-size: 1.0rem
+
+            @media(max-width: 320px)
+                font-size: 0.8rem
 
         &__for-beginner
             margin-top: 20px

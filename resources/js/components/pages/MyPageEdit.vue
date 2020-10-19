@@ -419,4 +419,10 @@
             font-size: 1.25rem
             letter-spacing: 0.2rem
 
+            @media(max-width: 600px)
+                font-size: 1.0rem
+
+            @media(max-width: 320px)
+                font-size: 0.8rem
+
 </style>
