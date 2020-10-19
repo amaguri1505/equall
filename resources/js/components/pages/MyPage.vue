@@ -26,16 +26,35 @@
                                     <v-list-item
                                         class="mypage__card-list"
                                     >
-                                        <v-list-item-avatar
-                                            size="80"
-                                            color="#ddd"
+                                        <label
+                                            for="idUpload"
                                         >
-                                            <v-icon
-                                                size="50"
+                                            <v-list-item-avatar
+                                                size="80"
+                                                color="#ddd"
                                             >
-                                                mdi-camera-plus-outline
-                                            </v-icon>
-                                        </v-list-item-avatar>
+                                                <v-icon
+                                                    size="50"
+                                                    v-if="image === {}"
+                                                >
+                                                    mdi-camera-plus-outline
+                                                </v-icon>
+                                                <v-img
+                                                    size="50"
+                                                    :src="image.path"
+                                                    v-if="image !== {}"
+                                                ></v-img>
+                                            </v-list-item-avatar>
+                                        </label>
+                                        <input
+                                            class="mypage__input"
+                                            id="idUpload"
+                                            @change="uploadFieldChange"
+                                            name="images"
+                                            :multiple="multiple"
+                                            :accept="accept"
+                                            type="file"
+                                        >
 
                                         <v-list-item-content>
                                             <div
@@ -214,6 +233,7 @@
             return {
                 latest_properties: [],
                 request_cnt: 0,
+                image: {},
             }
         },
         computed: mapState({
@@ -233,6 +253,32 @@
                     this.$store.dispatch('modifySnackbar', true);
                 });
         },
+        methods: {
+            uploadFieldChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length) {
+                    return false;
+                }
+                this.createImage(files[0]);
+            },
+            createImage(file) {
+                let reader = new FileReader()
+                let formData = new FormData()
+                formData.append('file', file)
+                reader.onload = (e) => {
+                    let dataURI = e.target.result;
+                    if (dataURI) {
+                        this.image = {
+                            name: file.name,
+                            path: dataURI,
+                            highlight: 0,
+                            default: 0
+                        };
+                    }
+                }
+                reader.readAsDataURL(file)
+            },
+        }
     };
 </script>
 <style lang="sass">
@@ -270,5 +316,8 @@
 
         &__register-btn-wrap
             text-align: center
+
+        &__input
+            display: none
 
 </style>
