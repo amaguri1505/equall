@@ -42,6 +42,8 @@
                 class="mt-2"
                 filled
                 auto-grow
+                :rules="[v => !!v || '必須項目です']"
+                required
                 rows="4"
             ></v-textarea>
 
@@ -74,6 +76,9 @@
     export default {
         methods: {
             submit: function () {
+                if (!this.$refs.form.validate()) {
+                    return false;
+                }
                 this.$store.dispatch('modifyOverlay', true);
                 this.$http
                     .post('/api/add-inquiry', this.inquiry)
