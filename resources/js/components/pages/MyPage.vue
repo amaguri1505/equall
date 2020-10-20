@@ -35,14 +35,14 @@
                                             >
                                                 <v-icon
                                                     size="50"
-                                                    v-if="image === {}"
+                                                    v-if="Object.keys(image).length <= 0"
                                                 >
                                                     mdi-camera-plus-outline
                                                 </v-icon>
                                                 <v-img
                                                     size="50"
                                                     :src="image.path"
-                                                    v-if="image !== {}"
+                                                    v-if="Object.keys(image).length > 0"
                                                 ></v-img>
                                             </v-list-item-avatar>
                                         </label>
@@ -242,7 +242,7 @@
         created() {
             this.$store.dispatch('modifyOverlayWhite', true);
             this.$http
-                .post('/api/get-latest-properties', {})
+                .post('/api/add-avatar', this.image)
                 .then(response => {
                     this.latest_properties = response.data;
                     this.$store.dispatch('modifyOverlayWhite', false);
@@ -262,9 +262,9 @@
                 this.createImage(files[0]);
             },
             createImage(file) {
-                let reader = new FileReader()
-                let formData = new FormData()
-                formData.append('file', file)
+                let reader = new FileReader();
+                let formData = new FormData();
+                formData.append('file', file);
                 reader.onload = (e) => {
                     let dataURI = e.target.result;
                     if (dataURI) {
@@ -276,7 +276,7 @@
                         };
                     }
                 }
-                reader.readAsDataURL(file)
+                reader.readAsDataURL(file);
             },
         }
     };

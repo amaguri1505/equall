@@ -71,11 +71,17 @@ class CreateHousePropertiesTable extends Migration
                 "お問い合わせください",
             ]);
             $table->integer('floor')->nullable();
-            $table->string('age',10);
+            $table->string('age', 10);
             $table->enum('structure',
-                ["木造", "鉄骨造", "鉄筋コンクリート", "鉄骨鉄筋コンクリート", "その他"]
+                [
+                    "木造",
+                    "鉄骨造",
+                    "鉄筋コンクリート",
+                    "鉄骨鉄筋コンクリート",
+                    "その他"
+                ]
             );
-            $table->enum('park', ["有","無"])->nullable();
+            $table->enum('park', ["有", "無"])->nullable();
             $table->string('other_condition', 200)->nullable();
             $table->date('start_date');
             $table->date('end_date');

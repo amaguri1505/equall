@@ -95,8 +95,6 @@
                         return image;
                     });
                     this.isEdited = true;
-                    console.log('watch');
-                    console.log(val);
                 },
                 deep: true,
             },

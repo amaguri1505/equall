@@ -283,6 +283,25 @@ class ApiController extends Controller
         return response()->json('success');
     }
 
+    public function addAvatar(Request $req)
+    {
+        if ($req->has('image') && isset($req->images)) {
+            $housePropertyImages = $req->images;
+
+            foreach ($housePropertyImages as $image_obj) {
+                $image_str = substr($image_obj['path'], strpos($image_obj['path'], ",") + 1);
+                $image = base64_decode($image_str);
+                $imagePath = Storage::disk('uploads')->put('/' . $houseProperty->id . '/' . $cnt . '.jpg', $image);
+                HousePropertyImage::create([
+                    'image_caption' => $cnt,
+                    'image_path' => '/uploads/' . $houseProperty->id . '/' . $cnt . '.jpg',
+                    'property_id' => $houseProperty->id,
+                ]);
+            }
+        }
+
+    }
+
     public function addProperty(Request $req)
     {
         $cnt = 0;
