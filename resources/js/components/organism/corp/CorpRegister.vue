@@ -232,7 +232,7 @@
                             v-model="property.cost_memo"
                             :counter="200"
                             :rules="rule_limit200"
-                            label="備考"
+                            label="その他費用"
                         ></v-text-field>
                     </v-col>
 

@@ -103,6 +103,10 @@
                     unit="円"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
+                    title="その他費用"
+                    v-bind:subtitle="this.house_property.cost_memo"
+                ></detail-sub-content-item>
+                <detail-sub-content-item
                     title="専有面積"
                     v-bind:subtitle="this.house_property.area"
                     unit="㎡"
@@ -131,6 +135,10 @@
                 <detail-sub-content-item
                     title="設備"
                     v-bind:subtitle="this.house_property.facility"
+                ></detail-sub-content-item>
+                <detail-sub-content-item
+                    title="その他条件"
+                    v-bind:subtitle="this.house_property.other_condition"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
                     title="掲載日"
