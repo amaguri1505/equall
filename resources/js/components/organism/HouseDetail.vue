@@ -31,7 +31,7 @@
             <div class="house-detail__balloon-avatar">
                 <v-img
                     class="house-detail__balloon-avatar-img"
-                    src="/images/samplees.jpg"
+                    src="/images/equall_avatar.jpg"
                 ></v-img>
             </div>
         </div>
