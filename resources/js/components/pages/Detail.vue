@@ -8,6 +8,7 @@
             class="mt-2"
             :house_property="house_property"
             :house_property_images="house_property_images"
+            :estate_agent="corp_info"
         ></house-detail>
     </div>
 </template>
@@ -106,11 +107,17 @@
                 .get(`/api/get-detail/${detail_id}`)
                 .then(response => {
                     this.house_property = response.data;
+                    this.corp_id = this.house_property.corp_id;
                     this.$http
                         .get(`/api/get-property-image/${detail_id}`)
                         .then(response => {
                             this.house_property_images = response.data;
-                            this.$store.dispatch('modifyOverlayWhite', false);
+                            this.$http
+                                .get('/api/get-corp-info/' + this.corp_id)
+                                .then(response => {
+                                    this.corp_info = response.data;
+                                    this.$store.dispatch('modifyOverlayWhite', false);
+                                });
                         });
                 });
         },
@@ -118,8 +125,10 @@
             return {
                 house_property: {},
                 house_property_images: [],
+                corp_info: [],
                 estate_agent: [],
                 contact_url: "",
+                corp_id: 0,
             }
         },
     }

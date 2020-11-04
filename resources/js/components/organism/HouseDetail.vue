@@ -21,7 +21,7 @@
             class="mt-5"
         ></detail-thumbnail>
         <div class="house-detail__catch mt-5">
-            日本の暮らし方を改革する
+            物件詳細
         </div>
         <div class="house-detail__balloon mt-5">
             <div class="detail__balloon-text">
@@ -268,10 +268,9 @@
             DetailThumbnail,
             DetailSubContentItem,
         },
-        props: ['house_property', 'house_property_images',],
+        props: ['house_property', 'house_property_images', 'estate_agent'],
         data() {
             return {
-                estate_agent: [],
                 contact_url: "",
                 embed_map_api_key: "AIzaSyDogWEJf-SbI38v5XOqtMoyyd2FQD4tYO4",
             }

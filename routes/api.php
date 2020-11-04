@@ -50,6 +50,7 @@ Route::group(['middleware' => ['api']], function () {
 
     Route::get('get-detail/{id}', 'Api\ApiController@getDetail');
     Route::get('get-property-image/{id}', 'Api\ApiController@getPropertyImage');
+    Route::get('get-corp-info/{id}', 'Api\ApiController@getCorpInfo');
     Route::get('get-title/{id}', 'Api\ApiController@getTitle');
     Route::get('get-properties', 'Api\ApiController@getProperties');
     Route::get('get-property-images', 'Api\ApiController@getPropertyImages');

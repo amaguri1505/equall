@@ -42,6 +42,12 @@ class ApiController extends Controller
         return response()->json($house_property_image);
     }
 
+    public function getCorpInfo($id)
+    {
+        $corp_info = EstateAgent::find($id);
+        return response()->json($corp_info);
+    }
+
     public function getTitle($id)
     {
         $house_property = HouseProperty::select('name', 'corp_id')->where('id', $id)->get();
@@ -541,5 +547,6 @@ class ApiController extends Controller
         $relationship->fill($req->all())->save();
         return response()->json('success submitRelationship');
     }
+
 
 }

@@ -18,7 +18,7 @@ class EstateAgent extends Authenticatable
 
 
     protected $fillable = [
-        'name', 'email', 'password', 'tel', 'license_number','address',
+        'name', 'email', 'password', 'tel', 'license_number', 'address',
     ];
 
     /**
@@ -28,6 +28,11 @@ class EstateAgent extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+        'created_at',
+        'updated_at',
+        'email_verified',
+        'email_verify_token',
+        'email_verified_at'
     ];
 
     /**
