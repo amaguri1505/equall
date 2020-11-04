@@ -172,10 +172,10 @@
                 <v-card-text>
                     <div class="house-detail__agent-sub">不動産会社名：{{ estate_agent.name }}</div>
                     <div class="house-detail__agent-sub">所在地：{{ estate_agent.address }}</div>
-                    <div class="house-detail__agent-sub">事務所電話番号：{{ estate_agent.name }}
+                    <div class="house-detail__agent-sub">事務所電話番号：{{ estate_agent.tel }}
                         （equallからのお問い合わせ時は、上記のお問い合わせボタンからご連絡ください）
                     </div>
-                    <div class="house-detail__agent-sub">免許証番号：{{ estate_agent.name }}</div>
+                    <div class="house-detail__agent-sub">免許証番号：{{ estate_agent.license_number }}</div>
                 </v-card-text>
             </v-card>
         </div>
