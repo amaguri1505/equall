@@ -23,7 +23,7 @@
                             {{ station }}
                         </div>
                         <div class="re-card__cost">
-                            {{ cost }}
+                            {{ costYen }}
                         </div>
                         <div class="re-card__plan">
                             {{ structure }} / {{ area }}㎡
@@ -49,6 +49,11 @@
 </style>
 <script>
     export default {
+        computed: {
+            costYen: function () {
+               return this.cost.toLocaleString() + '円';
+            }
+        },
         props: [
             "pet_type",
             "name",
