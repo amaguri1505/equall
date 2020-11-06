@@ -107,6 +107,10 @@
                     v-bind:subtitle="this.house_property.cost_memo"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
+                    title="取引形態"
+                    v-bind:subtitle="this.house_property.deal_form"
+                ></detail-sub-content-item>
+                <detail-sub-content-item
                     title="専有面積"
                     v-bind:subtitle="this.house_property.area"
                     unit="㎡"
