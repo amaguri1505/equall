@@ -272,7 +272,7 @@
                     <v-col cols="4">
                         <v-text-field
                             v-model="property.floor"
-                            type="number"
+                            :rules="rule_limit200"
                             label="階数"
                         ></v-text-field>
                     </v-col>

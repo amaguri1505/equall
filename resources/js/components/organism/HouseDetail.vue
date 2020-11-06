@@ -118,7 +118,6 @@
                 <detail-sub-content-item
                     title="階数"
                     v-bind:subtitle="this.house_property.floor"
-                    unit="階"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
                     title="築年月"
