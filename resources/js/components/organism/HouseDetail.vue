@@ -58,9 +58,8 @@
                     v-bind:subtitle="this.house_property.pet_type"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
-                    title="ペット数"
+                    title="ペットの数"
                     v-bind:subtitle="this.house_property.pet_cnt"
-                    unit="頭"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
                     title="最寄駅 徒歩（分）"
