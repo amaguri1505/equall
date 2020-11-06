@@ -251,6 +251,7 @@
                             v-model="property.area"
                             type="number"
                             label="専有面積"
+                            hint="小数点第二位まで丸められます"
                             :rules="rule_required"
                             suffix="㎡"
                             required
