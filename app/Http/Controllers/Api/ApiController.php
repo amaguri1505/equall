@@ -313,6 +313,7 @@ class ApiController extends Controller
         $cnt = 0;
         $start_date = $req->input('start_date');
         $end_date = date('Y-m-d', strtotime("+1 months", strtotime($start_date)));
+        $move_in_date = $req->input('move_in_date');
         if ($req->has('id')) {
             $houseProperty = HouseProperty::updateOrCreate(
                 [
@@ -351,6 +352,7 @@ class ApiController extends Controller
                     'other_condition' => $req->input('other_condition'),
                     'start_date' => $start_date,
                     'end_date' => $end_date,
+                    'move_in_date' => $move_in_date,
                     'corp_id' => auth()->guard('sanctum_corp')->user()->id,
                 ]);
         } else {
@@ -388,6 +390,7 @@ class ApiController extends Controller
                     'other_condition' => $req->input('other_condition'),
                     'start_date' => $start_date,
                     'end_date' => $end_date,
+                    'move_in_date' => $move_in_date,
                     'corp_id' => auth()->guard('sanctum_corp')->user()->id,
                 ]);
         }
@@ -417,6 +420,7 @@ class ApiController extends Controller
         foreach ($properties as $property) {
             $start_date = $property['start_date'];
             $end_date = date('Y-m-d', strtotime("+1 months", strtotime($start_date)));
+            $move_in_date = $req->input('move_in_date');
             $houseProperty = new HouseProperty([
                 'type' => $property['type'],
                 'is_pet' => $property['is_pet'],
@@ -450,6 +454,7 @@ class ApiController extends Controller
                 'other_condition' => $property['other_condition'],
                 'start_date' => $start_date,
                 'end_date' => $end_date,
+                'move_in_date' => $move_in_date,
                 'corp_id' => auth()->guard('sanctum_corp')->user()->id,
             ]);
             $houseProperty->save();
@@ -519,24 +524,6 @@ class ApiController extends Controller
                 array_filter(
                     $req->all()
                 ));
-
-//            ->update(
-//                [
-//                    'family_name' => $req->input('family_name'),
-//                    'first_name' => $req->input('first_name'),
-//                    'email' => $req->input('email'),
-//                    'password' => Hash::make($req->input('email')),
-//                    'gender' => $req->input('gender'),
-//                    'is_pet_owner' => $req->input('is_pet_owner'),
-//                    'num_cat' => $req->input('num_cat'),
-//                    'num_large_dog' => $req->input('num_large_dog'),
-//                    'num_middle_dog' => $req->input('num_middle_dog'),
-//                    'num_small_dog' => $req->input('num_small_dog'),
-//                    'num_other' => $req->input('num_other'),
-//                    'cond_nearest_station' => $req->input('cond_nearest_station'),
-//                    'cond_area' => $req->input('cond_area'),
-//                    'cond_limit_cost' => $req->input('cond_limit_cost'),
-//                ]);
 
         return response()->json('success updateUser');
     }

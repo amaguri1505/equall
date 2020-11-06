@@ -139,6 +139,10 @@
                     v-bind:subtitle="this.house_property.facility"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
+                    title="入居可能日"
+                    v-bind:subtitle="this.house_property.move_in_date"
+                ></detail-sub-content-item>
+                <detail-sub-content-item
                     title="その他条件"
                     v-bind:subtitle="this.house_property.other_condition"
                 ></detail-sub-content-item>

@@ -40,6 +40,7 @@ class HouseProperty extends Model
         'other_condition',
         'start_date',
         'end_date',
+        'move_in_date',
         'corp_id',
         'is_published',
     ];

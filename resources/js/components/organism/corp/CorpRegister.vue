@@ -307,7 +307,16 @@
                         ></v-select>
                     </v-col>
 
-                    <v-col cols="12">
+                    <v-col cols="6">
+                        <v-text-field
+                            v-model="property.move_in_date"
+                            label="入居可能日"
+                            :rules="rule_required"
+                            type="date"
+                        ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="6">
                         <v-text-field
                             v-model="property.other_condition"
                             :counter="200"
@@ -472,6 +481,7 @@
                         this.property.structure = "";
                         this.property.park = "";
                         this.property.other_condition = "";
+                        this.property.move_in_date = "";
                         this.property.start_date = "";
                         this.property.images = [];
                         this.$refs.uploader.images = [];
