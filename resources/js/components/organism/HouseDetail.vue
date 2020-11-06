@@ -132,7 +132,7 @@
                     v-bind:subtitle="this.house_property.structure"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
-                    title="駐車場・バイク・駐輪場"
+                    title="駐車場"
                     v-bind:subtitle="this.house_property.park"
                 ></detail-sub-content-item>
                 <detail-sub-content-item
