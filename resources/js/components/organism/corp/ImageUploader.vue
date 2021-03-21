@@ -101,7 +101,7 @@
         <div
             class="image-uploader__image-container"
         >
-            <div class="corp-register__drag-upload-cover" v-if="isDragover" @drop="onDrop">
+            <div class="image-uploader__drag-upload-cover" v-if="isDragover" @drop="onDrop">
                 <v-icon
                     color="#76c3bf"
                     large

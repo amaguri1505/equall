@@ -90,11 +90,27 @@
                     </v-col>
 
                     <v-col cols="6">
-                        <v-select
+                        <div>[作業中]</div>
+                        <v-checkbox
                             v-model="property.pet_type"
-                            :items="pet_types"
-                            label="ペットの種類"
-                        ></v-select>
+                            label="猫"
+                            value="cat"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="property.pet_type"
+                            label="小型犬"
+                            value="smalldog"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="property.pet_type"
+                            label="中型犬"
+                            value="middledog"
+                        ></v-checkbox>
+                        <v-checkbox
+                            v-model="property.pet_type"
+                            label="大型犬"
+                            value="largedog"
+                        ></v-checkbox>
                     </v-col>
 
                     <v-col cols="6">
