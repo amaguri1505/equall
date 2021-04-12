@@ -1,10 +1,11 @@
 <template>
     <div class="header__wrap">
+        <div class="header__logo-wrap">
+        </div>
         <v-app-bar
             dense
             flat
             app
-            max-width="540"
             style="z-index: 100"
         >
 
