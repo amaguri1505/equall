@@ -183,8 +183,7 @@ class ApiController extends Controller
                 orWhere('floor_plan', 'LIKE', '%' . $search_word . '%')->
                 orWhere('floor', 'LIKE', '%' . $search_word . '%')->
                 orWhere('structure', 'LIKE', '%' . $search_word . '%')->
-                orWhere('facility', 'LIKE', '%' . $search_word . '%')->
-                orWhere('corp', 'LIKE', '%' . $search_word . '%');
+                orWhere('facility', 'LIKE', '%' . $search_word . '%');
             });
         }
 

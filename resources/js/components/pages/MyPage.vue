@@ -242,7 +242,7 @@
         created() {
             this.$store.dispatch('modifyOverlayWhite', true);
             this.$http
-                .post('/api/add-avatar', this.image)
+                .get('/user', this.image)
                 .then(response => {
                     this.latest_properties = response.data;
                     this.$store.dispatch('modifyOverlayWhite', false);
