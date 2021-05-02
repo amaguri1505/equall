@@ -28,14 +28,29 @@
                 color="#76c3bf"
             ></v-progress-circular>
         </v-overlay>
-        <the-header class="layout__header"/>
-        <router-view/>
-        <the-footer class="layout__footer"/>
+        <v-container>
+            <the-header class="layout__header"/>
+            <v-row>
+                <v-col
+                    class="index"
+                    cols="9"
+                >
+                <router-view/>
+                </v-col>
+                <v-col
+                    cols="3"
+                >
+                    <equall-sidebar></equall-sidebar>
+                </v-col>
+            </v-row>
+            <the-footer class="layout__footer"/>
+        </v-container>
     </div>
 </template>
 <script>
     import TheHeader from '../includes/Header';
     import TheFooter from '../includes/Footer';
+    import EquallSidebar from '../includes/Sidebar';
     import {mapActions} from 'vuex';
     import {mapState} from 'vuex';
 
@@ -44,6 +59,7 @@
         components: {
             TheHeader,
             TheFooter,
+            EquallSidebar,
         },
         data() {
             return {}
@@ -69,14 +85,3 @@
         },
     }
 </script>
-<style lang="sass">
-    @import "../../../sass/common/_variable.scss"
-    .layout
-        &__header
-            width: 100%
-
-            //Todo PC版できたら外す
-            max-width: 540px
-
-            z-index: 100
-</style>

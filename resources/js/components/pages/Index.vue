@@ -1,58 +1,26 @@
 <template>
-    <v-container>
-        <v-row>
-            <v-col
-                class="index"
-                cols="9"
-            >
-                <div class="index__wrap index__wrap--headline">
-                    <div
-                        class="index__copy"
-                    >
-                        ペットと暮らせる「おうち」を探そう！
-                    </div>
-                    <div
-                        class="index__for-beginner link-white"
-                    >
-                        <router-link
-                            to="/beginners-guide"
-                        >
-                            初めての方へ
-                        </router-link>
-
-                    </div>
-                    <search-form/>
-                    <top-search-detail/>
-                    <equall-family class="index__family"/>
-                </div>
-                <div class="index__wrap">
-                    <real-estates
-                        class="mt-5 mb-5"
-                        label="最新物件"
-                        :properties="latest_properties"
-                    ></real-estates>
-                    <v-divider></v-divider>
-                    <real-estates
-                        class="mt-5 mb-5"
-                        label="猫ちゃんと暮らせるおうち"
-                        :properties="cats_properties"
-                    ></real-estates>
-                    <v-divider></v-divider>
-                    <real-estates
-                        class="mt-5 mb-5"
-                        label="わんちゃんと暮らせるおうち"
-                        :properties="dogs_properties"
-                    ></real-estates>
-                    <v-divider></v-divider>
-                </div>
-            </v-col>
-            <v-col
-                cols="3"
-            >
-                <equall-sidebar></equall-sidebar>
-            </v-col>
-        </v-row>
-    </v-container>
+    <div class="index__wrap">
+        <search-form/>
+        <top-search-detail/>
+        <real-estates
+            class="mt-5 mb-5"
+            label="最新物件"
+            :properties="latest_properties"
+        ></real-estates>
+        <v-divider></v-divider>
+        <real-estates
+            class="mt-5 mb-5"
+            label="猫ちゃんと暮らせるおうち"
+            :properties="cats_properties"
+        ></real-estates>
+        <v-divider></v-divider>
+        <real-estates
+            class="mt-5 mb-5"
+            label="わんちゃんと暮らせるおうち"
+            :properties="dogs_properties"
+        ></real-estates>
+        <v-divider></v-divider>
+    </div>
 </template>
 
 <script>
@@ -148,12 +116,7 @@
             font-size: 0.8rem
 
         &__wrap
-            padding: 40px 20px 0 20px
-
             &--headline
-                position: relative
-                height: calc(100vh - 48px)
-                margin-top: 48px
                 background-color: colors(primary)
 
         &__family
