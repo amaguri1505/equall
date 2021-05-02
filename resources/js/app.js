@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from 'vuetify';
+import colors from 'vuetify/lib/util/colors';
 import axios from 'axios';
 import router from './router.js';
 import MainPage from './components/pages/MainPage';
@@ -23,6 +24,11 @@ new Vue({
         lang: {
             locales: { ja },
             current: 'ja',
+        },
+        themes: {
+            light: {
+                primary: colors.white,
+            },
         },
     }),
     components: {

@@ -75,13 +75,13 @@ const router = new Router({
             component: BeginnersGuide,
         },
         {
-            path: '/real-estates-for-dog',
-            name: 'real-estates-for-dog',
+            path: '/fordogs',
+            name: 'fordogs',
             component: RealEstatesForDog,
         },
         {
-            path: '/real-estates-for-cat',
-            name: 'real-estates-for-cat',
+            path: '/forcats',
+            name: 'forcats',
             component: RealEstatesForCat,
         },
         {

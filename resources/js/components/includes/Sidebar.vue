@@ -1,23 +1,36 @@
 <template>
     <div class="sidebar">
-        <v-img
-            src="/images/side_banner.png"
-        ></v-img>
-        <v-img
-            src="/images/side_ouchi.png"
-        ></v-img>
-        <v-img
-            src="/images/side_kurashi.png"
-        ></v-img>
-        <v-img
-            src="/images/side_equalllife.png"
-        ></v-img>
+        <v-list
+            class="pt-0"
+        >
+            <v-list-item
+                class="mb-2"
+            >
+                <v-img
+                    src="/images/side_banner.png"
+                ></v-img>
+            </v-list-item>
+            <v-list-item
+                class="my-2"
+            >
+                <v-img
+                    src="/images/side_ouchi.png"
+                ></v-img>
+            </v-list-item>
+            <v-list-item
+                class="my-2"
+            >
+                <v-img
+                    src="/images/side_kurashi.png"
+                ></v-img>
+            </v-list-item>
+            <v-list-item
+                class="my-2"
+            >
+                <v-img
+                    src="/images/side_equalllife.png"
+                ></v-img>
+            </v-list-item>
+        </v-list>
     </div>
 </template>
-
-<script>
-    export default {
-        props: {
-        },
-    };
-</script>

@@ -1,12 +1,11 @@
 <template>
     <div class="re">
-        <div
+        <span
             class="re__title"
             v-if="label"
         >
-            <v-icon></v-icon>
             {{ label }}
-        </div>
+        </span>
         <div class="re__carousel">
             <div
                 v-if="(!properties || properties.length < 1)"
@@ -21,15 +20,6 @@
                     class="re__nothing-content"
                 >
                     ０件
-                </div>
-                <div
-                    class="re__nothing-link"
-                >
-                    <router-link
-                        to="/"
-                    >
-                        別の条件で検索する&gt;&gt;
-                    </router-link>
                 </div>
             </div>
             <v-carousel
@@ -72,11 +62,15 @@
 <style lang="sass">
     @import "../../../sass/common/_variable.scss"
     .re
+        text-align: center
+
         &__title
-            text-align: center
-            color: colors(primary)
-            font-size: 1.25rem
+            padding-bottom: 8px
+            font-weight: bold
+            color: #333
+            font-size: 1.5rem
             letter-spacing: 0.2rem
+            border-bottom: 3px solid #76c3bf
 
         &__carousel
             a
@@ -86,15 +80,15 @@
                     color: #333
 
         &__nothing-title
-            color: colors(primary)
+            color: #666
             margin-top: 20px
-            font-size: 1.5rem
+            font-size: 1rem
             text-align: center
 
         &__nothing-content
-            color: colors(primary)
+            color: #666
             margin-top: 10px
-            font-size: 1.5rem
+            font-size: 1rem
             text-align: center
 
         &__nothing-link
