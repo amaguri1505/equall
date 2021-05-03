@@ -19,6 +19,8 @@
             </v-list-item>
             <v-list-item
                 class="my-2"
+                href="https://equall.jp"
+                target="_blank"
             >
                 <v-img
                     src="/images/side_kurashi.png"
@@ -26,6 +28,8 @@
             </v-list-item>
             <v-list-item
                 class="my-2"
+                href="https://media.equall.jp"
+                target="_blank"
             >
                 <v-img
                     src="/images/side_equalllife.png"

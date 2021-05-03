@@ -1,7 +1,6 @@
 <template>
     <div class="index__wrap">
         <search-form/>
-        <top-search-detail/>
         <real-estates
             class="mt-5 mb-5"
             label="最新物件"
