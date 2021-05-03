@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from 'vuetify';
 import colors from 'vuetify/lib/util/colors';
+import VueCarousel from 'vue-carousel';
 import axios from 'axios';
 import router from './router.js';
 import MainPage from './components/pages/MainPage';
@@ -16,6 +17,7 @@ Vue.prototype.$http = axios;
 Vue.use(Vuetify);
 Vue.use(Vuex);
 Vue.use(VueLazyload);
+Vue.use(VueCarousel);
 
 new Vue({
     store,
