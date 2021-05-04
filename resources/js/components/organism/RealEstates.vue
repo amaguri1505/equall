@@ -22,12 +22,13 @@
                     ０件
                 </div>
             </div>
-            <v-carousel
-                hide-delimiters
-                height="auto"
-                v-if="(properties || properties.lenght > 0)"
+            <carousel
+                data-index="0"
+                data-name="props"
+                navigation-enabled="true"
+                v-if="(properties || properties.length > 0)"
             >
-                <v-carousel-item
+                <slide
                     v-for="property in properties"
                     :key="property.id"
                     :to="'/detail/' + property.id"
@@ -41,8 +42,8 @@
                         :area="property.area"
                         :image_url="'/uploads/' + property.id + '/1.jpg'"
                     ></real-estate-card>
-                </v-carousel-item>
-            </v-carousel>
+                </slide>
+            </carousel>
         </div>
     </div>
 </template>

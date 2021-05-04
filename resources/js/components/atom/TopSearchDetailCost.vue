@@ -9,7 +9,7 @@
             <template v-slot:activator="{ on }">
                 <div class="search-detail-cost__wrap">
                     <v-icon
-                        color="white"
+                        color="#76c3bf"
                         class="search-detail-train__icon"
                         v-on="on"
                     >
@@ -87,6 +87,7 @@
     </div>
 </template>
 <style lang="sass">
+    @import "../../../sass/common/_variable.scss"
     .search-detail-cost
         text-align: center
 
@@ -94,7 +95,7 @@
             font-size: 80px !important
 
         &__text
-            color: white
+            color: #333
 </style>
 <script>
     export default {

@@ -28,6 +28,16 @@
                         alt="男性とわんちゃん"
                     ></v-img>
                     <v-row
+                        class="search-form__category-title"
+                    >
+                        <div>
+                            <v-icon>
+                                mdi-map-marker-outline
+                            </v-icon>
+                            施設カテゴリ
+                        </div>
+                    </v-row>
+                    <v-row
                         class="search-form__btn-group"
                     >
                         <label
@@ -75,28 +85,51 @@
                             大型犬
                         </label>
                     </v-row>
+                    <v-row
+                        class="search-form__category-title"
+                    >
+                        <div>
+                            <v-icon>
+                                mdi-map-marker-outline
+                            </v-icon>
+                            フリーワード
+                        </div>
+                    </v-row>
                     <v-row>
-                        <v-text-field
-                            v-model="s_search_word"
-                            background-color="white"
-                            single-line
-                            outlined
-                            hide-details
-                            class="search-form__text"
-                            placeholder="地域名、駅名などご入力ください"
+                        <div
+                            class="search-form__free-box-wrap"
                         >
-                        </v-text-field>
+                            <v-text-field
+                                v-model="s_search_word"
+                                background-color="white"
+                                single-line
+                                outlined
+                                hide-details
+                                class="search-form__text"
+                                placeholder="地域名、駅名などご入力ください"
+                            >
+                            </v-text-field>
+                        </div>
+                    </v-row>
+                    <v-row>
+                        <top-search-detail
+                            class="search-form__detail-box"
+                        ></top-search-detail>
                     </v-row>
                     <v-row
                         justify="center"
                         class="my-2"
                     >
                         <v-btn
+                            class="search-form__submit"
                             depressed
                             tile
                             color="#f09299"
                             @click="search"
                         >
+                            <v-icon left>
+                                mdi-magnify
+                            </v-icon>
                             この条件で検索する
                         </v-btn>
                     </v-row>
@@ -106,7 +139,9 @@
     </v-container>
 </template>
 <script>
+    import TopSearchDetail from "./TopSearchDetail";
     export default {
+        components: {TopSearchDetail},
         computed: {
             s_pets: {
                 get() {
@@ -141,6 +176,7 @@
             font-size: 48px
 
         &__text
+            width: 100%
             ::placeholder
             font-size: 10px
 
@@ -198,4 +234,30 @@
                 &.active
                     box-shadow: none
 
+        &__submit
+            position: relative !important
+            display: block !important
+            margin: 0 auto !important
+            padding-left: 20px !important
+            height: 60px !important
+            width: 300px !important
+            font-size: 20px !important
+            color: #fff !important
+            background-color: #f09299 !important
+            box-shadow: 0 4px #9d585d !important
+
+        &__category-title
+            color: #333
+            font-weight: bold
+            margin-top: 1rem
+            margin-left: 1rem
+            margin-bottom: 1rem
+
+        &__detail-box
+            width: 100%
+
+        &__free-box-wrap
+            width: 100%
+            padding-left: 1rem
+            padding-right: 1rem
 </style>

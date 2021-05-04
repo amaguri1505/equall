@@ -9,7 +9,7 @@
             <template v-slot:activator="{ on }">
                 <div class="search-detail-train__wrap">
                     <v-icon
-                        color="white"
+                        color="#76c3bf"
                         class="search-detail-train__icon"
                         v-on="on"
                     >mdi-train
@@ -129,6 +129,7 @@
     </div>
 </template>
 <style lang="sass">
+    @import "../../../sass/common/_variable.scss"
     .search-detail-train
         text-align: center
 
@@ -136,7 +137,7 @@
             font-size: 80px !important
 
         &__text
-            color: white
+            color: #333
 
 </style>
 <script>
