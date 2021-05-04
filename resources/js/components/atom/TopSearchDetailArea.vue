@@ -11,7 +11,7 @@
                 <div class="search-detail-area__wrap">
                     <div class="search-detail-area__chip-wrap">
                         <v-icon
-                            color="white"
+                            color="#76c3bf"
                             class="search-detail-train__icon"
                             v-on="on"
                         >
@@ -131,6 +131,7 @@
     </div>
 </template>
 <style lang="sass">
+    @import "../../../sass/common/_variable.scss"
     .search-detail-area
         text-align: center
 
@@ -138,7 +139,7 @@
             font-size: 80px !important
 
         &__text
-            color: white
+            color: #333
 
 </style>
 <script>

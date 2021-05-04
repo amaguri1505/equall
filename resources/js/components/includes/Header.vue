@@ -45,22 +45,20 @@
                         >
                             暮らしの情報
                         </v-tab>
+                        <v-spacer></v-spacer>
+                        <v-btn icon to="/bookmark">
+                            <v-icon>mdi-heart</v-icon>
+                        </v-btn>
+                        <v-btn icon to="/mypage">
+                            <v-icon>mdi-face-profile-woman</v-icon>
+                        </v-btn>
                     </v-tabs>
                 </v-layout>
-
                 <v-layout
                     row
                     justify-center
                     class="d-none"
                 >
-                    <v-btn icon to="/bookmark">
-                        <v-icon>mdi-heart</v-icon>
-                    </v-btn>
-
-                    <v-btn icon to="/mypage">
-                        <v-icon>mdi-face-profile-woman</v-icon>
-                    </v-btn>
-
                     <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
                 </v-layout>
             </v-container>
