@@ -221,6 +221,12 @@
             color: #333
             background-color: #fff
             box-shadow: 0 4px #9d9d9d
+            cursor: pointer
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+
+            input
+                position: absolute
+                clip: rect(0, 0, 0, 0)
 
             &.active
                 background-color: #f09299
