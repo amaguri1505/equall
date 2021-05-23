@@ -42,6 +42,7 @@
                     >
                         <label
                             class="search-form__button"
+                            @click="e => e.target.classList.toggle('active')"
                         >
                             <input
                                 type="checkbox"
@@ -53,6 +54,7 @@
                         </label>
                         <label
                             class="search-form__button"
+                            @click="e => e.target.classList.toggle('active')"
                         >
                             <input
                                 type="checkbox"
@@ -64,6 +66,7 @@
                         </label>
                         <label
                             class="search-form__button"
+                            @click="e => e.target.classList.toggle('active')"
                         >
                             <input
                                 type="checkbox"
@@ -75,6 +78,7 @@
                         </label>
                         <label
                             class="search-form__button"
+                            @click="e => e.target.classList.toggle('active')"
                         >
                             <input
                                 type="checkbox"
