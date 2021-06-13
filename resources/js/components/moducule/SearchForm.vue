@@ -50,6 +50,9 @@
                                 value="猫"
                                 v-model="s_pets"
                             >
+                            <v-icon>
+                                mdi-cat
+                            </v-icon>
                             猫
                         </label>
                         <label
@@ -62,6 +65,9 @@
                                 value="小型犬"
                                 v-model="s_pets"
                             >
+                            <v-icon>
+                                mdi-dog
+                            </v-icon>
                             小型犬
                         </label>
                         <label
@@ -74,6 +80,9 @@
                                 value="中型犬"
                                 v-model="s_pets"
                             >
+                            <v-icon>
+                                mdi-dog
+                            </v-icon>
                             中型犬
                         </label>
                         <label
@@ -86,6 +95,9 @@
                                 value="大型犬"
                                 v-model="s_pets"
                             >
+                            <v-icon>
+                                mdi-dog
+                            </v-icon>
                             大型犬
                         </label>
                     </v-row>
