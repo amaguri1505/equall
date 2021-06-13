@@ -42,6 +42,7 @@
                     >
                         <label
                             class="search-form__button"
+                            @click="e => e.target.classList.toggle('active')"
                         >
                             <input
                                 type="checkbox"
@@ -49,10 +50,14 @@
                                 value="猫"
                                 v-model="s_pets"
                             >
+                            <v-icon>
+                                mdi-cat
+                            </v-icon>
                             猫
                         </label>
                         <label
                             class="search-form__button"
+                            @click="e => e.target.classList.toggle('active')"
                         >
                             <input
                                 type="checkbox"
@@ -60,10 +65,14 @@
                                 value="小型犬"
                                 v-model="s_pets"
                             >
+                            <v-icon>
+                                mdi-dog
+                            </v-icon>
                             小型犬
                         </label>
                         <label
                             class="search-form__button"
+                            @click="e => e.target.classList.toggle('active')"
                         >
                             <input
                                 type="checkbox"
@@ -71,10 +80,14 @@
                                 value="中型犬"
                                 v-model="s_pets"
                             >
+                            <v-icon>
+                                mdi-dog
+                            </v-icon>
                             中型犬
                         </label>
                         <label
                             class="search-form__button"
+                            @click="e => e.target.classList.toggle('active')"
                         >
                             <input
                                 type="checkbox"
@@ -82,6 +95,9 @@
                                 value="大型犬"
                                 v-model="s_pets"
                             >
+                            <v-icon>
+                                mdi-dog
+                            </v-icon>
                             大型犬
                         </label>
                     </v-row>
