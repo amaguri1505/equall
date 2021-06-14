@@ -1,11 +1,13 @@
 <template>
     <div class="re">
+        <div class="re__title-wrap">
         <span
             class="re__title"
             v-if="label"
         >
             {{ label }}
         </span>
+        </div>
         <div class="re__carousel">
             <div
                 v-if="(!properties || properties.length < 1)"
@@ -22,28 +24,30 @@
                     ０件
                 </div>
             </div>
-            <carousel
-                data-index="0"
-                data-name="props"
-                navigation-enabled="true"
+            <v-slide-group
+                multiple
+                show-arrows
                 v-if="(properties || properties.length > 0)"
             >
-                <slide
+                <v-slide-item
                     v-for="property in properties"
                     :key="property.id"
-                    :to="'/detail/' + property.id"
                 >
-                    <real-estate-card
-                        :pet_type="property.pet_type"
-                        :name="property.name"
-                        :station="property.station"
-                        :cost="property.cost"
-                        :structure="property.structure"
-                        :area="property.area"
-                        :image_url="'/uploads/' + property.id + '/1.jpg'"
-                    ></real-estate-card>
-                </slide>
-            </carousel>
+                    <v-card
+                        :to="'/detail/' + property.id"
+                    >
+                        <real-estate-card
+                            :pet_type="property.pet_type"
+                            :name="property.name"
+                            :station="property.station"
+                            :cost="property.cost"
+                            :structure="property.structure"
+                            :area="property.area"
+                            :image_url="'/uploads/' + property.id + '/1.jpg'"
+                        ></real-estate-card>
+                    </v-card>
+                </v-slide-item>
+            </v-slide-group>
         </div>
     </div>
 </template>
@@ -64,6 +68,9 @@
     @import "../../../sass/common/_variable.scss"
     .re
         text-align: center
+
+        &__title-wrap
+            margin-bottom: 8px
 
         &__title
             padding-bottom: 8px

@@ -134,6 +134,7 @@
                     start_date: new Date().toISOString().substr(0, 10),
                     images: [],
                     pet_type: [],
+                    pet_type_set: [],
                 },
                 types: ["賃貸"],
                 property_types: ["マンション", "アパート", "戸建て", "テラスハウス", "シェアハウス"],

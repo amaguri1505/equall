@@ -244,14 +244,18 @@ class ApiController extends Controller
 
 
         if ($s_pet_type) {
-            $properties_query->
-            orWhere('pet_types', '=', '犬と猫');
-            if ($s_pet_type === "cat") {
+            if (in_array("cat",)) {
                 $properties_query->
-                orWhere('pet_types', '=', '猫');
-            } else if ($s_pet_type === "dog") {
+                orWhere('pet_type_set', 'in', 'cat');
+            } else if (in_array("small")) {
                 $properties_query->
-                orWhere('pet_types', '=', '犬');
+                orWhere('pet_type_set', 'in', 'small');
+            } else if (in_array("middle")) {
+                $properties_query->
+                orWhere('pet_type_set', 'in', 'middle');
+            } else if (in_array("large")) {
+                $properties_query->
+                orWhere('pet_type_set', 'in', 'large');
             }
         }
 
@@ -326,7 +330,7 @@ class ApiController extends Controller
                     'hitokoto' => $req->input('hitokoto'),
                     'good' => $req->input('good'),
                     'bad' => $req->input('bad'),
-                    'pet_types' => $req->input('pet_types'),
+                    'pet_type_set' => $req->input('pet_type_set'),
                     'pet_cnt' => $req->input('pet_cnt'),
                     'nearest_station' => $req->input('nearest_station'),
                     'minutes_on' => $req->input('minutes_on'),
@@ -364,7 +368,7 @@ class ApiController extends Controller
                     'hitokoto' => $req->input('hitokoto'),
                     'good' => $req->input('good'),
                     'bad' => $req->input('bad'),
-                    'pet_types' => $req->input('pet_types'),
+                    'pet_type_set' => $req->input('pet_type_set'),
                     'pet_cnt' => $req->input('pet_cnt'),
                     'nearest_station' => $req->input('nearest_station'),
                     'minutes_on' => $req->input('minutes_on'),
@@ -428,7 +432,7 @@ class ApiController extends Controller
                 'hitokoto' => $property['hitokoto'],
                 'good' => $property['good'],
                 'bad' => $property['bad'],
-                'pet_types' => $property['pet_types'],
+                'pet_type_set' => $property['pet_type_set'],
                 'pet_cnt' => $property['pet_cnt'],
                 'nearest_station' => $property['nearest_station'],
                 'minutes_on' => $property['minutes_on'],
