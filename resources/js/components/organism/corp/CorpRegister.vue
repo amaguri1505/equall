@@ -93,30 +93,30 @@
                         <v-layout row wrap>
                             <v-flex>
                                 <v-checkbox
-                                    v-model="property.pet_type"
+                                    v-model="property.pet_type_set"
                                     label="猫"
                                     value="cat"
                                 ></v-checkbox>
                             </v-flex>
                             <v-flex>
                                 <v-checkbox
-                                    v-model="property.pet_type"
+                                    v-model="property.pet_type_set"
                                     label="小型犬"
-                                    value="smalldog"
+                                    value="small"
                                 ></v-checkbox>
                             </v-flex>
                             <v-flex>
                                 <v-checkbox
-                                    v-model="property.pet_type"
+                                    v-model="property.pet_type_set"
                                     label="中型犬"
-                                    value="middledog"
+                                    value="middle"
                                 ></v-checkbox>
                             </v-flex>
                             <v-flex>
                                 <v-checkbox
-                                    v-model="property.pet_type"
+                                    v-model="property.pet_type_set"
                                     label="大型犬"
-                                    value="largedog"
+                                    value="large"
                                 ></v-checkbox>
                             </v-flex>
                         </v-layout>
@@ -483,7 +483,7 @@
                         this.property.hitokoto = "";
                         this.property.good = "";
                         this.property.bad = "";
-                        this.property.pet_types = "";
+                        this.property.pet_type_set = [];
                         this.property.pet_cnt = "";
                         this.property.nearest_station = "";
                         this.property.minutes_on_foot = "";

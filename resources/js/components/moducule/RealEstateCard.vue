@@ -6,7 +6,12 @@
                     cols="6"
                 >
                     <div class="re-card__thumb">
-                        <v-img :src="image_url"></v-img>
+                        <v-img
+                            width="250"
+                            height="200"
+                            :src="image_url"
+                            gradient="to top right, rgba(240,240,240,0.1), rgba(240,240,240,0.1)"
+                        ></v-img>
                     </div>
                 </v-col>
                 <v-col
@@ -36,6 +41,9 @@
 </template>
 <style lang="sass">
     .re-card
+        &__pets, &__name, &__station, &__cost, &__plan
+            text-align: left
+
         a
             color: #333
 
