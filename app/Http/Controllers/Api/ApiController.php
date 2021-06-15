@@ -240,7 +240,7 @@ class ApiController extends Controller
 
 
         //workaround
-        $s_pet_type = $req->pet_types;
+        $s_pet_type = $req->pet_type_set;
 
 
         if ($s_pet_type) {
