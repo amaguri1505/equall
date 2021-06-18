@@ -236,9 +236,8 @@
                     <v-col cols="6">
                         <v-text-field
                             v-model="property.insurance"
-                            :count="10"
-                            type="number"
-                            prefix="¥"
+                            :count="200"
+                            :rules="rule_limit200"
                             label="保険等"
                         ></v-text-field>
                     </v-col>
